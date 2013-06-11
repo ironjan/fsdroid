@@ -46,25 +46,46 @@ public class TestFragment extends SherlockFragment {
 	@Background
 	void refresh() {
 		showProgressInActionBar();
+		refreshStatus();
+		refreshMeeting();
+		hideProgressInActionBar();
+	}
+
+	@Background
+	void refreshMeeting() {
 		try {
 			final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
-			File file = download(die_fachschaft);
+			File file = Downloader.download(die_fachschaft);
 			parseDate(file);
+		} catch (MalformedURLException e) {
+			fu(e);
+		} catch (IOException e) {
+			fu(e);
+		} catch (SAXException e) {
+			fu(e);
+		} catch (ParserConfigurationException e) {
+			fu(e);
+		} catch (XPathExpressionException e) {
+			fu(e);
+		}
+	}
+
+	void fu(Exception e) {
+		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+		Log.e(TAG, e.getMessage(), e);
+	}
+
+	@Background
+	void refreshStatus() {
+		try {
 			final String status = "http://karo-kaffee.upb.de/fsmi/status";
-			file = download(status);
+			File file = Downloader.download(status);
 			parseStatus(file);
 		} catch (MalformedURLException e) {
-			Log.e(TAG, e.getMessage(), e);
+			fu(e);
 		} catch (IOException e) {
-			Log.e(TAG, e.getMessage(), e);
-		} catch (SAXException e) {
-			Log.e(TAG, e.getMessage(), e);
-		} catch (ParserConfigurationException e) {
-			Log.e(TAG, e.getMessage(), e);
-		} catch (XPathExpressionException e) {
-			Log.e(TAG, e.getMessage(), e);
+			fu(e);
 		}
-		hideProgressInActionBar();
 	}
 
 	@UiThread
@@ -132,33 +153,6 @@ public class TestFragment extends SherlockFragment {
 		}
 
 		updateDate(date);
-	}
-
-	File download(final String die_fachschaft) throws MalformedURLException,
-			IOException, ProtocolException, FileNotFoundException {
-		URL url = new URL(die_fachschaft);
-		HttpURLConnection urlConnection = (HttpURLConnection) url
-				.openConnection();
-		urlConnection.setRequestMethod("GET");
-		urlConnection.setDoOutput(true);
-		urlConnection.connect();
-		File file = File.createTempFile("fsupb", ".html");
-		FileOutputStream fileOutput = new FileOutputStream(file);
-		InputStream inputStream = urlConnection.getInputStream();
-
-		int totalSize = urlConnection.getContentLength();
-		int downloadedSize = 0;
-		byte[] buffer = new byte[1024];
-		int bufferLength = 0;
-
-		while ((bufferLength = inputStream.read(buffer)) > 0) {
-			fileOutput.write(buffer, 0, bufferLength);
-			downloadedSize += bufferLength;
-			updateProgress(downloadedSize, totalSize);
-		}
-		fileOutput.close();
-		inputStream.close();
-		return file;
 	}
 
 	@UiThread
