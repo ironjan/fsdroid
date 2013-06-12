@@ -1,9 +1,10 @@
-package com.github.ironjan.fsupb.fragments;
+package com.github.ironjan.fsupb.stuff;
 
 import java.io.*;
 import java.net.*;
 
 public class Downloader {
+
 	public static File download(String uri) throws MalformedURLException,
 			IOException, ProtocolException, FileNotFoundException {
 		URL url = new URL(uri);

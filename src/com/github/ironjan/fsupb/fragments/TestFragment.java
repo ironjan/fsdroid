@@ -1,15 +1,7 @@
 package com.github.ironjan.fsupb.fragments;
 
-import java.io.*;
-import java.net.*;
 import java.text.*;
 import java.util.*;
-
-import javax.xml.parsers.*;
-import javax.xml.xpath.*;
-
-import org.w3c.dom.*;
-import org.xml.sax.*;
 
 import android.util.*;
 import android.widget.*;
@@ -17,6 +9,7 @@ import android.widget.*;
 import com.actionbarsherlock.app.*;
 import com.actionbarsherlock.view.*;
 import com.github.ironjan.fsupb.*;
+import com.github.ironjan.fsupb.stuff.*;
 import com.googlecode.androidannotations.annotations.*;
 
 @EFragment(R.layout.fragment_test)
@@ -28,9 +21,18 @@ public class TestFragment extends SherlockFragment {
 	TextView txtDownload, txtDate, txtStatus;
 	private MenuItem abRefresh;
 
+	@ViewById
+	ImageView imgStatus;
+
+	@Bean
+	StatusBean statusBean;
+	@Bean
+	MeetingBean meetingBean;
+
 	@AfterViews
 	@Background
 	void afterViews() {
+
 		long start = System.currentTimeMillis();
 		int loopCounter = 0;
 		while (abRefresh == null) {
@@ -53,39 +55,12 @@ public class TestFragment extends SherlockFragment {
 
 	@Background
 	void refreshMeeting() {
-		try {
-			final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
-			File file = Downloader.download(die_fachschaft);
-			parseDate(file);
-		} catch (MalformedURLException e) {
-			fu(e);
-		} catch (IOException e) {
-			fu(e);
-		} catch (SAXException e) {
-			fu(e);
-		} catch (ParserConfigurationException e) {
-			fu(e);
-		} catch (XPathExpressionException e) {
-			fu(e);
-		}
+		meetingBean.refreshDate(this);
 	}
 
-	void fu(Exception e) {
+	void logError(Exception e) {
 		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
 		Log.e(TAG, e.getMessage(), e);
-	}
-
-	@Background
-	void refreshStatus() {
-		try {
-			final String status = "http://karo-kaffee.upb.de/fsmi/status";
-			File file = Downloader.download(status);
-			parseStatus(file);
-		} catch (MalformedURLException e) {
-			fu(e);
-		} catch (IOException e) {
-			fu(e);
-		}
 	}
 
 	@UiThread
@@ -114,49 +89,19 @@ public class TestFragment extends SherlockFragment {
 		}
 	}
 
-	private void parseStatus(File file) {
-		try {
-			Scanner sc = new Scanner(file);
-			updateStatus((sc.nextInt() == 1));
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, e.getMessage(), e);
-		}
+	@UiThread
+	void refreshStatus() {
+		statusBean.refreshStatus(this);
 	}
 
 	@UiThread
-	void updateStatus(boolean open) {
-		String statusString = (open) ? "Offen" : "zu";
-		txtStatus.setText(statusString);
-	}
-
-	void parseDate(File file) throws SAXException, IOException,
-			ParserConfigurationException, FileNotFoundException,
-			XPathExpressionException {
-		Document doc = DocumentBuilderFactory.newInstance()
-				.newDocumentBuilder()
-				.parse(new InputSource(new FileReader(file)));
-
-		XPathExpression xpath = XPathFactory.newInstance().newXPath()
-				.compile("//*[@id=\"c109\"]/div[2]/p[1]");
-
-		Node node = (Node) xpath.evaluate(doc, XPathConstants.NODE);
-		String result = node.getAttributes().getNamedItem("title")
-				.getNodeValue();
-
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-
-		Date date = new Date(0);
-		try {
-			date = format.parse(result);
-		} catch (ParseException e) {
-			Log.e(TAG, e.getMessage(), e);
-		}
-
-		updateDate(date);
+	public void setStatus(int status) {
+		txtStatus.setText("" + status);
+		imgStatus.setImageLevel(status);
 	}
 
 	@UiThread
-	void updateDate(Date date) {
+	public void updateDate(Date date) {
 		DateFormat df = DateFormat.getDateTimeInstance();
 		txtDate.setText(df.format(date));
 	}
@@ -179,6 +124,7 @@ public class TestFragment extends SherlockFragment {
 	void actionRefresh() {
 		txtDate.setText("");
 		txtStatus.setText("");
+		imgStatus.setImageLevel(0);
 		refresh();
 	}
 }
