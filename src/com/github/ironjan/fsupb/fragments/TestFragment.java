@@ -14,7 +14,7 @@ import com.googlecode.androidannotations.annotations.*;
 
 @EFragment(R.layout.fragment_test)
 @OptionsMenu(R.menu.menu_main)
-public class TestFragment extends SherlockFragment {
+public class TestFragment extends SherlockFragment implements StatusCallback {
 
 	private static final String TAG = TestFragment.class.getSimpleName();
 	@ViewById
@@ -94,10 +94,10 @@ public class TestFragment extends SherlockFragment {
 		statusBean.refreshStatus(this);
 	}
 
+	@Override
 	@UiThread
 	public void setStatus(int status) {
-		int fixedStatus = status + 1;
-		imgStatus.setImageLevel(fixedStatus);
+		imgStatus.setImageLevel(status);
 	}
 
 	@UiThread
