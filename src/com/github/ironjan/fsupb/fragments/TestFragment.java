@@ -11,17 +11,22 @@ import com.actionbarsherlock.app.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.stuff.*;
 import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.res.*;
 
 @EFragment(R.layout.fragment_test)
 public class TestFragment extends SherlockFragment implements StatusCallback {
 
 	private static final String TAG = TestFragment.class.getSimpleName();
 	@ViewById
-	TextView txtDate;
+	TextView txtDate, txtStatus;
+
 	private View abRefresh = null, abProgress = null;
 
 	@ViewById
 	ImageView imgStatus;
+
+	@StringArrayRes
+	String[] stati;
 
 	@Bean
 	StatusBean statusBean;
@@ -100,6 +105,7 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 	@UiThread
 	public void setStatus(int status) {
 		imgStatus.setImageLevel(status);
+		txtStatus.setText(stati[status]);
 	}
 
 	@UiThread

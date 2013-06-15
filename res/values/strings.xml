@@ -2,8 +2,10 @@
 
     <string name="appName">FS UPB</string>
     <string name="refresh">Refresh</string>
-    <string name="statusOpen">Offen</string>
-    <string name="statusUnknown">Unbekannt</string>
-    <string name="statusClosed">Geschlossen</string>
+    <string name="statusOpen">offen</string>
+    <string name="statusUnknown">unbekannt</string>
+    <string name="statusClosed">geschlossen</string>
+    <string name="statusDescription">Status der Fachschaft ist gerade:</string>
+    <string name="meetingDescription">Nächste Sitzung:</string>
 
 </resources>
