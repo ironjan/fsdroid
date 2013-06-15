@@ -4,22 +4,21 @@ import java.text.*;
 import java.util.*;
 
 import android.util.*;
+import android.view.*;
 import android.widget.*;
 
 import com.actionbarsherlock.app.*;
-import com.actionbarsherlock.view.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.stuff.*;
 import com.googlecode.androidannotations.annotations.*;
 
 @EFragment(R.layout.fragment_test)
-@OptionsMenu(R.menu.menu_main)
 public class TestFragment extends SherlockFragment implements StatusCallback {
 
 	private static final String TAG = TestFragment.class.getSimpleName();
 	@ViewById
 	TextView txtDate;
-	private MenuItem abRefresh;
+	private View abRefresh = null, abProgress = null;
 
 	@ViewById
 	ImageView imgStatus;
@@ -28,6 +27,29 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 	StatusBean statusBean;
 	@Bean
 	MeetingBean meetingBean;
+
+	@AfterInject
+	void showCustomActionbar() {
+		final ActionBar actionBar = getSherlockActivity().getSupportActionBar();
+		actionBar.setCustomView(R.layout.action_refresh);
+		actionBar.setDisplayShowCustomEnabled(true);
+
+		View customView = actionBar.getCustomView();
+		while (abRefresh == null) {
+			abRefresh = customView.findViewById(R.id.ab_refresh);
+		}
+		while (abProgress == null) {
+			abProgress = customView.findViewById(android.R.id.progress);
+		}
+
+		abRefresh.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				actionRefresh();
+			}
+		});
+	}
 
 	@AfterViews
 	@Background
@@ -50,7 +72,6 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 		showProgressInActionBar();
 		refreshStatus();
 		meetingBean.refreshDate(this, forced);
-		hideProgressInActionBar();
 	}
 
 	void logError(Exception e) {
@@ -60,28 +81,14 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 
 	@UiThread
 	void showProgressInActionBar() {
-		Log.v(TAG, "showProgressInActionBar");
-		SherlockFragmentActivity activity = getSherlockActivity();
-		activity.setProgressBarIndeterminate(true);
-		activity.setProgressBarIndeterminateVisibility(true);
-
-		Log.v(TAG, "abRefresh: " + abRefresh);
-		if (abRefresh != null) {
-			abRefresh.setVisible(false);
-		}
+		abRefresh.setVisibility(View.INVISIBLE);
+		abProgress.setVisibility(View.VISIBLE);
 	}
 
 	@UiThread
 	void hideProgressInActionBar() {
-		Log.v(TAG, "hideProgressInActionBar");
-		SherlockFragmentActivity activity = getSherlockActivity();
-		activity.setProgressBarIndeterminate(false);
-		activity.setProgressBarIndeterminateVisibility(false);
-
-		Log.v(TAG, "abRefresh: " + abRefresh);
-		if (abRefresh != null) {
-			abRefresh.setVisible(true);
-		}
+		abRefresh.setVisibility(View.VISIBLE);
+		abProgress.setVisibility(View.INVISIBLE);
 	}
 
 	@UiThread
@@ -99,6 +106,7 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 	public void updateDate(Date date) {
 		DateFormat df = DateFormat.getDateTimeInstance();
 		txtDate.setText(df.format(date));
+		hideProgressInActionBar();
 	}
 
 	@UiThread
@@ -106,18 +114,8 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 		// do nothing
 	}
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		if (menu != null) {
-			this.abRefresh = menu.findItem(R.id.ab_refresh);
-		}
-
-		super.onCreateOptionsMenu(menu, inflater);
-	}
-
 	@OptionsItem(R.id.ab_refresh)
 	void actionRefresh() {
-		txtDate.setText("");
 		imgStatus.setImageLevel(0);
 		refresh(true);
 	}

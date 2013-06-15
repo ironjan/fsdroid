@@ -4,5 +4,6 @@
     <color name="state_undefined">#303030</color>
     <color name="state_closed">#dd3030</color>
     <color name="state_open">#30dd30</color>
+    <color name="transparent">#00000000</color>
 
 </resources>
