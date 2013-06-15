@@ -18,7 +18,7 @@ public class TestFragment extends SherlockFragment {
 
 	private static final String TAG = TestFragment.class.getSimpleName();
 	@ViewById
-	TextView txtDownload, txtDate, txtStatus;
+	TextView txtDate;
 	private MenuItem abRefresh;
 
 	@ViewById
@@ -96,8 +96,8 @@ public class TestFragment extends SherlockFragment {
 
 	@UiThread
 	public void setStatus(int status) {
-		txtStatus.setText("" + status);
-		imgStatus.setImageLevel(status);
+		int fixedStatus = status + 1;
+		imgStatus.setImageLevel(fixedStatus);
 	}
 
 	@UiThread
@@ -108,7 +108,7 @@ public class TestFragment extends SherlockFragment {
 
 	@UiThread
 	void updateProgress(int downloadedSize, int totalSize) {
-		txtDownload.setText(downloadedSize + "/" + totalSize);
+		// do nothing
 	}
 
 	@Override
@@ -123,7 +123,6 @@ public class TestFragment extends SherlockFragment {
 	@OptionsItem(R.id.ab_refresh)
 	void actionRefresh() {
 		txtDate.setText("");
-		txtStatus.setText("");
 		imgStatus.setImageLevel(0);
 		refresh();
 	}
