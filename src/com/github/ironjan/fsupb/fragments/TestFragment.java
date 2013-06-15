@@ -42,20 +42,15 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 		long time = System.currentTimeMillis() - start;
 		Log.v(TAG, "Counted to " + loopCounter + " while waiting " + time
 				+ " ms for optionsMenu");
-		refresh();
+		refresh(false);
 	}
 
 	@Background
-	void refresh() {
+	void refresh(boolean forced) {
 		showProgressInActionBar();
 		refreshStatus();
-		refreshMeeting();
+		meetingBean.refreshDate(this, forced);
 		hideProgressInActionBar();
-	}
-
-	@Background
-	void refreshMeeting() {
-		meetingBean.refreshDate(this);
 	}
 
 	void logError(Exception e) {
@@ -124,6 +119,6 @@ public class TestFragment extends SherlockFragment implements StatusCallback {
 	void actionRefresh() {
 		txtDate.setText("");
 		imgStatus.setImageLevel(0);
-		refresh();
+		refresh(true);
 	}
 }

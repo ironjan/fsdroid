@@ -16,18 +16,38 @@ import android.util.*;
 
 import com.github.ironjan.fsupb.fragments.*;
 import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.sharedpreferences.*;
 
 @EBean
 public class MeetingBean {
+	private static final int DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
+
 	private static final String TAG = MeetingBean.class.getSimpleName();
 
+	@Pref
+	MeetingPrefs_ meetingPrefs;
+
 	@Background
-	public void refreshDate(TestFragment fragment) {
+	public void refreshDate(TestFragment fragment, boolean forced) {
+		Date date = new Date();
+		if (forced || !hasRecentUpdate()) {
+			date = downloadDate();
+		} else {
+			long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
+			date.setTime(nextMeetingInMillis);
+		}
+		fragment.updateDate(date);
+	}
+
+	private Date downloadDate() {
+		Date date = null;
 		try {
 			final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
 			File file = Downloader.download(die_fachschaft);
-			Date date = parseDate(file);
-			fragment.updateDate(date);
+			date = parseDate(file);
+			long currentTime = System.currentTimeMillis();
+			meetingPrefs.edit().lastMeetingUpdateInMillis().put(currentTime)
+					.nextMeetingInMillis().put(date.getTime()).apply();
 		} catch (MalformedURLException e) {
 			logError(e);
 		} catch (IOException e) {
@@ -39,6 +59,16 @@ public class MeetingBean {
 		} catch (XPathExpressionException e) {
 			logError(e);
 		}
+		return date;
+	}
+
+	boolean hasRecentUpdate() {
+		final long lastMeetingUpdate = meetingPrefs.lastMeetingUpdateInMillis()
+				.get();
+		final long currentTime = System.currentTimeMillis();
+
+		final long diff = currentTime - lastMeetingUpdate;
+		return diff < DAY_IN_MILLIS;
 	}
 
 	@SuppressLint("SimpleDateFormat")

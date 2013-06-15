@@ -10,6 +10,7 @@ import com.googlecode.androidannotations.annotations.*;
 
 @EBean
 public class StatusBean {
+
 	private static final String TAG = StatusBean.class.getSimpleName();
 
 	@Background

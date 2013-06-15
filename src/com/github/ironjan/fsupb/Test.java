@@ -8,6 +8,7 @@ import com.googlecode.androidannotations.annotations.*;
 
 @EActivity(R.layout.activity_test)
 public class Test extends SherlockFragmentActivity {
+
 	@Override
 	protected void onCreate(Bundle arg0) {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
