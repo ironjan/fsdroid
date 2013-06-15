@@ -6,7 +6,6 @@ import java.util.*;
 
 import android.util.*;
 
-import com.github.ironjan.fsupb.fragments.*;
 import com.googlecode.androidannotations.annotations.*;
 
 @EBean
@@ -14,11 +13,13 @@ public class StatusBean {
 	private static final String TAG = StatusBean.class.getSimpleName();
 
 	@Background
-	public void refreshStatus(TestFragment fragment) {
+	public void refreshStatus(StatusCallback callback) {
 		try {
+			Log.v(TAG, "Status requested from " + callback);
 			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
 			File file = Downloader.download(statusURL);
-			fragment.setStatus(parseStatus(file));
+			final int status = parseStatus(file) + 1;
+			callback.setStatus(status);
 		} catch (MalformedURLException e) {
 			fu(e);
 		} catch (IOException e) {

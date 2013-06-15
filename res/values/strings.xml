@@ -1,7 +1,9 @@
 <resources>
 
     <string name="appName">FS UPB</string>
-
     <string name="refresh">Refresh</string>
+    <string name="statusOpen">Offen</string>
+    <string name="statusUnknown">Unbekannt</string>
+    <string name="statusClosed">Geschlossen</string>
 
 </resources>
