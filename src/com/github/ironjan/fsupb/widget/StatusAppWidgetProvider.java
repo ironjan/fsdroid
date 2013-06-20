@@ -7,17 +7,15 @@ import android.util.*;
 import android.widget.*;
 
 import com.github.ironjan.fsupb.*;
-import com.github.ironjan.fsupb.stuff.*;
+import com.github.ironjan.fsupb.model.*;
 
 public class StatusAppWidgetProvider extends AppWidgetProvider {
 
 	private static final String TAG = StatusAppWidgetProvider.class
 			.getSimpleName();
-	StatusBean statusBean;
 
 	public StatusAppWidgetProvider() {
 		super();
-		statusBean = StatusBean_.getInstance_(null);
 	}
 
 	@Override
@@ -28,11 +26,11 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 
 		Call c = new Call(context, appWidgetManager, appWidgetIds);
 
-		statusBean.refreshStatus(c);
-
+		DataKeeper dataKeeper = DataKeeper_.getInstance_(context);
+		dataKeeper.refresh(c);
 	}
 
-	private static class Call implements StatusCallback {
+	public static class Call {
 
 		private final RemoteViews views;
 		private static final String TAG = Call.class.getSimpleName();
@@ -49,7 +47,6 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 					R.layout.widget_status);
 		}
 
-		@Override
 		public void setStatus(int parseStatus) {
 			Log.v(TAG, "Received status update: " + parseStatus);
 

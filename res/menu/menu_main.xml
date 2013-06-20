@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/ab_refresh"
-        android:icon="@drawable/ic_navigation_refresh_dark"
-        android:showAsAction="always|withText"
+        android:actionViewClass="com.manuelpeinado.refreshactionitem.RefreshActionItem"
+        android:showAsAction="always"
         android:title="@string/refresh"/>
 
 </menu>
