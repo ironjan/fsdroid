@@ -19,7 +19,7 @@ Abhängigkeiten:
 * libraries ($project/library) als Android library project in bspw eclipse importieren
 * fsupb -> RefreshActionItem -> Crouton -> actionbarsherlock (Abhängigkeiten)
  
-Es wird zur Zeit kein Maven o.ä. verwendet, da dadurch die Build-Zeit sich ca. verdrei- oder vervierfachen würde in meinem Fall.
+Es wird zur Zeit kein Maven o.ä. verwendet, da dadurch die Build-Zeit etwa verdrei- oder vervierfach würde.
 
 
 
