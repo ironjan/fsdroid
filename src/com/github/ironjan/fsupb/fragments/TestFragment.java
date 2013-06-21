@@ -56,8 +56,6 @@ public class TestFragment extends SherlockFragment {
 	}
 
 	protected void refreshDisplayedData() {
-		Toast.makeText(getActivity(), " dfs", Toast.LENGTH_LONG).show();
-
 		updateDate(dataKeeper.getNextMeetingDate());
 		updateStatus(dataKeeper.getFsmiState());
 	}
