@@ -13,12 +13,12 @@ import com.manuelpeinado.refreshactionitem.RefreshActionItem.RefreshActionListen
 import de.keyboardsurfer.android.widget.crouton.*;
 
 @EActivity(R.layout.activity_test)
-public class Test extends SherlockFragmentActivity implements
+public class Main extends SherlockFragmentActivity implements
 		RefreshActionListener, UpdateCompletedListener, UpdateStartedListener {
 
 	private static final String ACTION_DATA_REFRESH_COMPLETED = DataKeeper.ACTION_DATA_REFRESH_COMPLETED;
 	private static final String ACTION_DATA_REFRESH_STARTED = DataKeeper.ACTION_DATA_REFRESH_STARTED;
-	protected static final String TAG = Test.class.getSimpleName();
+	protected static final String TAG = Main.class.getSimpleName();
 
 	RefreshActionItem mRefreshActionItem;
 

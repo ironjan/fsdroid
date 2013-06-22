@@ -24,10 +24,21 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 		Log.v(TAG, "onUpdate");
 		final int N = appWidgetIds.length;
 
-		Call c = new Call(context, appWidgetManager, appWidgetIds);
+		RemoteViews views = addOnClickListener(context);
 
+		Call c = new Call(context, appWidgetManager, appWidgetIds, views);
 		DataKeeper dataKeeper = DataKeeper_.getInstance_(context);
 		dataKeeper.refresh(c);
+	}
+
+	private static RemoteViews addOnClickListener(Context context) {
+		RemoteViews views = new RemoteViews(context.getPackageName(),
+				R.layout.widget_status);
+		Intent intent = new Intent(context, Main_.class);
+		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
+				intent, 0);
+		views.setOnClickPendingIntent(R.id.widgetLayout, pendingIntent);
+		return views;
 	}
 
 	public static class Call {
@@ -39,12 +50,11 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 		private final Context context;
 
 		public Call(Context context, AppWidgetManager appWidgetManager,
-				int[] appWidgetIds) {
+				int[] appWidgetIds, RemoteViews views) {
 			this.context = context;
 			this.appWidgetManager = appWidgetManager;
 			this.appWidgetIds = appWidgetIds;
-			views = new RemoteViews(context.getPackageName(),
-					R.layout.widget_status);
+			this.views = views;
 		}
 
 		public void setStatus(int parseStatus) {
@@ -53,11 +63,6 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 			views.setInt(R.id.imgStatus, "setImageLevel", parseStatus);
 			views.setTextViewText(R.id.txtStatus, context.getResources()
 					.getStringArray(R.array.stati)[parseStatus]);
-
-			Intent intent = new Intent(context, Test_.class);
-			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-					intent, 0);
-			views.setOnClickPendingIntent(R.id.widgetLayout, pendingIntent);
 
 			appWidgetManager.updateAppWidget(appWidgetIds, views);
 
