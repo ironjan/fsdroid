@@ -2,9 +2,11 @@ fsupb
 =====
 
 
-Diese App zeigt einige wichtige Informationen über die Informatik-Fachschaft Paderborn an. Aktuell werden angezeigt:
-* Ist das Fachschaftsbüro geöffnet?
-* Wann ist die nächste Fachschaftsratssitzung?
+Diese App wird entwickelt, um möglichst schnell an wichtige Informationen über die Informatik-Fachschaft Paderborn zu kommen. Aktuell per App abrufbar:
+* Öffnungsstatus des Fachschaftsbüros
+* Termin der nächsten Fachschaftsratssitzung
+
+Zudem gibt es ein Widget, das den Öffnungsstatus direkt auf dem Homescreen anzeigt.
 
 
 =====
@@ -13,5 +15,11 @@ Diese App zeigt einige wichtige Informationen über die Informatik-Fachschaft Pa
 Abhängigkeiten: 
 * https://github.com/ManuelPeinado/RefreshActionItem
 * http://actionbarsherlock.com/
-* Beide libraries ($project/library) als Android library project in bspw eclipse importieren
-* fsupb hat RefreshActionItem als Abhängigkeit, RefreshActionItem hat actionbarsherlock als Abhängigkeit
+* https://github.com/keyboardsurfer/Crouton
+* libraries ($project/library) als Android library project in bspw eclipse importieren
+* fsupb -> RefreshActionItem -> Crouton -> actionbarsherlock (Abhängigkeiten)
+ 
+Es wird zur Zeit kein Maven o.ä. verwendet, da dadurch die Build-Zeit sich ca. verdrei- oder vervierfachen würde in meinem Fall.
+
+
+
