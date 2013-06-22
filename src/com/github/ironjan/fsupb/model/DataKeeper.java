@@ -26,7 +26,7 @@ public class DataKeeper {
 
 	public static final String ACTION_DATA_REFRESH_STARTED = "ACTION_DATA_REFRESH_STARTED";
 
-	public static final String ACTION_DATA_REFRESH_COMPLETED = "DATA_REFRESH_COMPLETED";
+	public static final String ACTION_DATA_REFRESH_COMPLETED = "ACTION_DATA_REFRESH_COMPLETED";
 
 	private static final int DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
 
@@ -40,7 +40,7 @@ public class DataKeeper {
 
 	private Date date = null;
 
-	private int status = -1;
+	private int status = 0;
 
 	private boolean isRefreshing = false;
 
@@ -56,32 +56,48 @@ public class DataKeeper {
 		return isRefreshing;
 	}
 
-	public synchronized void refresh(boolean byUser) {
+	@Bean
+	ConnectionBean connectionBean;
+
+	public synchronized void refresh(boolean byUser)
+			throws NoAvailableNetworkException {
 		if (isRefreshing) {
 			return;
 		}
-		isRefreshing = true;
-		executeRefresh(byUser);
+
+		if (connectionBean.isNetworkAvailable()) {
+			isRefreshing = true;
+			executeRefresh(byUser);
+		} else {
+			sendBroadcast(ACTION_DATA_REFRESH_COMPLETED);
+			throw new NoAvailableNetworkException();
+		}
+	}
+
+	void sendBroadcast(String action) {
+		Intent intent = new Intent(action);
+		context.sendBroadcast(intent);
+		Log.d(TAG, "sent broadcast: " + action + " @"
+				+ context.getClass().getSimpleName());
 	}
 
 	@Background
 	void executeRefresh(boolean byUser) {
-		Intent updateStartedIntent = new Intent(ACTION_DATA_REFRESH_STARTED);
-		context.sendBroadcast(updateStartedIntent);
+		sendBroadcast(ACTION_DATA_REFRESH_STARTED);
 
 		refreshStatus();
 		refreshDate(byUser);
 
-		Intent updateCompletedIntent = new Intent(ACTION_DATA_REFRESH_COMPLETED);
-		context.sendBroadcast(updateCompletedIntent);
+		sendBroadcast(ACTION_DATA_REFRESH_COMPLETED);
 		isRefreshing = false;
 	}
 
 	private void refreshStatus() {
 		try {
 			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
-			File file = Downloader.download(statusURL);
+			File file = Downloader.download(context, statusURL);
 			this.status = parseStatus(file) + 1;
+			file.deleteOnExit();
 		} catch (MalformedURLException e) {
 			logError(e);
 		} catch (IOException e) {
@@ -109,7 +125,8 @@ public class DataKeeper {
 	private void refreshDate(boolean byUser) {
 		this.date = new Date();
 		if (byUser || !hasRecentDate()) {
-			date = downloadDate();
+			Date downloadDate = downloadDate();
+			date = (downloadDate != null) ? downloadDate : date;
 		} else {
 			long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
 			date.setTime(nextMeetingInMillis);
@@ -129,12 +146,15 @@ public class DataKeeper {
 		Date downloadedDate = null;
 		try {
 			final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
-			File file = Downloader.download(die_fachschaft);
+			File file = Downloader.download(context, die_fachschaft);
 			downloadedDate = parseDate(file);
-			long currentTime = System.currentTimeMillis();
-			meetingPrefs.edit().lastMeetingUpdateInMillis().put(currentTime)
-					.nextMeetingInMillis().put(downloadedDate.getTime())
-					.apply();
+			if (downloadedDate != null) {
+				long currentTime = System.currentTimeMillis();
+				meetingPrefs.edit().lastMeetingUpdateInMillis()
+						.put(currentTime).nextMeetingInMillis()
+						.put(downloadedDate.getTime()).apply();
+			}
+			file.deleteOnExit();
 		} catch (MalformedURLException e) {
 			logError(e);
 		} catch (IOException e) {
@@ -157,22 +177,28 @@ public class DataKeeper {
 		Document doc = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder().parse(new InputSource(fileReader));
 
-		XPathExpression xpath = XPathFactory.newInstance().newXPath()
+		final XPathFactory newInstance = XPathFactory.newInstance();
+		final XPath newXPath = newInstance.newXPath();
+		final XPathExpression compile = newXPath
 				.compile("//*[@id=\"c109\"]/div[2]/p[1]");
+		XPathExpression xpath = compile;
 
 		Node node = (Node) xpath.evaluate(doc, XPathConstants.NODE);
-		String result = node.getAttributes().getNamedItem("title")
-				.getNodeValue();
-
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
 
 		Date parsedDate = null;
-		try {
-			parsedDate = format.parse(result);
-		} catch (ParseException e) {
-			Log.e(TAG, e.getMessage(), e);
-		}
+		if (node != null) {
+			String result = node.getAttributes().getNamedItem("title")
+					.getNodeValue();
 
+			SimpleDateFormat format = new SimpleDateFormat(
+					"yyyy-MM-dd'T'HH:mm:ssZ");
+
+			try {
+				parsedDate = format.parse(result);
+			} catch (ParseException e) {
+				Log.e(TAG, e.getMessage(), e);
+			}
+		}
 		fileReader.close();
 		return parsedDate;
 	}

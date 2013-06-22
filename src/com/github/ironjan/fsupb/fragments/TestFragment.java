@@ -3,18 +3,19 @@ package com.github.ironjan.fsupb.fragments;
 import java.text.*;
 import java.util.*;
 
-import android.content.*;
 import android.util.*;
 import android.widget.*;
 
 import com.actionbarsherlock.app.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.model.*;
+import com.github.ironjan.fsupb.receiver.*;
 import com.googlecode.androidannotations.annotations.*;
 import com.googlecode.androidannotations.annotations.res.*;
 
 @EFragment(R.layout.fragment_test)
-public class TestFragment extends SherlockFragment {
+public class TestFragment extends SherlockFragment implements
+		UpdateCompletedListener {
 
 	private static final String TAG = TestFragment.class.getSimpleName();
 	@ViewById
@@ -28,30 +29,20 @@ public class TestFragment extends SherlockFragment {
 
 	@Bean
 	DataKeeper dataKeeper;
-	BroadcastReceiver br = new BroadcastReceiver() {
 
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			refreshDisplayedData();
-		}
-	};
+	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
+			this);
 
 	@Override
 	public void onActivityCreated(android.os.Bundle savedInstanceState) {
-		dataKeeper.refresh(false);
-		IntentFilter filter = new IntentFilter(
-				DataKeeper.ACTION_DATA_REFRESH_COMPLETED);
-		getActivity().registerReceiver(br, filter);
-
+		updateCompletedReceiver.registerReceiver(getActivity()
+				.getApplicationContext());
 		super.onActivityCreated(savedInstanceState);
 	}
 
 	@Override
 	public void onPause() {
-		try {
-			getActivity().unregisterReceiver(br);
-		} catch (IllegalArgumentException e) {// nothing to do
-		}
+		updateCompletedReceiver.unregisterReceiver();
 		super.onPause();
 	}
 
@@ -74,6 +65,11 @@ public class TestFragment extends SherlockFragment {
 	public void updateDate(Date date) {
 		DateFormat df = DateFormat.getDateTimeInstance();
 		txtDate.setText(df.format(date));
+	}
+
+	@Override
+	public void updateCompleted() {
+		refreshDisplayedData();
 	}
 
 }

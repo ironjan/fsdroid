@@ -13,8 +13,12 @@ public class ConnectionBean {
 	@SystemService
 	ConnectivityManager cm;
 
-	public boolean hasInternetConnection() {
-		return (cm.getActiveNetworkInfo() != null);
+	public boolean isNetworkAvailable() {
+		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected()) {
+			return true;
+		}
+		return false;
 	}
 
 	@SuppressLint("InlinedApi")
