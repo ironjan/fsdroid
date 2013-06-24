@@ -11,4 +11,10 @@ public interface MeetingPrefs {
 
 	@DefaultLong(-1L)
 	public long nextMeetingInMillis();
+
+	@DefaultInt(0)
+	public int lastStatus();
+
+	@DefaultLong(0L)
+	public long lastStatusUpdateInMillis();
 }

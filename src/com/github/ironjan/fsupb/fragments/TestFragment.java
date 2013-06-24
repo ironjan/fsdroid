@@ -34,10 +34,10 @@ public class TestFragment extends SherlockFragment implements
 			this);
 
 	@Override
-	public void onActivityCreated(android.os.Bundle savedInstanceState) {
+	public void onResume() {
 		updateCompletedReceiver.registerReceiver(getActivity()
 				.getApplicationContext());
-		super.onActivityCreated(savedInstanceState);
+		super.onResume();
 	}
 
 	@Override
@@ -46,6 +46,7 @@ public class TestFragment extends SherlockFragment implements
 		super.onPause();
 	}
 
+	@AfterViews
 	protected void refreshDisplayedData() {
 		updateDate(dataKeeper.getNextMeetingDate());
 		updateStatus(dataKeeper.getFsmiState());
@@ -63,8 +64,12 @@ public class TestFragment extends SherlockFragment implements
 
 	@UiThread
 	public void updateDate(Date date) {
-		DateFormat df = DateFormat.getDateTimeInstance();
-		txtDate.setText(df.format(date));
+		if (date != null) {
+			DateFormat df = DateFormat.getDateTimeInstance();
+			txtDate.setText(df.format(date));
+		} else {
+			txtDate.setText("unbekannt");
+		}
 	}
 
 	@Override

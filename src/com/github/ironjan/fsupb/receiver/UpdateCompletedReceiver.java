@@ -37,7 +37,8 @@ public class UpdateCompletedReceiver extends BroadcastReceiver implements
 		this.context = context;
 		context.registerReceiver(this, filter);
 		Log.d(TAG, "Registered " + TAG + " @"
-				+ context.getClass().getSimpleName());
+				+ context.getClass().getSimpleName() + " with listener:"
+				+ listener.getClass().getSimpleName());
 	}
 
 	@Override

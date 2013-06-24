@@ -24,6 +24,8 @@ import com.googlecode.androidannotations.api.*;
 @EBean(scope = Scope.Singleton)
 public class DataKeeper {
 
+	private static final int _5_MINUTES = 1000 * 60 * 5;
+
 	public static final String ACTION_DATA_REFRESH_STARTED = "ACTION_DATA_REFRESH_STARTED";
 
 	public static final String ACTION_DATA_REFRESH_COMPLETED = "ACTION_DATA_REFRESH_COMPLETED";
@@ -45,11 +47,37 @@ public class DataKeeper {
 	private boolean isRefreshing = false;
 
 	public Date getNextMeetingDate() {
+		if (date == null && hasRecentDate()) {
+			Log.v(TAG,
+					"date == null and recent date available, fetching from prefs.");
+			long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
+			date = new Date(nextMeetingInMillis);
+		}
+		DateFormat df = DateFormat.getDateTimeInstance();
+		Log.v(TAG, "Date of next meeting: "
+				+ (date != null ? df.format(date) : "null"));
 		return date;
 	}
 
 	public int getFsmiState() {
+		if (hasRecentStatus()) {
+			status = meetingPrefs.lastStatus().get();
+		}
+		Log.v(TAG, "Most recent status: " + status);
 		return status;
+	}
+
+	boolean hasRecentStatus() {
+		final long currentTime = System.currentTimeMillis();
+		final long lastStatusUpdateInMillis = meetingPrefs
+				.lastStatusUpdateInMillis().get();
+
+		Log.d(TAG,
+				"Last status update: "
+						+ DateFormat.getDateTimeInstance().format(
+								new Date(lastStatusUpdateInMillis))
+						+ ". recent = \"<5min\"");
+		return (currentTime - lastStatusUpdateInMillis) < _5_MINUTES;
 	}
 
 	public boolean isRefreshing() {
@@ -61,14 +89,17 @@ public class DataKeeper {
 
 	public synchronized void refresh(boolean byUser)
 			throws NoAvailableNetworkException {
+		Log.d(TAG, "Refresh requested.");
 		if (isRefreshing) {
 			return;
 		}
 
 		if (connectionBean.isNetworkAvailable()) {
+			Log.d(TAG, "Network is available, we're trying to refresh.");
 			isRefreshing = true;
 			executeRefresh(byUser);
 		} else {
+			Log.d(TAG, "No network, no refresh");
 			sendBroadcast(ACTION_DATA_REFRESH_COMPLETED);
 			throw new NoAvailableNetworkException();
 		}
@@ -97,6 +128,12 @@ public class DataKeeper {
 			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
 			File file = Downloader.download(context, statusURL);
 			this.status = parseStatus(file) + 1;
+
+			final long currentTime = System.currentTimeMillis();
+			meetingPrefs.edit().lastStatus().put(status)
+					.lastStatusUpdateInMillis().put(currentTime).apply();
+
+			Log.d(TAG, "Status refreshed, new status: " + status);
 			file.deleteOnExit();
 		} catch (MalformedURLException e) {
 			logError(e);
@@ -123,13 +160,18 @@ public class DataKeeper {
 	}
 
 	private void refreshDate(boolean byUser) {
-		this.date = new Date();
+		Log.d(TAG, "Refreshing date, requestedByUser=" + byUser);
+		DateFormat df = DateFormat.getDateTimeInstance();
 		if (byUser || !hasRecentDate()) {
+			Log.d(TAG, "Requested by user or cached date too old.");
 			Date downloadDate = downloadDate();
 			date = (downloadDate != null) ? downloadDate : date;
+			Log.d(TAG, "New date is : "
+					+ (date != null ? df.format(date) : "null"));
 		} else {
 			long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
-			date.setTime(nextMeetingInMillis);
+			date = new Date(nextMeetingInMillis);
+			Log.d(TAG, "Cached date is " + df.format(date));
 		}
 	}
 
@@ -139,10 +181,17 @@ public class DataKeeper {
 		final long currentTime = System.currentTimeMillis();
 
 		final long diff = currentTime - lastMeetingUpdate;
+
+		DateFormat df = DateFormat.getDateTimeInstance();
+		Log.d(TAG,
+				"lastMeetingUpdate (" + df.format(new Date(lastMeetingUpdate))
+						+ ") too old: " + (diff / 1000) + "s > 1 day ("
+						+ DAY_IN_MILLIS + ").");
 		return diff < DAY_IN_MILLIS;
 	}
 
 	private Date downloadDate() {
+		Log.d(TAG, "Downloading new date..");
 		Date downloadedDate = null;
 		try {
 			final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
@@ -195,6 +244,9 @@ public class DataKeeper {
 
 			try {
 				parsedDate = format.parse(result);
+				DateFormat df = DateFormat.getDateTimeInstance();
+				Log.d(TAG, "Parsed downloaded date: " + result + " -> "
+						+ (parsedDate != null ? df.format(parsedDate) : "null"));
 			} catch (ParseException e) {
 				Log.e(TAG, e.getMessage(), e);
 			}
