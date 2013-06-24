@@ -13,4 +13,6 @@ for i in *png;do
  convert $i -resize 96x96 ../res/drawable-xhdpi/$i; 
 done
 
+convert -background none ic_launcher.svg -resize 512x512 ../high-res-app-logo/ic_launcher.png
+
 rm *png
