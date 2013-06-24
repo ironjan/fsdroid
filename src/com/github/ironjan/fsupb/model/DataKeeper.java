@@ -112,8 +112,7 @@ public class DataKeeper {
 				+ context.getClass().getSimpleName());
 	}
 
-	@Background
-	void executeRefresh(boolean byUser) {
+	private void executeRefresh(boolean byUser) {
 		sendBroadcast(ACTION_DATA_REFRESH_STARTED);
 
 		refreshStatus();
@@ -123,7 +122,8 @@ public class DataKeeper {
 		isRefreshing = false;
 	}
 
-	private void refreshStatus() {
+	@Background
+	void refreshStatus() {
 		try {
 			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
 			File file = Downloader.download(context, statusURL);
@@ -159,7 +159,8 @@ public class DataKeeper {
 		return 0;
 	}
 
-	private void refreshDate(boolean byUser) {
+	@Background
+	void refreshDate(boolean byUser) {
 		Log.d(TAG, "Refreshing date, requestedByUser=" + byUser);
 		DateFormat df = DateFormat.getDateTimeInstance();
 		if (byUser || !hasRecentDate()) {
