@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardShadow"
+    android:paddingBottom="@dimen/cardShadow"
+    android:paddingRight="@dimen/cardShadow" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/abs__background_holo_light"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/layoutingId1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/elementMargin"
+            android:layout_marginTop="@dimen/elementMargin"
+            android:text="Downtime und Grillen"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/layoutingId1"
+            android:layout_below="@id/layoutingId1"
+            android:layout_marginTop="@dimen/elementMargin"
+            android:text="Unser Webserver ist umgezogen, weswegen es zu einer längeren Downtime kam. Nach jahrelangem stabilem Betrieb bei der IRB ist es doch noch zu einem Plattenschaden gekommen, weswegen wir nun auch auf das neue System der IRB migriert sind. Jetzt sollte der Betrieb stabil weiterlaufen, sodass wir zusammen das Fakultätsgrillen genießen können :)" />
+
+        <TextView
+            android:id="@+id/i2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/layoutingId1"
+            android:text="8. Jul - 14:21 Uhr"
+            android:textColor="@color/abs__bright_foreground_disabled_holo_light" />
+    </RelativeLayout>
+
+</RelativeLayout>

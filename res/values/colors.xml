@@ -5,5 +5,7 @@
     <color name="state_closed">#dd3030</color>
     <color name="state_open">#30dd30</color>
     <color name="transparent">#00000000</color>
+    <color name="cardShadow">#000000</color>
+    <color name="backgroundBehindCards">#ccc</color>
 
 </resources>

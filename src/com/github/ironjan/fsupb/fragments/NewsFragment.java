@@ -1,31 +1,24 @@
 package com.github.ironjan.fsupb.fragments;
 
-import java.text.*;
-import java.util.*;
-
 import android.util.*;
 import android.widget.*;
 
 import com.actionbarsherlock.app.*;
+import com.fima.cardsui.views.*;
 import com.github.ironjan.fsupb.*;
+import com.github.ironjan.fsupb.cards.*;
 import com.github.ironjan.fsupb.model.*;
 import com.github.ironjan.fsupb.receiver.*;
 import com.googlecode.androidannotations.annotations.*;
-import com.googlecode.androidannotations.annotations.res.*;
 
-@EFragment(R.layout.fragment_test)
-public class TestFragment extends SherlockFragment implements
+@EFragment(R.layout.fragment_news)
+public class NewsFragment extends SherlockFragment implements
 		UpdateCompletedListener {
 
-	private static final String TAG = TestFragment.class.getSimpleName();
-	@ViewById
-	TextView txtDate, txtStatus;
+	private static final String TAG = NewsFragment.class.getSimpleName();
 
 	@ViewById
-	ImageView imgStatus;
-
-	@StringArrayRes
-	String[] stati;
+	CardUI cardsview;
 
 	@Bean
 	DataKeeper dataKeeper;
@@ -47,29 +40,17 @@ public class TestFragment extends SherlockFragment implements
 	}
 
 	@AfterViews
+	@UiThread
 	protected void refreshDisplayedData() {
-		updateDate(dataKeeper.getNextMeetingDate());
-		updateStatus(dataKeeper.getFsmiState());
-	}
-
-	private void updateStatus(int fsmiState) {
-		imgStatus.setImageLevel(fsmiState);
-		txtStatus.setText(stati[fsmiState]);
+		cardsview.setSwipeable(true);
+		cardsview.addCard(new StatusCard(dataKeeper.getFsmiState()));
+		cardsview.addCard(new MeetingCard(dataKeeper.getNextMeetingDate()));
+		cardsview.refresh();
 	}
 
 	void logError(Exception e) {
 		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
 		Log.e(TAG, e.getMessage(), e);
-	}
-
-	@UiThread
-	public void updateDate(Date date) {
-		if (date != null) {
-			DateFormat df = DateFormat.getDateTimeInstance();
-			txtDate.setText(df.format(date));
-		} else {
-			txtDate.setText("unbekannt");
-		}
 	}
 
 	@Override

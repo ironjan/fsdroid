@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="txtStatus" type="id"/>
+    <item name="txtDescriptionStatus" type="id"/>
+    <item name="imgStatus" type="id"/>
+    <item name="txtDescriptionMeeting" type="id"/>
+    <item name="txtMeetingDate" type="id"/>
+    <!-- <item name="" type="id"/> -->
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="cardInnerPadding">8dp</dimen>
+    <dimen name="buttonSize">48dp</dimen>
+    <dimen name="cardMargin">8dp</dimen>
+    <dimen name="elementMargin">8dp</dimen>
+    <dimen name="cardShadow">2dp</dimen>
+
+</resources>
