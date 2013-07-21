@@ -18,6 +18,10 @@ public class StatusCard extends Card {
 		this.status = status;
 	}
 
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	@Override
 	public View getCardContent(Context context) {
 		Log.v(StatusCard.class.getSimpleName(), "getCardContent");

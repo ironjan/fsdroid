@@ -59,12 +59,12 @@ public class DataKeeper {
 		return date;
 	}
 
-	public int getFsmiState() {
+	public Integer getFsmiState() {
 		if (hasRecentStatus()) {
 			status = meetingPrefs.lastStatus().get();
 		}
 		Log.v(TAG, "Most recent status: " + status);
-		return status;
+		return Integer.valueOf(status);
 	}
 
 	boolean hasRecentStatus() {

@@ -21,8 +21,11 @@ public class MeetingCardView extends RelativeLayout implements CustomView<Date> 
 
 	@Override
 	public void bind(Date t) {
-		DateFormat sdf = DateFormat.getDateTimeInstance();
-		txtMeetingDate.setText(sdf.format(t));
+		if (t != null) {
+			DateFormat sdf = DateFormat.getDateTimeInstance();
+			txtMeetingDate.setText(sdf.format(t));
+		} else {
+			txtMeetingDate.setText("Unbekanntes Datum -.-");
+		}
 	}
-
 }

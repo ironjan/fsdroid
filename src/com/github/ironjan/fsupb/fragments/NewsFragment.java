@@ -4,6 +4,7 @@ import android.util.*;
 import android.widget.*;
 
 import com.actionbarsherlock.app.*;
+import com.fima.cardsui.objects.*;
 import com.fima.cardsui.views.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.cards.*;
@@ -26,6 +27,19 @@ public class NewsFragment extends SherlockFragment implements
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
 
+	private StatusCard statusCard;
+	private MeetingCard meetingCard;
+
+	private boolean statusCardHidden = false, meetingCardHidden = false;
+
+	public void setStatusCardHidden(boolean statusCardHidden) {
+		this.statusCardHidden = statusCardHidden;
+	}
+
+	public void setMeetingCardHidden(boolean meetingCardHidden) {
+		this.meetingCardHidden = meetingCardHidden;
+	}
+
 	@Override
 	public void onResume() {
 		updateCompletedReceiver.registerReceiver(getActivity()
@@ -41,11 +55,52 @@ public class NewsFragment extends SherlockFragment implements
 
 	@AfterViews
 	@UiThread
-	protected void refreshDisplayedData() {
+	protected void initCardView() {
 		cardsview.setSwipeable(true);
-		cardsview.addCard(new StatusCard(dataKeeper.getFsmiState()));
-		cardsview.addCard(new MeetingCard(dataKeeper.getNextMeetingDate()));
+
+		statusCard = new StatusCard(dataKeeper.getFsmiState());
+		meetingCard = new MeetingCard(dataKeeper.getNextMeetingDate());
+
+		cardsview.addCard(statusCard);
+		cardsview.addCard(meetingCard);
+
+		statusCard.setOnCardSwipedListener(new StatusCardSwipeListener(this));
+		meetingCard.setOnCardSwipedListener(new MeetingCardSwipeListener(this));
+
+		cardsview.addCard(new TestCard(-1, -1));
+
+		int s = 0;
+		for (int i = 0; i < 10; i++) {
+			if (i % 3 == 0) {
+				cardsview.addStack(new CardStack());
+				s++;
+			}
+			cardsview.addCardToLastStack(new TestCard(i, s));
+		}
+		refreshDisplayedData();
+	}
+
+	@UiThread
+	protected void refreshDisplayedData() {
+		refreshStatusCard();
+		refreshMeetingCard();
 		cardsview.refresh();
+	}
+
+	void refreshMeetingCard() {
+		meetingCard.setDate(dataKeeper.getNextMeetingDate());
+		if (meetingCardHidden) {
+			cardsview.addCard(meetingCard);
+			setMeetingCardHidden(false);
+		}
+	}
+
+	void refreshStatusCard() {
+		statusCard.setStatus(dataKeeper.getFsmiState());
+		if (statusCardHidden) {
+			cardsview.addCard(statusCard);
+			setStatusCardHidden(false);
+		}
 	}
 
 	void logError(Exception e) {
