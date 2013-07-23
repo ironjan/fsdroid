@@ -7,5 +7,15 @@
     <color name="transparent">#00000000</color>
     <color name="cardShadow">#000000</color>
     <color name="backgroundBehindCards">#ccc</color>
+    <color name="blueLight">#aa66cc</color>
+    <color name="lilacLight">#AA66CC</color>
+    <color name="greenLight">#99cc00</color>
+    <color name="yellowLight">#ffbb33</color>
+    <color name="redLight">#ff4444</color>
+    <color name="blueDark">#0099cc</color>
+    <color name="lilacDark">#9933cc</color>
+    <color name="greenDark">#669900</color>
+    <color name="yellowDark">#ff8800</color>
+    <color name="redDark">#cc0000</color>
 
 </resources>

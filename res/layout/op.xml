@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="4dp"
             android:layout_weight="1"
-            android:background="@color/abs__holo_blue_light" />
+            android:background="@color/blueLight" />
 
         <TextView
             android:layout_width="0dp"
@@ -59,7 +59,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:src="@color/abs__holo_blue_light" />
+        android:src="@color/blueLight" />
 
     <include
         android:layout_width="wrap_content"
