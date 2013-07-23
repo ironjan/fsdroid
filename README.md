@@ -22,6 +22,12 @@ Abhängigkeiten:
 * fsupb -> CardUILib
  
 Es wird zur Zeit kein Maven o.ä. verwendet, da dadurch die Build-Zeit etwa verdrei- oder vervierfach würde.
+Außerdem ist es nicht auf den Fachschaftsrechnern installiert ;)
 
-
-
+Anschließend ein paar Aufräumarbeiten:
+* libs-Ordner aus RefreshActionItem löschen
+* Die Build fehler in Crouton beheben
+ * Manager.java - ca. Z 219, @SuppressLint("NewApi") zu onGlobalLayout() 
+hinzufügen
+ * Manager.java - ca. Z 425, den eventType auf einen existierenden 
+ändern
