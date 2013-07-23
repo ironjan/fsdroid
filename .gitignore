@@ -1,0 +1,6 @@
+.metadata
+bin/
+gen/
+target/
+.apt_generated/
+crouton-library/target
