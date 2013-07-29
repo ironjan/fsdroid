@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/holoDarkBackground" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/elementMargin" >
+
+        <TextView
+            style="@style/DrawerCategoryHeadline"
+            android:text="@string/drawerCategoryNews" />
+
+        <include layout="@layout/drawer_category_uderline" />
+
+        <TextView
+            android:id="@id/drawerItemNews"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/news" />
+
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemOPhase"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/o_phase" />
+
+        <TextView
+            style="@style/DrawerCategoryHeadline"
+            android:text="@string/fs" />
+
+        <include layout="@layout/drawer_category_uderline" />
+
+        <TextView
+            android:id="@id/drawerItemMisc"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/misc" />
+
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemCouncil"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/drawerCategoryCouncil" />
+
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemMeetings"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/meetings" />
+
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemContact"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/contact" />
+
+        <TextView
+            style="@style/DrawerCategoryHeadline"
+            android:text="@string/drawerCategoryAboutApp" />
+
+        <include layout="@layout/drawer_category_uderline" />
+
+        <TextView
+            android:id="@id/drawerItemAbout"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/about" />
+
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemLicenses"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/licenses" />
+    </LinearLayout>
+
+</ScrollView>
