@@ -1,6 +1,7 @@
 package com.github.ironjan.fsupb;
 
 import com.github.ironjan.fsupb.fragments.NewsFragment_;
+import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
 import com.github.ironjan.fsupb.fragments.TestFragment;
 
 import android.content.Intent;
@@ -28,8 +29,7 @@ final class DrawerClickListener implements View.OnClickListener {
 			drawerActivity.switchContentTo(new NewsFragment_());
 			break;
 		case R.id.drawerItemOPhase:
-			tf.setText("ophase");
-			drawerActivity.switchContentTo(tf);
+			drawerActivity.switchContentTo(new OPhaseFragment_());
 			break;
 		case R.id.drawerItemMisc:
 			tf.setText("misc");
@@ -40,7 +40,6 @@ final class DrawerClickListener implements View.OnClickListener {
 			drawerActivity.switchContentTo(tf);
 			break;
 		case R.id.drawerItemMeetings:
-
 			Intent intent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("geo:51.70692,8.771176?z=20"));
 			drawerActivity.startActivity(intent);

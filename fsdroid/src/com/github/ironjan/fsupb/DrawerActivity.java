@@ -13,7 +13,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.github.ironjan.fsupb.fragments.NewsFragment_;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsItem;
@@ -69,11 +71,11 @@ public class DrawerActivity extends SherlockFragmentActivity {
 
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+		switchContentTo(new NewsFragment_());
 	}
 
 	@AfterViews
 	void addDrawerClickListener() {
-
 		View.OnClickListener onClickListener = new DrawerClickListener(this);
 		drawerItemNews.setOnClickListener(onClickListener);
 		drawerItemOPhase.setOnClickListener(onClickListener);
@@ -114,6 +116,7 @@ public class DrawerActivity extends SherlockFragmentActivity {
 	void switchContentTo(Fragment fragment) {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.content_frame, fragment);
+		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		ft.commit();
 		mDrawerLayout.closeDrawer(Gravity.LEFT);
 	}
@@ -122,5 +125,9 @@ public class DrawerActivity extends SherlockFragmentActivity {
 	protected void onDestroy() {
 		Crouton.cancelAllCroutons();
 		super.onDestroy();
+	}
+
+	public void closeDrawer() {
+		mDrawerLayout.closeDrawer(Gravity.LEFT);
 	}
 }
