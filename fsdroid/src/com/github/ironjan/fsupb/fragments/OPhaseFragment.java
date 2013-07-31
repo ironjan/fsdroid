@@ -19,9 +19,7 @@ public class OPhaseFragment extends SherlockFragment implements TabListener {
 	@ViewById
 	CardUI cardsview;
 	private Tab tabMo, tabDi, tabMi;
-	private Object selectedTab;
 
-	
 	@AfterViews
 	void initAB() {
 		ActionBar actionBar = getSherlockActivity().getSupportActionBar();
@@ -30,13 +28,16 @@ public class OPhaseFragment extends SherlockFragment implements TabListener {
 		addTabs(actionBar);
 	}
 
-	private void addTabs(ActionBar actionBar) {
+	@Override
+	public void onPause() {
+		ActionBar actionBar = getSherlockActivity().getSupportActionBar();
 		actionBar.removeAllTabs();
+		super.onPause();
+	}
 
+	private void addTabs(ActionBar actionBar) {
 		tabMo = actionBar.newTab().setText("Montag").setTabListener(this);
 		actionBar.addTab(tabMo);
-
-		selectedTab = tabMo;
 
 		tabDi = actionBar.newTab().setText("Dienstag").setTabListener(this);
 		actionBar.addTab(tabDi);
@@ -54,7 +55,7 @@ public class OPhaseFragment extends SherlockFragment implements TabListener {
 			}
 		} catch (ClassCastException e) { /* nothing to do */
 		}
-		if (cardsview == null || tab.equals(selectedTab)) {
+		if (cardsview == null) {
 			return;
 		}
 
