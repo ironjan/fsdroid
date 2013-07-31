@@ -34,7 +34,7 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 	private static RemoteViews addOnClickListener(Context context) {
 		RemoteViews views = new RemoteViews(context.getPackageName(),
 				R.layout.widget_status);
-		Intent intent = new Intent(context, Main_.class);
+		Intent intent = new Intent(context, DrawerActivity_.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
 				intent, 0);
 		views.setOnClickPendingIntent(R.id.widgetLayout, pendingIntent);

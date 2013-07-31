@@ -24,10 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="Main_"
-            android:label="@string/appName" >
-        </activity>
 
         <receiver android:name=".widget.StatusAppWidgetProvider" >
             <intent-filter>
