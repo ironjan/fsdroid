@@ -1,4 +1,4 @@
-package com.github.ironjan.fsupb.stuff;
+package com.github.ironjan.fsupb.helper;
 
 import com.googlecode.androidannotations.annotations.sharedpreferences.*;
 import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPref.Scope;

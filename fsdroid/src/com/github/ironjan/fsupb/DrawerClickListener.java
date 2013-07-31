@@ -1,23 +1,24 @@
 package com.github.ironjan.fsupb;
 
-import com.github.ironjan.fsupb.fragments.NewsFragment_;
-import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
-import com.github.ironjan.fsupb.fragments.TestFragment;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
+
+import com.github.ironjan.fsupb.fragments.CouncilFragment_;
+import com.github.ironjan.fsupb.fragments.NewsFragment_;
+import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
+import com.github.ironjan.fsupb.fragments.TestFragment;
 
 final class DrawerClickListener implements View.OnClickListener {
 	/**
 	 * 
 	 */
-	private final DrawerActivity drawerActivity;
+	private final FSDroid drawerActivity;
 
 	/**
 	 * @param drawerActivity
 	 */
-	public DrawerClickListener(DrawerActivity drawerActivity) {
+	public DrawerClickListener(FSDroid drawerActivity) {
 		this.drawerActivity = drawerActivity;
 	}
 
@@ -36,8 +37,7 @@ final class DrawerClickListener implements View.OnClickListener {
 			drawerActivity.switchContentTo(tf);
 			break;
 		case R.id.drawerItemCouncil:
-			tf.setText("council");
-			drawerActivity.switchContentTo(tf);
+			drawerActivity.switchContentTo(new CouncilFragment_());
 			break;
 		case R.id.drawerItemMeetings:
 			Intent intent = new Intent(Intent.ACTION_VIEW,

@@ -1,25 +1,43 @@
-package com.github.ironjan.fsupb.model;
+package com.github.ironjan.fsupb.helper;
 
-import java.io.*;
-import java.net.*;
-import java.text.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
-import javax.xml.parsers.*;
-import javax.xml.xpath.*;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
-import org.w3c.dom.*;
-import org.xml.sax.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
-import android.annotation.*;
-import android.content.*;
-import android.util.*;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-import com.github.ironjan.fsupb.stuff.*;
 import com.github.ironjan.fsupb.widget.StatusAppWidgetProvider.Call;
-import com.googlecode.androidannotations.annotations.*;
-import com.googlecode.androidannotations.annotations.sharedpreferences.*;
-import com.googlecode.androidannotations.api.*;
+import com.googlecode.androidannotations.annotations.Background;
+import com.googlecode.androidannotations.annotations.Bean;
+import com.googlecode.androidannotations.annotations.EBean;
+import com.googlecode.androidannotations.annotations.RootContext;
+import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
+import com.googlecode.androidannotations.api.Scope;
 
 @EBean(scope = Scope.Singleton)
 public class DataKeeper {

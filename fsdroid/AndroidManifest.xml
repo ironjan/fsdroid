@@ -16,7 +16,7 @@
         android:label="@string/appName"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="DrawerActivity_"
+            android:name="FSDroid_"
             android:label="@string/appName" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

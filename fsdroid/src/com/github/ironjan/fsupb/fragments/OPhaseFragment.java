@@ -7,7 +7,7 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.fima.cardsui.views.CardUI;
-import com.github.ironjan.fsupb.DrawerActivity;
+import com.github.ironjan.fsupb.FSDroid;
 import com.github.ironjan.fsupb.R;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EFragment;
@@ -49,7 +49,7 @@ public class OPhaseFragment extends SherlockFragment implements TabListener {
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		try {
-			DrawerActivity drawerActivity = (DrawerActivity) getActivity();
+			FSDroid drawerActivity = (FSDroid) getActivity();
 			if (drawerActivity != null) {
 				drawerActivity.closeDrawer();
 			}

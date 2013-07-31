@@ -8,7 +8,7 @@ import com.fima.cardsui.objects.*;
 import com.fima.cardsui.views.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.cards.*;
-import com.github.ironjan.fsupb.model.*;
+import com.github.ironjan.fsupb.helper.*;
 import com.github.ironjan.fsupb.receiver.*;
 import com.googlecode.androidannotations.annotations.*;
 

@@ -26,8 +26,8 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 @SuppressLint("InlinedApi")
 @EActivity(R.layout.activity_with_drawer)
-public class DrawerActivity extends SherlockFragmentActivity {
-	private static final String TAG = DrawerActivity.class.getSimpleName();
+public class FSDroid extends SherlockFragmentActivity {
+	private static final String TAG = FSDroid.class.getSimpleName();
 
 	DrawerLayout mDrawerLayout;
 
@@ -110,7 +110,7 @@ public class DrawerActivity extends SherlockFragmentActivity {
 	}
 
 	void notifyUser(String text) {
-		Crouton.showText(DrawerActivity.this, text, Style.INFO);
+		Crouton.showText(FSDroid.this, text, Style.INFO);
 	}
 
 	void switchContentTo(Fragment fragment) {
