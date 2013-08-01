@@ -135,13 +135,12 @@ public class DataKeeper {
 
 		refreshStatus();
 		refreshDate(byUser);
-
 		sendBroadcast(ACTION_DATA_REFRESH_COMPLETED);
 		isRefreshing = false;
+
 	}
 
-	@Background
-	void refreshStatus() {
+	private void refreshStatus() {
 		try {
 			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
 			File file = Downloader.download(context, statusURL);
@@ -158,6 +157,7 @@ public class DataKeeper {
 		} catch (IOException e) {
 			logError(e);
 		}
+
 	}
 
 	private static int parseStatus(File file) {
@@ -177,8 +177,7 @@ public class DataKeeper {
 		return 0;
 	}
 
-	@Background
-	void refreshDate(boolean byUser) {
+	private void refreshDate(boolean byUser) {
 		Log.d(TAG, "Refreshing date, requestedByUser=" + byUser);
 		DateFormat df = DateFormat.getDateTimeInstance();
 		if (byUser || !hasRecentDate()) {
