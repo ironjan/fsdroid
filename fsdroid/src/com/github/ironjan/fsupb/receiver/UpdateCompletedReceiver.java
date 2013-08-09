@@ -3,7 +3,7 @@ package com.github.ironjan.fsupb.receiver;
 import android.content.*;
 import android.util.*;
 
-import com.github.ironjan.fsupb.model.*;
+import com.github.ironjan.fsupb.helper.*;
 
 public class UpdateCompletedReceiver extends BroadcastReceiver implements
 		CustomBroadcastReceiver {

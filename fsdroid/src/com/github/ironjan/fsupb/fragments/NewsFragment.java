@@ -4,17 +4,27 @@ import android.util.*;
 import android.widget.*;
 
 import com.actionbarsherlock.app.*;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.fima.cardsui.objects.*;
 import com.fima.cardsui.views.*;
 import com.github.ironjan.fsupb.*;
 import com.github.ironjan.fsupb.cards.*;
-import com.github.ironjan.fsupb.model.*;
+import com.github.ironjan.fsupb.helper.*;
 import com.github.ironjan.fsupb.receiver.*;
 import com.googlecode.androidannotations.annotations.*;
+import com.manuelpeinado.refreshactionitem.ProgressIndicatorType;
+import com.manuelpeinado.refreshactionitem.RefreshActionItem;
+import com.manuelpeinado.refreshactionitem.RefreshActionItem.RefreshActionListener;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 @EFragment(R.layout.fragment_news)
+@OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends SherlockFragment implements
-		UpdateCompletedListener {
+		UpdateCompletedListener, RefreshActionListener {
 
 	private static final String TAG = NewsFragment.class.getSimpleName();
 
@@ -31,6 +41,8 @@ public class NewsFragment extends SherlockFragment implements
 	private MeetingCard meetingCard;
 
 	private boolean statusCardHidden = false, meetingCardHidden = false;
+
+	private RefreshActionItem mRefreshActionItem;
 
 	public void setStatusCardHidden(boolean statusCardHidden) {
 		this.statusCardHidden = statusCardHidden;
@@ -53,6 +65,17 @@ public class NewsFragment extends SherlockFragment implements
 		super.onPause();
 	}
 
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		MenuItem item = menu.findItem(R.id.ab_refresh);
+		mRefreshActionItem = (RefreshActionItem) item.getActionView();
+		mRefreshActionItem.setMenuItem(item);
+		mRefreshActionItem
+				.setProgressIndicatorType(ProgressIndicatorType.INDETERMINATE);
+		mRefreshActionItem.setRefreshActionListener(this);
+	}
+
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
@@ -67,16 +90,6 @@ public class NewsFragment extends SherlockFragment implements
 		statusCard.setOnCardSwipedListener(new StatusCardSwipeListener(this));
 		meetingCard.setOnCardSwipedListener(new MeetingCardSwipeListener(this));
 
-		cardsview.addCard(new TestCard(-1, -1));
-
-		int s = 0;
-		for (int i = 0; i < 10; i++) {
-			if (i % 3 == 0) {
-				cardsview.addStack(new CardStack());
-				s++;
-			}
-			cardsview.addCardToLastStack(new TestCard(i, s));
-		}
 		refreshDisplayedData();
 	}
 
@@ -110,6 +123,25 @@ public class NewsFragment extends SherlockFragment implements
 
 	@Override
 	public void updateCompleted() {
+		refreshDisplayedData();
+	}
+
+	@UiThread
+	void showProgress(RefreshActionItem sender, boolean shown) {
+		sender.showProgress(shown);
+	}
+
+	@Background
+	@Override
+	public void onRefreshButtonClick(RefreshActionItem sender) {
+		showProgress(sender, true);
+		try {
+			dataKeeper.refresh(true);
+		} catch (NoAvailableNetworkException e) {
+			Crouton.showText(getActivity(), "Network unavailable.", Style.INFO);
+		}
+		showProgress(sender, false);
+
 		refreshDisplayedData();
 	}
 
