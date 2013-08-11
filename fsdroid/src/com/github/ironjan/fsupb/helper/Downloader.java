@@ -1,4 +1,4 @@
-package com.github.ironjan.fsupb.model;
+package com.github.ironjan.fsupb.helper;
 
 import java.io.*;
 import java.net.*;

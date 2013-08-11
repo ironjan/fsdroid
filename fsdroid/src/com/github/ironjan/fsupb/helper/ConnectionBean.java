@@ -1,4 +1,4 @@
-package com.github.ironjan.fsupb.stuff;
+package com.github.ironjan.fsupb.helper;
 
 import android.annotation.*;
 import android.net.*;

@@ -7,5 +7,18 @@
     <string name="statusClosed">geschlossen</string>
     <string name="statusDescription">Status der Fachschaft ist gerade:</string>
     <string name="meetingDescription">Nächste Sitzung:</string>
+    <string name="drawerCategoryCouncil">Der Rat</string>
+    <string name="misc">Allgemeines</string>
+    <string name="fs">Die Fachschaft</string>
+    <string name="o_phase">O-Phase</string>
+    <string name="news">Neuigkeiten</string>
+    <string name="drawerCategoryNews">Aktuelles</string>
+    <string name="meetings">Sitzungen</string>
+    <string name="contact">Kontakt</string>
+    <string name="drawerCategoryAboutApp">Der Fachschaftsdroide</string>
+    <string name="about">Über die App</string>
+    <string name="licenses">Open Source Lizenzen</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
 
 </resources>
