@@ -1,21 +1,39 @@
 package com.github.ironjan.fsupb.fragments;
 
-import android.util.*;
-import android.widget.*;
+import android.util.Log;
+import android.widget.Toast;
 
-import com.actionbarsherlock.app.*;
-import com.fima.cardsui.objects.*;
-import com.fima.cardsui.views.*;
-import com.github.ironjan.fsupb.*;
-import com.github.ironjan.fsupb.cards.*;
-import com.github.ironjan.fsupb.model.*;
-import com.github.ironjan.fsupb.receiver.*;
-import com.googlecode.androidannotations.annotations.*;
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.fima.cardsui.objects.CardStack;
+import com.fima.cardsui.views.CardUI;
+import com.github.ironjan.fsupb.R;
+import com.github.ironjan.fsupb.cards.MeetingCard;
+import com.github.ironjan.fsupb.cards.StatusCard;
+import com.github.ironjan.fsupb.helper.DataKeeper;
+import com.github.ironjan.fsupb.helper.NoAvailableNetworkException;
+import com.github.ironjan.fsupb.helper.UpdateCompletedListener;
+import com.github.ironjan.fsupb.receiver.UpdateCompletedReceiver;
+import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Background;
+import com.googlecode.androidannotations.annotations.Bean;
+import com.googlecode.androidannotations.annotations.EFragment;
+import com.googlecode.androidannotations.annotations.OptionsMenu;
+import com.googlecode.androidannotations.annotations.UiThread;
+import com.googlecode.androidannotations.annotations.ViewById;
+import com.manuelpeinado.refreshactionitem.ProgressIndicatorType;
+import com.manuelpeinado.refreshactionitem.RefreshActionItem;
+import com.manuelpeinado.refreshactionitem.RefreshActionItem.RefreshActionListener;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends SherlockFragment implements
-		UpdateCompletedListener {
+		UpdateCompletedListener, RefreshActionListener {
 
 	private static final String TAG = NewsFragment.class.getSimpleName();
 
@@ -32,6 +50,8 @@ public class NewsFragment extends SherlockFragment implements
 	private MeetingCard meetingCard;
 
 	private boolean statusCardHidden = false, meetingCardHidden = false;
+
+	private RefreshActionItem mRefreshActionItem;
 
 	public void setStatusCardHidden(boolean statusCardHidden) {
 		this.statusCardHidden = statusCardHidden;

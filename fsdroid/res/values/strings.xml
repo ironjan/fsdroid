@@ -28,5 +28,8 @@
     <string name="fsmiMail">fsmi@uni-paderborn.de</string>
     <string name="fsmiTelephone">05251 &#8212; 60 32 60</string>
     <string name="fsmiRoomCampus">E1.311</string>
+    <string name="add_contact">Zu Kontakten hinzufügen</string>
+    <string name="apacheLicense">Apache License 2.0</string>
+    <string name="unknownLicense">Unbekannt</string>
 
 </resources>
