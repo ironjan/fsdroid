@@ -2,6 +2,11 @@ package com.github.ironjan.fsupb;
 
 import android.view.View;
 
+import com.github.ironjan.fsupb.fragments.ContactFragment_;
+import com.github.ironjan.fsupb.fragments.CouncilFragment_;
+import com.github.ironjan.fsupb.fragments.LibrariesFragment_;
+import com.github.ironjan.fsupb.fragments.NewsFragment_;
+import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
 import com.github.ironjan.fsupb.fragments.TestFragment;
 
 final class DrawerClickListener implements View.OnClickListener {

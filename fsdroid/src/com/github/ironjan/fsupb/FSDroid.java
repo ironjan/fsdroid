@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.github.ironjan.fsupb.fragments.CouncilFragment_;
+import com.github.ironjan.fsupb.fragments.NewsFragment_;
+import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
 import com.github.ironjan.fsupb.fragments.TestFragment;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Click;

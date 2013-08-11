@@ -99,16 +99,6 @@ public class NewsFragment extends SherlockFragment implements
 		statusCard.setOnCardSwipedListener(new StatusCardSwipeListener(this));
 		meetingCard.setOnCardSwipedListener(new MeetingCardSwipeListener(this));
 
-		cardsview.addCard(new TestCard(-1, -1));
-
-		int s = 0;
-		for (int i = 0; i < 10; i++) {
-			if (i % 3 == 0) {
-				cardsview.addStack(new CardStack());
-				s++;
-			}
-			cardsview.addCardToLastStack(new TestCard(i, s));
-		}
 		refreshDisplayedData();
 	}
 
