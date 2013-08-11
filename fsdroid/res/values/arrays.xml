@@ -6,5 +6,29 @@
         <item>@string/statusClosed</item>
         <item>@string/statusOpen</item>
     </string-array>
+    <string-array name="libraryNames">
+        <item>ActionBarSherlock</item>
+        <item>CardsUI</item>
+        <item>Crouton</item>
+        <item>RefreshActionItem</item>
+    </string-array>
+    <string-array name="libraryLinks">
+        <item>http://actionbarsherlock.com/</item>
+        <item>https://github.com/nadavfima/cardsui-for-android</item>
+        <item>https://github.com/keyboardsurfer/Crouton</item>
+        <item>https://github.com/ManuelPeinado/RefreshActionItem</item>
+    </string-array>
+    <string-array name="libraryLicenses">
+        <item>@string/apacheLicense</item>
+        <item>@string/unknownLicense</item>
+        <item>@string/apacheLicense</item>
+        <item>@string/apacheLicense</item>
+    </string-array>
 
+    <string-array name="libraryDescriptions">
+        <item>ActionBarSherlock is an extension of the support library designed to facilitate the use of the action bar design pattern across all versions of Android with a single API.</item>
+        <item>A library to simply implement card layouts.</item>
+        <item>Crouton is a class that can be used by Android developers that feel the need for an alternative to the Context insensitive Toast.</item>
+        <item>This library provides a simple to use refresh icon (which switches automatically between "refresh action" and "progress") for the action bar.</item>
+    </string-array>
 </resources>

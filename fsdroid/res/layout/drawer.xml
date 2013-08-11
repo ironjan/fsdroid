@@ -22,12 +22,13 @@
             style="@style/DrawerCategoryItem"
             android:text="@string/news" />
 
-        <include layout="@layout/drawer_category_item_divider" />
+        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
 
-        <TextView
-            android:id="@id/drawerItemOPhase"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/o_phase" />
+
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemOPhase" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="@string/o_phase" /> -->
 
         <TextView
             style="@style/DrawerCategoryHeadline"
@@ -35,26 +36,31 @@
 
         <include layout="@layout/drawer_category_uderline" />
 
-        <TextView
-            android:id="@id/drawerItemMisc"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/misc" />
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemMisc" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="@string/misc" /> -->
 
-        <include layout="@layout/drawer_category_item_divider" />
 
-        <TextView
-            android:id="@id/drawerItemCouncil"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/drawerCategoryCouncil" />
+        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
 
-        <include layout="@layout/drawer_category_item_divider" />
 
-        <TextView
-            android:id="@id/drawerItemMeetings"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/meetings" />
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemCouncil" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="@string/drawerCategoryCouncil" /> -->
 
-        <include layout="@layout/drawer_category_item_divider" />
+
+        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemMeetings" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="@string/meetings" /> -->
+
+
+        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
 
         <TextView
             android:id="@id/drawerItemContact"
@@ -67,12 +73,13 @@
 
         <include layout="@layout/drawer_category_uderline" />
 
-        <TextView
-            android:id="@id/drawerItemAbout"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/about" />
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemAbout" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="@string/about" /> -->
 
-        <include layout="@layout/drawer_category_item_divider" />
+
+        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
 
         <TextView
             android:id="@id/drawerItemLicenses"

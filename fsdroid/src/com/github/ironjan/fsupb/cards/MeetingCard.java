@@ -12,7 +12,6 @@ import com.github.ironjan.fsupb.views.*;
 public class MeetingCard extends Card {
 
 	private Date date;
-	private MeetingCardView view;
 
 	public MeetingCard(Date date) {
 		super();
@@ -21,7 +20,7 @@ public class MeetingCard extends Card {
 
 	@Override
 	public View getCardContent(Context context) {
-		view = MeetingCardView_.build(context, null, 0);
+		MeetingCardView view = MeetingCardView_.build(context, null, 0);
 		view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.WRAP_CONTENT));
 		view.bind(date);

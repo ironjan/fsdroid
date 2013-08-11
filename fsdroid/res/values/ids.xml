@@ -21,6 +21,15 @@
     <item name="councilCardMail" type="id"/>
     <item name="councilCardCanBeAskedAbout" type="id"/>
     <item name="councilCardJob" type="id"/>
+    <item name="txtTelephone" type="id"/>
+    <item name="txtMail" type="id"/>
+    <item name="txtAddress" type="id"/>
+    <item name="txtRoom" type="id"/>
+    <item name="txtLibraryDescription" type="id"/>
+    <item name="txtLibraryLink" type="id"/>
+    <item name="txtLibraryName" type="id"/>
+    <item name="txtLibraryLicense" type="id"/>
+    <item name="cardTitle" type="id"/>
     <!-- <item name="" type="id"/> -->
 
 </resources>
