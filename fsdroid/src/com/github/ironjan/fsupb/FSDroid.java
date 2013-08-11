@@ -1,7 +1,9 @@
 package com.github.ironjan.fsupb;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -15,8 +17,12 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.github.ironjan.fsupb.fragments.CouncilFragment_;
 import com.github.ironjan.fsupb.fragments.NewsFragment_;
+import com.github.ironjan.fsupb.fragments.OPhaseFragment_;
+import com.github.ironjan.fsupb.fragments.TestFragment;
 import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsItem;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -74,17 +80,50 @@ public class FSDroid extends SherlockFragmentActivity {
 		switchContentTo(new NewsFragment_());
 	}
 
-	@AfterViews
-	void addDrawerClickListener() {
-		View.OnClickListener onClickListener = new DrawerClickListener(this);
-		drawerItemNews.setOnClickListener(onClickListener);
-		drawerItemOPhase.setOnClickListener(onClickListener);
-		drawerItemMisc.setOnClickListener(onClickListener);
-		drawerItemCouncil.setOnClickListener(onClickListener);
-		drawerItemMeetings.setOnClickListener(onClickListener);
-		drawerItemContact.setOnClickListener(onClickListener);
-		drawerItemAbout.setOnClickListener(onClickListener);
-		drawerItemLicenses.setOnClickListener(onClickListener);
+	@Click({ R.id.drawerItemNews, R.id.drawerItemOPhase, R.id.drawerItemMisc,
+			R.id.drawerItemCouncil, R.id.drawerItemMeetings,
+			R.id.drawerItemContact, R.id.drawerItemAbout,
+			R.id.drawerItemLicenses })
+	void navigationDrawerElementsClicked(View v) {
+		TestFragment tf = new TestFragment();
+		switch (v.getId()) {
+		case R.id.drawerItemNews:
+			switchContentTo(new NewsFragment_());
+			break;
+		case R.id.drawerItemOPhase:
+			switchContentTo(new OPhaseFragment_());
+			break;
+		case R.id.drawerItemMisc:
+			tf.setText("misc");
+			switchContentTo(tf);
+			break;
+		case R.id.drawerItemCouncil:
+			switchContentTo(new CouncilFragment_());
+			break;
+		case R.id.drawerItemMeetings:
+			Intent intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("geo:51.70692,8.771176?z=20"));
+			startActivity(intent);
+			break;
+		case R.id.drawerItemContact:
+			Intent intent2 = new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("https://maps.google.de/maps?q=51.70837,8.771176&hl=de&ll=51.706959,8.771145&spn=0.000826,0.00203&num=1&t=h&z=19"));
+			startActivity(intent2);
+			break;
+		case R.id.drawerItemAbout:
+			tf.setText("about");
+			switchContentTo(tf);
+			break;
+		case R.id.drawerItemLicenses:
+			tf.setText("licenses");
+			switchContentTo(tf);
+			break;
+		default:
+			tf.setText("default?!");
+			switchContentTo(tf);
+			break;
+		}
 	}
 
 	@OptionsItem(android.R.id.home)
@@ -116,7 +155,8 @@ public class FSDroid extends SherlockFragmentActivity {
 	void switchContentTo(Fragment fragment) {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.content_frame, fragment);
-		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		getSupportActionBar().setNavigationMode(
+				ActionBar.NAVIGATION_MODE_STANDARD);
 		ft.commit();
 		mDrawerLayout.closeDrawer(Gravity.LEFT);
 	}
