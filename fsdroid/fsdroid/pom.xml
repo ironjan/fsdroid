@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.upb.fsmi</groupId>
 		<artifactId>fsdroid-parent</artifactId>
-		<version>${fsdroid.version}</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>fsdroid</artifactId>
@@ -17,6 +17,18 @@
 		<dependency>
 			<groupId>android</groupId>
 			<artifactId>android</artifactId>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.manuelpeinado.refreshactionitem</groupId> -->
+<!-- 			<artifactId>library</artifactId> -->
+<!-- 			<version>${refreshactionitem.version}</version> -->
+<!-- 			<type>apklib</type> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>de.keyboardsurfer.android.widget</groupId>
+			<artifactId>crouton</artifactId>
+			<version>${crouton.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>fsdroid-parent</artifactId>
 		<groupId>de.upb.fsmi</groupId>
-		<version>${fsdroid.version}</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>fsdroid-unit</artifactId>
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>de.upb.fsmi</groupId>
 			<artifactId>fsdroid</artifactId>
-			<version>${fsdroid.version}</version>
+			<version>0.0.1</version>
 			<type>apk</type>
 		</dependency>
 	</dependencies>

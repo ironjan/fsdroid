@@ -13,11 +13,13 @@
 		<android-maven-plugin.version>3.6.0</android-maven-plugin.version>
 		<support-library.version>18</support-library.version>
 		<robolectric.version>2.1.1</robolectric.version>
+		<refreshactionitem.version>1.0.3</refreshactionitem.version>
+		<crouton.version>1.8.1</crouton.version>
 	</properties>
 
 	<groupId>de.upb.fsmi</groupId>
 	<artifactId>fsdroid-parent</artifactId>
-	<version>${fsdroid.version}</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<name>fsdroid - Parent</name>
 

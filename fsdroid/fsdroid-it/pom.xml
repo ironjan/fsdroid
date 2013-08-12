@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.upb.fsmi</groupId>
 		<artifactId>fsdroid-parent</artifactId>
-		<version>${fsdroid.version}</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>fsdroid-it</artifactId>
@@ -34,14 +34,14 @@
 			<groupId>de.upb.fsmi</groupId>
 			<artifactId>fsdroid</artifactId>
 			<type>apk</type>
-			<version>${fsdroid.version}</version>
+			<version>0.0.1</version>
 			<classifier>${zipaligned-classifier}</classifier> <!-- classifier set according to the ran profile -->
 		</dependency>
 		<dependency>
 			<groupId>de.upb.fsmi</groupId>
 			<artifactId>fsdroid</artifactId>
 			<type>jar</type>
-			<version>${fsdroid.version}</version>
+			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
