@@ -20,11 +20,11 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v13</artifactId>
-			<version>${support-library.version}</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!--	<groupId>android.support</groupId> -->
+		<!--	<artifactId>compatibility-v13</artifactId> -->
+		<!--	<version>${support-library.version}</version> -->
+		<!--</dependency> -->
 
 		<dependency>
 			<groupId>android</groupId>
@@ -46,6 +46,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
 		</dependency>
 	</dependencies>
 

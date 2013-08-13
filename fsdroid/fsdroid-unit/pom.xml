@@ -28,9 +28,16 @@
 	</build>
 	<dependencies>
 		<dependency>
+			<groupId>org.robolectric</groupId>
+			<artifactId>robolectric</artifactId>
+			<version>${robolectric.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
