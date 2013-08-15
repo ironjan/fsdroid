@@ -28,34 +28,17 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>org.robolectric</groupId>
-			<artifactId>robolectric</artifactId>
-			<version>${robolectric.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.8.5</version>
-			<scope>test</scope>
+			<groupId>de.upb.fsmi</groupId>
+			<artifactId>fsdroid</artifactId>
+			<version>0.0.1</version>
+			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-integration</artifactId>
-			<version>1.2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>net.avh4.util</groupId>
-			<artifactId>imagecomparison</artifactId>
-			<version>0.0.2</version>
-			<scope>test</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>de.upb.fsmi</groupId>
 			<artifactId>fsdroid</artifactId>

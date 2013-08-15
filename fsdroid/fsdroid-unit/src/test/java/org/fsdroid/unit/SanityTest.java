@@ -8,7 +8,7 @@ public class SanityTest {
 
 	@Test
 	public void sanityTest() {
-		assertEquals(2, 1+1);
+		assertEquals(2, 1 + 1);
 	}
 
 }

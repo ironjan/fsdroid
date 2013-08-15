@@ -1,0 +1,93 @@
+package de.upb.fsmi.fragments;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBar.TabListener;
+import android.support.v7.app.ActionBarActivity;
+
+import com.fima.cardsui.views.CardUI;
+import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.EFragment;
+import com.googlecode.androidannotations.annotations.ViewById;
+
+import de.upb.fsmi.FSDroid;
+import de.upb.fsmi.R;
+import de.upb.fsmi.cards.TestCard;
+
+
+@EFragment(R.layout.fragment_ophase)
+public class OPhaseFragment extends Fragment implements TabListener {
+	@ViewById
+	CardUI cardsview;
+	private Tab tabMo, tabDi, tabMi;
+
+	@AfterViews
+	void initAB() {
+		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		addTabs(actionBar);
+	}
+
+	private ActionBarActivity getActionBarActivity() {
+		return (ActionBarActivity)getActivity();
+	}
+
+	@Override
+	public void onPause() {
+		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
+		actionBar.removeAllTabs();
+		super.onPause();
+	}
+
+	private void addTabs(ActionBar actionBar) {
+		tabMo = actionBar.newTab().setText("Montag").setTabListener(this);
+		actionBar.addTab(tabMo);
+
+		tabDi = actionBar.newTab().setText("Dienstag").setTabListener(this);
+		actionBar.addTab(tabDi);
+
+		tabMi = actionBar.newTab().setText("Mittwoch").setTabListener(this);
+		actionBar.addTab(tabMi);
+	}
+
+	@Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		try {
+			FSDroid drawerActivity = (FSDroid) getActivity();
+			if (drawerActivity != null) {
+				drawerActivity.closeDrawer();
+			}
+		} catch (ClassCastException e) { /* nothing to do */
+		}
+		if (cardsview == null) {
+			return;
+		}
+
+		cardsview.clearCards();
+
+		int selectedPosition = tab.getPosition();
+		if (tab.equals(tabMo)) {
+			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
+		} else if (tab.equals(tabDi)) {
+			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
+		} else if (tab.equals(tabMi)) {
+			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
+		}
+
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

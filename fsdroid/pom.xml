@@ -19,6 +19,7 @@
 		<androidannotations.version>2.7.1</androidannotations.version>
 		<spring-android.version>1.0.1.RELEASE</spring-android.version>
 		<jackson.version>2.2.2</jackson.version>
+		<nineoldandroids.version>2.4.0</nineoldandroids.version>
 	</properties>
 
 	<groupId>de.upb.fsmi</groupId>

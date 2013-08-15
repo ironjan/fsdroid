@@ -14,24 +14,64 @@
 	<name>fsdroid - Application</name>
 
 	<repositories>
-    <!-- For developing with Android ROME Feed Reader -->
-    <repository>
-        <id>android-rome-feed-reader-repository</id>
-        <name>Android ROME Feed Reader Repository</name>
-        <url>https://android-rome-feed-reader.googlecode.com/svn/maven2/releases</url>
-    </repository>
-</repositories>
+		<!-- For developing with Android ROME Feed Reader -->
+		<repository>
+			<id>android-rome-feed-reader-repository</id>
+			<name>Android ROME Feed Reader Repository</name>
+			<url>https://android-rome-feed-reader.googlecode.com/svn/maven2/releases</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>android</groupId>
 			<artifactId>android</artifactId>
 		</dependency>
 
 		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<version>${support-library.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<version>${support-library.version}</version>
+			<type>apklib</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<version>${support-library.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>${support-library.version}</version>
+			<type>apklib</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>${support-library.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
 			<groupId>de.keyboardsurfer.android.widget</groupId>
 			<artifactId>crouton</artifactId>
 			<version>${crouton.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.android</groupId>
+					<artifactId>support-v4</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -67,10 +107,19 @@
 			<artifactId>jackson-core</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.nineoldandroids</groupId>
+			<artifactId>library</artifactId>
+			<version>${nineoldandroids.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
