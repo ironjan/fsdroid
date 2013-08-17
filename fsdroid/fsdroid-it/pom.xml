@@ -13,41 +13,69 @@
 	<packaging>apk</packaging>
 	<name>fsdroid-it - Integration tests</name>
 
-	<properties>
-		<!-- When not running a release, we are deploying the plain artifact (so 
-			no classifier) This is overridden during the release. -->
-		<zipaligned-classifier></zipaligned-classifier>
-	</properties>
-
 	<dependencies>
-		<!-- <dependency> -->
-		<!--	<groupId>android.support</groupId> -->
-		<!--	<artifactId>compatibility-v13</artifactId> -->
-		<!--	<version>${support-library.version}</version> -->
-		<!--</dependency> -->
-
 		<dependency>
 			<groupId>android</groupId>
 			<artifactId>android</artifactId>
+			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>de.upb.fsmi</groupId>
-			<artifactId>fsdroid</artifactId>
-			<type>apk</type>
-			<version>0.0.1</version>
-			<classifier>${zipaligned-classifier}</classifier> <!-- classifier set according to the ran profile -->
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<scope>compile</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>de.upb.fsmi</groupId>
-			<artifactId>fsdroid</artifactId>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<scope>compile</scope>
+			<type>apklib</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<scope>compile</scope>
+			<type>apklib</type>
+		</dependency>
+
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<scope>compile</scope>
 			<type>jar</type>
-			<version>0.0.1</version>
 		</dependency>
+
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<scope>compile</scope>
+			<type>jar</type>
 		</dependency>
+
+		<dependency>
+            <groupId>com.jayway.android.robotium</groupId>
+            <artifactId>robotium-solo</artifactId>
+            <version>${robotium-solo.version}</version>
+        </dependency>
+        		
+		<dependency>
+			<groupId>de.upb.fsmi</groupId>
+			<artifactId>fsdroid</artifactId>
+			<version>0.0.1</version>
+			<type>apk</type>
+		</dependency>
+
+		<dependency>
+			<groupId>de.upb.fsmi</groupId>
+			<artifactId>fsdroid</artifactId>
+			<version>0.0.1</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -55,6 +83,12 @@
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
+				<configuration>
+					<test>
+						<createReport>true</createReport>
+					</test>
+					<extractDuplicates>true</extractDuplicates>
+				</configuration>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>

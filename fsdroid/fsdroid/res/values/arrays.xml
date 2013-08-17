@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="stati">
+        <item>@string/statusUnknown</item>
+        <item>@string/statusClosed</item>
+        <item>@string/statusOpen</item>
+    </string-array>
+    <string-array name="libraryNames">
+        <item>ActionBarSherlock</item>
+        <item>CardsUI</item>
+    </string-array>
+    <string-array name="libraryLinks">
+        <item>http://actionbarsherlock.com/</item>
+        <item>https://github.com/nadavfima/cardsui-for-android</item>
+    </string-array>
+    <string-array name="libraryLicenses">
+        <item>@string/apacheLicense</item>
+        <item>@string/unknownLicense</item>
+    </string-array>
+
+    <string-array name="libraryDescriptions">
+        <item>ActionBarSherlock is an extension of the support library designed to facilitate the use of the action bar design pattern across all versions of Android with a single API.</item>
+        <item>A library to simply implement card layouts.</item>
+    </string-array>
+</resources>
