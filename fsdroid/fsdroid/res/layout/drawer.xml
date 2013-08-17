@@ -22,13 +22,13 @@
             style="@style/DrawerCategoryItem"
             android:text="@string/news" />
 
-        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
+        <include layout="@layout/drawer_category_item_divider" />
 
 
-        <!-- <TextView -->
-        <!-- android:id="@id/drawerItemOPhase" -->
-        <!-- style="@style/DrawerCategoryItem" -->
-        <!-- android:text="@string/o_phase" /> -->
+        <TextView
+        android:id="@id/drawerItemOPhase"
+        style="@style/DrawerCategoryItem"
+        android:text="@string/o_phase" />
 
         <TextView
             style="@style/DrawerCategoryHeadline"

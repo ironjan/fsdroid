@@ -1,21 +1,15 @@
 package de.upb.fsmi.fragments;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.*;
+import android.support.v7.app.*;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
-import android.support.v7.app.ActionBarActivity;
 
-import com.fima.cardsui.views.CardUI;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.ViewById;
+import com.fima.cardsui.views.*;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.upb.fsmi.FSDroid;
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.TestCard;
-
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
 
 @EFragment(R.layout.fragment_ophase)
 public class OPhaseFragment extends Fragment implements TabListener {
@@ -23,21 +17,27 @@ public class OPhaseFragment extends Fragment implements TabListener {
 	CardUI cardsview;
 	private Tab tabMo, tabDi, tabMi;
 
+	@InstanceState
+	int selectedTab = 0;
+
 	@AfterViews
 	void initAB() {
 		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		addTabs(actionBar);
+		actionBar.setSelectedNavigationItem(selectedTab);
 	}
 
 	private ActionBarActivity getActionBarActivity() {
-		return (ActionBarActivity)getActivity();
+		return (ActionBarActivity) getActivity();
 	}
 
 	@Override
 	public void onPause() {
 		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
+		selectedTab = actionBar.getSelectedTab().getPosition();
 		actionBar.removeAllTabs();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		super.onPause();
 	}
 

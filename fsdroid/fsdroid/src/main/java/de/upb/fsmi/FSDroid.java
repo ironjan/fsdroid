@@ -1,140 +1,105 @@
 package de.upb.fsmi;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.TextView;
+import android.annotation.*;
+import android.content.res.*;
+import android.os.*;
+import android.support.v4.app.*;
+import android.support.v4.view.*;
+import android.support.v4.widget.*;
+import android.support.v7.app.*;
+import android.support.v7.app.ActionBar.Tab;
+import android.view.*;
+import android.widget.*;
 
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Click;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.OptionsItem;
-import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import de.upb.fsmi.fragments.CouncilFragment_;
-import de.upb.fsmi.fragments.NewsFragment_;
-import de.upb.fsmi.fragments.OPhaseFragment_;
-import de.upb.fsmi.fragments.TestFragment;
+import de.upb.fsmi.fragments.*;
 
-
-@SuppressLint("InlinedApi")
 @EActivity(R.layout.activity_with_drawer)
 public class FSDroid extends ActionBarActivity {
-	private static final String TAG = FSDroid.class.getSimpleName();
+	static final String TAG = FSDroid.class.getSimpleName();
 
 	DrawerLayout mDrawerLayout;
 
 	@ViewById
-	TextView drawerItemNews, drawerItemOPhase, drawerItemMisc,
-			drawerItemCouncil, drawerItemMeetings, drawerItemContact,
-			drawerItemAbout, drawerItemLicenses;
+	TextView drawerItemNews, drawerItemOPhase, drawerItemMisc, drawerItemCouncil,
+			drawerItemMeetings, drawerItemContact, drawerItemAbout, drawerItemLicenses;
 
 	ActionBarDrawerToggle mDrawerToggle;
-	String[] title;
-	String[] subtitle;
-	int[] icon;
+
+	private Tab[] tabs = null;
+	private int selectedTab = 0;
 
 	@AfterViews
 	void addDrawerShadow() {
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
-				GravityCompat.START);
-
-		// Enable ActionBar app icon to behave as action to toggle nav drawer
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-		// ActionBarDrawerToggle ties together the the proper interactions
-		// between the sliding drawer and the action bar app icon
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, R.string.drawer_open,
-				R.string.drawer_close) {
+		initDrawer();
 
-			public void onDrawerClosed(View view) {
-				Log.v(TAG, "drawer closed");
-				super.onDrawerClosed(view);
-			}
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		ft.add(R.id.content_frame, new NewsFragment_());
+		ft.commit();
+	}
 
-			public void onDrawerOpened(View drawerView) {
-				Log.v(TAG, "Drawer opened");
-				super.onDrawerOpened(drawerView);
-			}
-		};
+	private void initDrawer() {
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+
+		mDrawerToggle = new DrawerOpenCloseListener(this, mDrawerLayout, R.drawable.ic_drawer,
+				R.string.drawer_open, R.string.drawer_close);
 
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-		switchContentTo(new NewsFragment_());
 	}
 
 	@Click({ R.id.drawerItemNews, R.id.drawerItemOPhase, R.id.drawerItemMisc,
-			R.id.drawerItemCouncil, R.id.drawerItemMeetings,
-			R.id.drawerItemContact, R.id.drawerItemAbout,
-			R.id.drawerItemLicenses })
+			R.id.drawerItemCouncil, R.id.drawerItemMeetings, R.id.drawerItemContact,
+			R.id.drawerItemAbout, R.id.drawerItemLicenses })
 	void navigationDrawerElementsClicked(View v) {
-		TestFragment tf = new TestFragment();
-		switch (v.getId()) {
-		case R.id.drawerItemNews:
-			switchContentTo(new NewsFragment_());
-			break;
-		case R.id.drawerItemOPhase:
-			switchContentTo(new OPhaseFragment_());
-			break;
-		case R.id.drawerItemMisc:
-			tf.setText("misc");
-			switchContentTo(tf);
-			break;
-		case R.id.drawerItemCouncil:
-			switchContentTo(new CouncilFragment_());
-			break;
-		case R.id.drawerItemMeetings:
-			Intent intent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("geo:51.70692,8.771176?z=20"));
-			startActivity(intent);
-			break;
-		case R.id.drawerItemContact:
-			Intent intent2 = new Intent(
-					Intent.ACTION_VIEW,
-					Uri.parse("https://maps.google.de/maps?q=51.70837,8.771176&hl=de&ll=51.706959,8.771145&spn=0.000826,0.00203&num=1&t=h&z=19"));
-			startActivity(intent2);
-			break;
-		case R.id.drawerItemAbout:
-			tf.setText("about");
-			switchContentTo(tf);
-			break;
-		case R.id.drawerItemLicenses:
-			tf.setText("licenses");
-			switchContentTo(tf);
-			break;
-		default:
-			tf.setText("default?!");
-			switchContentTo(tf);
-			break;
+		DrawerNavigationHelper.navigate(this, v);
+	}
+
+	@SuppressLint("InlinedApi")
+	@OptionsItem(android.R.id.home)
+	void toggleDrawer() {
+		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+			mDrawerLayout.closeDrawer(Gravity.LEFT);
+			restoreTabs();
+		} else {
+			if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar().getNavigationMode()) {
+				saveTabs();
+			}
+			mDrawerLayout.openDrawer(Gravity.LEFT);
 		}
 	}
 
-	@OptionsItem(android.R.id.home)
-	void toggleDrawer() {
-
-		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
-			mDrawerLayout.closeDrawer(Gravity.LEFT);
-		} else {
-			mDrawerLayout.openDrawer(Gravity.LEFT);
+	private void restoreTabs() {
+		if (tabs == null || tabs.length == 0) {
+			return;
 		}
+
+		ActionBar ab = getSupportActionBar();
+		ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		for (int i = 0; i < tabs.length; i++) {
+			ab.addTab(tabs[i]);
+		}
+		if (selectedTab > 0 && selectedTab < tabs.length) {
+			ab.setSelectedNavigationItem(selectedTab);
+		}
+		selectedTab = 0;
+		tabs = null;
+	}
+
+	private void saveTabs() {
+		ActionBar ab = getSupportActionBar();
+		selectedTab = ab.getSelectedTab().getPosition();
+		final int count = ab.getTabCount();
+		tabs = new Tab[count];
+		for (int i = 0; i < count; i++) {
+			tabs[i] = ab.getTabAt(i);
+		}
+		ab.removeAllTabs();
+		ab.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 	}
 
 	@Override
@@ -150,22 +115,16 @@ public class FSDroid extends ActionBarActivity {
 	}
 
 	void notifyUser(String text) {
-		Crouton.showText(FSDroid.this, text, Style.INFO);
+		Toast.makeText(FSDroid.this, text, Toast.LENGTH_LONG).show();
 	}
 
 	void switchContentTo(Fragment fragment) {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		ft.addToBackStack(null);
 		ft.replace(R.id.content_frame, fragment);
-		getSupportActionBar().setNavigationMode(
-				ActionBar.NAVIGATION_MODE_STANDARD);
+		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		ft.commit();
-		mDrawerLayout.closeDrawer(Gravity.LEFT);
-	}
-
-	@Override
-	protected void onDestroy() {
-		Crouton.cancelAllCroutons();
-		super.onDestroy();
+		closeDrawer();
 	}
 
 	public void closeDrawer() {

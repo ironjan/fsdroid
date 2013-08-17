@@ -21,47 +21,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v4</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v7</artifactId>
-			<scope>compile</scope>
-			<type>apklib</type>
-		</dependency>
-
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v7-appcompat</artifactId>
-			<scope>compile</scope>
-			<type>apklib</type>
-		</dependency>
-
-
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v7</artifactId>
-			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v7-appcompat</artifactId>
-			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-            <groupId>com.jayway.android.robotium</groupId>
-            <artifactId>robotium-solo</artifactId>
-            <version>${robotium-solo.version}</version>
-        </dependency>
-        		
-		<dependency>
 			<groupId>de.upb.fsmi</groupId>
 			<artifactId>fsdroid</artifactId>
 			<version>0.0.1</version>
@@ -75,6 +34,87 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.robolectric</groupId>
+			<artifactId>robolectric</artifactId>
+			<version>${robolectric.version}</version>
+			<scope>test</scope>
+		</dependency>
+			<exclusions>
+				<exclusion>
+					<groupId>android.support</groupId>
+			<scope>provided</scope>
+					<artifactId>compatibility-v4</artifactId>
+				</exclusion>
+
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>android.support</groupId>
+					<artifactId>compatibility-v7</artifactId>
+				</exclusion>
+
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>android.support</groupId>
+					<artifactId>compatibility-v7-appcompat</artifactId>
+				</exclusion>
+
+
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>android.support</groupId>
+					<artifactId>compatibility-v7</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>android.support</groupId>
+			<scope>provided</scope>
+					<artifactId>compatibility-v7-appcompat</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>de.keyboardsurfer.android.widget</groupId>
+			<scope>provided</scope>
+					<artifactId>crouton</artifactId>
+				</exclusion>
+
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>com.googlecode.androidannotations</groupId>
+					<artifactId>androidannotations</artifactId>
+				</exclusion>
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>com.googlecode.androidannotations</groupId>
+					<artifactId>androidannotations-api</artifactId>
+				</exclusion>
+
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>org.springframework.android</groupId>
+					<artifactId>spring-android-rest-template</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+			<scope>provided</scope>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+			<scope>provided</scope>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.nineoldandroids</groupId>
+			<scope>provided</scope>
+					<artifactId>library</artifactId>
+				</exclusion>
+			</exclusions>
 
 	</dependencies>
 

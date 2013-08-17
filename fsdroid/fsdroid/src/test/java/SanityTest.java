@@ -1,4 +1,4 @@
-package org.fsdroid.unit;
+
 
 import static org.junit.Assert.*;
 
