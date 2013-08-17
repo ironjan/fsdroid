@@ -15,8 +15,7 @@ import de.upb.fsmi.receivers.*;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
-public class NewsFragment extends Fragment implements
-		UpdateCompletedListener{
+public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	private static final String TAG = NewsFragment.class.getSimpleName();
 
@@ -26,14 +25,12 @@ public class NewsFragment extends Fragment implements
 	@Bean
 	DataKeeper dataKeeper;
 
-	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
-			this);
+	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(this);
 
 	private StatusCard statusCard;
 	private MeetingCard meetingCard;
 
 	private boolean statusCardHidden = false, meetingCardHidden = false;
-
 
 	public void setStatusCardHidden(boolean statusCardHidden) {
 		this.statusCardHidden = statusCardHidden;
@@ -45,8 +42,7 @@ public class NewsFragment extends Fragment implements
 
 	@Override
 	public void onResume() {
-		updateCompletedReceiver.registerReceiver(getActivity()
-				.getApplicationContext());
+		updateCompletedReceiver.registerReceiver(getActivity().getApplicationContext());
 		super.onResume();
 	}
 
@@ -64,7 +60,7 @@ public class NewsFragment extends Fragment implements
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
-		cardsview.setSwipeable(true);
+		cardsview.setSwipeable(false);
 
 		statusCard = new StatusCard(dataKeeper.getFsmiState());
 		meetingCard = new MeetingCard(dataKeeper.getNextMeetingDate());
@@ -110,6 +106,5 @@ public class NewsFragment extends Fragment implements
 	public void updateCompleted() {
 		refreshDisplayedData();
 	}
-
 
 }

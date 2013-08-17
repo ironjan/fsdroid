@@ -1,17 +1,15 @@
 package de.upb.fsmi.cards.views;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.text.*;
+import java.util.*;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.*;
+import android.util.*;
+import android.widget.*;
 
-import com.googlecode.androidannotations.annotations.EViewGroup;
-import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.upb.fsmi.R;
+import de.upb.fsmi.*;
 
 @EViewGroup(R.layout.card_meeting)
 public class MeetingCardView extends RelativeLayout implements CustomView<Date> {
@@ -25,7 +23,7 @@ public class MeetingCardView extends RelativeLayout implements CustomView<Date> 
 	@Override
 	public void bind(Date t) {
 		if (t != null) {
-			DateFormat sdf = DateFormat.getDateTimeInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy' 'HH:mm");
 			txtMeetingDate.setText(sdf.format(t));
 		} else {
 			txtMeetingDate.setText("Unbekanntes Datum -.-");

@@ -1,15 +1,14 @@
 package de.upb.fsmi.cards;
 
-import java.util.Date;
+import java.util.*;
 
-import android.content.Context;
-import android.view.View;
+import android.content.*;
+import android.view.*;
 import android.view.ViewGroup.LayoutParams;
 
-import com.fima.cardsui.objects.Card;
+import com.fima.cardsui.objects.*;
 
-import de.upb.fsmi.cards.views.MeetingCardView;
-import de.upb.fsmi.cards.views.MeetingCardView_;
+import de.upb.fsmi.cards.views.*;
 
 public class MeetingCard extends Card {
 
@@ -23,8 +22,7 @@ public class MeetingCard extends Card {
 	@Override
 	public View getCardContent(Context context) {
 		MeetingCardView view = MeetingCardView_.build(context, null, 0);
-		view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT));
+		view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		view.bind(date);
 		return view;
 	}
