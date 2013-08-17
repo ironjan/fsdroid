@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="appName">FS UPB</string>
+    <string name="refresh">Refresh</string>
+    <string name="statusOpen">offen</string>
+    <string name="statusUnknown">unbekannt</string>
+    <string name="statusClosed">geschlossen</string>
+    <string name="statusDescription">Status der Fachschaft ist gerade:</string>
+    <string name="meetingDescription">Nächste Sitzung:</string>
+    <string name="drawerCategoryCouncil">Der Rat</string>
+    <string name="misc">Allgemeines</string>
+    <string name="fs">Die Fachschaft</string>
+    <string name="o_phase">O-Phase</string>
+    <string name="news">Neuigkeiten</string>
+    <string name="drawerCategoryNews">Aktuelles</string>
+    <string name="meetings">Sitzungen</string>
+    <string name="contact">Kontakt</string>
+    <string name="drawerCategoryAboutApp">Der Fachschaftsdroide</string>
+    <string name="about">Über die App</string>
+    <string name="licenses">Open Source Lizenzen</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="telefon">Telefon</string>
+    <string name="email">Email</string>
+    <string name="fsmiAddress">Fachschaft Mathematik/Informatik\nRaum E1.311\nWarburger Straße 100\n33098 Paderborn</string>
+    <string name="fsmiQueryAddress">Fachschaft+Mathematik/Informatik+Warburger+Straße+100,+Paderborn</string>
+    <string name="adresse">Adresse</string>
+    <string name="fsmiMail">fsmi@uni-paderborn.de</string>
+    <string name="fsmiTelephone">05251 &#8212; 60 32 60</string>
+    <string name="fsmiRoomCampus">E1.311</string>
+    <string name="add_contact">Zu Kontakten hinzufügen</string>
+    <string name="apacheLicense">Apache License 2.0</string>
+    <string name="unknownLicense">Unbekannt</string>
+
+</resources>
