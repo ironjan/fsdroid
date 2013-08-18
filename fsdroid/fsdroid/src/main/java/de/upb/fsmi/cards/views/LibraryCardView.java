@@ -2,6 +2,7 @@ package de.upb.fsmi.cards.views;
 
 import android.content.*;
 import android.net.*;
+import android.view.*;
 import android.widget.*;
 
 import com.googlecode.androidannotations.annotations.*;
@@ -28,7 +29,12 @@ public class LibraryCardView extends LinearLayout {
 		txtLibraryName.setText(library.getName());
 		txtLibraryDescription.setText(library.getDescription());
 		txtLibraryLicense.setText(library.getLicense());
-		uri = Uri.parse(library.getLink());
+
+		if ("".equals(library.getLink())) {
+			imgLibraryLink.setVisibility(View.GONE);
+		} else {
+			uri = Uri.parse(library.getLink());
+		}
 	}
 
 	@Click(R.id.imgLibraryLink)

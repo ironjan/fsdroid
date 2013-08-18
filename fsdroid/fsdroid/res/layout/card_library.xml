@@ -31,12 +31,6 @@
         android:layout_marginTop="@dimen/elementMargin"
         android:text="TextView" />
 
-    <!-- <TextView -->
-    <!-- android:id="@id/txtLibraryLink" -->
-    <!-- android:layout_width="match_parent" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:layout_marginTop="@dimen/elementMargin" -->
-    <!-- android:text="TextView" /> -->
 
     <TextView
         android:id="@id/txtLibraryLicense"
@@ -46,8 +40,10 @@
         android:layout_marginTop="@dimen/elementMargin"
         android:text="TextView" />
 
-    <include android:layout_height="1dp" android:layout_width="match_parent"
+    <include
         android:id="@+id/libraryDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_alignLeft="@id/txtLibraryLicense"
         android:layout_below="@id/txtLibraryName"
         layout="@layout/drawer_category_uderline" />

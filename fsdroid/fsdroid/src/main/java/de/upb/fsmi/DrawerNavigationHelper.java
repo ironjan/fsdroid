@@ -35,11 +35,6 @@ final class DrawerNavigationHelper {
 			activity.switchContentTo(getContactFragment());
 			break;
 		case R.id.drawerItemAbout:
-			tf.setText("about");
-			activity.switchContentTo(tf);
-			break;
-		case R.id.drawerItemLicenses:
-			tf.setText("licenses");
 			activity.switchContentTo(getLibraryFragment());
 			break;
 		default:

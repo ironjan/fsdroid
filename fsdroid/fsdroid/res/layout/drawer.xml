@@ -73,18 +73,12 @@
 
         <include layout="@layout/drawer_category_uderline" />
 
-        <!-- <TextView -->
-        <!-- android:id="@id/drawerItemAbout" -->
-        <!-- style="@style/DrawerCategoryItem" -->
-        <!-- android:text="@string/about" /> -->
-
-
-        <!-- <include layout="@layout/drawer_category_item_divider" /> -->
-
         <TextView
-            android:id="@id/drawerItemLicenses"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/licenses" />
+        android:id="@id/drawerItemAbout"
+        style="@style/DrawerCategoryItem"
+        android:text="@string/about" />
+
+
     </LinearLayout>
 
 </ScrollView>
