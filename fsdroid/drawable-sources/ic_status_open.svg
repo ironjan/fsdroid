@@ -34,7 +34,7 @@
     <linearGradient
        id="linearGradient5211">
       <stop
-         style="stop-color:#00823c;stop-opacity:1;"
+         style="stop-color:#00873c;stop-opacity:1;"
          offset="0"
          id="stop5213" />
       <stop
@@ -45,7 +45,7 @@
     <linearGradient
        id="linearGradient5203">
       <stop
-         style="stop-color:#00823c;stop-opacity:1;"
+         style="stop-color:#00873c;stop-opacity:1;"
          offset="0"
          id="stop5205" />
       <stop
@@ -67,7 +67,7 @@
     <linearGradient
        id="linearGradient3807">
       <stop
-         style="stop-color:#008755;stop-opacity:1;"
+         style="stop-color:#00b93c;stop-opacity:1;"
          offset="0"
          id="stop3809" />
       <stop
@@ -111,6 +111,28 @@
        x2="181.39"
        y2="101.93246"
        gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3807-8"
+       id="radialGradient5270-3"
+       cx="87.595253"
+       cy="66.548531"
+       fx="87.595253"
+       fy="66.548531"
+       r="58.307095"
+       gradientTransform="matrix(1,0,0,0.70415156,0,19.688278)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3807-8">
+      <stop
+         style="stop-color:#008755;stop-opacity:1;"
+         offset="0"
+         id="stop3809-0" />
+      <stop
+         style="stop-color:#00873c;stop-opacity:1;"
+         offset="1"
+         id="stop3811-8" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      inkscape:window-height="570"
@@ -126,7 +148,7 @@
      id="base"
      showgrid="false"
      inkscape:zoom="2.296875"
-     inkscape:cx="96"
+     inkscape:cx="116.68027"
      inkscape:cy="100.38864"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -150,4 +172,10 @@
      id="path3012-0"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ssssssssss" />
+  <path
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero"
+     d="m 99.629182,89.032227 c 1.972808,-0.91563 4.303418,-3.47034 5.746548,-6.29912 1.32405,-2.59535 0.83103,-3.22085 -0.84784,-1.07566 -2.66198,3.40137 -7.757278,3.16289 -9.625858,-0.45054 -0.75282,-1.4558 -0.78678,-2.08491 -0.26529,-4.9151 0.57916,-3.143258 3.21537,-10.66237 5.712828,-16.294378 l 1.21789,-2.746477 4.04554,0.100405 c 2.22504,0.05522 4.78423,0.230741 5.6871,0.390039 1.80345,0.318195 2.23815,-0.28305 2.95068,-4.081136 l 0.3435,-1.831002 -7.79829,-0.0015 c -9.477348,-0.002 -14.682468,-0.84086 -22.678118,-3.654947 -6.672045,-2.34824 -9.085351,-2.55737 -12.026058,-1.042152 -2.24616,1.157355 -4.67231,3.495406 -4.159377,4.008339 0.180919,0.180919 1.600911,-0.07114 3.155548,-0.560135 2.372039,-0.746096 3.202619,-0.794394 5.164769,-0.300321 2.917375,0.734607 5.230738,1.907232 5.230738,2.651423 0,0.950514 -3.641458,9.14614 -5.262802,11.844699 -2.205786,3.671299 -4.117104,5.767009 -7.819253,8.573603 -4.760759,3.609133 -5.908864,6.978993 -3.091593,9.074283 2.748792,2.04436 6.409648,-0.63734 10.577736,-7.74855 2.022465,-3.450542 5.644394,-11.626846 7.645982,-17.260381 0.64483,-1.814879 1.21995,-3.368003 1.27807,-3.451397 0.27884,-0.400136 11.90046,2.760814 11.901,3.236942 3.3e-4,0.300863 -0.90017,2.623893 -2.00113,5.162281 -6.50409,14.995935 -7.54749,22.020515 -3.82388,25.744115 2.43191,2.43191 4.92835,2.69659 8.74156,0.92679 z"
+     id="path3012-5"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cssssscsssccsssssssssssscsscc" />
 </svg>

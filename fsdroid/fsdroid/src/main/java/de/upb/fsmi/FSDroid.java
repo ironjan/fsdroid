@@ -50,7 +50,6 @@ public class FSDroid extends ActionBarActivity {
 
 		mDrawerToggle = new DrawerOpenCloseListener(this, mDrawerLayout, R.drawable.ic_drawer,
 				R.string.drawer_open, R.string.drawer_close);
-
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 

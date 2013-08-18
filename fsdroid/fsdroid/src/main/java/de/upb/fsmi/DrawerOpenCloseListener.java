@@ -7,8 +7,8 @@ import android.util.*;
 import android.view.*;
 
 final class DrawerOpenCloseListener extends ActionBarDrawerToggle {
-	DrawerOpenCloseListener(Activity activity, DrawerLayout drawerLayout,
-			int drawerImageRes, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
+	DrawerOpenCloseListener(Activity activity, DrawerLayout drawerLayout, int drawerImageRes,
+			int openDrawerContentDescRes, int closeDrawerContentDescRes) {
 		super(activity, drawerLayout, drawerImageRes, openDrawerContentDescRes,
 				closeDrawerContentDescRes);
 	}
