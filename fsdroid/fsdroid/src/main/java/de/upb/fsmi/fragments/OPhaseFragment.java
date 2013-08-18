@@ -55,13 +55,6 @@ public class OPhaseFragment extends Fragment implements TabListener {
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		try {
-			FSDroid drawerActivity = (FSDroid) getActivity();
-			if (drawerActivity != null) {
-				drawerActivity.closeDrawer();
-			}
-		} catch (ClassCastException e) { /* nothing to do */
-		}
 		if (cardsview == null) {
 			return;
 		}

@@ -30,6 +30,8 @@ public class FSDroid extends ActionBarActivity {
 	private Tab[] tabs = null;
 	private int selectedTab = 0;
 
+	private Fragment displayedFragment = null;
+
 	@AfterViews
 	void addDrawerShadow() {
 		getSupportActionBar().setHomeButtonEnabled(true);
@@ -63,14 +65,15 @@ public class FSDroid extends ActionBarActivity {
 	@OptionsItem(android.R.id.home)
 	void toggleDrawer() {
 		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
-			mDrawerLayout.closeDrawer(Gravity.LEFT);
-			restoreTabs();
+			closeDrawer();
 		} else {
-			if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar().getNavigationMode()) {
-				saveTabs();
-			}
-			mDrawerLayout.openDrawer(Gravity.LEFT);
+			openDrawer();
 		}
+	}
+
+	private void closeDrawer() {
+		mDrawerLayout.closeDrawer(Gravity.LEFT);
+		restoreTabs();
 	}
 
 	private void restoreTabs() {
@@ -83,11 +86,14 @@ public class FSDroid extends ActionBarActivity {
 		for (int i = 0; i < tabs.length; i++) {
 			ab.addTab(tabs[i]);
 		}
-		if (selectedTab > 0 && selectedTab < tabs.length) {
-			ab.setSelectedNavigationItem(selectedTab);
-		}
-		selectedTab = 0;
 		tabs = null;
+	}
+
+	private void openDrawer() {
+		if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar().getNavigationMode()) {
+			saveTabs();
+		}
+		mDrawerLayout.openDrawer(Gravity.LEFT);
 	}
 
 	private void saveTabs() {
@@ -119,15 +125,14 @@ public class FSDroid extends ActionBarActivity {
 	}
 
 	void switchContentTo(Fragment fragment) {
+		if (displayedFragment == fragment) {
+			return;
+		}
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.addToBackStack(null);
 		ft.replace(R.id.content_frame, fragment);
 		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		ft.commit();
 		closeDrawer();
-	}
-
-	public void closeDrawer() {
-		mDrawerLayout.closeDrawer(Gravity.LEFT);
 	}
 }
