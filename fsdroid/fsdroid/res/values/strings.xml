@@ -31,5 +31,8 @@
     <string name="add_contact">Zu Kontakten hinzufügen</string>
     <string name="apacheLicense">Apache License 2.0</string>
     <string name="unknownLicense">Unbekannt</string>
+    <string name="newsHeadline">Neuigkeiten</string>
+    <string name="newsExplanation">In der ersten Beta wurde aus Zeitgründen darauf verzichtet, die Neuigkeitenfunktion zu implementieren. Diese wird baldmöglichst nachgereicht ;)\nIn der Zwischenzeit kannst du die Neuigkeiten auf unserer Seite lesen.</string>
+    <string name="die_fachschaft_de">http://die-fachschaft.de/</string>
 
 </resources>

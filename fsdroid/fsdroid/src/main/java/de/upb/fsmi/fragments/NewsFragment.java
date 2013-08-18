@@ -29,6 +29,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	private StatusCard statusCard;
 	private MeetingCard meetingCard;
+	private DummyNewsCard dummyNewsCard;
 
 	private boolean statusCardHidden = false, meetingCardHidden = false;
 
@@ -64,9 +65,11 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 		statusCard = new StatusCard(dataKeeper.getFsmiState());
 		meetingCard = new MeetingCard(dataKeeper.getNextMeetingDate());
+		dummyNewsCard = new DummyNewsCard();
 
 		cardsview.addCard(statusCard);
 		cardsview.addCard(meetingCard);
+		cardsview.addCard(dummyNewsCard);
 
 		statusCard.setOnCardSwipedListener(new StatusCardSwipeListener(this));
 		meetingCard.setOnCardSwipedListener(new MeetingCardSwipeListener(this));

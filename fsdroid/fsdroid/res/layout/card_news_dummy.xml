@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/elementMargin" >
+
+    <TextView
+        android:id="@+id/dummyNewsHeadline"
+        style="@style/ContactCategoryHeadline"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imgNewsLink"
+        android:text="@string/newsHeadline" />
+
+    <ImageView
+        android:id="@+id/imgNewsLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/dummyNewsHeadline"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/dummyNewsHeadline"
+        android:background="@drawable/touchable"
+        android:contentDescription="@string/die_fachschaft_de"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_location_web_site_light" />
+
+    <include
+        android:id="@+id/dummyNewsDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/dummyNewsHeadline"
+        layout="@layout/contact_category_uderline" />
+
+    <TextView
+        android:id="@+id/dummyNewsExplanation"
+        style="@style/ContactCategoryItem"
+        android:layout_below="@+id/dummyNewsDivider"
+        android:text="@string/newsExplanation" />
+
+</RelativeLayout>
