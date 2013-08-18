@@ -10,12 +10,17 @@ import com.googlecode.androidannotations.annotations.*;
 
 import de.upb.fsmi.*;
 import de.upb.fsmi.cards.*;
+import de.upb.fsmi.cards.entities.*;
 
 @EFragment(R.layout.fragment_ophase)
 public class OPhaseFragment extends Fragment implements TabListener {
 	@ViewById
 	CardUI cardsview;
+
 	private Tab tabMo, tabDi, tabMi;
+
+	@Bean
+	OPhaseKeeper oPhaseKeeper;
 
 	@InstanceState
 	int selectedTab = 0;
@@ -62,14 +67,16 @@ public class OPhaseFragment extends Fragment implements TabListener {
 		cardsview.clearCards();
 
 		int selectedPosition = tab.getPosition();
-		if (tab.equals(tabMo)) {
-			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
-		} else if (tab.equals(tabDi)) {
-			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
-		} else if (tab.equals(tabMi)) {
-			cardsview.addCard(new TestCard(selectedPosition, selectedPosition));
-		}
+		addContentForDay(selectedPosition);
 
+	}
+
+	private void addContentForDay(int day) {
+		OPhaseAppointment[] appointments = oPhaseKeeper.getDay(day);
+		for (OPhaseAppointment o : appointments) {
+			OphaseCard ophaseCard = new OphaseCard(o);
+			cardsview.addCard(ophaseCard);
+		}
 	}
 
 	@Override

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/elementMargin" >
+
+    <TextView
+        android:id="@id/txtOphaseAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Large Text"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@id/txtOphaseLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/txtOphaseAppointment"
+        android:layout_marginTop="@dimen/elementMargin"
+        android:layout_toRightOf="@+id/ophaseDateWrapper"
+        android:gravity="right"
+        android:text="loca" />
+
+    <LinearLayout
+        android:id="@+id/ophaseDateWrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/txtOphaseAppointment"
+        android:layout_marginTop="@dimen/elementMargin" >
+
+        <TextView
+            android:id="@id/txtOphaseStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HH:MM" />
+
+        <TextView
+            android:id="@id/txtOphaseDateDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" - " />
+
+        <TextView
+            android:id="@id/txtOphaseEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HH:MM" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/txtOphaseAppointment"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@id/txtOphaseAppointment"
+        android:background="@drawable/touchable"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_location_directions_light"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -8,7 +8,6 @@ final class DrawerNavigationHelper {
 	private static LibrariesFragment_ librariesFragment;
 	private static ContactFragment_ contactFragment;
 	private static CouncilFragment_ councilFragment;
-	private static OPhaseFragment_ oPhaseFragment;
 	private static NewsFragment_ newsFragment;
 
 	public static void navigate(FSDroid activity, View clickedView) {
@@ -66,10 +65,7 @@ final class DrawerNavigationHelper {
 	}
 
 	private static OPhaseFragment_ getOPhaseFragment() {
-		if (oPhaseFragment == null) {
-			oPhaseFragment = new OPhaseFragment_();
-		}
-		return oPhaseFragment;
+		return new OPhaseFragment_();
 	}
 
 	private static NewsFragment_ getNewsFragment() {
