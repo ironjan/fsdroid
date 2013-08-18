@@ -25,6 +25,7 @@ public class OPhaseFragment extends Fragment implements TabListener {
 		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		addTabs(actionBar);
+		selectedTab = selectedTab < 0 | selectedTab >= actionBar.getTabCount() ? 0 : selectedTab;
 		actionBar.setSelectedNavigationItem(selectedTab);
 	}
 
@@ -35,7 +36,7 @@ public class OPhaseFragment extends Fragment implements TabListener {
 	@Override
 	public void onPause() {
 		ActionBar actionBar = getActionBarActivity().getSupportActionBar();
-		selectedTab = actionBar.getSelectedTab().getPosition();
+		selectedTab = actionBar.getSelectedNavigationIndex();
 		actionBar.removeAllTabs();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		super.onPause();
