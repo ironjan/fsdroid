@@ -21,6 +21,7 @@
 		<jackson.version>2.2.2</jackson.version>
 		<nineoldandroids.version>2.4.0</nineoldandroids.version>
 		<robotium-solo.version>4.2</robotium-solo.version>
+		<osmdroid.version>4.0.9</osmdroid.version>
 	</properties>
 
 	<groupId>de.upb.fsmi</groupId>
@@ -40,7 +41,7 @@
 			<url>https://android-rome-feed-reader.googlecode.com/svn/maven2/releases</url>
 		</repository>
 	</repositories>
-	
+
 
 	<dependencyManagement>
 		<dependencies>

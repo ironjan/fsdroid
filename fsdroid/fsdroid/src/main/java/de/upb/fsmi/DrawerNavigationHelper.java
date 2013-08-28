@@ -1,5 +1,6 @@
 package de.upb.fsmi;
 
+import android.support.v4.app.*;
 import android.view.*;
 import de.upb.fsmi.fragments.*;
 
@@ -9,6 +10,7 @@ final class DrawerNavigationHelper {
 	private static ContactFragment_ contactFragment;
 	private static CouncilFragment_ councilFragment;
 	private static NewsFragment_ newsFragment;
+	private static MapFragment_ mapFragment;
 
 	public static void navigate(FSDroid activity, View clickedView) {
 		TestFragment tf = new TestFragment();
@@ -18,6 +20,9 @@ final class DrawerNavigationHelper {
 			break;
 		case R.id.drawerItemOPhase:
 			activity.switchContentTo(getOPhaseFragment());
+			break;
+		case R.id.drawerItemMap:
+			activity.switchContentTo(getMapFragment());
 			break;
 		case R.id.drawerItemMisc:
 			tf.setText("misc");
@@ -41,6 +46,13 @@ final class DrawerNavigationHelper {
 			activity.switchContentTo(tf);
 			break;
 		}
+	}
+
+	private static Fragment getMapFragment() {
+		if (mapFragment == null) {
+			mapFragment = new MapFragment_();
+		}
+		return mapFragment;
 	}
 
 	private static LibrariesFragment_ getLibraryFragment() {

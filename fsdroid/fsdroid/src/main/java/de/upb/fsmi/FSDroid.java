@@ -55,7 +55,7 @@ public class FSDroid extends ActionBarActivity {
 
 	@Click({ R.id.drawerItemNews, R.id.drawerItemOPhase, R.id.drawerItemMisc,
 			R.id.drawerItemCouncil, R.id.drawerItemMeetings, R.id.drawerItemContact,
-			R.id.drawerItemAbout, R.id.drawerItemLicenses })
+			R.id.drawerItemAbout, R.id.drawerItemLicenses, R.id.drawerItemMap })
 	void navigationDrawerElementsClicked(View v) {
 		DrawerNavigationHelper.navigate(this, v);
 	}
