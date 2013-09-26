@@ -7,7 +7,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<fsdroid.version>0.0.1</fsdroid.version>
-		<platform.version>4.3_r1</platform.version>
+		<platform.version>4.3_r2</platform.version>
 		<target.sdk>18</target.sdk>
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 		<android-maven-plugin.version>3.6.0</android-maven-plugin.version>
