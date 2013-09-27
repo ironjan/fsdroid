@@ -1,19 +1,28 @@
 package de.upb.fsmi;
 
-import android.annotation.*;
-import android.content.res.*;
-import android.os.*;
-import android.support.v4.app.*;
-import android.support.v4.view.*;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
+import android.annotation.SuppressLint;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
-import android.view.*;
-import android.widget.*;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Click;
+import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.OptionsItem;
+import com.googlecode.androidannotations.annotations.ViewById;
 
-import de.upb.fsmi.fragments.*;
+import de.upb.fsmi.fragments.NewsFragment_;
 
 @EActivity(R.layout.activity_with_drawer)
 public class FSDroid extends ActionBarActivity {
@@ -22,8 +31,9 @@ public class FSDroid extends ActionBarActivity {
 	DrawerLayout mDrawerLayout;
 
 	@ViewById
-	TextView drawerItemNews, drawerItemOPhase, drawerItemMisc, drawerItemCouncil,
-			drawerItemMeetings, drawerItemContact, drawerItemAbout, drawerItemLicenses;
+	TextView drawerItemNews, drawerItemOPhase, drawerItemMisc,
+			drawerItemCouncil, drawerItemMeetings, drawerItemContact,
+			drawerItemAbout, drawerItemLicenses;
 
 	ActionBarDrawerToggle mDrawerToggle;
 
@@ -44,18 +54,22 @@ public class FSDroid extends ActionBarActivity {
 		ft.commit();
 	}
 
+
 	private void initDrawer() {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+				GravityCompat.START);
 
-		mDrawerToggle = new DrawerOpenCloseListener(this, mDrawerLayout, R.drawable.ic_drawer,
-				R.string.drawer_open, R.string.drawer_close);
+		mDrawerToggle = new DrawerOpenCloseListener(this, mDrawerLayout,
+				R.drawable.ic_drawer, R.string.drawer_open,
+				R.string.drawer_close);
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 
 	@Click({ R.id.drawerItemNews, R.id.drawerItemOPhase, R.id.drawerItemMisc,
-			R.id.drawerItemCouncil, R.id.drawerItemMeetings, R.id.drawerItemContact,
-			R.id.drawerItemAbout, R.id.drawerItemLicenses, R.id.drawerItemMap })
+			R.id.drawerItemCouncil, R.id.drawerItemMeetings,
+			R.id.drawerItemContact, R.id.drawerItemAbout,
+			R.id.drawerItemLicenses, R.id.drawerItemMap })
 	void navigationDrawerElementsClicked(View v) {
 		DrawerNavigationHelper.navigate(this, v);
 	}
@@ -89,7 +103,8 @@ public class FSDroid extends ActionBarActivity {
 	}
 
 	private void openDrawer() {
-		if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar().getNavigationMode()) {
+		if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar()
+				.getNavigationMode()) {
 			saveTabs();
 		}
 		mDrawerLayout.openDrawer(Gravity.LEFT);
@@ -130,7 +145,8 @@ public class FSDroid extends ActionBarActivity {
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.addToBackStack(null);
 		ft.replace(R.id.content_frame, fragment);
-		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		getSupportActionBar().setNavigationMode(
+				ActionBar.NAVIGATION_MODE_STANDARD);
 		ft.commit();
 		closeDrawer();
 	}

@@ -1,17 +1,34 @@
 package de.upb.fsmi.fragments;
 
-import android.support.v4.app.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
+import java.util.Iterator;
+import java.util.List;
 
-import com.fima.cardsui.views.*;
-import com.googlecode.androidannotations.annotations.*;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.Toast;
 
-import de.upb.fsmi.*;
-import de.upb.fsmi.cards.*;
-import de.upb.fsmi.helper.*;
-import de.upb.fsmi.receivers.*;
+import com.fima.cardsui.views.CardUI;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
+import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Background;
+import com.googlecode.androidannotations.annotations.Bean;
+import com.googlecode.androidannotations.annotations.EFragment;
+import com.googlecode.androidannotations.annotations.OptionsMenu;
+import com.googlecode.androidannotations.annotations.UiThread;
+import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.rest.RestService;
+
+import de.upb.fsmi.R;
+import de.upb.fsmi.cards.DummyNewsCard;
+import de.upb.fsmi.cards.MeetingCard;
+import de.upb.fsmi.cards.StatusCard;
+import de.upb.fsmi.helper.DataKeeper;
+import de.upb.fsmi.helper.UpdateCompletedListener;
+import de.upb.fsmi.news.RSSInterface;
+import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
@@ -33,6 +50,19 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	private boolean statusCardHidden = false, meetingCardHidden = false;
 
+	@RestService
+	RSSInterface rssInterface;
+	@Background
+	void testRSS() {
+		Channel news = rssInterface.getNews();
+		List<Item> items = news.getItems();
+
+		for (Iterator<Item> iterator = items.iterator(); iterator.hasNext();) {
+			Item object = (Item) iterator.next();
+			Log.v(TAG, object.getTitle());
+		}
+	}
+	
 	public void setStatusCardHidden(boolean statusCardHidden) {
 		this.statusCardHidden = statusCardHidden;
 	}
@@ -43,6 +73,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	@Override
 	public void onResume() {
+		testRSS();
 		updateCompletedReceiver.registerReceiver(getActivity().getApplicationContext());
 		super.onResume();
 	}
