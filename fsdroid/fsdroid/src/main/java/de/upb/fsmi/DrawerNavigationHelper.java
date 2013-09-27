@@ -1,8 +1,13 @@
 package de.upb.fsmi;
 
-import android.support.v4.app.*;
-import android.view.*;
-import de.upb.fsmi.fragments.*;
+import android.support.v4.app.Fragment;
+import android.view.View;
+import de.upb.fsmi.fragments.ContactFragment_;
+import de.upb.fsmi.fragments.CouncilFragment_;
+import de.upb.fsmi.fragments.LibrariesFragment_;
+import de.upb.fsmi.fragments.MapFragment_;
+import de.upb.fsmi.fragments.NewsFragment_;
+import de.upb.fsmi.fragments.TestFragment;
 
 final class DrawerNavigationHelper {
 
@@ -19,8 +24,9 @@ final class DrawerNavigationHelper {
 			activity.switchContentTo(getNewsFragment());
 			break;
 		case R.id.drawerItemOPhase:
-			activity.switchContentTo(getOPhaseFragment());
-			break;
+			tf.setText("ophase");
+			activity.switchContentTo(tf);
+						break;
 		case R.id.drawerItemMap:
 			activity.switchContentTo(getMapFragment());
 			break;
@@ -74,10 +80,6 @@ final class DrawerNavigationHelper {
 			councilFragment = new CouncilFragment_();
 		}
 		return councilFragment;
-	}
-
-	private static OPhaseFragment_ getOPhaseFragment() {
-		return new OPhaseFragment_();
 	}
 
 	private static NewsFragment_ getNewsFragment() {
