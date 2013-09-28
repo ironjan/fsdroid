@@ -58,8 +58,10 @@ public class DummyNewsCardView extends RelativeLayout {
 	}
 
 	private void displayItemContent(Description pDescription) {
-		//bug in WebView.loadData(data, mimeType, encoding) which fucks up utf-8
-		newsText.loadDataWithBaseURL(null, pDescription.getValue(), "text/html", "utf-8",null);
+		// bug in WebView.loadData(data, mimeType, encoding) which fucks up
+		// utf-8
+		newsText.loadDataWithBaseURL(null, pDescription.getValue(),
+				"text/html", "utf-8", null);
 	}
 
 }
