@@ -1,43 +1,40 @@
 package de.upb.fsmi.fragments;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.fima.cardsui.views.CardUI;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.FragmentById;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 
 import de.upb.fsmi.R;
-import de.upb.fsmi.cards.DummyNewsCard;
+import de.upb.fsmi.cards.MeetingCard;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 
-@EFragment(R.layout.fragment_news)
-@OptionsMenu(R.menu.menu_main)
-public class NewsFragment extends Fragment implements UpdateCompletedListener {
+@EFragment(R.layout.fragment_meeting_date)
+public class MeetingDateFragment extends Fragment implements
+		UpdateCompletedListener {
+
+	private static final String TAG = MeetingDateFragment.class.getSimpleName();
 
 	@ViewById
-	CardUI cardsview;
+	CardUI meetingCardsview;
 
 	@Bean
 	DataKeeper dataKeeper;
 
-	@FragmentById
-	StatusViewFragment fragmentStatus;
-	@FragmentById
-	MeetingDateFragment fragmentMeeting;
-
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
 
-	private DummyNewsCard dummyNewsCard;
+	private MeetingCard meetingCard;
 
 	@Override
 	public void onResume() {
@@ -60,18 +57,28 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
-		cardsview.setSwipeable(false);
+		meetingCardsview.setSwipeable(false);
 
-		dummyNewsCard = new DummyNewsCard();
-
-		cardsview.addCard(dummyNewsCard);
+		meetingCard = new MeetingCard(dataKeeper.getNextMeetingDate());
+		meetingCardsview.addCard(meetingCard);
 
 		refreshDisplayedData();
 	}
 
 	@UiThread
 	protected void refreshDisplayedData() {
-		cardsview.refresh();
+		refreshMeetingCard();
+		meetingCardsview.refresh();
+	}
+
+	void refreshMeetingCard() {
+		meetingCard.setDate(dataKeeper.getNextMeetingDate());
+	}
+
+
+	void logError(Exception e) {
+		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+		Log.e(TAG, e.getMessage(), e);
 	}
 
 	@Override

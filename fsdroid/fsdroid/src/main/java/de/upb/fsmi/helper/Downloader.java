@@ -1,60 +1,96 @@
 package de.upb.fsmi.helper;
 
-import java.io.*;
-import java.net.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.ProtocolException;
+import java.net.URL;
 
-import org.apache.http.*;
-import org.apache.http.client.methods.*;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 
-import android.content.*;
-import android.net.http.*;
-import android.os.*;
-import android.util.*;
+import android.content.Context;
+import android.net.http.AndroidHttpClient;
+import android.os.Build;
+import android.util.Log;
 
+/**
+ * This class is used to download files from the internet.
+ */
 public class Downloader {
 
+	@SuppressWarnings("nls")
+	private static final String TMP_FILE_EXTENSION = "tmp", 
+			TMP_FILE_PREFIX = "fsupb";
+	private static final String TAG = Downloader.class.getSimpleName();
+
+	/**
+	 * Downloads the file located at uri to the local device
+	 * 
+	 * @param context
+	 * @param uri
+	 *            the file's internet uri
+	 * @return the downloaded file
+	 * @throws MalformedURLException
+	 *             not a correct url
+	 * @throws IOException
+	 *             error when writing file
+	 * @throws ProtocolException
+	 *             ?
+	 * @throws FileNotFoundException
+	 *             could not found the file
+	 */
 	public static File download(Context context, String uri)
 			throws MalformedURLException, IOException, ProtocolException,
 			FileNotFoundException {
-
 		disableKeepAliveIfNecessary();
 
 		File dir = context.getCacheDir();
-		File file = File.createTempFile("fsupb", "tmp", dir);
+		File file = File.createTempFile(TMP_FILE_PREFIX, TMP_FILE_EXTENSION,
+				dir);
 		FileOutputStream fileOutput = new FileOutputStream(file);
 
-		// if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-		downloadPostGingerbread(uri, fileOutput);
-		// } else {
-		// downloadPreGingerbreag(uri, fileOutput);
-		// }
+		executeDownload(uri, fileOutput);
+
 		fileOutput.close();
 		return file;
 	}
 
-	private static void disableKeepAliveIfNecessary() {
-		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.FROYO) {
-			System.setProperty("http.keepAlive", "false");
+	private static void executeDownload(String uri, FileOutputStream fileOutput)
+			throws MalformedURLException, IOException, ProtocolException {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+			executeDownloadPostGingerbread(uri, fileOutput);
+		} else {
+			executeDownloadPreGingerbreag(uri, fileOutput);
 		}
 	}
 
-	private static void downloadPreGingerbreag(String uri,
+	private static void disableKeepAliveIfNecessary() {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.FROYO) {
+			System.setProperty("http.keepAlive", "false"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	private static void executeDownloadPreGingerbreag(String uri,
 			FileOutputStream fileOutput) throws IOException {
-		AndroidHttpClient client = AndroidHttpClient.newInstance("Android");
+		AndroidHttpClient client = AndroidHttpClient.newInstance("Android"); //$NON-NLS-1$
 		HttpGet request = new HttpGet(uri);
 		HttpResponse response = client.execute(request);
 		response.getEntity().writeTo(fileOutput);
 		client.close();
 	}
 
-	private static void downloadPostGingerbread(String uri,
+	private static void executeDownloadPostGingerbread(String uri,
 			FileOutputStream fileOutput) throws MalformedURLException,
 			IOException, ProtocolException {
 		URL url = new URL(uri);
 		HttpURLConnection urlConnection = (HttpURLConnection) url
 				.openConnection();
-		urlConnection.setRequestMethod("GET");
+		urlConnection.setRequestMethod("GET"); //$NON-NLS-1$
 		urlConnection.setDoOutput(true);
 		urlConnection.connect();
 		InputStream inputStream = urlConnection.getInputStream();
@@ -65,7 +101,7 @@ public class Downloader {
 
 		while ((bufferLength = inputStream.read(buffer)) > 0) {
 			fileOutput.write(buffer, 0, bufferLength);
-			Log.v("Downloader", bufferLength + "/" + size);
+			Log.v(TAG, bufferLength + "/" + size); //$NON-NLS-1$
 		}
 		fileOutput.close();
 		inputStream.close();

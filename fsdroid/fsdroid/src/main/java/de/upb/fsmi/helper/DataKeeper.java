@@ -43,11 +43,15 @@ import de.upb.fsmi.widget.StatusAppWidgetProvider.Call;
 @EBean(scope = Scope.Singleton)
 public class DataKeeper {
 
+	@SuppressWarnings("nls")
+	private static final String MEETING_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ",
+			STATUS_URL = "http://karo-kaffee.upb.de/fsmi/status";
+
 	private static final int _5_MINUTES = 1000 * 60 * 5;
 
-	public static final String ACTION_DATA_REFRESH_STARTED = "ACTION_DATA_REFRESH_STARTED";
-
-	public static final String ACTION_DATA_REFRESH_COMPLETED = "ACTION_DATA_REFRESH_COMPLETED";
+	@SuppressWarnings("nls")
+	public static final String ACTION_DATA_REFRESH_STARTED = "ACTION_DATA_REFRESH_STARTED",
+			ACTION_DATA_REFRESH_COMPLETED = "ACTION_DATA_REFRESH_COMPLETED";
 
 	private static final int DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
 
@@ -59,12 +63,16 @@ public class DataKeeper {
 	@Pref
 	MeetingPrefs_ meetingPrefs;
 
+	@Bean
+	ConnectionBean connectionBean;
+
 	private Date date = null;
 
 	private int status = 0;
 
 	private boolean isRefreshing = false;
 
+	@SuppressWarnings("nls")
 	public Date getNextMeetingDate() {
 		if (date == null && hasRecentDate()) {
 			Log.v(TAG,
@@ -78,6 +86,7 @@ public class DataKeeper {
 		return date;
 	}
 
+	@SuppressWarnings("nls")
 	public Integer getFsmiState() {
 		if (hasRecentStatus()) {
 			status = meetingPrefs.lastStatus().get();
@@ -86,26 +95,11 @@ public class DataKeeper {
 		return Integer.valueOf(status);
 	}
 
-	boolean hasRecentStatus() {
-		final long currentTime = System.currentTimeMillis();
-		final long lastStatusUpdateInMillis = meetingPrefs
-				.lastStatusUpdateInMillis().get();
-
-		Log.d(TAG,
-				"Last status update: "
-						+ DateFormat.getDateTimeInstance().format(
-								new Date(lastStatusUpdateInMillis))
-						+ ". recent = \"<5min\"");
-		return (currentTime - lastStatusUpdateInMillis) < _5_MINUTES;
-	}
-
 	public boolean isRefreshing() {
 		return isRefreshing;
 	}
 
-	@Bean
-	ConnectionBean connectionBean;
-
+	@SuppressWarnings("nls")
 	public synchronized void refresh(boolean byUser)
 			throws NoAvailableNetworkException {
 		Log.d(TAG, "Refresh requested.");
@@ -124,7 +118,28 @@ public class DataKeeper {
 		}
 	}
 
-	void sendBroadcast(String action) {
+	@Background
+	public void refresh(Call c) {
+		refreshStatus();
+		c.setStatus(status);
+	}
+
+	@SuppressWarnings("nls")
+	private boolean hasRecentStatus() {
+		final long currentTime = System.currentTimeMillis();
+		final long lastStatusUpdateInMillis = meetingPrefs
+				.lastStatusUpdateInMillis().get();
+
+		Log.d(TAG,
+				"Last status update: "
+						+ DateFormat.getDateTimeInstance().format(
+								new Date(lastStatusUpdateInMillis))
+						+ ". recent = \"<5min\"");
+		return (currentTime - lastStatusUpdateInMillis) < _5_MINUTES;
+	}
+
+	@SuppressWarnings("nls")
+	private void sendBroadcast(String action) {
 		Intent intent = new Intent(action);
 		context.sendBroadcast(intent);
 		Log.d(TAG, "sent broadcast: " + action + " @"
@@ -141,9 +156,10 @@ public class DataKeeper {
 
 	}
 
+	@SuppressWarnings("nls")
 	private void refreshStatus() {
 		try {
-			final String statusURL = "http://karo-kaffee.upb.de/fsmi/status";
+			final String statusURL = STATUS_URL;
 			File file = Downloader.download(context, statusURL);
 			this.status = parseStatus(file) + 1;
 
@@ -178,6 +194,7 @@ public class DataKeeper {
 		return 0;
 	}
 
+	@SuppressWarnings("nls")
 	private void refreshDate(boolean byUser) {
 		Log.d(TAG, "Refreshing date, requestedByUser=" + byUser);
 		DateFormat df = DateFormat.getDateTimeInstance();
@@ -194,6 +211,7 @@ public class DataKeeper {
 		}
 	}
 
+	@SuppressWarnings("nls")
 	private boolean hasRecentDate() {
 		final long lastMeetingUpdate = meetingPrefs.lastMeetingUpdateInMillis()
 				.get();
@@ -209,6 +227,7 @@ public class DataKeeper {
 		return diff < DAY_IN_MILLIS;
 	}
 
+	@SuppressWarnings("nls")
 	private Date downloadDate() {
 		Log.d(TAG, "Downloading new date..");
 		Date downloadedDate = null;
@@ -237,6 +256,7 @@ public class DataKeeper {
 		return downloadedDate;
 	}
 
+	@SuppressWarnings("nls")
 	@SuppressLint("SimpleDateFormat")
 	private static Date parseDate(File file) throws SAXException, IOException,
 			ParserConfigurationException, FileNotFoundException,
@@ -258,8 +278,7 @@ public class DataKeeper {
 			String result = node.getAttributes().getNamedItem("title")
 					.getNodeValue();
 
-			SimpleDateFormat format = new SimpleDateFormat(
-					"yyyy-MM-dd'T'HH:mm:ssZ");
+			SimpleDateFormat format = new SimpleDateFormat(MEETING_DATE_FORMAT);
 
 			try {
 				parsedDate = format.parse(result);
@@ -276,11 +295,5 @@ public class DataKeeper {
 
 	private static void logError(Exception e) {
 		Log.e(TAG, e.getMessage(), e);
-	}
-
-	@Background
-	public void refresh(Call c) {
-		refreshStatus();
-		c.setStatus(status);
 	}
 }
