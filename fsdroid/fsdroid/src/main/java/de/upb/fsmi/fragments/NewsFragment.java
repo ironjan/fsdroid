@@ -1,22 +1,28 @@
 package de.upb.fsmi.fragments;
 
+import java.util.List;
+
 import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.fima.cardsui.views.CardUI;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
 import com.googlecode.androidannotations.annotations.AfterViews;
+import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.FragmentById;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.rest.RestService;
 
 import de.upb.fsmi.R;
 import de.upb.fsmi.cards.DummyNewsCard;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
+import de.upb.fsmi.news.RssRest;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 
 @EFragment(R.layout.fragment_news)
@@ -29,10 +35,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Bean
 	DataKeeper dataKeeper;
 
-	@FragmentById
-	StatusViewFragment fragmentStatus;
-	@FragmentById
-	MeetingDateFragment fragmentMeeting;
+	@RestService
+	RssRest mRss;
 
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
@@ -65,6 +69,29 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		dummyNewsCard = new DummyNewsCard();
 
 		cardsview.addCard(dummyNewsCard);
+
+		refreshDisplayedData();
+
+		refreshNews();
+	}
+
+	@Background
+	void refreshNews() {
+		Channel news = mRss.getNews();
+		@SuppressWarnings("unchecked")
+		List<Item> items = news.getItems();
+		showNews(items);
+	}
+
+	@UiThread
+	void showNews(List<Item> pItems) {
+		cardsview.clearCards();
+
+		for (Item item : pItems) {
+			DummyNewsCard card = new DummyNewsCard();
+			card.bind(item);
+			cardsview.addCard(card);
+		}
 
 		refreshDisplayedData();
 	}
