@@ -20,8 +20,8 @@ import com.googlecode.androidannotations.annotations.res.StringRes;
 
 import de.upb.fsmi.R;
 
-@EViewGroup(R.layout.card_news_dummy)
-public class DummyNewsCardView extends RelativeLayout {
+@EViewGroup(R.layout.card_news_item)
+public class NewsCardView extends RelativeLayout {
 	@StringRes
 	String die_fachschaft_de;
 
@@ -45,7 +45,7 @@ public class DummyNewsCardView extends RelativeLayout {
 		getContext().startActivity(intent);
 	}
 
-	public DummyNewsCardView(String title, Context pContext) {
+	public NewsCardView(String title, Context pContext) {
 		super(pContext);
 	}
 

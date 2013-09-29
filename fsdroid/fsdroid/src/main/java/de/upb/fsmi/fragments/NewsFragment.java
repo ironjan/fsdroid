@@ -19,7 +19,7 @@ import com.googlecode.androidannotations.annotations.ViewById;
 import com.googlecode.androidannotations.annotations.rest.RestService;
 
 import de.upb.fsmi.R;
-import de.upb.fsmi.cards.DummyNewsCard;
+import de.upb.fsmi.cards.NewsCard;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
 import de.upb.fsmi.news.RssRest;
@@ -41,7 +41,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
 
-	private DummyNewsCard dummyNewsCard;
+	private NewsCard dummyNewsCard;
 
 	@Override
 	public void onResume() {
@@ -66,7 +66,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	protected void initCardView() {
 		cardsview.setSwipeable(false);
 
-		dummyNewsCard = new DummyNewsCard();
+		dummyNewsCard = new NewsCard();
 
 		cardsview.addCard(dummyNewsCard);
 
@@ -88,7 +88,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		cardsview.clearCards();
 
 		for (Item item : pItems) {
-			DummyNewsCard card = new DummyNewsCard();
+			NewsCard card = new NewsCard();
 			card.bind(item);
 			cardsview.addCard(card);
 		}
