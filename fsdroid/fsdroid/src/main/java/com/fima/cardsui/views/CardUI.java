@@ -339,7 +339,7 @@ public class CardUI extends FrameLayout {
 							space = new View(tr.getContext()) ;
 						}
 						space.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1f));
-						tr.addView(space);
+//						tr.addView(space);
 					}
 				}
 				

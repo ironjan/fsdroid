@@ -7,26 +7,11 @@
 
     <TextView
         android:id="@+id/newsHeadline"
-        style="@style/ContactCategoryHeadline"
-        android:layout_alignParentLeft="true"
+        style="@style/NewsCategoryHeadline"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imgNewsLink"
         android:ellipsize="end"
         android:singleLine="true"
         android:text="@string/newsHeadline" />
-
-    <ImageView
-        android:id="@+id/imgNewsLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/newsHeadline"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignTop="@+id/newsHeadline"
-        android:background="@drawable/touchable"
-        android:contentDescription="@string/die_fachschaft_de"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_location_web_site_light" />
 
     <include
         android:id="@+id/newsDivider"
@@ -35,18 +20,11 @@
         android:layout_below="@+id/newsHeadline"
         layout="@layout/contact_category_uderline" />
 
-    <TextView
-        android:id="@+id/newsDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/newsDivider"
-        android:text="DD.MM.YYYY HH:MM" />
 
-    <WebView
+    <TextView
         android:id="@+id/newsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/newsDate" />
+        android:layout_below="@+id/newsDivider" />
 
 </RelativeLayout>

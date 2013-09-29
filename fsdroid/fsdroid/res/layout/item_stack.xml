@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingLeft="@dimen/itemStackMargin"
+    android:paddingRight="@dimen/itemStackMargin" >
 
     <TextView
         android:id="@+id/stackTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:paddingTop="8dp"
+        android:paddingTop="@dimen/elementMargin"
         android:textColor="@color/card_title_text"
         android:textSize="16sp"
         android:visibility="gone" />
@@ -20,7 +20,7 @@
         android:id="@+id/stackContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="8dp" >
+        android:paddingTop="@dimen/elementMargin" >
     </RelativeLayout>
 
 </LinearLayout>

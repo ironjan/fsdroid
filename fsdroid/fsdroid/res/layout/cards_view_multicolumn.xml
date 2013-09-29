@@ -19,7 +19,7 @@
         android:id="@+id/sticky"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:paddingTop="@dimen/elementMarginHalf"
         android:visibility="gone" />
 
 </FrameLayout>

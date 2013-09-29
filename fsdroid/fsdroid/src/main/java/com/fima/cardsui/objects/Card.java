@@ -64,7 +64,7 @@ public abstract class Card extends AbstractCard {
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, 12);
+		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
 		lp.setMargins(0, 0, 0, bottom);
 
 		view.setLayoutParams(lp);
@@ -91,7 +91,7 @@ public abstract class Card extends AbstractCard {
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, 12);
+		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
 		lp.setMargins(0, 0, 0, bottom);
 
 		view.setLayoutParams(lp);
@@ -118,7 +118,7 @@ public abstract class Card extends AbstractCard {
 		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, 12);
+		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
 		lp.setMargins(0, 0, 0, bottom);
 
 		view.setLayoutParams(lp);

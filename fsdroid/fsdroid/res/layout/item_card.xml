@@ -3,11 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingBottom="@dimen/itemCardMargin"
+    android:paddingLeft="@dimen/itemCardMargin"
+    android:paddingRight="@dimen/itemCardMargin"
     >
-<!-- android:paddingTop="16dp"  -->
     <TextView
         android:id="@+id/title"
         style="@style/CardTitle"
@@ -17,8 +16,8 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/elementMarginHalf"
+        android:layout_marginTop="@dimen/elementMarginHalf"
         android:background="@color/stroke"
         android:visibility="invisible" />
 
