@@ -22,7 +22,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import de.upb.fsmi.R;
 
 public class CardStack extends AbstractCard {
-	private static final float _12F = 12f;
+	private static final float _12F = 8f;
 	private static final float _45F = 45f;
 	private static final String NINE_OLD_TRANSLATION_Y = "translationY";
 	private ArrayList<Card> cards;

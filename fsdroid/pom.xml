@@ -23,6 +23,7 @@
 		<robotium-solo.version>4.2</robotium-solo.version>
 		<osmdroid.version>4.0.9</osmdroid.version>
 		<android-rome-feed-reader.version>1.0.0-r2</android-rome-feed-reader.version>
+		<ormlite.version>3.0</ormlite.version>
 	</properties>
 
 	<groupId>de.upb.fsmi</groupId>

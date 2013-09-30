@@ -5,6 +5,8 @@ import java.util.List;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.fima.cardsui.views.CardUI;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
@@ -32,6 +34,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@ViewById
 	CardUI cardsview;
 
+	@ViewById
+	ProgressBar progressBar1;
 	@Bean
 	DataKeeper dataKeeper;
 
@@ -93,6 +97,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 			cardsview.addCard(card);
 		}
 
+		progressBar1.setVisibility(View.GONE);
 		refreshDisplayedData();
 	}
 

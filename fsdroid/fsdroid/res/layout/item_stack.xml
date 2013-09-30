@@ -20,7 +20,7 @@
         android:id="@+id/stackContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/elementMargin" >
+        android:paddingTop="@dimen/elementMarginHalf" >
     </RelativeLayout>
 
 </LinearLayout>
