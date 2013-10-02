@@ -45,7 +45,7 @@ public class DataKeeper {
 
 	@SuppressWarnings("nls")
 	private static final String MEETING_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ",
-			STATUS_URL = "http://karo-kaffee.upb.de/fsmi/status";
+			STATUS_URL = "https://fsmi.uni-paderborn.de/zeugs/buzzer/status";
 
 	private static final int _5_MINUTES = 1000 * 60 * 5;
 
