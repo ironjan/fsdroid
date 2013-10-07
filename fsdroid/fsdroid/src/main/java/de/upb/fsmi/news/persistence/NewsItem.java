@@ -48,7 +48,7 @@ public class NewsItem {
 		super();
 		this.author = item.getAuthor();
 		this.content = item.getContent().toString();
-		this.description = item.getDescription().toString();
+		this.description = item.getDescription().getValue();
 		this.link = item.getLink();
 		this.title = item.getTitle();
 		this.date = item.getPubDate();
