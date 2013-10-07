@@ -106,10 +106,16 @@
 		</dependency>
 
 		<dependency>
-		    <groupId>com.j256</groupId>
-		    <artifactId>ormlite</artifactId>
+		    <groupId>com.j256.ormlite</groupId>
+		    <artifactId>ormlite-android</artifactId>
 		    <version>${ormlite.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.j256.ormlite</groupId>
+		    <artifactId>ormlite-android</artifactId>
+		    <version>${ormlite.version}</version>
+		</dependency>
+				 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

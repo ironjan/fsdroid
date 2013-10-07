@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
 import com.fima.cardsui.objects.Card;
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
 
 import de.upb.fsmi.cards.views.NewsCardView;
 import de.upb.fsmi.cards.views.NewsCardView_;
+import de.upb.fsmi.news.persistence.NewsItem;
 
 public class NewsCard extends Card {
 
-	private Item mRssItem;
+	private NewsItem mRssItem;
 
 	@Override
 	public View getCardContent(Context pContext) {
@@ -24,8 +24,8 @@ public class NewsCard extends Card {
 		return view;
 	}
 
-	public void bind(Item pRssItem) {
-		mRssItem = pRssItem;
+	public void bind(NewsItem pItem) {
+		mRssItem = pItem;
 	}
 
 }

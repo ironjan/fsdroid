@@ -51,7 +51,7 @@
     <item name="newsDate" type="id"/>
     <item name="newsContent" type="id"/>
     <item name="newsTitle" type="id"/>
-    <item name="newsContent" type="id"/>
+    <item name="newsDescription" type="id"/>
     <!-- <item name="" type="id"/> -->
 
 </resources>

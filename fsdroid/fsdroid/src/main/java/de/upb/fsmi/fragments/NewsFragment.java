@@ -2,7 +2,9 @@ package de.upb.fsmi.fragments;
 
 import java.util.List;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -22,14 +24,18 @@ import com.googlecode.androidannotations.annotations.rest.RestService;
 
 import de.upb.fsmi.R;
 import de.upb.fsmi.cards.NewsCard;
+import de.upb.fsmi.db.DatabaseManager;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
 import de.upb.fsmi.news.RssRest;
+import de.upb.fsmi.news.persistence.NewsItem;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends Fragment implements UpdateCompletedListener {
+
+	private static final String TAG = NewsFragment.class.getSimpleName();
 
 	@ViewById
 	CardUI cardsview;
@@ -46,6 +52,14 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 			this);
 
 	private NewsCard dummyNewsCard;
+
+	private DatabaseManager databaseManager;
+
+	@Override
+	public void onCreate(Bundle pSavedInstanceState) {
+		super.onCreate(pSavedInstanceState);
+		databaseManager = DatabaseManager.getInstance();
+	}
 
 	@Override
 	public void onResume() {
@@ -70,13 +84,24 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	protected void initCardView() {
 		cardsview.setSwipeable(false);
 
-		dummyNewsCard = new NewsCard();
+		// dummyNewsCard = new NewsCard();
+		//
+		// cardsview.addCard(dummyNewsCard);
 
-		cardsview.addCard(dummyNewsCard);
-
-		refreshDisplayedData();
-
+		displayKnownNews();
+		
 		refreshNews();
+	}
+
+	private void displayKnownNews() {
+		List<NewsItem> allNewsItems = databaseManager.getAllNewsItems();
+		Log.v(TAG, "Displayed " + allNewsItems.size() + " news items");
+		showNews(allNewsItems);
+	}
+
+	@UiThread
+	protected void refreshDisplayedData() {
+		cardsview.refresh();
 	}
 
 	@Background
@@ -84,14 +109,18 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		Channel news = mRss.getNews();
 		@SuppressWarnings("unchecked")
 		List<Item> items = news.getItems();
-		showNews(items);
+
+		for (Item item : items) {
+			databaseManager.createOrUpdate(new NewsItem(item));
+		}
+		displayKnownNews();
 	}
 
 	@UiThread
-	void showNews(List<Item> pItems) {
+	void showNews(List<NewsItem> pNewsItems) {
 		cardsview.clearCards();
 
-		for (Item item : pItems) {
+		for (NewsItem item : pNewsItems) {
 			NewsCard card = new NewsCard();
 			card.bind(item);
 			cardsview.addCard(card);
@@ -99,11 +128,6 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 		progressBar1.setVisibility(View.GONE);
 		refreshDisplayedData();
-	}
-
-	@UiThread
-	protected void refreshDisplayedData() {
-		cardsview.refresh();
 	}
 
 	@Override
