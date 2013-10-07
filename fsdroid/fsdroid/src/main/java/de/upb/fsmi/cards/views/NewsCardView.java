@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.googlecode.androidannotations.annotations.EViewGroup;
 import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.res.StringRes;
 
 import de.upb.fsmi.R;
 import de.upb.fsmi.news.persistence.NewsItem;
@@ -15,13 +16,21 @@ public class NewsCardView extends RelativeLayout {
 	@ViewById
 	TextView newsHeadline, newsText;
 
+	@StringRes
+	String newsLoadingTitle, newsLoadingDescription;
+
 	public NewsCardView(String title, Context pContext) {
 		super(pContext);
 	}
 
 	public void bind(NewsItem pRssItem) {
-		newsHeadline.setText(pRssItem.getTitle());
-		displayItemContent(pRssItem.getDescription());
+		if (pRssItem != null) {
+			newsHeadline.setText(pRssItem.getTitle());
+			displayItemContent(pRssItem.getDescription());
+		} else {
+			newsHeadline.setText(newsLoadingTitle);
+			newsText.setText(newsLoadingDescription);
+		}
 	}
 
 	@SuppressWarnings("nls")

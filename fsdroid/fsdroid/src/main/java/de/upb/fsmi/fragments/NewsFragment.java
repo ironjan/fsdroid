@@ -4,11 +4,11 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.view.MenuItem;
 
 import com.fima.cardsui.views.CardUI;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
@@ -24,6 +24,7 @@ import com.googlecode.androidannotations.annotations.rest.RestService;
 
 import de.upb.fsmi.R;
 import de.upb.fsmi.cards.NewsCard;
+import de.upb.fsmi.cards.NewsCard_;
 import de.upb.fsmi.db.DatabaseManager;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
@@ -40,8 +41,6 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@ViewById
 	CardUI cardsview;
 
-	@ViewById
-	ProgressBar progressBar1;
 	@Bean
 	DataKeeper dataKeeper;
 
@@ -54,6 +53,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	private NewsCard dummyNewsCard;
 
 	private DatabaseManager databaseManager;
+
+	private MenuItem ab_refresh;
 
 	@Override
 	public void onCreate(Bundle pSavedInstanceState) {
@@ -77,6 +78,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
+		ab_refresh = menu.findItem(R.id.ab_refresh);
 	}
 
 	@AfterViews
@@ -84,28 +86,26 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	protected void initCardView() {
 		cardsview.setSwipeable(false);
 
-		// dummyNewsCard = new NewsCard();
-		//
-		// cardsview.addCard(dummyNewsCard);
+		dummyNewsCard = NewsCard_.getInstance_(getActivity());
+		cardsview.addCard(dummyNewsCard);
+		cardsview.refresh();
 
 		displayKnownNews();
-		
 		refreshNews();
 	}
 
-	private void displayKnownNews() {
+	@UiThread
+	void displayKnownNews() {
 		List<NewsItem> allNewsItems = databaseManager.getAllNewsItems();
 		Log.v(TAG, "Displayed " + allNewsItems.size() + " news items");
 		showNews(allNewsItems);
-	}
-
-	@UiThread
-	protected void refreshDisplayedData() {
-		cardsview.refresh();
+		displayProgressBar(false);
 	}
 
 	@Background
 	void refreshNews() {
+		displayProgressBar(true);
+		Log.v(TAG, "Refreshing news");
 		Channel news = mRss.getNews();
 		@SuppressWarnings("unchecked")
 		List<Item> items = news.getItems();
@@ -113,11 +113,25 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		for (Item item : items) {
 			databaseManager.createOrUpdate(new NewsItem(item));
 		}
+		Log.v(TAG, "Refresh complete.");
 		displayKnownNews();
+	}
+
+	private void displayProgressBar(boolean visible) {
+		if (null != ab_refresh) {
+			// TODO does not work
+			ab_refresh.setVisible(!visible);
+		}
+		ActionBarActivity activity = (ActionBarActivity) getActivity();
+		activity.setSupportProgressBarIndeterminateVisibility(visible);
 	}
 
 	@UiThread
 	void showNews(List<NewsItem> pNewsItems) {
+		if (pNewsItems.size() <= 0) {
+			return;
+		}
+
 		cardsview.clearCards();
 
 		for (NewsItem item : pNewsItems) {
@@ -126,13 +140,13 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 			cardsview.addCard(card);
 		}
 
-		progressBar1.setVisibility(View.GONE);
-		refreshDisplayedData();
+		cardsview.refresh();
 	}
 
 	@Override
+	@UiThread
 	public void updateCompleted() {
-		refreshDisplayedData();
+		cardsview.refresh();
 	}
 
 }
