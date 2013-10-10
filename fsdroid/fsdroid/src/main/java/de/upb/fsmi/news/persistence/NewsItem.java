@@ -11,7 +11,9 @@ public class NewsItem {
 
 	public static final String COLUMN_LINK = "link";
 
-	@DatabaseField(columnName = "_id", generatedId = true)
+	public static final String COLUMN_ID = "_id";
+
+	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
 	private long _id;
 
 	public long get_id() {
@@ -47,7 +49,7 @@ public class NewsItem {
 	public NewsItem(Item item) {
 		super();
 		this.author = item.getAuthor();
-		this.content = item.getContent().toString();
+		this.content = item.getContent().getValue();
 		this.description = item.getDescription().getValue();
 		this.link = item.getLink();
 		this.title = item.getTitle();

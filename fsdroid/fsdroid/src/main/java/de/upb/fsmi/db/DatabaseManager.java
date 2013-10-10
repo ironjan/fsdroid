@@ -67,4 +67,23 @@ public class DatabaseManager {
 		}
 		return false;
 	}
+
+	@SuppressWarnings("boxing")
+	public NewsItem getNewsItemByID(long pNews_id) {
+		try {
+			Dao<NewsItem, Integer> newsItemDao = getHelper().getNewsItemDao();
+			QueryBuilder<NewsItem, Integer> queryBuilder = newsItemDao
+					.queryBuilder();
+			PreparedQuery<NewsItem> preparedQuery = queryBuilder.where()
+					.eq(NewsItem.COLUMN_ID, pNews_id).prepare();
+			List<NewsItem> query = newsItemDao.query(preparedQuery);
+
+			if (query.size() == 1) {
+				return query.get(0);
+			}
+		} catch (SQLException e) {
+			Log.e(TAG, e.getMessage(), e);
+		}
+		return null;
+	}
 }
