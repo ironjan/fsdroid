@@ -17,6 +17,7 @@ import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EFragment;
+import com.googlecode.androidannotations.annotations.OptionsItem;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -93,6 +94,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		cardsview.addCard(dummyNewsCard);
 		cardsview.refresh();
 
+		displayProgressBar(true);
 		displayKnownNews();
 		refreshNews();
 	}
@@ -105,6 +107,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		displayProgressBar(false);
 	}
 
+	@OptionsItem(R.id.ab_refresh)
 	@Background
 	void refreshNews() {
 		displayProgressBar(true);
@@ -120,8 +123,10 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		displayKnownNews();
 	}
 
-	private void displayProgressBar(boolean visible) {
+	@UiThread
+	void displayProgressBar(boolean visible) {
 		mProgressShown = visible;
+		Log.v(TAG, "ProgressBar shown=" + visible);
 		if (null != ab_refresh) {
 			ab_refresh.setVisible(!visible);
 		}
