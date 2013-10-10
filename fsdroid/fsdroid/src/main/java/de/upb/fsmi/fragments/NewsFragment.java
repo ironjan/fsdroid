@@ -56,6 +56,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	private MenuItem ab_refresh;
 
+	private boolean mProgressShown;
+
 	@Override
 	public void onCreate(Bundle pSavedInstanceState) {
 		super.onCreate(pSavedInstanceState);
@@ -79,6 +81,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		ab_refresh = menu.findItem(R.id.ab_refresh);
+		displayProgressBar(mProgressShown);
 	}
 
 	@AfterViews
@@ -118,8 +121,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	}
 
 	private void displayProgressBar(boolean visible) {
+		mProgressShown = visible;
 		if (null != ab_refresh) {
-			// TODO does not work
 			ab_refresh.setVisible(!visible);
 		}
 		ActionBarActivity activity = (ActionBarActivity) getActivity();

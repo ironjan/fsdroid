@@ -45,8 +45,9 @@ public class FSDroid extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle pSavedInstanceState) {
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(pSavedInstanceState);
+		supportRequestWindowFeature(Window.FEATURE_PROGRESS);
+		supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 	}
 
 	@AfterViews
