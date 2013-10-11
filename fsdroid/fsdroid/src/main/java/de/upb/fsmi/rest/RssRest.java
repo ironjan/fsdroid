@@ -1,4 +1,4 @@
-package de.upb.fsmi.news;
+package de.upb.fsmi.rest;
 
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
 import com.googlecode.androidannotations.annotations.rest.Get;

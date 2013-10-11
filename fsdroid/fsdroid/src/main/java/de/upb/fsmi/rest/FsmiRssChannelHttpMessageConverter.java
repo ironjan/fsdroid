@@ -1,4 +1,4 @@
-package de.upb.fsmi.news;
+package de.upb.fsmi.rest;
 
 import org.springframework.http.converter.feed.AbstractWireFeedHttpMessageConverter;
 

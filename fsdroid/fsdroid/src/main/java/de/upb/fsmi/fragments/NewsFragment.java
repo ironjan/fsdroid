@@ -29,9 +29,9 @@ import de.upb.fsmi.cards.NewsCard_;
 import de.upb.fsmi.db.DatabaseManager;
 import de.upb.fsmi.helper.DataKeeper;
 import de.upb.fsmi.helper.UpdateCompletedListener;
-import de.upb.fsmi.news.RssRest;
 import de.upb.fsmi.news.persistence.NewsItem;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
+import de.upb.fsmi.rest.RssRest;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
