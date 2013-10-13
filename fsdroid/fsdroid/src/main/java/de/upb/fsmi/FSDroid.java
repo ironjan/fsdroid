@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,18 +43,23 @@ public class FSDroid extends ActionBarActivity {
 
 	private Fragment displayedFragment = null;
 
+	@Override
+	protected void onCreate(Bundle pSavedInstanceState) {
+		super.onCreate(pSavedInstanceState);
+		supportRequestWindowFeature(Window.FEATURE_PROGRESS);
+		supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+	}
+
 	@AfterViews
 	void addDrawerShadow() {
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		initDrawer();
 
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.add(R.id.content_frame, new NewsFragment_());
 		ft.commit();
 	}
-
 
 	private void initDrawer() {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

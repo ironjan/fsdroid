@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".FSApplication_"
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/appName"
@@ -33,6 +34,10 @@
             android:hardwareAccelerated="false"
             android:icon="@drawable/ic_launcher"
             android:label="Karte" >
+        </activity>
+        <activity
+            android:name="SingleNews_"
+            android:icon="@drawable/ic_launcher" >
         </activity>
 
         <receiver android:name=".widget.StatusAppWidgetProvider" >
