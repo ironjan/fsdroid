@@ -15,6 +15,7 @@ public class MyMapView extends MapView {
 		super(context, attrs);
 		setMultiTouchControls(true);
 		setTileSource(TileSourceFactory.MAPNIK);
+		setBuiltInZoomControls(true);
 	}
 
 }
