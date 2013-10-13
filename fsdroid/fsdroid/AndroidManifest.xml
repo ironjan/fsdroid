@@ -33,11 +33,19 @@
             android:name="Map_"
             android:hardwareAccelerated="false"
             android:icon="@drawable/ic_launcher"
-            android:label="Karte" >
+            android:label="Karte"
+            android:parentActivityName=".FSDroid_" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FSDroid_" />
         </activity>
         <activity
             android:name="SingleNews_"
-            android:icon="@drawable/ic_launcher" >
+            android:icon="@drawable/ic_launcher"
+            android:parentActivityName=".FSDroid_" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FSDroid_" />
         </activity>
 
         <receiver android:name=".widget.StatusAppWidgetProvider" >

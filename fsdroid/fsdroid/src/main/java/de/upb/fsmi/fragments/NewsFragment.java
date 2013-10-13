@@ -1,37 +1,24 @@
 package de.upb.fsmi.fragments;
 
-import java.util.List;
+import java.util.*;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.os.*;
+import android.support.v4.app.*;
+import android.support.v7.app.*;
+import android.util.*;
+import android.view.*;
 
-import com.fima.cardsui.views.CardUI;
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Background;
-import com.googlecode.androidannotations.annotations.Bean;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.OptionsItem;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.UiThread;
-import com.googlecode.androidannotations.annotations.ViewById;
-import com.googlecode.androidannotations.annotations.rest.RestService;
+import com.fima.cardsui.views.*;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.NewsCard;
-import de.upb.fsmi.cards.NewsCard_;
-import de.upb.fsmi.db.DatabaseManager;
-import de.upb.fsmi.helper.DataKeeper;
-import de.upb.fsmi.helper.UpdateCompletedListener;
-import de.upb.fsmi.news.persistence.NewsItem;
-import de.upb.fsmi.receivers.UpdateCompletedReceiver;
-import de.upb.fsmi.rest.RssRest;
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
+import de.upb.fsmi.db.*;
+import de.upb.fsmi.helper.*;
+import de.upb.fsmi.news.persistence.*;
+import de.upb.fsmi.receivers.*;
+import de.upb.fsmi.rest.*;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
@@ -45,8 +32,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Bean
 	DataKeeper dataKeeper;
 
-	@RestService
-	RssRest mRss;
+	@Bean
+	RestBean mRss;
 
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
@@ -113,14 +100,22 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		displayProgressBar(true);
 		Log.v(TAG, "Refreshing news");
 		Channel news = mRss.getNews();
+		persist(news);
+		Log.v(TAG, "Refresh complete.");
+		displayKnownNews();
+	}
+
+	private void persist(Channel news) {
+		if (null == news) {
+			return;
+		}
+		
 		@SuppressWarnings("unchecked")
 		List<Item> items = news.getItems();
 
 		for (Item item : items) {
 			databaseManager.createOrUpdate(new NewsItem(item));
 		}
-		Log.v(TAG, "Refresh complete.");
-		displayKnownNews();
 	}
 
 	@UiThread
