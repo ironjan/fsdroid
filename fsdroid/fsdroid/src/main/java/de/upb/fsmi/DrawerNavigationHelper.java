@@ -11,7 +11,7 @@ final class DrawerNavigationHelper {
 	private static NewsFragment_ newsFragment;
 	private static MapFragment_ mapFragment;
 
-	public static void navigate(FSDroid activity, View clickedView) {
+	public static void navigate(DrawerActivity activity, View clickedView) {
 		TestFragment tf = new TestFragment();
 		switch (clickedView.getId()) {
 		case R.id.drawerItemNews:

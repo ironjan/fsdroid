@@ -1,8 +1,7 @@
 package de.upb.fsmi.it;
 
 import android.test.ActivityInstrumentationTestCase2;
-import de.upb.fsmi.FSDroid;
-import de.upb.fsmi.FSDroid_;
+import de.upb.fsmi.*;
 
 public class HelloAndroidActivityTest extends
 		ActivityInstrumentationTestCase2<FSDroid_> {
@@ -13,7 +12,7 @@ public class HelloAndroidActivityTest extends
 	}
 
 	public void testActivity() {
-		FSDroid activity = getActivity();
+		DrawerActivity activity = getActivity();
 		assertNotNull(activity);
 	}
 }

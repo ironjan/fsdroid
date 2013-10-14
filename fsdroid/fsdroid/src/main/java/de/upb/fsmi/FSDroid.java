@@ -16,7 +16,7 @@ import com.googlecode.androidannotations.annotations.*;
 import de.upb.fsmi.fragments.*;
 
 @EActivity(R.layout.activity_with_drawer)
-public class FSDroid extends ActionBarActivity {
+public class FSDroid extends ActionBarActivity implements DrawerActivity {
 	static final String TAG = FSDroid.class.getSimpleName();
 
 	DrawerLayout mDrawerLayout;
@@ -132,7 +132,8 @@ public class FSDroid extends ActionBarActivity {
 		Toast.makeText(FSDroid.this, text, Toast.LENGTH_LONG).show();
 	}
 
-	void switchContentTo(Fragment fragment) {
+	@Override
+	public void switchContentTo(Fragment fragment) {
 		if (displayedFragment == fragment) {
 			return;
 		}
