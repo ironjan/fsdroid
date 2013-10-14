@@ -23,6 +23,7 @@
     <string name="contact">Kontakt</string>
     <string name="drawerCategoryAboutApp">Der Fachschaftsdroide</string>
     <string name="about">Über die App</string>
+<string name="map">Karte</string>
 
     <!-- drawer -->
     <string name="drawer_open">Open Drawer</string>

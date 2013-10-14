@@ -1,27 +1,34 @@
 package de.upb.fsmi.fragments;
 
-import android.support.v4.app.Fragment;
+import android.support.v4.app.*;
+import android.support.v7.app.*;
 
-import com.fima.cardsui.views.CardUI;
-import com.googlecode.androidannotations.annotations.AfterInject;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.ViewById;
-import com.googlecode.androidannotations.annotations.res.StringArrayRes;
+import com.fima.cardsui.views.*;
+import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.res.*;
 
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.LibraryCard;
-import de.upb.fsmi.cards.entities.Library;
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
+import de.upb.fsmi.cards.entities.*;
 
 @EFragment(R.layout.fragment_licenses)
 public class LibrariesFragment extends Fragment {
 	@StringArrayRes
 	String[] libraryLicenses, libraryNames, libraryLinks, libraryDescriptions;
 
+	@StringRes
+	String about;
 	Library[] libraries;
 
 	@ViewById
 	CardUI cardsview;
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(
+				about);
+	}
 
 	@AfterInject
 	void initLibraries() {

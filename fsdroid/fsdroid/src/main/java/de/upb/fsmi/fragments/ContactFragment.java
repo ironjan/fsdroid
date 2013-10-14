@@ -1,27 +1,30 @@
 package de.upb.fsmi.fragments;
 
-import android.content.Intent;
-import android.provider.ContactsContract;
-import android.support.v4.app.Fragment;
+import android.content.*;
+import android.provider.*;
+import android.support.v4.app.*;
+import android.support.v7.app.*;
 
-import com.fima.cardsui.views.CardUI;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.OptionsItem;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.ViewById;
-import com.googlecode.androidannotations.annotations.res.StringRes;
+import com.fima.cardsui.views.*;
+import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.res.*;
 
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.ContactCard;
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
 
 @EFragment(R.layout.fragment_contact)
 @OptionsMenu(R.menu.menu_contact)
 public class ContactFragment extends Fragment {
 
 	@StringRes
-	String fsmiAddress, fsmiMail, fsmiTelephone, fsmiQueryAddress;
+	String fsmiAddress, fsmiMail, fsmiTelephone, fsmiQueryAddress,contact;
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		((ActionBarActivity) getActivity()).getSupportActionBar()
+				.setTitle(contact);
+		}
 	@OptionsItem(R.id.ab_add_to_contacts)
 	void addFsmiToContacts() {
 		Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);

@@ -11,6 +11,7 @@ import android.view.*;
 import com.fima.cardsui.views.*;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
 import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.res.*;
 import com.googlecode.androidannotations.annotations.sharedpreferences.*;
 
 import de.upb.fsmi.*;
@@ -50,6 +51,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	private boolean mProgressShown;
 
+	@StringRes
+	String news;
+
 	@Override
 	public void onCreate(Bundle pSavedInstanceState) {
 		super.onCreate(pSavedInstanceState);
@@ -61,6 +65,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		updateCompletedReceiver.registerReceiver(getActivity()
 				.getApplicationContext());
 		super.onResume();
+		((ActionBarActivity) getActivity()).getSupportActionBar()
+				.setTitle(news);
 	}
 
 	@Override
