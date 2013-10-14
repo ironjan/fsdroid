@@ -11,6 +11,7 @@ import android.view.*;
 import com.fima.cardsui.views.*;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
 import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.sharedpreferences.*;
 
 import de.upb.fsmi.*;
 import de.upb.fsmi.cards.*;
@@ -35,6 +36,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Bean
 	RestBean mRss;
 
+	@Pref
+	MeetingPrefs_ mPrefs;
+	
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
 
@@ -83,6 +87,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 		displayProgressBar(true);
 		displayKnownNews();
+		
 		refreshNews();
 	}
 
@@ -97,6 +102,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@OptionsItem(R.id.ab_refresh)
 	@Background
 	void refreshNews() {
+		long currentTimeMillis = System.currentTimeMillis();
+		
 		displayProgressBar(true);
 		Log.v(TAG, "Refreshing news");
 		Channel news = mRss.getNews();

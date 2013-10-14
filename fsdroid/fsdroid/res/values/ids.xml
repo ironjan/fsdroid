@@ -9,13 +9,9 @@
 
     <!-- drawer -->
     <item name="drawerItemNews" type="id"/>
-    <item name="drawerItemOPhase" type="id"/>
     <item name="drawerItemMisc" type="id"/>
-    <item name="drawerItemCouncil" type="id"/>
-    <item name="drawerItemMeetings" type="id"/>
     <item name="drawerItemContact" type="id"/>
     <item name="drawerItemAbout" type="id"/>
-    <item name="drawerItemLicenses" type="id"/>
     <item name="drawerItemMap" type="id"/>
 
     <!-- council -->

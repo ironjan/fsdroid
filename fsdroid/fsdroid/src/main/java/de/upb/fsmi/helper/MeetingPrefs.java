@@ -1,8 +1,6 @@
 package de.upb.fsmi.helper;
 
-import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultInt;
-import com.googlecode.androidannotations.annotations.sharedpreferences.DefaultLong;
-import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPref;
+import com.googlecode.androidannotations.annotations.sharedpreferences.*;
 import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPref.Scope;
 
 /**
@@ -42,4 +40,12 @@ public interface MeetingPrefs {
 	 */
 	@DefaultLong(0L)
 	public long lastStatusUpdateInMillis();
+	
+	/**
+	 * time of the last news update in millis
+	 * 
+	 * @return a pref editor
+	 */
+	@DefaultLong(0L)
+	public long lastNewsUpdateInMillis();
 }

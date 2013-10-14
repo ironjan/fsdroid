@@ -1,19 +1,13 @@
 package de.upb.fsmi;
 
-import android.support.v4.app.Fragment;
-import android.view.View;
-import de.upb.fsmi.fragments.ContactFragment_;
-import de.upb.fsmi.fragments.CouncilFragment_;
-import de.upb.fsmi.fragments.LibrariesFragment_;
-import de.upb.fsmi.fragments.MapFragment_;
-import de.upb.fsmi.fragments.NewsFragment_;
-import de.upb.fsmi.fragments.TestFragment;
+import android.support.v4.app.*;
+import android.view.*;
+import de.upb.fsmi.fragments.*;
 
 final class DrawerNavigationHelper {
 
 	private static LibrariesFragment_ librariesFragment;
 	private static ContactFragment_ contactFragment;
-	private static CouncilFragment_ councilFragment;
 	private static NewsFragment_ newsFragment;
 	private static MapFragment_ mapFragment;
 
@@ -23,22 +17,11 @@ final class DrawerNavigationHelper {
 		case R.id.drawerItemNews:
 			activity.switchContentTo(getNewsFragment());
 			break;
-		case R.id.drawerItemOPhase:
-			tf.setText("ophase");
-			activity.switchContentTo(tf);
-						break;
 		case R.id.drawerItemMap:
 			activity.switchContentTo(getMapFragment());
 			break;
 		case R.id.drawerItemMisc:
 			tf.setText("misc");
-			activity.switchContentTo(tf);
-			break;
-		case R.id.drawerItemCouncil:
-			activity.switchContentTo(getCouncilFragment());
-			break;
-		case R.id.drawerItemMeetings:
-			tf.setText("meetings");
 			activity.switchContentTo(tf);
 			break;
 		case R.id.drawerItemContact:
@@ -73,13 +56,6 @@ final class DrawerNavigationHelper {
 			contactFragment = new ContactFragment_();
 		}
 		return contactFragment;
-	}
-
-	private static CouncilFragment_ getCouncilFragment() {
-		if (councilFragment == null) {
-			councilFragment = new CouncilFragment_();
-		}
-		return councilFragment;
 	}
 
 	private static NewsFragment_ getNewsFragment() {

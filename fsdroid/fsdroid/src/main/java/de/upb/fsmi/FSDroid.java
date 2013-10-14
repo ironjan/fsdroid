@@ -1,29 +1,19 @@
 package de.upb.fsmi;
 
-import android.annotation.SuppressLint;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
+import android.annotation.*;
+import android.content.res.*;
+import android.os.*;
+import android.support.v4.app.*;
+import android.support.v4.view.*;
+import android.support.v4.widget.*;
+import android.support.v7.app.*;
 import android.support.v7.app.ActionBar.Tab;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Gravity;
-import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.*;
+import android.widget.*;
 
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Click;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.OptionsItem;
-import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.upb.fsmi.fragments.NewsFragment_;
+import de.upb.fsmi.fragments.*;
 
 @EActivity(R.layout.activity_with_drawer)
 public class FSDroid extends ActionBarActivity {
@@ -72,10 +62,8 @@ public class FSDroid extends ActionBarActivity {
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 
-	@Click({ R.id.drawerItemNews, R.id.drawerItemOPhase, R.id.drawerItemMisc,
-			R.id.drawerItemCouncil, R.id.drawerItemMeetings,
-			R.id.drawerItemContact, R.id.drawerItemAbout,
-			R.id.drawerItemLicenses, R.id.drawerItemMap })
+	@Click({ R.id.drawerItemNews, R.id.drawerItemMisc, R.id.drawerItemContact,
+			R.id.drawerItemAbout, R.id.drawerItemMap })
 	void navigationDrawerElementsClicked(View v) {
 		DrawerNavigationHelper.navigate(this, v);
 	}
