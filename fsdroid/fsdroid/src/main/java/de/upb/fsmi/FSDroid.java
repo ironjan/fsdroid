@@ -7,9 +7,7 @@ import android.support.v4.app.*;
 import android.support.v4.view.*;
 import android.support.v4.widget.*;
 import android.support.v7.app.*;
-import android.support.v7.app.ActionBar.Tab;
 import android.view.*;
-import android.widget.*;
 
 import com.googlecode.androidannotations.annotations.*;
 
@@ -21,15 +19,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
 	DrawerLayout mDrawerLayout;
 
-	@ViewById
-	TextView drawerItemNews, drawerItemOPhase, drawerItemMisc,
-			drawerItemCouncil, drawerItemMeetings, drawerItemContact,
-			drawerItemAbout, drawerItemLicenses;
-
 	ActionBarDrawerToggle mDrawerToggle;
-
-	private Tab[] tabs = null;
-	private int selectedTab = 0;
 
 	private Fragment displayedFragment = null;
 
@@ -74,46 +64,12 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
 			closeDrawer();
 		} else {
-			openDrawer();
+			mDrawerLayout.openDrawer(Gravity.LEFT);
 		}
 	}
 
 	private void closeDrawer() {
 		mDrawerLayout.closeDrawer(Gravity.LEFT);
-		restoreTabs();
-	}
-
-	private void restoreTabs() {
-		if (tabs == null || tabs.length == 0) {
-			return;
-		}
-
-		ActionBar ab = getSupportActionBar();
-		ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		for (int i = 0; i < tabs.length; i++) {
-			ab.addTab(tabs[i]);
-		}
-		tabs = null;
-	}
-
-	private void openDrawer() {
-		if (ActionBar.NAVIGATION_MODE_TABS == getSupportActionBar()
-				.getNavigationMode()) {
-			saveTabs();
-		}
-		mDrawerLayout.openDrawer(Gravity.LEFT);
-	}
-
-	private void saveTabs() {
-		ActionBar ab = getSupportActionBar();
-		selectedTab = ab.getSelectedTab().getPosition();
-		final int count = ab.getTabCount();
-		tabs = new Tab[count];
-		for (int i = 0; i < count; i++) {
-			tabs[i] = ab.getTabAt(i);
-		}
-		ab.removeAllTabs();
-		ab.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 	}
 
 	@Override
@@ -126,10 +82,6 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		mDrawerToggle.syncState();
-	}
-
-	void notifyUser(String text) {
-		Toast.makeText(FSDroid.this, text, Toast.LENGTH_LONG).show();
 	}
 
 	@Override

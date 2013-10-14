@@ -4,6 +4,9 @@ import android.support.v4.app.*;
 import android.view.*;
 import de.upb.fsmi.fragments.*;
 
+/**
+ * Used for navigation by drawer
+ */
 final class DrawerNavigationHelper {
 
 	private static LibrariesFragment_ librariesFragment;
@@ -11,6 +14,14 @@ final class DrawerNavigationHelper {
 	private static NewsFragment_ newsFragment;
 	private static MapFragment_ mapFragment;
 
+	/**
+	 * Switches the activity's content to the one navigated to.
+	 * 
+	 * @param activity
+	 *            the "drawer's activity"
+	 * @param clickedView
+	 *            the clicked drawer item
+	 */
 	public static void navigate(DrawerActivity activity, View clickedView) {
 		TestFragment tf = new TestFragment();
 		switch (clickedView.getId()) {
