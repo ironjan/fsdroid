@@ -18,8 +18,8 @@
     </string-array>
     <string-array name="libraryLinks">
         <item></item>
-        <item>https://github.com/nadavfima/cardsui-for-android</item>
         <item>http://androidannotations.org/</item>
+        <item>https://github.com/nadavfima/cardsui-for-android</item>
         <item>http://wiki.fasterxml.com/JacksonHome</item>
         <item>http://nineoldandroids.com/</item>
         <item>http://www.springsource.org/spring-android</item>
