@@ -1,16 +1,12 @@
 package de.upb.fsmi.widget;
 
-import android.app.PendingIntent;
-import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-import android.widget.RemoteViews;
-import de.upb.fsmi.FSDroid_;
-import de.upb.fsmi.R;
-import de.upb.fsmi.helper.DataKeeper;
-import de.upb.fsmi.helper.DataKeeper_;
+import android.app.*;
+import android.appwidget.*;
+import android.content.*;
+import android.util.*;
+import android.widget.*;
+import de.upb.fsmi.*;
+import de.upb.fsmi.helper.*;
 
 public class StatusAppWidgetProvider extends AppWidgetProvider {
 
@@ -20,6 +16,7 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 	public StatusAppWidgetProvider() {
 		super();
 	}
+	
 
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
@@ -32,6 +29,7 @@ public class StatusAppWidgetProvider extends AppWidgetProvider {
 		Call c = new Call(context, appWidgetManager, appWidgetIds, views);
 		DataKeeper dataKeeper = DataKeeper_.getInstance_(context);
 		dataKeeper.refresh(c);
+		super.onUpdate(context, appWidgetManager, appWidgetIds);
 	}
 
 	private static RemoteViews addOnClickListener(Context context) {
