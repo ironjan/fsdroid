@@ -27,7 +27,7 @@
     <string-array name="libraryLicenses">
         <item>@string/apacheLicense</item> <!-- fsdroid -->
         <item>@string/apacheLicense</item> <!-- aa -->
-        <item>@string/unknownLicense</item> <!-- cards -->
+        <item>@string/apacheLicense</item> <!-- cards -->
         <item>@string/apacheLicense</item> <!-- jackson -->
         <item>@string/apacheLicense</item> <!-- 9 old -->
         <item>@string/apacheLicense</item> <!-- spring -->
