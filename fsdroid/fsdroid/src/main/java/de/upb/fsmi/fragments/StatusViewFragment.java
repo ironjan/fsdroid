@@ -1,31 +1,25 @@
 package de.upb.fsmi.fragments;
 
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.widget.Toast;
+import android.support.v4.app.*;
+import android.util.*;
+import android.view.*;
+import android.widget.*;
 
-import com.fima.cardsui.views.CardUI;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Bean;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.UiThread;
-import com.googlecode.androidannotations.annotations.ViewById;
+import com.fima.cardsui.views.*;
+import com.googlecode.androidannotations.annotations.*;
 
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.StatusCard;
-import de.upb.fsmi.helper.DataKeeper;
-import de.upb.fsmi.helper.UpdateCompletedListener;
-import de.upb.fsmi.receivers.UpdateCompletedReceiver;
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
+import de.upb.fsmi.helper.*;
+import de.upb.fsmi.receivers.*;
 
-@EFragment(R.layout.fragment_status_view)
-public class StatusViewFragment extends Fragment implements UpdateCompletedListener {
+@EFragment(R.layout.empty_view)
+public class StatusViewFragment extends Fragment implements
+		UpdateCompletedListener {
 
 	private static final String TAG = StatusViewFragment.class.getSimpleName();
 
-	@ViewById
-	CardUI statusCardsview;
+	private CardUI cardsView;
 
 	@Bean
 	DataKeeper dataKeeper;
@@ -39,6 +33,7 @@ public class StatusViewFragment extends Fragment implements UpdateCompletedListe
 	public void onResume() {
 		updateCompletedReceiver.registerReceiver(getActivity()
 				.getApplicationContext());
+		cardsView = (CardUI) getActivity().findViewById(R.id.cardsview);
 		super.onResume();
 	}
 
@@ -56,11 +51,10 @@ public class StatusViewFragment extends Fragment implements UpdateCompletedListe
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
-		statusCardsview.setSwipeable(false);
 
 		statusCard = new StatusCard(dataKeeper.getFsmiState());
 
-		statusCardsview.addCard(statusCard);
+		cardsView.addCard(statusCard);
 
 		refreshDisplayedData();
 	}
@@ -68,7 +62,7 @@ public class StatusViewFragment extends Fragment implements UpdateCompletedListe
 	@UiThread
 	protected void refreshDisplayedData() {
 		refreshStatusCard();
-		statusCardsview.refresh();
+		cardsView.refresh();
 	}
 
 	void refreshStatusCard() {

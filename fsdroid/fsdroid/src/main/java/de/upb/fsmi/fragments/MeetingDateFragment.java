@@ -15,14 +15,13 @@ import de.upb.fsmi.cards.*;
 import de.upb.fsmi.helper.*;
 import de.upb.fsmi.receivers.*;
 
-@EFragment(R.layout.fragment_meeting_date)
+@EFragment(R.layout.empty_view)
 public class MeetingDateFragment extends Fragment implements
 		UpdateCompletedListener {
 
 	private static final String TAG = MeetingDateFragment.class.getSimpleName();
 
-	@ViewById
-	CardUI meetingCardsview;
+	CardUI cardsView;
 
 	@Bean
 	DataKeeper dataKeeper;
@@ -37,6 +36,7 @@ public class MeetingDateFragment extends Fragment implements
 		updateCompletedReceiver.registerReceiver(getActivity()
 				.getApplicationContext());
 		super.onResume();
+		cardsView = (CardUI) getActivity().findViewById(R.id.cardsview);
 	}
 
 	@Override
@@ -53,13 +53,12 @@ public class MeetingDateFragment extends Fragment implements
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
-		meetingCardsview.setSwipeable(false);
+		cardsView.setSwipeable(false);
 
 		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
 		if (nextMeetingDate != null) {
 			displayDate(nextMeetingDate);
-		}
-		else{
+		} else {
 			refreshDate();
 		}
 	}
@@ -80,7 +79,7 @@ public class MeetingDateFragment extends Fragment implements
 	@UiThread
 	void displayDate(Date nextMeetingDate) {
 		meetingCard = new MeetingCard(nextMeetingDate);
-		meetingCardsview.addCard(meetingCard);
+		cardsView.addCard(meetingCard);
 
 		refreshDisplayedData();
 	}
@@ -88,7 +87,7 @@ public class MeetingDateFragment extends Fragment implements
 	@UiThread
 	protected void refreshDisplayedData() {
 		refreshMeetingCard();
-		meetingCardsview.refresh();
+		cardsView.refresh();
 	}
 
 	void refreshMeetingCard() {

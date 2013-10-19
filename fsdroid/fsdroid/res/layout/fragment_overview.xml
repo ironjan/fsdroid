@@ -6,16 +6,10 @@
     android:orientation="vertical"
     android:paddingBottom="@dimen/card_padding" >
 
-    <fragment
-        android:id="@+id/fragment1"
-        android:name="de.upb.fsmi.fragments.StatusViewFragment_"
+     <com.fima.cardsui.views.CardUI
+        android:id="@+id/cardsView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="de.upb.fsmi.fragments.MeetingDateFragment_"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" >
+    </com.fima.cardsui.views.CardUI>
 
 </LinearLayout>
