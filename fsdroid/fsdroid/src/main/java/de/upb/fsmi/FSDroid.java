@@ -31,14 +31,16 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 	}
 
 	@AfterViews
-	void addDrawerShadow() {
+	void init() {
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		initDrawer();
 
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-		ft.add(R.id.content_frame, new NewsFragment_());
-		ft.commit();
+		initStartContent();
+	}
+
+	private void initStartContent() {
+		switchContentTo(new OverviewFragment_());
 	}
 
 	private void initDrawer() {
@@ -53,7 +55,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 	}
 
 	@Click({ R.id.drawerItemNews, R.id.drawerItemMisc, R.id.drawerItemContact,
-			R.id.drawerItemAbout, R.id.drawerItemMap })
+			R.id.drawerItemAbout, R.id.drawerItemMap, R.id.drawerItemMisc })
 	void navigationDrawerElementsClicked(View v) {
 		DrawerNavigationHelper.navigate(this, v);
 	}

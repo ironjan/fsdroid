@@ -13,6 +13,7 @@ final class DrawerNavigationHelper {
 	private static ContactFragment_ contactFragment;
 	private static NewsFragment_ newsFragment;
 	private static MapFragment_ mapFragment;
+	private static OverviewFragment_ overviewFragment;
 
 	/**
 	 * Switches the activity's content to the one navigated to.
@@ -32,8 +33,7 @@ final class DrawerNavigationHelper {
 			activity.switchContentTo(getMapFragment());
 			break;
 		case R.id.drawerItemMisc:
-			tf.setText("misc");
-			activity.switchContentTo(tf);
+			activity.switchContentTo(getOverviewFragment());
 			break;
 		case R.id.drawerItemContact:
 			activity.switchContentTo(getContactFragment());
@@ -46,6 +46,13 @@ final class DrawerNavigationHelper {
 			activity.switchContentTo(tf);
 			break;
 		}
+	}
+
+	private static Fragment getOverviewFragment() {
+		if (overviewFragment == null) {
+			overviewFragment = new OverviewFragment_();
+		}
+		return overviewFragment;
 	}
 
 	private static Fragment getMapFragment() {
