@@ -1,17 +1,19 @@
 package de.upb.fsmi.news.persistence;
 
-import java.util.Date;
+import java.util.*;
 
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+import com.j256.ormlite.field.*;
+import com.j256.ormlite.table.*;
 
 @DatabaseTable(tableName = "newsItems")
-public class NewsItem {
+public class NewsItem implements Comparable<NewsItem> {
 
 	public static final String COLUMN_LINK = "link";
 
 	public static final String COLUMN_ID = "_id";
+
+	public static final String COLUMN_DATE = "date";
 
 	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
 	private long _id;
@@ -39,7 +41,7 @@ public class NewsItem {
 	@DatabaseField(columnName = "title")
 	private String title;
 
-	@DatabaseField(columnName = "date")
+	@DatabaseField(columnName = COLUMN_DATE)
 	private Date date;
 
 	public NewsItem() {
@@ -102,6 +104,13 @@ public class NewsItem {
 
 	public void setDate(Date pDate) {
 		date = pDate;
+	}
+
+	@Override
+	public int compareTo(NewsItem pAnother) {
+		int ascending = date.compareTo(pAnother.date);
+		int descending = -ascending;
+		return descending ;
 	}
 
 }

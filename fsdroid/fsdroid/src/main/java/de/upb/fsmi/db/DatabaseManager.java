@@ -40,7 +40,8 @@ public class DatabaseManager {
 		String tag = "getAllNewsItems(): ";
 		List<NewsItem> newsItems = null;
 		try {
-			newsItems = getHelper().getNewsItemDao().queryForAll();
+			newsItems = (List<NewsItem>) getHelper().getNewsItemDao().queryForAll();
+			Collections.sort(newsItems);
 			Log.d(TAG, tag + "Found " + newsItems.size() + " news items.");
 		} catch (SQLException e) {
 			Log.e(TAG, tag + e.getMessage(), e);
