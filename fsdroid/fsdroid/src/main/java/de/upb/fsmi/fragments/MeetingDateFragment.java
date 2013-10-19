@@ -1,23 +1,19 @@
 package de.upb.fsmi.fragments;
 
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.widget.Toast;
+import java.util.*;
 
-import com.fima.cardsui.views.CardUI;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Bean;
-import com.googlecode.androidannotations.annotations.EFragment;
-import com.googlecode.androidannotations.annotations.UiThread;
-import com.googlecode.androidannotations.annotations.ViewById;
+import android.support.v4.app.*;
+import android.util.*;
+import android.view.*;
+import android.widget.*;
 
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.MeetingCard;
-import de.upb.fsmi.helper.DataKeeper;
-import de.upb.fsmi.helper.UpdateCompletedListener;
-import de.upb.fsmi.receivers.UpdateCompletedReceiver;
+import com.fima.cardsui.views.*;
+import com.googlecode.androidannotations.annotations.*;
+
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
+import de.upb.fsmi.helper.*;
+import de.upb.fsmi.receivers.*;
 
 @EFragment(R.layout.fragment_meeting_date)
 public class MeetingDateFragment extends Fragment implements
@@ -59,7 +55,31 @@ public class MeetingDateFragment extends Fragment implements
 	protected void initCardView() {
 		meetingCardsview.setSwipeable(false);
 
-		meetingCard = new MeetingCard(dataKeeper.getNextMeetingDate());
+		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
+		if (nextMeetingDate != null) {
+			displayDate(nextMeetingDate);
+		}
+		else{
+			refreshDate();
+		}
+	}
+
+	@Background
+	void refreshDate() {
+		try {
+			dataKeeper.refresh(false);
+		} catch (NoAvailableNetworkException e) {
+			Log.e(TAG, e.getMessage(), e);
+		}
+		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
+		if (nextMeetingDate != null) {
+			displayDate(nextMeetingDate);
+		}
+	}
+
+	@UiThread
+	void displayDate(Date nextMeetingDate) {
+		meetingCard = new MeetingCard(nextMeetingDate);
 		meetingCardsview.addCard(meetingCard);
 
 		refreshDisplayedData();
@@ -74,7 +94,6 @@ public class MeetingDateFragment extends Fragment implements
 	void refreshMeetingCard() {
 		meetingCard.setDate(dataKeeper.getNextMeetingDate());
 	}
-
 
 	void logError(Exception e) {
 		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();

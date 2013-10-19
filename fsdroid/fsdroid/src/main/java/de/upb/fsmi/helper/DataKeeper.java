@@ -1,42 +1,23 @@
 package de.upb.fsmi.helper;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.io.*;
+import java.net.*;
+import java.text.*;
+import java.util.*;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.parsers.*;
+import javax.xml.xpath.*;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+import org.w3c.dom.*;
+import org.xml.sax.*;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+import android.annotation.*;
+import android.content.*;
+import android.util.*;
 
-import com.googlecode.androidannotations.annotations.Background;
-import com.googlecode.androidannotations.annotations.Bean;
-import com.googlecode.androidannotations.annotations.EBean;
-import com.googlecode.androidannotations.annotations.RootContext;
-import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
-import com.googlecode.androidannotations.api.Scope;
+import com.googlecode.androidannotations.annotations.*;
+import com.googlecode.androidannotations.annotations.sharedpreferences.*;
+import com.googlecode.androidannotations.api.*;
 
 import de.upb.fsmi.widget.StatusAppWidgetProvider.Call;
 
@@ -74,12 +55,14 @@ public class DataKeeper {
 
 	@SuppressWarnings("nls")
 	public Date getNextMeetingDate() {
+		Log.v(DataKeeper.class.getSimpleName(), "getNextMeetingDate()");
 		if (date == null && hasRecentDate()) {
 			Log.v(TAG,
 					"date == null and recent date available, fetching from prefs.");
 			long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
 			date = new Date(nextMeetingInMillis);
 		}
+		
 		DateFormat df = DateFormat.getDateTimeInstance();
 		Log.v(TAG, "Date of next meeting: "
 				+ (date != null ? df.format(date) : "null"));
