@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="cardInnerPadding">8dp</dimen>
+    <dimen name="buttonSize">48dp</dimen>
+    <dimen name="cardMargin">8dp</dimen>
+    <dimen name="elementMargin">8dp</dimen>
+    <dimen name="elementMarginDouble">16dp</dimen>
+    <dimen name="elementMarginHalf">4dp</dimen>
+    <dimen name="cardShadow">2dp</dimen>
+    <dimen name="itemCardMargin">@dimen/elementMargin</dimen>
+    <dimen name="itemStackMargin">@dimen/elementMargin</dimen>
+    <dimen name="card_bottom_margin">@dimen/elementMargin</dimen>
+    <dimen name="councilCardImageViewSize">96dp</dimen>
+    <dimen name="contactCardCategoryTitleHeight">32dp</dimen>
+    <dimen name="contactCardActionPadding">4dp</dimen>
+    <dimen name="foo">24dp</dimen>
+
+</resources>

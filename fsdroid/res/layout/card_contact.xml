@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/elementMargin" >
+
+    <!-- phone -->
+
+    <TextView
+        style="@style/ContactCategoryHeadline"
+        android:text="@string/telefon" />
+
+    <include layout="@layout/contact_category_uderline" />
+
+    <TextView
+        android:id="@id/txtTelephone"
+        style="@style/ContactCategoryItem"
+        android:text="@string/fsmiTelephone" />
+
+    <!-- mail -->
+
+    <TextView
+        style="@style/ContactCategoryHeadline"
+        android:text="@string/email" />
+
+    <include layout="@layout/contact_category_uderline" />
+
+    <TextView
+        android:id="@id/txtMail"
+        style="@style/ContactCategoryItem"
+        android:text="@string/fsmiMail" />
+
+    <!-- address -->
+
+    <TextView
+        style="@style/ContactCategoryHeadline"
+        android:text="@string/adresse" />
+
+    <include layout="@layout/contact_category_uderline" />
+
+    <TextView
+        android:id="@id/txtAddress"
+        style="@style/ContactCategoryItem"
+        android:text="@string/fsmiAddress" />
+
+</LinearLayout>

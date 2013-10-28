@@ -3,16 +3,369 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
-
 	<groupId>de.upb.fsmi</groupId>
-	<artifactId>fsdroid-parent</artifactId>
+	<artifactId>fsdroid</artifactId>
 	<version>0.0.1</version>
-	<packaging>pom</packaging>
-	<name>fsdroid - Parent</name>
+	<packaging>apk</packaging>
+	<name>fsdroid - Application</name>
 
-	<modules>
-		<module>fsdroid</module>
-	</modules>
+
+	<repositories>
+		<repository>
+			<id>android-rome-feed-reader-repository</id>
+			<name>Android ROME Feed Reader Repository</name>
+			<url>https://android-rome-feed-reader.googlecode.com/svn/maven2/releases</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<fsdroid.version>0.0.1</fsdroid.version>
+		<platform.version>4.3_r2</platform.version>
+		<target.sdk>18</target.sdk>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<android-maven-plugin.version>3.6.0</android-maven-plugin.version>
+		<support-library.version>18</support-library.version>
+		<robolectric.version>2.1.1</robolectric.version>
+		<refreshactionitem.version>1.0.3</refreshactionitem.version>
+		<crouton.version>1.8.1</crouton.version>
+		<junit.version>4.10</junit.version>
+		<androidannotations.version>2.7.1</androidannotations.version>
+		<spring-android.version>1.0.1.RELEASE</spring-android.version>
+		<jackson.version>2.2.2</jackson.version>
+		<nineoldandroids.version>2.4.0</nineoldandroids.version>
+		<robotium-solo.version>4.2</robotium-solo.version>
+		<osmdroid.version>4.0.9</osmdroid.version>
+		<android-rome-feed-reader.version>1.0.0-r2</android-rome-feed-reader.version>
+		<ormlite.version>4.47</ormlite.version>
+	</properties>
+	
+	<dependencies>
+
+		<dependency>
+			<groupId>android</groupId>
+			<artifactId>android</artifactId>
+			<version>${platform.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<version>${support-library.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<version>${support-library.version}</version>
+			<type>apklib</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>${support-library.version}</version>
+			<type>apklib</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7</artifactId>
+			<version>${support-library.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>${support-library.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.androidannotations</groupId>
+			<artifactId>androidannotations</artifactId>
+			<version>${androidannotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.androidannotations</groupId>
+			<artifactId>androidannotations-api</artifactId>
+			<version>${androidannotations.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.android</groupId>
+			<artifactId>spring-android-rest-template</artifactId>
+			<version>${spring-android.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nineoldandroids</groupId>
+			<artifactId>library</artifactId>
+			<version>${nineoldandroids.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.android-rome-feed-reader</groupId>
+			<artifactId>android-rome-feed-reader</artifactId>
+			<version>${android-rome-feed-reader.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.j256.ormlite</groupId>
+			<artifactId>ormlite-android</artifactId>
+			<version>${ormlite.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-android</artifactId>
+			<version>1.6.1-RC1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.osmdroid</groupId>
+			<artifactId>osmdroid-android</artifactId>
+			<version>3.0.9</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+					<artifactId>android-maven-plugin</artifactId>
+					<version>${android-maven-plugin.version}</version>
+					<inherited>true</inherited>
+					<configuration>
+						<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+						<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+						<resourceDirectory>${project.basedir}/res</resourceDirectory>
+						<nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+						<sdk>
+							<platform>${target.sdk}</platform>
+						</sdk>
+						<undeployBeforeDeploy>true</undeployBeforeDeploy>
+						<extensions>true</extensions>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<inherited>true</inherited>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.1</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jarsigner-plugin</artifactId>
+					<version>1.2</version>
+					<inherited>true</inherited>
+					<configuration>
+						<removeExistingSignatures>true</removeExistingSignatures>
+						<archiveDirectory />
+						<archive>${project.build.directory}/${project.build.finalName}.${project.packaging}</archive>
+						<verbose>true</verbose>
+						<certs>true</certs>
+						<keystore>${sign.keystore}</keystore>
+						<alias>${sign.alias}</alias>
+						<storepass>${sign.storepass}</storepass>
+						<keypass>${sign.keypass}</keypass>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>com.pyx4me</groupId>
+					<artifactId>proguard-maven-plugin</artifactId>
+					<version>2.0.4</version>
+					<dependencies>
+						<dependency>
+							<groupId>net.sf.proguard</groupId>
+							<artifactId>proguard</artifactId>
+							<version>4.4</version>
+							<scope>runtime</scope>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<proguardVersion>4.4</proguardVersion>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.15</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<undeployBeforeDeploy>false</undeployBeforeDeploy>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.pyx4me</groupId>
+						<artifactId>proguard-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>process-classes-with-proguard</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>proguard</goal>
+								</goals>
+								<configuration>
+									<proguardVersion>4.4</proguardVersion>
+									<maxMemory>256m</maxMemory>
+									<injar>android-classes</injar>
+									<libs>
+										<lib>${rt.jar.path}</lib>
+										<lib>${jsse.jar.path}</lib>
+									</libs>
+									<obfuscate>true</obfuscate>
+									<addMavenDescriptor>false</addMavenDescriptor>
+									<proguardInclude>${project.basedir}/proguard.conf</proguardInclude>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>net.sf.proguard</groupId>
+								<artifactId>proguard</artifactId>
+								<version>4.4</version>
+								<scope>runtime</scope>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<artifactId>maven-jarsigner-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-application-apk</id>
+								<phase>package</phase>
+								<goals>
+									<goal>sign</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+						<artifactId>android-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>zipalign-application-apk</id>
+								<phase>package</phase>
+								<goals>
+									<goal>zipalign</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<zipalign>
+								<verbose>true</verbose>
+								<inputApk>${project.build.directory}/${project.artifactId}-${project.version}.apk</inputApk>
+								<outputApk>${project.build.directory}/${project.artifactId}-${project.version}-signed-aligned.apk</outputApk>
+							</zipalign>
+							<sign>
+								<debug>false</debug>
+							</sign>
+							<extensions>true</extensions>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${project.build.directory}/proguard_map.txt</file>
+									<type>map</type>
+									<classifier>release</classifier>
+								</artifact>
+							</artifacts>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-signed-aligned</id>
+								<phase>package</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
