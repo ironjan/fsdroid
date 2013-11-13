@@ -3,6 +3,8 @@
 	<name>de.upb.fsmi.fsdroid</name>
 	<comment></comment>
 	<projects>
+		<project>android-support-v7-appcompat</project>
+		<project>nineoldandroids</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

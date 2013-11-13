@@ -3,6 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+<!-- 	<parent> -->
+<!-- 		<groupId>de.upb.fsmi</groupId> -->
+<!-- 		<artifactId>fsdroid-parent</artifactId> -->
+<!-- 		<version>0.0.1</version> -->
+<!-- 	</parent> -->
+
 	<groupId>de.upb.fsmi</groupId>
 	<artifactId>fsdroid</artifactId>
 	<version>0.0.1</version>
