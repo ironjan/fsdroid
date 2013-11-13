@@ -2,6 +2,8 @@ package de.upb.fsmi.fragments;
 
 import java.util.*;
 
+import org.slf4j.*;
+
 import android.support.v4.app.*;
 import android.support.v7.app.*;
 import android.util.*;
@@ -11,17 +13,21 @@ import android.widget.*;
 import com.fima.cardsui.views.*;
 import com.googlecode.androidannotations.annotations.*;
 import com.googlecode.androidannotations.annotations.res.*;
+import com.j256.ormlite.stmt.query.*;
 
 import de.upb.fsmi.*;
 import de.upb.fsmi.cards.*;
 import de.upb.fsmi.helper.*;
 
 @EFragment(R.layout.fragment_overview)
+@OptionsMenu(R.menu.menu_main)
 public class OverviewFragment extends Fragment {
+
 	@StringRes
 	String misc;
 
 	private static final String TAG = OverviewFragment.class.getSimpleName();
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	@AfterViews
 	void updateTitle() {
@@ -47,45 +53,34 @@ public class OverviewFragment extends Fragment {
 	@AfterViews
 	@UiThread
 	protected void initCardView() {
+		LOGGER.debug("initializing card views");
+		
 		cardsView.setSwipeable(false);
 
-		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
-		if (nextMeetingDate != null) {
-			displayDate(nextMeetingDate);
-		} else {
-			refreshDate();
-		}
-
+		meetingCard = new MeetingCard(null);
 		statusCard = new StatusCard(dataKeeper.getFsmiState());
-
+		LOGGER.trace("Created cards");
+		
 		cardsView.addCard(statusCard);
-
-		refreshDisplayedData();
+		cardsView.addCard(meetingCard);
+		LOGGER.trace("Added cards to cardsview.");
+		
+		LOGGER.debug("Card views are initialized");
+		refreshData();
 	}
 
 	@Background
-	void refreshDate() {
+	void refreshData() {
 		try {
 			dataKeeper.refresh(false);
 		} catch (NoAvailableNetworkException e) {
 			Log.e(TAG, e.getMessage(), e);
 		}
-		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
-		if (nextMeetingDate != null) {
-			displayDate(nextMeetingDate);
-		}
+		refreshCards();
 	}
 
 	@UiThread
-	void displayDate(Date nextMeetingDate) {
-		meetingCard = new MeetingCard(nextMeetingDate);
-		cardsView.addCard(meetingCard);
-
-		refreshDisplayedData();
-	}
-
-	@UiThread
-	protected void refreshDisplayedData() {
+	protected void refreshCards() {
 		refreshStatusCard();
 		refreshMeetingCard();
 		cardsView.refresh();
@@ -96,12 +91,22 @@ public class OverviewFragment extends Fragment {
 	}
 
 	void refreshMeetingCard() {
-		meetingCard.setDate(dataKeeper.getNextMeetingDate());
+		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
+		if (nextMeetingDate != null) {
+			meetingCard.setDate(dataKeeper.getNextMeetingDate());
+		}
 	}
 
 	void logError(Exception e) {
 		Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
 		Log.e(TAG, e.getMessage(), e);
+	}
+
+	@OptionsItem(R.id.ab_refresh)
+	void refresh() {
+		Toast.makeText(getActivity(), "Refresh started", Toast.LENGTH_SHORT)
+				.show();
+		refreshData();
 	}
 
 }
