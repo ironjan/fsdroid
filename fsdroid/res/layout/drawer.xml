@@ -50,14 +50,16 @@
             style="@style/DrawerCategoryItem"
             android:text="@string/about" />
 
-        <TextView
-            style="@style/DrawerCategoryHeadline"
-            android:text="Testing..." />
+        <!-- <TextView -->
+        <!-- style="@style/DrawerCategoryHeadline" -->
+        <!-- android:text="Testing..." /> -->
 
-        <TextView
-            android:id="@id/drawerItemMap"
-            style="@style/DrawerCategoryItem"
-            android:text="Karte" />
+
+        <!-- <TextView -->
+        <!-- android:id="@id/drawerItemMap" -->
+        <!-- style="@style/DrawerCategoryItem" -->
+        <!-- android:text="Karte" /> -->
+
     </LinearLayout>
 
 </ScrollView>
