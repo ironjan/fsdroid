@@ -17,9 +17,19 @@
         style="@style/NewsDetailsDate"
         android:text="date" />
 
-    <TextView
-        android:id="@id/newsContent"
-        style="@style/NewsDetailsContent"
-        android:text="content..." />
+    <ScrollView
+        android:id="@android:id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical|none" >
+
+        <TextView
+            android:id="@id/newsContent"
+            style="@style/NewsDetailsContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="content..." />
+
+    </ScrollView>
 
 </LinearLayout>
