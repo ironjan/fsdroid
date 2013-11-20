@@ -10,6 +10,7 @@ import android.util.*;
 import android.view.*;
 import android.widget.*;
 
+import com.fima.cardsui.objects.*;
 import com.fima.cardsui.views.*;
 import com.googlecode.androidannotations.annotations.*;
 import com.googlecode.androidannotations.annotations.res.*;
@@ -51,8 +52,8 @@ public class OverviewFragment extends Fragment implements
 	DataKeeper dataKeeper;
 
 	private MeetingCard meetingCard;
-
 	private StatusCard statusCard;
+	private Card statusCardLoading;
 
 	@Override
 	public void onResume() {
@@ -83,8 +84,10 @@ public class OverviewFragment extends Fragment implements
 
 		meetingCard = new MeetingCard(null);
 		statusCard = new StatusCard(dataKeeper.getFsmiState());
+		statusCardLoading = new StatusCardLoading();
 		LOGGER.trace("Created cards");
 
+		cardsView.addCard(statusCardLoading);
 		cardsView.addCard(statusCard);
 		cardsView.addCard(meetingCard);
 		LOGGER.trace("Added cards to cardsview.");
@@ -105,6 +108,7 @@ public class OverviewFragment extends Fragment implements
 
 	@UiThread
 	protected void refreshCards() {
+		cardsView.clearCards();
 		refreshStatusCard();
 		refreshMeetingCard();
 		cardsView.refresh();
@@ -112,10 +116,12 @@ public class OverviewFragment extends Fragment implements
 	}
 
 	void refreshStatusCard() {
+		cardsView.addCard(statusCard);
 		statusCard.setStatus(dataKeeper.getFsmiState());
 	}
 
 	void refreshMeetingCard() {
+		cardsView.addCard(meetingCard);
 		Date nextMeetingDate = dataKeeper.getNextMeetingDate();
 		if (nextMeetingDate != null) {
 			meetingCard.setDate(dataKeeper.getNextMeetingDate());
@@ -128,8 +134,14 @@ public class OverviewFragment extends Fragment implements
 	}
 
 	@OptionsItem(R.id.ab_refresh)
+	@UiThread
 	void refresh() {
 		displayProgressBar(true);
+		cardsView.clearCards();
+		cardsView.addCard(statusCardLoading);
+		cardsView.addCard(statusCard);
+		cardsView.addCard(meetingCard);
+		cardsView.refresh();
 		refreshData();
 	}
 
