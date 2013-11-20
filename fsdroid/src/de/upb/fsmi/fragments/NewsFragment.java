@@ -39,7 +39,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 	@Pref
 	MeetingPrefs_ mPrefs;
-	
+
 	UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
 			this);
 
@@ -55,7 +55,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	String news;
 
 	@Override
-	public void onCreate(Bundle pSavedInstanceState) {
+	public void onCreate(final Bundle pSavedInstanceState) {
 		super.onCreate(pSavedInstanceState);
 		databaseManager = DatabaseManager.getInstance();
 	}
@@ -76,7 +76,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	}
 
 	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+	public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		ab_refresh = menu.findItem(R.id.ab_refresh);
 		displayProgressBar(mProgressShown);
@@ -93,7 +93,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
 		displayProgressBar(true);
 		displayKnownNews();
-		
+
 		refreshNews();
 	}
 
@@ -109,7 +109,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Background
 	void refreshNews() {
 		long currentTimeMillis = System.currentTimeMillis();
-		
+
 		displayProgressBar(true);
 		Log.v(TAG, "Refreshing news");
 		Channel news = mRss.getNews();
@@ -118,11 +118,11 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 		displayKnownNews();
 	}
 
-	private void persist(Channel news) {
+	private void persist(final Channel news) {
 		if (null == news) {
 			return;
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		List<Item> items = news.getItems();
 
@@ -132,7 +132,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	}
 
 	@UiThread
-	void displayProgressBar(boolean visible) {
+	void displayProgressBar(final boolean visible) {
 		mProgressShown = visible;
 		Log.v(TAG, "ProgressBar shown=" + visible);
 		if (null != ab_refresh) {
@@ -143,7 +143,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	}
 
 	@UiThread
-	void showNews(List<NewsItem> pNewsItems) {
+	void showNews(final List<NewsItem> pNewsItems) {
 		if (pNewsItems.size() <= 0) {
 			return;
 		}
@@ -162,7 +162,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 	@Override
 	@UiThread
 	public void updateCompleted() {
-		cardsview.refresh();
+		if (!dataKeeper.isRefreshing()) {
+			cardsview.refresh();
+		}
 	}
 
 }
