@@ -54,8 +54,9 @@ public class DataKeeper {
     @SuppressWarnings("nls")
     public Date getNextMeetingDate() {
         if (date == null && hasRecentDate()) {
-            Log.v(TAG,
-                    "date == null and recent date available, fetching from prefs.");
+            if (Log.isLoggable(TAG, Log.VERBOSE))
+                Log.v(TAG,
+                        "date == null and recent date available, fetching from prefs.");
             long nextMeetingInMillis = meetingPrefs.nextMeetingInMillis().get();
             date = new Date(nextMeetingInMillis);
         }
