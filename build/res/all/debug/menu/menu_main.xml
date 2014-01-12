@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fsdroid="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/ab_refresh"
+        android:icon="@drawable/ic_navigation_refresh_dark"
+        fsdroid:showAsAction="always"
+        android:title="@string/refresh"/>
+
+</menu><!-- From: file:/home/ljan/projects/fsdroid/src/main/res/menu/menu_main.xml -->

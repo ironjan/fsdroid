@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.upb.fsmi.views.MyMapView_ xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+<!-- From: file:/home/ljan/projects/fsdroid/src/main/res/layout/fragment_map.xml -->
