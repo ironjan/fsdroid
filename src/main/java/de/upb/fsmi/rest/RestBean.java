@@ -1,13 +1,13 @@
 package de.upb.fsmi.rest;
 
-import org.springframework.http.client.*;
-import org.springframework.web.client.*;
-
 import android.util.*;
 
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.rest.*;
+import org.springframework.http.client.*;
+import org.springframework.web.client.*;
 
 @EBean
 public class RestBean implements RssRest {
@@ -39,8 +39,9 @@ public class RestBean implements RssRest {
 			((HttpComponentsClientHttpRequestFactory) requestFactory)
 					.setConnectTimeout(CONNECT_TIMEOUT);
 		}
-		
-		Log.v(TAG, "timeout refreshed.");
+
+
+        Log.v(TAG, "timeout refreshed.");
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
     // Constants
     // The authority for the sync adapter's content provider
-    public static final String AUTHORITY = "de.ironjan.provider";
+    public static final String AUTHORITY = AccountCreator.getAuthority();
     // Instance fields
     Account mAccount;
 
@@ -72,6 +72,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (BuildConfig.DEBUG) LOGGER.debug("initAccount()");
 
         mAccount = mAccountCreator.create(this);
+        ContentResolver.setSyncAutomatically(mAccount, AUTHORITY, true);
         ContentResolver.addPeriodicSync(mAccount, AUTHORITY, new Bundle(), BuildConfig.SYNC_INTERVAL);
 
         if (BuildConfig.DEBUG) LOGGER.debug("initAccount() done");

@@ -52,7 +52,7 @@ public class AccountCreator {
         return mAccountCreated;
     }
 
-    public String getAuthority() {
+    public static String getAuthority() {
         return AUTHORITY;
     }
 }

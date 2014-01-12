@@ -1,9 +1,9 @@
 package de.upb.fsmi.rest;
 
-import org.springframework.web.client.*;
-
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+
 import org.androidannotations.annotations.rest.*;
+import org.springframework.web.client.*;
 
 /**
  * Interface to generate a "REST" client which is used to download the RSS feed
@@ -18,5 +18,5 @@ interface RssRest {
 	void setRestTemplate(RestTemplate restTemplate);
 
 	@Get("neuigkeiten/?type=100")
-	Channel getNews();
+    Channel getNews();
 }

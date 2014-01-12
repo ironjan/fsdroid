@@ -5,9 +5,16 @@ import android.annotation.*;
 import android.content.*;
 import android.os.*;
 
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+
 import org.slf4j.*;
 
+import java.util.*;
+
 import de.upb.fsmi.*;
+import de.upb.fsmi.db.*;
+import de.upb.fsmi.news.persistence.*;
+import de.upb.fsmi.rest.*;
 
 
 /**
@@ -17,13 +24,19 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private static final String TAG = SyncAdapter.class.getSimpleName();
     Logger LOGGER = LoggerFactory.getLogger(TAG);
 
+    RestBean mRss;
+
+    private DatabaseManager databaseManager;
 
     public static final String SYNC_FINISHED = "SYNC_FINISHED";
 
 
     public SyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
+        databaseManager = DatabaseManager.getInstance();
+        mRss = RestBean_.getInstance_(context);
         if (BuildConfig.DEBUG) LOGGER.debug("Created SyncAdapter({},{})", context, autoInitialize);
+
     }
 
 
@@ -40,13 +53,28 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         if (BuildConfig.DEBUG)
             LOGGER.debug("onPerformeSync({},{},{},{},{})", new Object[]{account, bundle, s, contentProviderClient, syncResult});
 
-        // TODO implement
-        for (int i = 0; i < 20; i++) {
-            LOGGER.error("Synching stub...");
+        try {
+            Channel news = mRss.getNews();
+            persist(news);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
         }
 
         if (BuildConfig.DEBUG)
             LOGGER.debug("onPerformeSync({},{},{},{},{}) done", new Object[]{account, bundle, s, contentProviderClient, syncResult});
+    }
+
+    private void persist(Channel news) {
+        if (null == news) {
+            return;
+        }
+
+        @SuppressWarnings("unchecked")
+        List<Item> items = news.getItems();
+
+        for (Item item : items) {
+            databaseManager.createOrUpdate(new NewsItem(item));
+        }
     }
 
     private void broadcastSyncEnd() {

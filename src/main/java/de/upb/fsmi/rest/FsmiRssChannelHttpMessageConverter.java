@@ -1,19 +1,22 @@
 package de.upb.fsmi.rest;
 
-import org.springframework.http.converter.feed.AbstractWireFeedHttpMessageConverter;
+import org.springframework.http.*;
+import org.springframework.http.converter.feed.*;
 
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
+import java.util.*;
 
 /**
- * Custom RSS Converter since FSMI provides the RSS feed as text/xml and not application/rss etc.
+ * Custom RSS converter since FSMI provides the RSS feed as text/xml and not application/rss etc.
  */
-public class FsmiRssChannelHttpMessageConverter extends AbstractWireFeedHttpMessageConverter<Channel>{
+public class FsmiRssChannelHttpMessageConverter extends RssChannelHttpMessageConverter {
 
-	public FsmiRssChannelHttpMessageConverter() {
-		super(org.springframework.http.MediaType.TEXT_XML);
-	}
+    public FsmiRssChannelHttpMessageConverter() {
+        super();
 
-	@Override
-	protected boolean supports(Class<?> clazz) {
-		return Channel.class.isAssignableFrom(clazz);
-	}}
+        List<MediaType> mediaTypes = new ArrayList<MediaType>();
+        mediaTypes.add(MediaType.TEXT_XML);
+        setSupportedMediaTypes(mediaTypes);
+    }
+
+
+}
