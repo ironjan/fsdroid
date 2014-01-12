@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71a57b6a-e5e9-4335-96c7-8937d2576364" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fsdroid.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/checkstyle.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/Animator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/AnimatorInflater.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/AnimatorListenerAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/AnimatorSet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/ArgbEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/FloatEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/FloatKeyframeSet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/IntEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/IntKeyframeSet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/Keyframe.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/KeyframeSet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/ObjectAnimator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/PreHoneycombCompat.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/PropertyValuesHolder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/TimeAnimator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/TypeEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/animation/ValueAnimator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/util/FloatProperty.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/util/IntProperty.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/util/NoSuchPropertyException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/util/Property.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/util/ReflectiveProperty.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/ViewHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/ViewPropertyAnimator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/ViewPropertyAnimatorHC.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/ViewPropertyAnimatorICS.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/ViewPropertyAnimatorPreHC.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/library/src/com/nineoldandroids/view/animation/AnimatorProxy.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/anim/animator.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/anim/animator_set.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/anim/color_animator.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/anim/object_animator.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/drawable-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/drawable-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/drawable/droid.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout-v11/droidflakes.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animation_cloning.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animation_loading.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animation_multi_property.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animation_reversing.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animation_seeking.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animator_custom_evaluator.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/animator_events.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/bouncing_balls.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/droidflakes.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/pathanimator.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/toggles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/res/layout/vpademo.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/Demos.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/Toggles.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/VPADemo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/AnimationCloning.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/AnimationLoading.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/AnimationSeeking.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/AnimatorEvents.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/BouncingBalls.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/CustomEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/MultiPropertyAnimation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/ReversingAnimation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/apidemos/ShapeHolder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/droidflakes/Droidflakes.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/droidflakes/Flake.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/droidflakes/FlakeView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/pathanimation/AnimatorPath.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/pathanimation/PathAnimationActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/pathanimation/PathEvaluator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/JakeWharton-NineOldAndroids-9f20fd7/sample/src/com/jakewharton/nineoldandroids/sample/pathanimation/PathPoint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/libs/android-support-v4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/libs/android-support-v7-appcompat.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_fade_in.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_fade_out.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_slide_in_bottom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_slide_in_top.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_slide_out_bottom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/anim/abc_slide_out_top.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/color/abc_search_url_text_holo.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_bottom_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_bottom_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_bottom_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_bottom_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_stacked_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_stacked_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_stacked_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_stacked_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ab_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_cab_background_bottom_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_cab_background_bottom_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_cab_background_top_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_cab_background_top_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_ab_back_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_ab_back_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_cab_done_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_cab_done_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_clear_disabled.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_clear_normal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_clear_search_api_disabled_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_clear_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_commit_search_api_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_commit_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_go.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_go_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_menu_moreoverflow_normal_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_menu_share_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_menu_share_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_voice_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_ic_voice_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_divider_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_divider_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_longpressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_menu_dropdown_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_menu_dropdown_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_menu_hardkey_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_menu_hardkey_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_focused_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_focused_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_spinner_ab_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_tab_selected_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_tab_selected_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_tab_selected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_tab_unselected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_right_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_right_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_right_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_right_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-hdpi/abc_textfield_search_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_bottom_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_bottom_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_bottom_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_bottom_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_stacked_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_stacked_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_stacked_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_stacked_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ab_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_cab_background_bottom_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_cab_background_bottom_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_cab_background_top_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_cab_background_top_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_ab_back_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_ab_back_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_cab_done_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_cab_done_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_clear_disabled.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_clear_normal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_clear_search_api_disabled_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_clear_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_commit_search_api_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_commit_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_go.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_go_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_menu_moreoverflow_normal_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_menu_share_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_menu_share_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_voice_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_ic_voice_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_divider_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_divider_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_longpressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_menu_dropdown_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_menu_dropdown_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_menu_hardkey_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_menu_hardkey_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_focused_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_focused_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_spinner_ab_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_tab_selected_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_tab_selected_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_tab_selected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_tab_unselected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_right_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_right_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_right_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_right_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-mdpi/abc_textfield_search_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_bottom_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_bottom_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_bottom_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_bottom_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_share_pack_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_share_pack_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_stacked_solid_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_stacked_solid_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_stacked_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_stacked_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_transparent_dark_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ab_transparent_light_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_cab_background_bottom_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_cab_background_bottom_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_cab_background_top_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_cab_background_top_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_ab_back_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_ab_back_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_cab_done_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_cab_done_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_clear_disabled.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_clear_search_api_disabled_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_clear_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_commit_search_api_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_commit_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_go.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_go_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_menu_share_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_menu_share_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_voice_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_ic_voice_search_api_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_divider_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_divider_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_longpressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_selector_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_list_selector_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_menu_dropdown_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_menu_dropdown_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_menu_hardkey_panel_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_menu_hardkey_panel_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_disabled_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_disabled_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_focused_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_focused_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_pressed_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_spinner_ab_pressed_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_tab_selected_focused_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_tab_selected_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_tab_selected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_tab_unselected_pressed_holo.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_right_default_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_right_default_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_right_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_right_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_selected_holo_dark.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable-xhdpi/abc_textfield_search_selected_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_ic_clear.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_ic_clear_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_item_background_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_item_background_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_list_selector_background_transition_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_list_selector_background_transition_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_list_selector_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_list_selector_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_search_dropdown_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_search_dropdown_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_spinner_ab_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_spinner_ab_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_tab_indicator_ab_holo.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_textfield_searchview_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_textfield_searchview_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_textfield_searchview_right_holo_dark.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/drawable/abc_textfield_searchview_right_holo_light.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout-v11/abc_action_bar_decor.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout-v14/abc_activity_chooser_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_decor.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_decor_include.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_decor_overlay.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_home.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_tab.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_tabbar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_title_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_bar_view_list_nav_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_menu_item_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_menu_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_mode_bar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_action_mode_close_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_activity_chooser_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_activity_chooser_view_include.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_activity_chooser_view_list_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_expanded_menu_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_list_menu_item_checkbox.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_list_menu_item_icon.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_list_menu_item_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_list_menu_item_radio.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_popup_menu_item_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_screen.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_search_dropdown_item_icons_2line.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/abc_search_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/layout/support_simple_spinner_dropdown_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-land/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-land/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-land/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-large/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-large/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-large/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-sw600dp/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-sw600dp/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-v11/styles_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-v11/themes_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-v14/styles_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-v14/themes_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w360dp/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w480dp/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w480dp/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w500dp/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w600dp/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-w720dp/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-xlarge/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values-xlarge/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/attrs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/bools.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/colors.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/ids.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/styles_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/themes.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/res/values/themes_base.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/appcompat-v7/src/.readme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/.settings/org.eclipse.m2e.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/androlog/androlog.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/compile-libs/androidannotations-2.7.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/drawable-sources/create_all_sizes.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/drawable-sources/ic_launcher.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/drawable-sources/ic_status_closed.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/drawable-sources/ic_status_open.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/drawable-sources/ic_status_unknown.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/high-res-app-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/android-rome-feed-reader-1.0.0-r2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/androidannotations-api-2.7.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/jackson-annotations-2.2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/jackson-core-2.2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/jackson-databind-2.2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/jdom-1.1.1-android-fork.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/ormlite-android-4.47.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/ormlite-core-4.47.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/osmdroid-android-4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/slf4j-android-1.6.1-RC1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/spring-android-core-1.0.1.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/libs/spring-android-rest-template-1.0.1.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/proguard.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_action_about_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_content_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_content_new_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_council_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_device_access_call_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_location_directions_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_location_web_site_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_navigation_refresh_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_social_add_person_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_social_add_person_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_status_closed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_status_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/ic_status_unknown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-hdpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_action_about_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_content_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_content_new_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_council_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_device_access_call_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_drawer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_location_directions_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_location_web_site_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_navigation_refresh_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_social_add_person_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_social_add_person_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_status_closed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_status_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/ic_status_unknown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-mdpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/card_background.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/card_background_shadow.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/card_shadow.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_action_about_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_content_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_content_new_email_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_council_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_device_access_call_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_location_directions_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_location_web_site_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_navigation_refresh_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_social_add_person_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_social_add_person_light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_status_closed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_status_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/ic_status_unknown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xhdpi/top_shadow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xxhdpi/ic_council_member.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xxhdpi/ic_status_closed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xxhdpi/ic_status_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable-xxhdpi/ic_status_unknown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable/bg_widget.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable/card.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable/drawer_shadow.9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable/status.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/drawable/touchable.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/action_refresh.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/activity_map.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/activity_news_details.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/activity_with_drawer.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_contact.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_library.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_meeting.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_news_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_status.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/card_title_underline.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/cards_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/cards_view_multicolumn.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/contact_category_uderline.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/drawer.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/drawer_category_item_divider.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/drawer_category_uderline.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/empty_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_contact.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_council.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_licenses.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_map.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_news.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_news_details.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_news_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/fragment_overview.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/header.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/item_card.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/item_card_empty.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/item_card_empty_first.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/item_card_empty_last.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/item_stack.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/layout/widget_status.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/menu/menu_contact.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/menu/menu_main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/raw/apache_2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/arrays.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/cards-ui-colors.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/cards-ui-dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/cards-ui-styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/colors.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/ids.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/values/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/res/xml/status_appwidget_info.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/StackAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/SwipeDismissTouchListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/Utils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/objects/AbstractCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/objects/Card.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/objects/CardStack.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/views/CardUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/com/fima/cardsui/views/QuickReturnListView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/DrawerActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/DrawerNavigationHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/DrawerOpenCloseListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/FSApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/FSDroid.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/Map.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/SingleNews.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/ContactCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/LibraryCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/MeetingCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/NewsCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/StatusCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/TestCard.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/entities/CouncilJobs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/entities/CouncilMember.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/entities/Library.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/ContactCardView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/CustomView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/LibraryCardView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/MeetingCardView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/NewsCardView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/cards/views/StatusCardView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/db/DatabaseHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/db/DatabaseManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/ContactFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/LibrariesFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/MapFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/MeetingDateFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/MyTabListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/NewsDetailsFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/NewsFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/NewsItemFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/OverviewFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/StatusViewFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/fragments/TestFragment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/ConnectionBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/DataKeeper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/Downloader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/LocationConstants.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/MeetingPrefs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/NoAvailableNetworkException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/UpdateCompletedListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/helper/UpdateStartedListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/news/persistence/NewsItem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/receivers/CustomBroadcastReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/receivers/UpdateCompletedReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/receivers/UpdateStartedReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/rest/FsmiRssChannelHttpMessageConverter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/rest/MyRestTemplate.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/rest/RestBean.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/rest/RssRest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/views/MyMapView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/src/de/upb/fsmi/widget/StatusAppWidgetProvider.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fsdroid/test-key.keystore" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/high-res-app-logo.png" afterPath="$PROJECT_DIR$/high-res-app-logo.png" />
+    </list>
+    <ignored path="fsdroid.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/fragments/ContactFragment.java" line="2" class="ContactFragment.java" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="fsdroid" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="9" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.29494712" vertical-offset="769" max-vertical-offset="1620">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MeetingCard.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/cards/MeetingCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="17" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="tasksExpandState">
+      <map>
+        <entry key="" value="true" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="fsdroid" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value=":" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="availableTasks">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the Android dependencies of the project" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="androidDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all variants of all applications and secondary packages." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all Debug builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assembleDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assembleDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles all Release builds" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assembleRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugTestAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugTestNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileDebugTestRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileLint" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileReleaseAidl" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileReleaseJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileReleaseNdk" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileReleaseRenderscript" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all device checks on currently connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="connectedCheck" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs and runs the tests for Build 'debug' on connected devices." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="connectedInstrumentTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all device checks using Device Providers and Test Servers." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="deviceCheck" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dexDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dexDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dexRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateDebugBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateDebugSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateDebugTestBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateDebugTestSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateReleaseBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="generateReleaseSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="installDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Installs the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="installDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs lint on all variants." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lint" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs lint on the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lintDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs lint on the Release build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lintRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeDebugAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeDebugTestAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeDebugTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeReleaseAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="packageDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="packageDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="packageRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preDebugBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preDebugTestBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preDexDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preDexDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preDexRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="preReleaseBuild" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:appcompat-v7:19.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportAppcompatV71900Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareDebugDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareDebugTestDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareReleaseDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugTestJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugTestManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processReleaseJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processReleaseManifest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processReleaseResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the signing info for each variant" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="signingReport" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstall all applications." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uninstallAll" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uninstallDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Test build for the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uninstallDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uninstalls the Release build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uninstallRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="validateDebugSigning" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../MensaUPB" value="1389402090614" />
+        <entry key="$PROJECT_DIR$/../coding-contest-2014" value="1386605455810" />
+        <entry key="$PROJECT_DIR$/../scaffolding" value="1387198155321" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/fsdroid.iml" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/MeetingPrefs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/FSDroid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/DataKeeper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/FSApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/ConnectionBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/upb/fsmi/cards/MeetingCard.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="width" value="1282" />
+    <option name="height" value="1024" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fsdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fsdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fsdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fsdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fsdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
+    <property name="recentsLimit" value="5" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android Application.fsdroid">
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fsdroid" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="fsdroid" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Android Application.fsdroid" />
+    </list>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71a57b6a-e5e9-4335-96c7-8937d2576364" name="Default" comment="" />
+      <created>1389480857121</created>
+      <updated>1389480857121</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="0" width="1282" height="1024" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32956383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="47" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="1560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/cards/MeetingCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="16" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="33" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="1650" selection-end="1650" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/FSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="7" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="330">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/fragments/ContactFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="192" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/FSDroid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="11" selection-start="797" selection-end="797" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/FSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/ConnectionBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="0.12309496" vertical-offset="0" max-vertical-offset="853">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/DataKeeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="499" selection-end="499" vertical-scroll-proportion="-0.036342323" vertical-offset="361" max-vertical-offset="4230">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/UpdateCompletedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/NoAvailableNetworkException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="144" selection-end="144" vertical-scroll-proportion="0.12309496" vertical-offset="0" max-vertical-offset="853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/MeetingPrefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="255" selection-end="255" vertical-scroll-proportion="0.14067996" vertical-offset="0" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/UpdateStartedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="46" selection-end="46" vertical-scroll-proportion="0.03516999" vertical-offset="0" max-vertical-offset="853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/LocationConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="112" selection-end="112" vertical-scroll-proportion="0.12309496" vertical-offset="0" max-vertical-offset="853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/helper/Downloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="599" selection-end="599" vertical-scroll-proportion="0.12309496" vertical-offset="0" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/upb/fsmi/cards/MeetingCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="17" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="9" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.29494712" vertical-offset="769" max-vertical-offset="1620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>fsdroid</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: android-rome-feed-reader-1.0.0-r2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

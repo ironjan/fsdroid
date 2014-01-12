@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/elementMargin" >
+
+    <TextView
+        android:id="@id/newsTitle"
+        style="@style/NewsDetailsHeadline"
+        android:text="Title" />
+
+    <include layout="@layout/contact_category_uderline" />
+
+    <TextView
+        android:id="@id/newsDate"
+        style="@style/NewsDetailsDate"
+        android:text="date" />
+
+    <TextView
+        android:id="@id/newsContent"
+        style="@style/NewsDetailsContent"
+        android:text="content..." />
+
+</LinearLayout><!-- From: file:/home/ljan/projects/fsdroid/src/main/res/layout/fragment_news_details.xml -->

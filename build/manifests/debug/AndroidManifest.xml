@@ -1,0 +1,34 @@
+<!-- From: file:/home/ljan/projects/fsdroid/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="200" android:versionName="0.0.2" package="de.upb.fsmi">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application android:allowBackup="false" android:icon="@drawable/ic_launcher" android:label="@string/appName" android:name="de.upb.fsmi.FSApplication_" android:theme="@style/AppTheme">
+        <activity android:icon="@drawable/ic_launcher" android:label="@string/appName" android:name="de.upb.fsmi.FSDroid_">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:icon="@drawable/ic_launcher" android:label="Karte" android:name="de.upb.fsmi.Map_" android:parentActivityName="de.upb.fsmi.FSDroid_">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".FSDroid_"/>
+        </activity>
+        <activity android:icon="@drawable/ic_launcher" android:name="de.upb.fsmi.SingleNews_" android:parentActivityName="de.upb.fsmi.FSDroid_">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".FSDroid_"/>
+        </activity>
+
+        <receiver android:name="de.upb.fsmi.widget.StatusAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/status_appwidget_info"/>
+        </receiver>
+    </application>
+
+</manifest>
