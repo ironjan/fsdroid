@@ -1,22 +1,32 @@
 package de.upb.fsmi;
 
-import android.accounts.*;
-import android.annotation.*;
-import android.content.*;
-import android.content.res.*;
-import android.os.*;
-import android.support.v4.app.*;
-import android.support.v4.view.*;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
-import android.util.*;
-import android.view.*;
+import android.accounts.Account;
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
 
-import org.androidannotations.annotations.*;
-import org.slf4j.*;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import de.upb.fsmi.fragments.*;
-import de.upb.fsmi.sync.*;
+import de.upb.fsmi.fragments.OverviewFragment_;
+import de.upb.fsmi.sync.AccountCreator;
 
 @EActivity(R.layout.activity_with_drawer)
 public class FSDroid extends ActionBarActivity implements DrawerActivity {
@@ -29,10 +39,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
     private Fragment displayedFragment = null;
 
-    // Constants
-    // The authority for the sync adapter's content provider
     public static final String AUTHORITY = AccountCreator.getAuthority();
-    // Instance fields
     Account mAccount;
 
     @Bean
