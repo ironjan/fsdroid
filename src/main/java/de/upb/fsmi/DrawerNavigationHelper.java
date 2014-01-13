@@ -1,8 +1,13 @@
 package de.upb.fsmi;
 
-import android.support.v4.app.*;
-import android.view.*;
-import de.upb.fsmi.fragments.*;
+import android.support.v4.app.Fragment;
+import android.view.View;
+
+import de.upb.fsmi.fragments.ContactFragment_;
+import de.upb.fsmi.fragments.LibrariesFragment_;
+import de.upb.fsmi.fragments.NewsFragment_;
+import de.upb.fsmi.fragments.OverviewFragment_;
+import de.upb.fsmi.fragments.TestFragment;
 
 /**
  * Used for navigation by drawer
@@ -12,7 +17,6 @@ final class DrawerNavigationHelper {
 	private static LibrariesFragment_ librariesFragment;
 	private static ContactFragment_ contactFragment;
 	private static NewsFragment_ newsFragment;
-	private static MapFragment_ mapFragment;
 	private static OverviewFragment_ overviewFragment;
 
 	/**
@@ -28,9 +32,6 @@ final class DrawerNavigationHelper {
 		switch (clickedView.getId()) {
 		case R.id.drawerItemNews:
 			activity.switchContentTo(getNewsFragment());
-			break;
-		case R.id.drawerItemMap:
-			activity.switchContentTo(getMapFragment());
 			break;
 		case R.id.drawerItemMisc:
 			activity.switchContentTo(getOverviewFragment());
@@ -53,13 +54,6 @@ final class DrawerNavigationHelper {
 			overviewFragment = new OverviewFragment_();
 		}
 		return overviewFragment;
-	}
-
-	private static Fragment getMapFragment() {
-		if (mapFragment == null) {
-			mapFragment = new MapFragment_();
-		}
-		return mapFragment;
 	}
 
 	private static LibrariesFragment_ getLibraryFragment() {

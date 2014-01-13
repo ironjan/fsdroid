@@ -93,7 +93,6 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.0.0'
 
     compile 'com.google.code.android-rome-feed-reader:android-rome-feed-reader:1.0.0-r2'
-    compile 'org.osmdroid:osmdroid-android:3.0.9'
     compile 'com.nineoldandroids:library:2.4.0'
 }
 

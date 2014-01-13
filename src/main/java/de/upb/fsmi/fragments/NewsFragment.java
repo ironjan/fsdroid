@@ -1,7 +1,5 @@
 package de.upb.fsmi.fragments;
 
-import android.accounts.Account;
-import android.content.ContentResolver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -40,12 +38,12 @@ import de.upb.fsmi.news.persistence.NewsItem;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 import de.upb.fsmi.rest.RestBean;
 import de.upb.fsmi.sync.AccountCreator;
+import de.upb.fsmi.sync.SyncAdapter;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
-    public static final String AUTHORITY = AccountCreator.getAuthority();
     private static final String TAG = NewsFragment.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
     @ViewById
@@ -58,7 +56,6 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
     MeetingPrefs_ mPrefs;
     UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
             this);
-    Account mAccount;
     @Bean
     AccountCreator mAccountCreator;
     @StringRes
@@ -141,6 +138,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         if (BuildConfig.DEBUG) LOGGER.debug("displayKnownNews() done");
     }
 
+
     @OptionsItem(R.id.ab_refresh)
     @Background
     @Trace
@@ -149,21 +147,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
         displayProgressBar(true);
         Log.v(TAG, "Refreshing news");
-        Bundle settingsBundle = new Bundle();
-        settingsBundle.putBoolean(
-                ContentResolver.SYNC_EXTRAS_MANUAL, true);
-        settingsBundle.putBoolean(
-                ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
 
-        ContentResolver.requestSync(mAccount, AUTHORITY, settingsBundle);
-
-        while (ContentResolver.isSyncActive(mAccount, AUTHORITY)) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                LOGGER.error(e.getMessage(), e);
-            }
-        }
+        SyncAdapter sa = new SyncAdapter(getActivity(), true, false);
+        sa.executeSync(true);
 
         Log.v(TAG, "Refresh complete.");
         displayKnownNews();

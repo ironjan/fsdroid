@@ -1,20 +1,28 @@
 package de.upb.fsmi.sync;
 
-import android.accounts.*;
-import android.annotation.*;
-import android.content.*;
-import android.os.*;
+import android.accounts.Account;
+import android.annotation.TargetApi;
+import android.content.AbstractThreadedSyncAdapter;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SyncResult;
+import android.os.Build;
+import android.os.Bundle;
 
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
 
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.List;
 
-import de.upb.fsmi.*;
-import de.upb.fsmi.db.*;
-import de.upb.fsmi.news.persistence.*;
-import de.upb.fsmi.rest.*;
+import de.upb.fsmi.BuildConfig;
+import de.upb.fsmi.db.DatabaseManager;
+import de.upb.fsmi.news.persistence.NewsItem;
+import de.upb.fsmi.rest.RestBean;
+import de.upb.fsmi.rest.RestBean_;
 
 
 /**
@@ -43,15 +51,27 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public SyncAdapter(Context context, boolean autoInitialize, boolean allowParallelSyncs) {
         super(context, autoInitialize, allowParallelSyncs);
+        databaseManager = DatabaseManager.getInstance();
+        mRss = RestBean_.getInstance_(context);
         if (BuildConfig.DEBUG)
             LOGGER.debug("Created SyncAdapter({},{},{})", new Object[]{context, autoInitialize, allowParallelSyncs});
     }
 
 
     @Override
-    public void onPerformSync(Account account, Bundle bundle, String s, ContentProviderClient contentProviderClient, SyncResult syncResult) {
+    public void onPerformSync(Account account, Bundle bundle, String authority, ContentProviderClient contentProviderClient, SyncResult syncResult) {
         if (BuildConfig.DEBUG)
-            LOGGER.debug("onPerformeSync({},{},{},{},{})", new Object[]{account, bundle, s, contentProviderClient, syncResult});
+            LOGGER.debug("onPerformeSync({},{},{},{},{})", new Object[]{account, bundle, authority, contentProviderClient, syncResult});
+
+        executeSync(false);
+
+        if (BuildConfig.DEBUG)
+            LOGGER.debug("onPerformeSync({},{},{},{},{}) done", new Object[]{account, bundle, authority, contentProviderClient, syncResult});
+    }
+
+    public void executeSync(boolean force) {
+        if (force)
+            LOGGER.warn("executeSync({})", force);
 
         try {
             Channel news = mRss.getNews();
@@ -60,8 +80,10 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             LOGGER.error(e.getMessage(), e);
         }
 
-        if (BuildConfig.DEBUG)
-            LOGGER.debug("onPerformeSync({},{},{},{},{}) done", new Object[]{account, bundle, s, contentProviderClient, syncResult});
+        broadcastSyncEnd();
+        if (force)
+            LOGGER.warn("executeSync({}) done", force);
+
     }
 
     private void persist(Channel news) {
