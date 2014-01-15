@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:contentAuthority="de.ironjan.provider"
     android:accountType="fsdroid.ironjan.de"
-    android:userVisible="false"
+    android:userVisible="true"
     android:supportsUploading="false"
     android:allowParallelSyncs="false"
-    android:isAlwaysSyncable="true"/>
+    android:isAlwaysSyncable="true"
+
+    />

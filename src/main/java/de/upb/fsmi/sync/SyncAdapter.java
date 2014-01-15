@@ -12,11 +12,17 @@ import android.os.Bundle;
 
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Channel;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.Item;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.synd.*;
+import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.*;
+import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.impl.*;
+import com.google.code.rome.android.repackaged.com.sun.syndication.io.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 import de.upb.fsmi.BuildConfig;
 import de.upb.fsmi.db.DatabaseManager;
@@ -30,34 +36,46 @@ import de.upb.fsmi.rest.RestBean_;
  */
 public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private static final String TAG = SyncAdapter.class.getSimpleName();
-    Logger LOGGER = LoggerFactory.getLogger(TAG);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
 
-    RestBean mRss;
-
-    private DatabaseManager databaseManager;
 
     public static final String SYNC_FINISHED = "SYNC_FINISHED";
+    private static SyncAdapter instance = null;
+    private final Context mContext;
 
 
-    public SyncAdapter(Context context, boolean autoInitialize) {
+    private SyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
-        databaseManager = DatabaseManager.getInstance();
-        mRss = RestBean_.getInstance_(context);
         if (BuildConfig.DEBUG) LOGGER.debug("Created SyncAdapter({},{})", context, autoInitialize);
-
+        this.mContext = context;
     }
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public SyncAdapter(Context context, boolean autoInitialize, boolean allowParallelSyncs) {
+    private SyncAdapter(Context context, boolean autoInitialize, boolean allowParallelSyncs) {
         super(context, autoInitialize, allowParallelSyncs);
-        databaseManager = DatabaseManager.getInstance();
-        mRss = RestBean_.getInstance_(context);
+        this.mContext = context;
         if (BuildConfig.DEBUG)
             LOGGER.debug("Created SyncAdapter({},{},{})", new Object[]{context, autoInitialize, allowParallelSyncs});
     }
 
+    public static SyncAdapter getInstance(Context context){
+        if(instance == null){
+            instance = createSyncAdapterSingleton(context);
+        }
 
+        return instance;
+    }
+
+    private static SyncAdapter createSyncAdapterSingleton(Context context) {
+        Context applicationContext = context.getApplicationContext();
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB){
+            return new SyncAdapter(applicationContext, true,false);
+        }else{
+           return new SyncAdapter(applicationContext, true);
+        }
+    }
     @Override
     public void onPerformSync(Account account, Bundle bundle, String authority, ContentProviderClient contentProviderClient, SyncResult syncResult) {
         if (BuildConfig.DEBUG)
@@ -72,31 +90,45 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public void executeSync(boolean force) {
         if (force)
             LOGGER.warn("executeSync({})", force);
+        else if (BuildConfig.DEBUG) LOGGER.debug("executeSync({})", force);
 
         try {
+
+            RestBean_ mRss = RestBean_.getInstance_(mContext);
+
+            LOGGER.debug("{}", mRss);
+
             Channel news = mRss.getNews();
+
+            LOGGER.debug("Got news.");
             persist(news);
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         }
 
         broadcastSyncEnd();
+
         if (force)
             LOGGER.warn("executeSync({}) done", force);
-
+        else if (BuildConfig.DEBUG) LOGGER.debug("executeSync({})", force);
     }
 
     private void persist(Channel news) {
+        if(BuildConfig.DEBUG) LOGGER.debug("persist({})", (news != null)?"news":"null");
+
         if (null == news) {
             return;
         }
 
         @SuppressWarnings("unchecked")
         List<Item> items = news.getItems();
+        DatabaseManager databaseManager = DatabaseManager.getInstance();
 
         for (Item item : items) {
             databaseManager.createOrUpdate(new NewsItem(item));
         }
+
+        if(BuildConfig.DEBUG) LOGGER.debug("persist({}) done", (news != null)?"news":"null");
     }
 
     private void broadcastSyncEnd() {

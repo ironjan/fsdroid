@@ -78,7 +78,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     private void initAccount() {
         if (BuildConfig.DEBUG) LOGGER.debug("initAccount()");
 
-        mAccount = mAccountCreator.create(this);
+        mAccount = mAccountCreator.getAccountRegisterAccount();
         ContentResolver.setSyncAutomatically(mAccount, AUTHORITY, true);
         ContentResolver.addPeriodicSync(mAccount, AUTHORITY, new Bundle(), BuildConfig.SYNC_INTERVAL);
 

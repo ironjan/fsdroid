@@ -25,11 +25,15 @@ public class SyncService extends Service {
 
         super.onCreate();
         synchronized (sSyncAdapterLock) {
-            sSyncAdapter = new SyncAdapter(getApplicationContext(), true);
+            if(sSyncAdapter == null){
+                sSyncAdapter = SyncAdapter.getInstance(getApplicationContext());
+            }
         }
 
         if (BuildConfig.DEBUG) LOGGER.debug("onCreate() done");
     }
+
+
 
     @Override
     public IBinder onBind(Intent intent) {

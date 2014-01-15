@@ -9,7 +9,7 @@ import org.androidannotations.annotations.rest.*;
 import org.springframework.http.client.*;
 import org.springframework.web.client.*;
 
-@EBean
+@EBean(scope = EBean.Scope.Singleton)
 public class RestBean implements RssRest {
 
 	private static final String TAG = RestBean.class.getSimpleName();

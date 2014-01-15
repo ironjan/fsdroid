@@ -30,21 +30,24 @@ public class AccountCreator {
             ACCOUNT = "dummy";
 
     private boolean mAccountCreated = false;
-    private Account mAccount = new Account(ACCOUNT, ACCOUNT_TYPE);
+    private Account mAccount;
 
 
-    public Account create(Context context) {
-        if (BuildConfig.DEBUG) LOGGER.debug("create(...)");
+    public Account getAccountRegisterAccount() {
+        if (BuildConfig.DEBUG) LOGGER.debug("getAccountRegisterAccount(...)");
 
-        mAccountCreated = mAccountManager.addAccountExplicitly(mAccount, null, null);
+        if (mAccount == null) {
+            mAccount = new Account(ACCOUNT, ACCOUNT_TYPE);
+            mAccountCreated = mAccountManager.addAccountExplicitly(mAccount, null, null);
 
-        if (mAccountCreated) {
-            Log.i(TAG, "Synchronization account added.");
-        } else {
-            if (BuildConfig.DEBUG) LOGGER.debug("Account already existed.");
+            if (mAccountCreated) {
+                Log.i(TAG, "Synchronization account added.");
+            } else {
+                if (BuildConfig.DEBUG) LOGGER.debug("Account already existed.");
+            }
         }
 
-        if (BuildConfig.DEBUG) LOGGER.debug("create(...) done");
+        if (BuildConfig.DEBUG) LOGGER.debug("getAccountRegisterAccount(...) done");
         return mAccount;
     }
 

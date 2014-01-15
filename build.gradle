@@ -71,7 +71,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "int", "SYNC_INTERVAL", "60" // 1 minute
+            buildConfigField "int", "SYNC_INTERVAL", "10" // 15 seconds
         }
 
         release {

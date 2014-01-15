@@ -9,6 +9,7 @@ import android.util.*;
 import com.j256.ormlite.dao.*;
 import com.j256.ormlite.stmt.*;
 
+import de.upb.fsmi.*;
 import de.upb.fsmi.news.persistence.*;
 
 public class DatabaseManager {
@@ -58,14 +59,14 @@ public class DatabaseManager {
 			PreparedQuery<NewsItem> preparedQuery = queryBuilder.where()
 					.eq(NewsItem.COLUMN_LINK, pNewsItem.getLink()).prepare();
 			List<NewsItem> query = newsItemDao.query(preparedQuery);
-			Log.d(TAG, tag + "Found " + query.size() + " news items");
+			if( BuildConfig.DEBUG) Log.v(TAG, tag + "Found " + query.size() + " news items");
 			if (query.size() == 1) {
 				pNewsItem.set_id(query.get(0).get_id());
 				newsItemDao.update(pNewsItem);
-				Log.d(TAG, tag + "Updated news item.");
+                if( BuildConfig.DEBUG) Log.v(TAG, tag + "Updated news item.");
 			} else {
 				newsItemDao.create(pNewsItem);
-				Log.d(TAG, tag + "Created news item.");
+                if( BuildConfig.DEBUG) Log.v(TAG, tag + "Created news item.");
 			}
 			return true;
 		} catch (SQLException e) {

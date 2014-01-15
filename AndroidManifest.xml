@@ -53,7 +53,7 @@
         </receiver>
 
         <!--sync-->
-        <service android:name=".sync.SyncService">
+        <service android:name=".sync.SyncService" >
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>

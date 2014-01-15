@@ -1,5 +1,6 @@
 package de.upb.fsmi.fragments;
 
+import android.content.*;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -37,8 +38,7 @@ import de.upb.fsmi.helper.UpdateCompletedListener;
 import de.upb.fsmi.news.persistence.NewsItem;
 import de.upb.fsmi.receivers.UpdateCompletedReceiver;
 import de.upb.fsmi.rest.RestBean;
-import de.upb.fsmi.sync.AccountCreator;
-import de.upb.fsmi.sync.SyncAdapter;
+import de.upb.fsmi.sync.*;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
@@ -82,6 +82,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         updateCompletedReceiver.registerReceiver(getActivity()
                 .getApplicationContext());
         super.onResume();
+
+        refreshNews();
+
         ((ActionBarActivity) getActivity()).getSupportActionBar()
                 .setTitle(news);
 
@@ -148,8 +151,9 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         displayProgressBar(true);
         Log.v(TAG, "Refreshing news");
 
-        SyncAdapter sa = new SyncAdapter(getActivity(), true, false);
+        SyncAdapter sa = SyncAdapter.getInstance(getActivity());
         sa.executeSync(true);
+
 
         Log.v(TAG, "Refresh complete.");
         displayKnownNews();
@@ -175,7 +179,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
     @UiThread
     void showNews(List<NewsItem> pNewsItems) {
-        if (BuildConfig.DEBUG) LOGGER.debug("showNews({})", pNewsItems);
+        if (BuildConfig.DEBUG) LOGGER.debug("showNews(...)");
 
         if (pNewsItems.size() <= 0) {
             return;
@@ -191,7 +195,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
 
         cardsview.refresh();
 
-        if (BuildConfig.DEBUG) LOGGER.debug("showNews({}) done", pNewsItems);
+        if (BuildConfig.DEBUG) LOGGER.debug("showNews(...) done");
     }
 
     @Override
