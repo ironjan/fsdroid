@@ -32,9 +32,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71a57b6a-e5e9-4335-96c7-8937d2576364" name="Default" comment="Removed android-rome...">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/de/upb/fsmi/rest/MyRestTemplate.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fsdroid.iml" afterPath="$PROJECT_DIR$/fsdroid.iml" />
     </list>
     <ignored path="fsdroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,7 +134,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="27" selection-start="2146" selection-end="2146" vertical-scroll-proportion="0.81762916" vertical-offset="558" max-vertical-offset="1545">
+            <state line="73" column="69" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.5440729" vertical-offset="558" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
@@ -1342,7 +1340,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="27" selection-start="2146" selection-end="2146" vertical-scroll-proportion="0.81762916" vertical-offset="558" max-vertical-offset="1545">
+        <state line="73" column="69" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.5440729" vertical-offset="558" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
