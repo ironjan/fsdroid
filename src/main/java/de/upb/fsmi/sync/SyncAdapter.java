@@ -6,9 +6,6 @@ import android.content.*;
 import android.os.*;
 import android.util.*;
 
-import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
-import com.google.code.rome.android.repackaged.com.sun.syndication.io.*;
-
 import org.slf4j.*;
 import org.xmlpull.v1.*;
 
@@ -80,8 +77,6 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             executeSync(false);
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
-        } catch (FeedException e) {
-            LOGGER.error(e.getMessage(), e);
         } catch (XmlPullParserException e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -90,7 +85,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             LOGGER.debug("onPerformeSync({},{},{},{},{}) done", new Object[]{account, bundle, authority, contentProviderClient, syncResult});
     }
 
-    public void executeSync(boolean force) throws IOException, FeedException, XmlPullParserException {
+    public void executeSync(boolean force) throws IOException, XmlPullParserException {
         if (force)
             LOGGER.warn("executeSync({})", force);
         else if (BuildConfig.DEBUG) LOGGER.debug("executeSync({})", force);
@@ -295,21 +290,4 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         if (BuildConfig.DEBUG) LOGGER.debug("broadcastSyncEnd() done");
     }
 
-    private void persist(Channel news) {
-        if (BuildConfig.DEBUG) LOGGER.debug("persist({})", (news != null) ? "news" : "null");
-
-        if (null == news) {
-            return;
-        }
-
-        @SuppressWarnings("unchecked")
-        List<Item> items = news.getItems();
-        DatabaseManager databaseManager = DatabaseManager.getInstance();
-
-        for (Item item : items) {
-            databaseManager.createOrUpdate(new NewsItem(item));
-        }
-
-        if (BuildConfig.DEBUG) LOGGER.debug("persist({}) done", (news != null) ? "news" : "null");
-    }
 }

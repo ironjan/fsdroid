@@ -23,12 +23,11 @@ import de.upb.fsmi.db.*;
 import de.upb.fsmi.helper.*;
 import de.upb.fsmi.news.persistence.*;
 import de.upb.fsmi.receivers.*;
-import de.upb.fsmi.rest.*;
 import de.upb.fsmi.sync.*;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
-public class NewsFragment extends Fragment implements UpdateCompletedListener {
+public class NewsFragment extends Fragment implements UpdateCompletedListener, SyncStatusObserver {
 
     private static final String TAG = NewsFragment.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
@@ -36,8 +35,7 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
     CardUI cardsview;
     @Bean
     DataKeeper dataKeeper;
-    @Bean
-    RestBean mRss;
+
     @Pref
     MeetingPrefs_ mPrefs;
     UpdateCompletedReceiver updateCompletedReceiver = new UpdateCompletedReceiver(
@@ -109,8 +107,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         cardsview.addCard(dummyNewsCard);
         cardsview.refresh();
 
-        displayProgressBar(true);
         displayKnownNews();
+        displayProgressBar(true);
 
         if (BuildConfig.DEBUG) LOGGER.debug("initCardView() done");
     }
@@ -142,6 +140,8 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
                 ContentResolver.SYNC_EXTRAS_MANUAL, true);
         settingsBundle.putBoolean(
                 ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+        ContentResolver.addStatusChangeListener(ContentResolver.SYNC_OBSERVER_TYPE_ACTIVE | ContentResolver.SYNC_OBSERVER_TYPE_PENDING, this);
+
         ContentResolver.requestSync(mAccountCreator.getAccountRegisterAccount(), AccountCreator.getAuthority(), settingsBundle);
 
         Log.v(TAG, "Refresh complete.");
@@ -197,4 +197,12 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         if (BuildConfig.DEBUG) LOGGER.debug("updateCompleted() done");
     }
 
+    @Override
+    public void onStatusChanged(int status) {
+        if (ContentResolver.isSyncActive(mAccountCreator.getAccountRegisterAccount(), mAccountCreator.getAuthority())) {
+            return;
+        }
+
+        displayKnownNews();
+    }
 }
