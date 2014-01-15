@@ -39,7 +39,7 @@ public class SyncService extends Service {
     public IBinder onBind(Intent intent) {
         if (BuildConfig.DEBUG) LOGGER.debug("onBind({})", intent);
 
-        return sSyncAdapter.getSyncAdapterBinder();
+        return SyncAdapter.getInstance(this).getSyncAdapterBinder();
     }
 
 }

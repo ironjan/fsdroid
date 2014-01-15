@@ -1,43 +1,29 @@
 package de.upb.fsmi.fragments;
 
 import android.content.*;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.os.*;
+import android.support.v4.app.*;
+import android.support.v7.app.*;
+import android.util.*;
+import android.view.*;
 
-import com.fima.cardsui.views.CardUI;
+import com.fima.cardsui.views.*;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.OptionsItem;
-import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.Trace;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.res.StringRes;
-import org.androidannotations.annotations.sharedpreferences.Pref;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.androidannotations.annotations.res.*;
+import org.androidannotations.annotations.sharedpreferences.*;
+import org.slf4j.*;
 
-import java.util.List;
+import java.util.*;
 
-import de.upb.fsmi.BuildConfig;
-import de.upb.fsmi.R;
-import de.upb.fsmi.cards.NewsCard;
-import de.upb.fsmi.cards.NewsCard_;
-import de.upb.fsmi.db.DatabaseManager;
-import de.upb.fsmi.helper.DataKeeper;
-import de.upb.fsmi.helper.MeetingPrefs_;
-import de.upb.fsmi.helper.UpdateCompletedListener;
-import de.upb.fsmi.news.persistence.NewsItem;
-import de.upb.fsmi.receivers.UpdateCompletedReceiver;
-import de.upb.fsmi.rest.RestBean;
+import de.upb.fsmi.*;
+import de.upb.fsmi.cards.*;
+import de.upb.fsmi.db.*;
+import de.upb.fsmi.helper.*;
+import de.upb.fsmi.news.persistence.*;
+import de.upb.fsmi.receivers.*;
+import de.upb.fsmi.rest.*;
 import de.upb.fsmi.sync.*;
 
 @EFragment(R.layout.fragment_news)
@@ -151,9 +137,12 @@ public class NewsFragment extends Fragment implements UpdateCompletedListener {
         displayProgressBar(true);
         Log.v(TAG, "Refreshing news");
 
-        SyncAdapter sa = SyncAdapter.getInstance(getActivity());
-        sa.executeSync(true);
-
+        Bundle settingsBundle = new Bundle();
+        settingsBundle.putBoolean(
+                ContentResolver.SYNC_EXTRAS_MANUAL, true);
+        settingsBundle.putBoolean(
+                ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+        ContentResolver.requestSync(mAccountCreator.getAccountRegisterAccount(), AccountCreator.getAuthority(), settingsBundle);
 
         Log.v(TAG, "Refresh complete.");
         displayKnownNews();

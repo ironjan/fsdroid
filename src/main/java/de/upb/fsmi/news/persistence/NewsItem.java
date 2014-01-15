@@ -1,10 +1,10 @@
 package de.upb.fsmi.news.persistence;
 
-import java.util.*;
-
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.rss.*;
 import com.j256.ormlite.field.*;
 import com.j256.ormlite.table.*;
+
+import java.util.*;
 
 @DatabaseTable(tableName = "newsItems")
 public class NewsItem implements Comparable<NewsItem> {
@@ -48,8 +48,17 @@ public class NewsItem implements Comparable<NewsItem> {
 		super();
 	}
 
-	public NewsItem(Item item) {
-		super();
+    public NewsItem(String author, String content, String description, String link, String title, Date date) {
+        this.author = author;
+        this.content = content;
+        this.description = description;
+        this.link = link;
+        this.title = title;
+        this.date = date;
+    }
+
+    public NewsItem(Item item) {
+        super();
 		this.author = item.getAuthor();
 		this.content = item.getContent().getValue();
 		this.description = item.getDescription().getValue();
@@ -108,9 +117,14 @@ public class NewsItem implements Comparable<NewsItem> {
 
 	@Override
 	public int compareTo(NewsItem pAnother) {
-		int ascending = date.compareTo(pAnother.date);
+        if (date != null && pAnother.date != null) {
+            int ascending = date.compareTo(pAnother.date);
 		int descending = -ascending;
-		return descending ;
-	}
+
+            return descending ;
+        }
+
+        return title.compareTo(pAnother.title);
+    }
 
 }
