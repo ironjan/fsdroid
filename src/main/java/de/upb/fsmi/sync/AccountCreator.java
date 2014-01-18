@@ -25,7 +25,7 @@ public class AccountCreator {
     /**
      * Neded for synchroniztation initialization
      */
-    private static final String AUTHORITY = "de.ironjan.provider",
+    static final String AUTHORITY = "de.ironjan.provider",
             ACCOUNT_TYPE = "fsdroid.ironjan.de",
             ACCOUNT = "dummy";
 

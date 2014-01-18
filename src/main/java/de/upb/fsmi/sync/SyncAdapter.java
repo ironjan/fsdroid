@@ -16,7 +16,6 @@ import java.util.*;
 
 import de.upb.fsmi.*;
 import de.upb.fsmi.db.*;
-import de.upb.fsmi.news.persistence.*;
 
 
 /**
@@ -107,7 +106,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         LOGGER.debug("Read {} items", list.size());
 
 
-        DatabaseManager databaseManager = DatabaseManager.getInstance();
+        DatabaseManager databaseManager = DatabaseManager.getInstance(getContext());
 
         for (NewsItem item : list) {
             databaseManager.createOrUpdate(item);
@@ -192,7 +191,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 skip(parser);
             }
         }
-        return new NewsItem(author, encodedContent, description, link, title,  pubDate);
+        return new NewsItem(author, encodedContent, description, link, title, pubDate);
     }
 
     private String readAuthor(XmlPullParser parser) throws IOException, XmlPullParserException {

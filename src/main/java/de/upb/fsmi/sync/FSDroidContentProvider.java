@@ -2,9 +2,13 @@ package de.upb.fsmi.sync;
 
 import android.content.*;
 import android.database.*;
+import android.database.sqlite.*;
 import android.net.*;
+import android.text.*;
 
 import org.androidannotations.annotations.*;
+
+import de.upb.fsmi.db.*;
 
 
 /**
@@ -13,14 +17,42 @@ import org.androidannotations.annotations.*;
 @EProvider
 public class FSDroidContentProvider extends ContentProvider {
 
+    private DatabaseHelper mDatabaseHelper;
+    private static final UriMatcher sUriMatcher = NewsItemContract.sUriMatcher;
+
     @Override
     public boolean onCreate() {
+        mDatabaseHelper = DatabaseManager.getInstance(getContext()).getHelper();
         return false;
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return null;
+    public synchronized Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) throws NullPointerException, IllegalArgumentException {
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        NewsItemContract.checkNewsItemColumnsProjection(projection);
+
+        queryBuilder.setTables(NewsItemContract.NEWS_ITEMS_TABLE);
+
+        SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
+
+        switch (sUriMatcher.match(uri)) {
+            case NewsItemContract.ALL_NEWS:
+                if (TextUtils.isEmpty(sortOrder))
+                    sortOrder = NewsItemContract.NewsItemColumns.COLUMN_DATE + " DESC";
+                break;
+            case NewsItemContract.SINGLE_NEWS:
+                queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
+                        + uri.getLastPathSegment());
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
+
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+
+        return cursor;
     }
 
     @Override

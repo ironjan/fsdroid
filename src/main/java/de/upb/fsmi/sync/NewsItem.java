@@ -1,18 +1,13 @@
-package de.upb.fsmi.news.persistence;
+package de.upb.fsmi.sync;
 
 import com.j256.ormlite.field.*;
 import com.j256.ormlite.table.*;
 
 import java.util.*;
 
-@DatabaseTable(tableName = "newsItems")
-public class NewsItem implements Comparable<NewsItem> {
+@DatabaseTable(tableName = NewsItemContract.NEWS_ITEMS_TABLE)
+public class NewsItem implements Comparable<NewsItem>, NewsItemContract.NewsItemColumns {
 
-    public static final String COLUMN_LINK = "link";
-
-    public static final String COLUMN_ID = "_id";
-
-    public static final String COLUMN_DATE = "date";
 
     @DatabaseField(columnName = COLUMN_ID, generatedId = true)
     private long _id;
@@ -25,19 +20,19 @@ public class NewsItem implements Comparable<NewsItem> {
         _id = p_id;
     }
 
-    @DatabaseField(columnName = "author")
+    @DatabaseField(columnName = COLUMN_AUTHOR)
     private String author;
 
-    @DatabaseField(columnName = "content")
+    @DatabaseField(columnName = COLUMN_CONTENT)
     private String content;
 
-    @DatabaseField(columnName = "description")
+    @DatabaseField(columnName = COLUMN_DESCRIPTION)
     private String description;
 
     @DatabaseField(columnName = COLUMN_LINK)
     private String link;
 
-    @DatabaseField(columnName = "title")
+    @DatabaseField(columnName = COLUMN_TITLE)
     private String title;
 
     @DatabaseField(columnName = COLUMN_DATE)

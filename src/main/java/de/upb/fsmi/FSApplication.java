@@ -14,7 +14,7 @@ public class FSApplication extends Application {
     @Override
     public void onCreate() {
         if (BuildConfig.DEBUG) Log.d(TAG, "onCreate()");
-        DatabaseManager.init(getApplicationContext());
+        DatabaseManager.getInstance(getApplicationContext());
         if (BuildConfig.DEBUG) Log.d(TAG, "onCreate()");
     }
 
