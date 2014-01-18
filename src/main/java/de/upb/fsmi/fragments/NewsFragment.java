@@ -68,6 +68,12 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
         setListAdapter(adapter);
     }
 
+    @ItemClick(android.R.id.list)
+    void click(int position) {
+        long _id = adapter.getItemId(position);
+        SingleNews_.intent(getActivity()).news_id(_id).start();
+    }
+
     @OptionsItem(R.id.ab_refresh)
     void refresh() {
         if (BuildConfig.DEBUG) Log.d(TAG, "refresh()");
