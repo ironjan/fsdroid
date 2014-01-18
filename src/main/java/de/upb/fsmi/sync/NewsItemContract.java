@@ -1,6 +1,7 @@
 package de.upb.fsmi.sync;
 
 import android.content.*;
+import android.provider.*;
 
 import java.util.*;
 
@@ -25,7 +26,7 @@ public class NewsItemContract {
 
     protected interface NewsItemColumns {
         public static final String COLUMN_LINK = "link";
-        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_ID = BaseColumns._ID;
         public static final String COLUMN_DATE = "date";
         public static final String COLUMN_AUTHOR = "author";
         public static final String COLUMN_CONTENT = "content";
@@ -35,6 +36,8 @@ public class NewsItemContract {
         public static final String[] AVAILABLE_COLUMNS = {COLUMN_LINK, COLUMN_ID, COLUMN_DATE,
                 COLUMN_AUTHOR, COLUMN_CONTENT, COLUMN_DESCRIPTION, COLUMN_TITLE};
     }
+
+    public static String[] NEWS_LIST_PROJECTION = {NewsItemColumns.COLUMN_TITLE, NewsItemColumns.COLUMN_DESCRIPTION, NewsItemColumns.COLUMN_ID};
 
     public static void checkNewsItemColumnsProjection(String[] projection) {
         if (projection != null) {

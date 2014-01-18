@@ -3,13 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/elementMargin" >
+    android:background="@color/greyLight"
+    android:layout_marginRight="@dimen/elementMargin"
+    android:layout_marginLeft="@dimen/elementMargin"
+    android:padding="@dimen/elementMargin"
+    >
 
-    <TextView
-        android:id="@+id/newsHeadline"
-        style="@style/NewsCategoryHeadline"
-        android:layout_alignParentTop="true"
-        android:ellipsize="end"
+    <TextView style="@style/NewsCategoryHeadline"
+              android:id="@+id/newsHeadline"
+              android:layout_alignParentTop="true"
+              android:layout_alignParentLeft="true"
+              android:ellipsize="end"
         android:singleLine="true"
         android:text="@string/newsHeadline" />
 
@@ -23,7 +27,9 @@
 
     <TextView
         android:id="@+id/newsText"
+        android:textColor="@color/card_text"
         android:layout_width="match_parent"
+        android:paddingTop="@dimen/elementMargin"
         android:layout_height="wrap_content"
         android:layout_below="@+id/newsDivider" />
 

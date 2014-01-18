@@ -24,20 +24,21 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/elementMargin</item>
     </style>
 
     <style name="NewsDetailsHeadline">
         <item name="android:textColor">@color/blueDark</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/elementMargin</item>
     </style>
 
-    <style name="NewsCategoryHeadline" parent="@style/ContactCategoryHeadline">
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    <style name="NewsCategoryHeadline">
+        <item name="android:textColor">@color/blueDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="NewsDetailsDescription" parent="@style/NewsDetailsContent">
