@@ -27,7 +27,7 @@ echo "Cleaning up"
 rm *png
 
 i=ic_launcher.png
-convert -background none ic_launcher.svg -resize 512x512 ../high-res-app-logo.png
+convert -background none ic_launcher.svg -resize 512x512 ../store/high-res-app-logo.png
 convert ../high-res-app-logo.png -resize 48x48 $RES/drawable-mdpi/$i
 convert ../high-res-app-logo.png -resize 72x72 $RES/drawable-hdpi/$i
 convert ../high-res-app-logo.png -resize 96x96 $RES/drawable-xhdpi/$i

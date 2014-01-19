@@ -26,5 +26,10 @@ local.properties
 .settings
 .factorypath
 
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
 .gradle/
-.idea/libraries/
