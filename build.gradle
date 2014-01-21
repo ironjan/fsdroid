@@ -35,9 +35,14 @@ def getSourceSetName(variant) {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19"
+    buildToolsVersion "19.0.0"
 
-    packagingOptions {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+   packagingOptions {
         // prevents Error: duplicate files during packaging of APK
         // no wildcard support yet
         exclude 'META-INF/LICENSE'
@@ -69,15 +74,34 @@ android {
         }
     }
 
+    productFlavors {
+        production {
+            packageName "de.upb.fsmi"
+            buildConfigField "String", "AUTHORITY", "\"de.ironjan.provider\""
+        }
+
+        beta {
+            packageName "de.upb.fsmi.beta"
+            buildConfigField "String", "AUTHORITY", "\"de.ironjan.provider-beta\""
+        }
+    }
+
     buildTypes {
         debug {
-            buildConfigField "int", "SYNC_INTERVAL", "60" // 1 minute
+            buildConfigField "int", "SYNC_INTERVAL", "15 * 60" // 1 minutes
+            buildConfigField "boolean", "BETA", "true"
         }
 
         release {
             buildConfigField "int", "SYNC_INTERVAL", "60 * 60 * 12" // 12 hours
+            buildConfigField "boolean", "BETA", "false"
         }
     }
+
+    if(project.hasProperty("fsdroid.signing")
+      && new File(project.property("fsdroid.signing") + ".gradle").exists()) {
+      apply from: project.property("fsdroid.signing") + ".gradle";
+}
 }
 
 dependencies {
