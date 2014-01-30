@@ -1,21 +1,33 @@
 package de.upb.fsmi.sync;
 
-import android.accounts.*;
-import android.annotation.*;
-import android.content.*;
-import android.os.*;
-import android.util.*;
+import android.accounts.Account;
+import android.annotation.TargetApi;
+import android.content.AbstractThreadedSyncAdapter;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SyncResult;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Xml;
 
-import org.slf4j.*;
-import org.xmlpull.v1.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.*;
-import java.net.*;
-import java.text.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import de.upb.fsmi.*;
-import de.upb.fsmi.db.*;
+import de.upb.fsmi.BuildConfig;
+import de.upb.fsmi.db.DatabaseManager;
 
 
 /**
@@ -98,19 +110,11 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            list = readFeed(parser);
+            readAndPersistFeed(parser);
         } finally {
             in.close();
         }
 
-        LOGGER.debug("Read {} items", list.size());
-
-
-        DatabaseManager databaseManager = DatabaseManager.getInstance(getContext());
-
-        for (NewsItem item : list) {
-            databaseManager.createOrUpdate(item);
-        }
 
         broadcastSyncEnd();
 
@@ -119,7 +123,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         else if (BuildConfig.DEBUG) LOGGER.debug("executeSync({})", force);
     }
 
-    private List<NewsItem> readFeed(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private List<NewsItem> readAndPersistFeed(XmlPullParser parser) throws IOException, XmlPullParserException {
+        int totalItems = 0;
+
         List<NewsItem> entries = new ArrayList<NewsItem>();
 
         parser.require(XmlPullParser.START_TAG, null, "rss");
@@ -132,13 +138,28 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             // Starts by looking for the entry tag
             if (name.equals("item")) {
                 entries.add(readEntry(parser));
+                totalItems++;
             } else if (name.equals("channel")) {
-//                 do nothing?
+//                mustn't get skipped, we want to enter channel tag
             } else {
                 skip(parser);
             }
+
+            if (totalItems == 5 || (totalItems % 25 == 0)) {
+                persistAndClearList(entries);
+            }
         }
         return entries;
+    }
+
+    private void persistAndClearList(List<NewsItem> list) {
+        DatabaseManager databaseManager = DatabaseManager.getInstance(getContext());
+
+        for (NewsItem item : list) {
+            databaseManager.createOrUpdate(item);
+        }
+
+        list.clear();
     }
 
 

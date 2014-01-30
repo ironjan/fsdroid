@@ -8,7 +8,6 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -73,8 +72,7 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
         getLoaderManager().initLoader(TUTORIAL_LIST_LOADER, null, this);
         adapter = new SimpleCursorAdapter(
                 getActivity().getApplicationContext(), R.layout.card_news_item,
-                null, uiBindFrom, uiBindTo,
-                CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+                null, uiBindFrom, uiBindTo, 0);
         setListAdapter(adapter);
     }
 

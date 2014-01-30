@@ -1,9 +1,10 @@
 package de.upb.fsmi.sync;
 
-import android.content.*;
-import android.provider.*;
+import android.content.UriMatcher;
+import android.provider.BaseColumns;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * Created by ljan on 18.01.14.
@@ -18,6 +19,9 @@ public class NewsItemContract {
     public static final int ALL_NEWS = 1;
 
     public static final int SINGLE_NEWS = 2;
+
+    public static final String NEWS_PATH = "news";
+    public static final String NEWS_URI = "content://" + AUTHORITY + PATH_DIVIDER + NEWS_PATH;
 
     static {
         sUriMatcher.addURI(AUTHORITY, "news", ALL_NEWS);
