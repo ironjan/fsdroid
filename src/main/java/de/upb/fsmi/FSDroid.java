@@ -18,10 +18,12 @@ import android.view.View;
 import android.view.Window;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.Trace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,12 +48,13 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     AccountCreator mAccountCreator;
 
     @Override
+
     protected void onCreate(Bundle pSavedInstanceState) {
         if (BuildConfig.DEBUG) LOGGER.debug("onCreate({})", pSavedInstanceState);
 
         super.onCreate(pSavedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_PROGRESS);
-        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        initActionBar();
+        initAccount();
 
         if (BuildConfig.DEBUG) LOGGER.debug("onCreate({}) done", pSavedInstanceState);
     }
@@ -59,23 +62,25 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     @AfterViews
     void init() {
         if (BuildConfig.DEBUG) LOGGER.debug("init()");
-        initActionBar();
-        initDrawer();
-        initAccount();
         initStartContent();
+        initDrawer();
         if (BuildConfig.DEBUG) LOGGER.debug("init() done");
     }
 
-    private void initActionBar() {
+
+    void initActionBar() {
         if (BuildConfig.DEBUG) LOGGER.debug("initActionBar()");
 
+        supportRequestWindowFeature(Window.FEATURE_PROGRESS);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (BuildConfig.DEBUG) LOGGER.debug("initActionBar() done");
     }
 
-    private void initAccount() {
+    @Background
+    void initAccount() {
         if (BuildConfig.DEBUG) LOGGER.debug("initAccount()");
 
         mAccount = mAccountCreator.getAccountRegisterAccount();
@@ -85,7 +90,8 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (BuildConfig.DEBUG) LOGGER.debug("initAccount() done");
     }
 
-    private void initStartContent() {
+    @Trace
+    void initStartContent() {
         if (BuildConfig.DEBUG) LOGGER.debug("initStartContent()");
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -97,7 +103,8 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (BuildConfig.DEBUG) LOGGER.debug("initStartContent() done");
     }
 
-    private void initDrawer() {
+    @Trace
+    void initDrawer() {
         if (BuildConfig.DEBUG) LOGGER.debug("initDrawer()");
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -114,6 +121,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
     @Click({R.id.drawerItemNews, R.id.drawerItemMisc, R.id.drawerItemContact,
             R.id.drawerItemAbout, R.id.drawerItemMap, R.id.drawerItemMisc})
+    @Trace
     void navigationDrawerElementsClicked(View v) {
         if (BuildConfig.DEBUG) LOGGER.debug("navigationDrawerElementsClicked({})", v);
 
@@ -124,6 +132,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
     @SuppressLint("InlinedApi")
     @OptionsItem(android.R.id.home)
+    @Trace
     void toggleDrawer() {
         if (BuildConfig.DEBUG) LOGGER.debug("toggleDrawer()");
 
@@ -136,7 +145,8 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (BuildConfig.DEBUG) LOGGER.debug("toggleDrawer() done");
     }
 
-    private void closeDrawer() {
+    @Trace
+    void closeDrawer() {
         if (BuildConfig.DEBUG) LOGGER.debug("closeDrawer()");
 
         mDrawerLayout.closeDrawer(Gravity.LEFT);
@@ -145,6 +155,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     }
 
     @Override
+
     protected void onPostCreate(Bundle savedInstanceState) {
         if (BuildConfig.DEBUG) LOGGER.debug("onPostCreate({})", savedInstanceState);
 
@@ -164,6 +175,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (BuildConfig.DEBUG) LOGGER.debug("onConfigurationChanged({})", newConfig);
     }
 
+    @Trace
     @Override
     public void switchContentTo(Fragment fragment) {
         if (BuildConfig.DEBUG) LOGGER.debug("switchContentTo({})", fragment);

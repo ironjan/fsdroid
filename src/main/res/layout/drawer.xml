@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/holoDarkBackground" >
+    android:background="@color/holoDarkBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,13 +21,13 @@
             style="@style/DrawerCategoryItem"
             android:text="@string/misc" />
 
-        <include layout="@layout/drawer_category_item_divider"/>
-         <TextView
-            android:id="@id/drawerItemNews"
-            style="@style/DrawerCategoryItem"
-            android:text="@string/news" />
-        
-       <TextView
+        <!--<include layout="@layout/drawer_category_item_divider" />-->
+        <!--<TextView -->
+        <!--android:id="@id/drawerItemNews"-->
+        <!--style="@style/DrawerCategoryItem"-->
+        <!--android:text="@string/news" />-->
+
+        <TextView
             style="@style/DrawerCategoryHeadline"
             android:text="@string/fs" />
 

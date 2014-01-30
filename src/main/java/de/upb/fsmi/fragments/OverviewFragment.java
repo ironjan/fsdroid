@@ -1,23 +1,32 @@
 package de.upb.fsmi.fragments;
 
-import java.util.*;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.widget.Toast;
 
-import org.slf4j.*;
+import com.fima.cardsui.views.CardUI;
 
-import android.support.v4.app.*;
-import android.support.v7.app.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.Trace;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringRes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.fima.cardsui.views.*;
-import org.androidannotations.annotations.*;
-import org.androidannotations.annotations.res.*;
-import com.j256.ormlite.stmt.query.*;
+import java.util.Date;
 
-import de.upb.fsmi.*;
-import de.upb.fsmi.cards.*;
-import de.upb.fsmi.helper.*;
+import de.upb.fsmi.R;
+import de.upb.fsmi.cards.MeetingCard;
+import de.upb.fsmi.cards.StatusCard;
+import de.upb.fsmi.helper.DataKeeper;
+import de.upb.fsmi.helper.NoAvailableNetworkException;
 
 @EFragment(R.layout.fragment_overview)
 @OptionsMenu(R.menu.menu_main)
@@ -45,32 +54,40 @@ public class OverviewFragment extends Fragment {
 
 	private StatusCard statusCard;
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		super.onCreateOptionsMenu(menu, inflater);
-	}
-
 	@AfterViews
 	@UiThread
-	protected void initCardView() {
+    @Trace
+    protected void initCardView() {
 		LOGGER.debug("initializing card views");
 		
 		cardsView.setSwipeable(false);
 
-		meetingCard = new MeetingCard(null);
-		statusCard = new StatusCard(dataKeeper.getFsmiState());
-		LOGGER.trace("Created cards");
-		
-		cardsView.addCard(statusCard);
-		cardsView.addCard(meetingCard);
-		LOGGER.trace("Added cards to cardsview.");
-		
-		LOGGER.debug("Card views are initialized");
-		refreshData();
-	}
+        createCards();
+    }
 
-	@Background
-	void refreshData() {
+    @Background
+    @Trace
+    void createCards() {
+        meetingCard = new MeetingCard(null);
+        statusCard = new StatusCard(dataKeeper.getFsmiState());
+
+        addCards();
+
+        refreshData();
+    }
+
+    @UiThread
+    @Trace
+    void addCards() {
+        cardsView.addCard(statusCard);
+        cardsView.addCard(meetingCard);
+
+        LOGGER.trace("Added cards to cardsview.");
+    }
+
+
+    @Background
+    void refreshData() {
 		try {
 			dataKeeper.refresh(false);
 		} catch (NoAvailableNetworkException e) {
