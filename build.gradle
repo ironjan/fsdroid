@@ -74,20 +74,12 @@ android {
         }
     }
 
-    productFlavors {
-        production {
-            packageName "de.upb.fsmi"
-            buildConfigField "String", "AUTHORITY", "\"de.ironjan.provider\""
-        }
-
-        beta {
-            packageName "de.upb.fsmi.beta"
-            buildConfigField "String", "AUTHORITY", "\"de.ironjan.provider-beta\""
-        }
-    }
-
     buildTypes {
         debug {
+
+            packageNameSuffix ".debug"
+            versionNameSuffix "-debug"
+
             buildConfigField "int", "SYNC_INTERVAL", "15 * 60" // 1 minutes
             buildConfigField "boolean", "BETA", "true"
         }

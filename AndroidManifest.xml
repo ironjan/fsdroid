@@ -70,11 +70,7 @@
                 android:resource="@xml/authenticator" />
         </service>
 
-        <provider
-            android:authorities="de.ironjan.provider"
-            android:name=".sync.FSDroidContentProvider_"
-            android:exported="false"
-            android:syncable="true" />
+
     </application>
 
 </manifest>
