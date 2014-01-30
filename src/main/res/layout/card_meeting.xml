@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/card_background"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Nächste Sitzung:" />
+        android:text="Nächste Sitzung in E0.143, 18 Uhr:" />
 
     <TextView
         android:id="@id/txtMeetingDate"
@@ -19,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/txtDescriptionMeeting"
         android:layout_below="@id/txtDescriptionMeeting"
-        android:text="10.07.2013 18:00 in E1.312"
-        android:textStyle="bold" />
+        android:text="Datum der Sitzung konnte nicht geladen werden."
+        android:textStyle="bold"
+        tools:text="10.07.2013 18:00 in E1.312" />
 
 </RelativeLayout>

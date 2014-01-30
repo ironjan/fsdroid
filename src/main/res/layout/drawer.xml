@@ -21,11 +21,12 @@
             style="@style/DrawerCategoryItem"
             android:text="@string/misc" />
 
-        <!--<include layout="@layout/drawer_category_item_divider" />-->
-        <!--<TextView -->
-        <!--android:id="@id/drawerItemNews"-->
-        <!--style="@style/DrawerCategoryItem"-->
-        <!--android:text="@string/news" />-->
+        <include layout="@layout/drawer_category_item_divider" />
+
+        <TextView
+            android:id="@id/drawerItemNews"
+            style="@style/DrawerCategoryItem"
+            android:text="@string/news" />
 
         <TextView
             style="@style/DrawerCategoryHeadline"

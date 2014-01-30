@@ -1,23 +1,32 @@
 package de.upb.fsmi.fragments;
 
-import android.content.*;
-import android.database.*;
-import android.net.*;
-import android.os.*;
-import android.support.v4.app.*;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.*;
-import android.util.*;
-import android.view.*;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import org.androidannotations.annotations.*;
-import org.androidannotations.annotations.res.*;
-import org.slf4j.*;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.res.StringRes;
 
-import de.upb.fsmi.*;
-import de.upb.fsmi.cards.*;
-import de.upb.fsmi.sync.*;
+import de.upb.fsmi.BuildConfig;
+import de.upb.fsmi.R;
+import de.upb.fsmi.SingleNews_;
+import de.upb.fsmi.sync.AccountCreator;
+import de.upb.fsmi.sync.NewsItemContract;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
@@ -44,15 +53,16 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
     }
 
     private static final String TAG = NewsFragment.class.getSimpleName();
-    private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
+
     @Bean
     AccountCreator mAccountCreator;
     @StringRes
     String news;
-    private NewsCard dummyNewsCard;
-    private MenuItem ab_refresh;
-    private boolean mProgressShown;
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return null;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
