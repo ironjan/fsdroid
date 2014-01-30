@@ -1,17 +1,19 @@
 package de.upb.fsmi.cards.views;
 
-import java.text.*;
-import java.util.*;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import org.slf4j.*;
+import org.androidannotations.annotations.EViewGroup;
+import org.androidannotations.annotations.ViewById;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import android.content.*;
-import android.util.*;
-import android.widget.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.androidannotations.annotations.*;
-
-import de.upb.fsmi.*;
+import de.upb.fsmi.R;
 
 @EViewGroup(R.layout.card_meeting)
 public class MeetingCardView extends RelativeLayout implements CustomView<Date> {
@@ -31,8 +33,8 @@ public class MeetingCardView extends RelativeLayout implements CustomView<Date> 
 	public void bind(Date t) {
 		LOGGER.debug("Binding date = {}", t);
 		if (t != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy' 'HH:mm");
-			txtMeetingDate.setText(sdf.format(t));
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy");
+            txtMeetingDate.setText(sdf.format(t));
 			LOGGER.trace("Displayed date");
 		}
 		else {

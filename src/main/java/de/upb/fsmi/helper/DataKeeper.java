@@ -1,23 +1,35 @@
 package de.upb.fsmi.helper;
 
-import android.annotation.*;
-import android.content.*;
-import android.util.*;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-import org.androidannotations.annotations.*;
-import org.androidannotations.annotations.sharedpreferences.*;
-import org.w3c.dom.*;
-import org.xml.sax.*;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.RootContext;
+import org.androidannotations.annotations.sharedpreferences.Pref;
+import org.xml.sax.SAXException;
 
-import java.io.*;
-import java.net.*;
-import java.text.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import javax.xml.parsers.*;
-import javax.xml.xpath.*;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
 
-import de.upb.fsmi.widget.StatusAppWidgetProvider.*;
+import de.upb.fsmi.widget.StatusAppWidgetProvider.Call;
 
 @EBean(scope = EBean.Scope.Singleton)
 public class DataKeeper {
@@ -35,6 +47,8 @@ public class DataKeeper {
     private static final int DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
 
     private static final String TAG = DataKeeper.class.getSimpleName();
+    public static final Pattern DATE_PATTERN = Pattern.compile(".*?(\\d\\d\\d\\d-\\d\\d-\\d\\d).*$");
+    public static final SimpleDateFormat API_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     @RootContext
     Context context;
@@ -212,8 +226,7 @@ public class DataKeeper {
         Log.d(TAG, "Downloading new date..");
         Date downloadedDate = null;
         try {
-            final String die_fachschaft = "http://fsmi.uni-paderborn.de/";
-            File file = Downloader.download(context, die_fachschaft);
+            File file = Downloader.download(context, "https://fsmi.uni-paderborn.de/?eID=fsmi_sitzung");
             downloadedDate = parseDate(file);
             if (downloadedDate != null) {
                 long currentTime = System.currentTimeMillis();
@@ -241,35 +254,27 @@ public class DataKeeper {
     private static Date parseDate(File file) throws SAXException, IOException,
             ParserConfigurationException, FileNotFoundException,
             XPathExpressionException {
-        final FileReader fileReader = new FileReader(file);
-        Document doc = DocumentBuilderFactory.newInstance()
-                .newDocumentBuilder().parse(new InputSource(fileReader));
-
-        final XPathFactory newInstance = XPathFactory.newInstance();
-        final XPath newXPath = newInstance.newXPath();
-        final XPathExpression compile = newXPath
-                .compile("//*[@id=\"c109\"]/div[2]/p[1]");
-        XPathExpression xpath = compile;
-
-        Node node = (Node) xpath.evaluate(doc, XPathConstants.NODE);
-
         Date parsedDate = null;
-        if (node != null) {
-            String result = node.getAttributes().getNamedItem("title")
-                    .getNodeValue();
 
-            SimpleDateFormat format = new SimpleDateFormat(MEETING_DATE_FORMAT);
+        Scanner sc = new Scanner(file);
+        StringBuffer content = new StringBuffer();
 
-            try {
-                parsedDate = format.parse(result);
-                DateFormat df = DateFormat.getDateTimeInstance();
-                Log.d(TAG, "Parsed downloaded date: " + result + " -> "
-                        + (parsedDate != null ? df.format(parsedDate) : "null"));
-            } catch (ParseException e) {
-                Log.e(TAG, e.getMessage(), e);
-            }
+        while (sc.hasNextLine()) {
+            content.append(sc.nextLine());
         }
-        fileReader.close();
+
+        Matcher m = DATE_PATTERN.matcher(content);
+        if (m.find()) {
+            try {
+                parsedDate = API_DATE_FORMAT.parse(m.group(1));
+            } catch (ParseException e) {
+                logError(e);
+            }
+        } else {
+            logError(new Exception("no match"));
+        }
+        sc.close();
+
         return parsedDate;
     }
 
