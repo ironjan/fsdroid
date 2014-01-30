@@ -4,12 +4,18 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundBehindCards"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/card_padding" >
+    android:padding="@dimen/elementMargin"
+    android:paddingBottom="@dimen/card_padding">
 
-     <com.fima.cardsui.views.CardUI
-        android:id="@+id/cardsView"
+    <de.upb.fsmi.cards.views.StatusCardView_
+        android:id="@+id/statusCard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </com.fima.cardsui.views.CardUI>
+        android:layout_height="wrap_content" />
+
+    <de.upb.fsmi.cards.views.MeetingCardView_
+        android:id="@+id/meetingCard"
+        android:layout_marginTop="@dimen/elementMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

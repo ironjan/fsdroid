@@ -18,28 +18,28 @@ import de.upb.fsmi.R;
 @EViewGroup(R.layout.card_meeting)
 public class MeetingCardView extends RelativeLayout implements CustomView<Date> {
 
-	@ViewById
-	TextView txtMeetingDate;
+    @ViewById
+    TextView txtMeetingDate;
 
-	private final static Logger LOGGER = LoggerFactory
-			.getLogger(MeetingCardView.class);
+    private final static Logger LOGGER = LoggerFactory
+            .getLogger(MeetingCardView.class);
 
-	public MeetingCardView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-	}
+    public MeetingCardView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	//
-	@Override
-	public void bind(Date t) {
-		LOGGER.debug("Binding date = {}", t);
-		if (t != null) {
+    //
+    @Override
+    public void bind(Date t) {
+        LOGGER.debug("Binding date = {}", t);
+        if (t != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy");
             txtMeetingDate.setText(sdf.format(t));
-			LOGGER.trace("Displayed date");
-		}
-		else {
-			txtMeetingDate.setText("Datum ist unbekannt...");
-			LOGGER.trace("date was null");
-		}
-	}
+            LOGGER.trace("Displayed date");
+        } else {
+            txtMeetingDate.setText("Datum ist unbekannt...");
+            LOGGER.trace("date was null");
+        }
+        invalidate();
+    }
 }

@@ -1,53 +1,55 @@
 package de.upb.fsmi.cards.views;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.res.StringArrayRes;
 
 import de.upb.fsmi.R;
 
 @EViewGroup(R.layout.card_status)
 public class StatusCardView extends RelativeLayout implements
-		CustomView<Integer> {
+        CustomView<Integer> {
 
-	public StatusCardView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-	}
+    @ViewById(R.id.txtStatus)
+    TextView txtStatus;
 
-	@ViewById(R.id.txtStatus)
-	TextView txtStatus;
+    @ViewById(R.id.txtDescriptionStatus)
+    TextView txtDescriptionStatus;
 
-	@ViewById(R.id.txtDescriptionStatus)
-	TextView txtDescriptionStatus;
+    @ViewById(R.id.imgStatus)
+    ImageView imgStatus;
 
-	@ViewById(R.id.imgStatus)
-	ImageView imgStatus;
+    String[] stati, statiDescriptions;
 
-	@StringArrayRes(R.array.stati)
-	String[] stati;
+    public StatusCardView(Context context, AttributeSet attrs) {
+        super(context, attrs);
 
-	@Override
-	public void bind(Integer status) {
-		Log.v(StatusCardView.class.getSimpleName(), "Binding status=" + status);
+        if (!isInEditMode()) {
+            Resources resources = getContext().getResources();
+            stati = resources.getStringArray(R.array.stati);
+            statiDescriptions = resources.getStringArray(R.array.statiDescriptions);
+        }
+    }
 
-		final int statusInt = status.intValue();
 
-		imgStatus.setImageLevel(statusInt);
-		txtStatus.setText(stati[statusInt]);
+    @Override
+    public void bind(Integer status) {
+        Log.v(StatusCardView.class.getSimpleName(), "Binding status=" + status);
 
-		int visibility = View.GONE;
-		if (statusInt > 1) {
-			visibility = View.VISIBLE;
-		}
-		txtDescriptionStatus.setVisibility(visibility);
-	}
+        final int statusInt = status.intValue();
+
+        imgStatus.setImageLevel(statusInt);
+        txtStatus.setText(stati[statusInt]);
+        txtDescriptionStatus.setText(statiDescriptions[statusInt]);
+
+        invalidate();
+    }
 
 }
