@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgroundBehindCards"
-    android:orientation="vertical"
-    android:padding="@dimen/elementMargin"
-    android:paddingBottom="@dimen/card_padding">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/backgroundBehindCards"
+              android:orientation="vertical"
+              android:padding="@dimen/elementMargin"
+              android:paddingBottom="@dimen/card_padding">
 
-    <de.upb.fsmi.cards.views.StatusCardView_
+    <de.upb.fsmi.fsdroid.cards.views.StatusCardView_
         android:id="@+id/statusCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
-    <de.upb.fsmi.cards.views.MeetingCardView_
+    <de.upb.fsmi.fsdroid.cards.views.MeetingCardView_
         android:id="@+id/meetingCard"
         android:layout_marginTop="@dimen/elementMargin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/card_background"
-    android:padding="@dimen/elementMargin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
+                android:padding="@dimen/elementMargin"
     >
 
-    <TextView style="@style/NewsCategoryHeadline"
-              android:id="@+id/newsHeadline"
-              android:layout_alignParentTop="true"
-              android:layout_alignParentLeft="true"
-              android:ellipsize="end"
+    <TextView
+        style="@style/NewsCategoryHeadline"
+        android:id="@+id/newsHeadline"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:ellipsize="end"
         android:singleLine="true"
-        android:text="@string/newsHeadline" />
+        android:text="@string/newsHeadline"/>
 
     <include
         android:id="@+id/newsDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/newsHeadline"
-        layout="@layout/contact_category_uderline" />
+        layout="@layout/contact_category_uderline"/>
 
 
     <TextView
         android:id="@+id/newsText"
-        android:textColor="@color/card_text"
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:paddingTop="@dimen/elementMargin"
         android:layout_height="wrap_content"
         android:text="Werden gerade geladen - sofern eine Internetverbindung verfügbar ist ;)"
-        android:layout_below="@+id/newsDivider" />
+        android:layout_below="@+id/newsDivider"/>
 
 </RelativeLayout>

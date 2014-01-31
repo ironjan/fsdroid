@@ -1,6 +1,6 @@
 def versionMajor = 0
 def versionMinor = 0
-def versionPatch = 2
+def versionPatch = 3
 def versionBuild = 0 // bump for dogfood builds, public betas, etc.
 
 buildscript {
@@ -42,7 +42,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-   packagingOptions {
+    packagingOptions {
         // prevents Error: duplicate files during packaging of APK
         // no wildcard support yet
         exclude 'META-INF/LICENSE'
@@ -64,7 +64,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 19
 
-        packageName "de.upb.fsmi"
+        packageName "de.upb.fsmi.fsdroid"
     }
 
 
@@ -76,24 +76,23 @@ android {
 
     buildTypes {
         debug {
-
-            packageNameSuffix ".debug"
-            versionNameSuffix "-debug"
-
+            buildConfigField "String", "AUTHORITY", "\"de.fsmi.fsdroid.provider\""
+            buildConfigField "String", "ACCOUNT_TYPE", "\"fsdroid.ironjan.de\""
             buildConfigField "int", "SYNC_INTERVAL", "15 * 60" // 1 minutes
-            buildConfigField "boolean", "BETA", "true"
+
         }
 
         release {
+            buildConfigField "String", "AUTHORITY", "\"de.fsmi.fsdroid.provider\""
+            buildConfigField "String", "ACCOUNT_TYPE", "\"fsdroid.ironjan.de\""
             buildConfigField "int", "SYNC_INTERVAL", "60 * 60 * 12" // 12 hours
-            buildConfigField "boolean", "BETA", "false"
         }
     }
 
-    if(project.hasProperty("fsdroid.signing")
-      && new File(project.property("fsdroid.signing") + ".gradle").exists()) {
-      apply from: project.property("fsdroid.signing") + ".gradle";
-}
+    if (project.hasProperty("fsdroid.signing")
+            && new File(project.property("fsdroid.signing") + ".gradle").exists()) {
+        apply from: project.property("fsdroid.signing") + ".gradle";
+    }
 }
 
 dependencies {
