@@ -24,7 +24,6 @@ public class NewsItemContract {
     public static final String NEWS_PATH = "news";
     public static final String NEWS_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + NEWS_PATH;
     public static final Uri NEWS_URI = Uri.parse(NEWS_ABSOLUTE_URI_PATH);
-    public static final Uri SINGLE_NEWS_URI = Uri.parse(NEWS_ABSOLUTE_URI_PATH + PATH_DIVIDER + "#");
 
     static {
         sUriMatcher.addURI(AUTHORITY, "news", ALL_NEWS);

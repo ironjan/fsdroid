@@ -65,9 +65,7 @@ final class DrawerNavigationHelper {
     }
 
     private static NewsFragment_ getNewsFragment() {
-        if (newsFragment == null) {
-            newsFragment = new NewsFragment_();
-        }
+        newsFragment = new NewsFragment_();
         return newsFragment;
     }
 

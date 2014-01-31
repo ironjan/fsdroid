@@ -98,7 +98,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            final List<NewsItem> entries = readAndPersistFeed(parser);
+            final List<NewsItem> entries = readFeed(parser);
             if (entries.size() > 0) {
                 clearNews();
                 persist(entries);
@@ -118,7 +118,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         databaseManager.clearNews();
     }
 
-    private List<NewsItem> readAndPersistFeed(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private List<NewsItem> readFeed(XmlPullParser parser) throws IOException, XmlPullParserException {
         int totalItems = 0;
 
         List<NewsItem> entries = new ArrayList<NewsItem>();

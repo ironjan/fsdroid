@@ -2,7 +2,6 @@ package de.upb.fsmi.fsdroid.fragments;
 
 import android.content.*;
 import android.database.*;
-import android.net.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.content.CursorLoader;
@@ -18,7 +17,6 @@ import de.upb.fsmi.fsdroid.*;
 import de.upb.fsmi.fsdroid.sync.*;
 
 @EFragment(R.layout.fragment_news)
-@OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final int TUTORIAL_LIST_LOADER = 0x01;
     private SimpleCursorAdapter adapter;
@@ -27,7 +25,8 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         String[] projection = NewsItemContract.NEWS_LIST_PROJECTION;
         CursorLoader cursorLoader = new CursorLoader(getActivity(),
-                Uri.parse("content://" + BuildConfig.AUTHORITY + "/news"), projection, null, null, null);
+                NewsItemContract.NEWS_URI, projection, null, null, null);
+
         return cursorLoader;
     }
 
