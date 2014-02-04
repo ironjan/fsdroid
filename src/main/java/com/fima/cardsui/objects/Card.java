@@ -1,166 +1,164 @@
 package com.fima.cardsui.objects;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.content.*;
+import android.view.*;
+import android.view.View.*;
+import android.widget.*;
 
-import com.fima.cardsui.Utils;
+import com.fima.cardsui.*;
 
-import de.upb.fsmi.R;
+import de.upb.fsmi.fsdroid.*;
 
 public abstract class Card extends AbstractCard {
 
-	public interface OnCardSwiped {
-		public void onCardSwiped(Card card, View layout);
-	}
+    public interface OnCardSwiped {
+        public void onCardSwiped(Card card, View layout);
+    }
 
-	private OnCardSwiped onCardSwipedListener;
-	private OnClickListener mListener;
-	protected View mCardLayout;
+    private OnCardSwiped onCardSwipedListener;
+    private OnClickListener mListener;
+    protected View mCardLayout;
 
-	public Card() {
+    public Card() {
 
-	}
-	
-	public Card(String title) {
-		this.title = title;
-	}
+    }
 
-	public Card(String title, int image) {
-		this.title = title;
-		this.image = image;
-	}
+    public Card(String title) {
+        this.title = title;
+    }
 
-	public Card(String title, String desc, int image) {
-		this.title = title;
-		this.desc = desc;
-		this.image = image;
-	}
+    public Card(String title, int image) {
+        this.title = title;
+        this.image = image;
+    }
 
-	@Override
-	public View getView(Context context, boolean swipable) {
-		return getView(context, false);
-	}
+    public Card(String title, String desc, int image) {
+        this.title = title;
+        this.desc = desc;
+        this.image = image;
+    }
 
-	@Override
-	public View getView(Context context) {
+    @Override
+    public View getView(Context context, boolean swipable) {
+        return getView(context, false);
+    }
 
-		View view = LayoutInflater.from(context).inflate(getCardLayout(), null);
+    @Override
+    public View getView(Context context) {
 
-		mCardLayout = view;
+        View view = LayoutInflater.from(context).inflate(getCardLayout(), null);
 
-		try {
-			((FrameLayout) view.findViewById(R.id.cardContent))
-					.addView(getCardContent(context));
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
+        mCardLayout = view;
 
-		// ((TextView) view.findViewById(R.id.title)).setText(this.title);
+        try {
+            ((FrameLayout) view.findViewById(R.id.cardContent))
+                    .addView(getCardContent(context));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
-		lp.setMargins(0, 0, 0, bottom);
+        // ((TextView) view.findViewById(R.id.title)).setText(this.title);
 
-		view.setLayoutParams(lp);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
+        lp.setMargins(0, 0, 0, bottom);
 
-		return view;
-	}
+        view.setLayoutParams(lp);
 
-	public View getViewLast(Context context) {
+        return view;
+    }
 
-		View view = LayoutInflater.from(context).inflate(getLastCardLayout(),
-				null);
+    public View getViewLast(Context context) {
 
-		mCardLayout = view;
+        View view = LayoutInflater.from(context).inflate(getLastCardLayout(),
+                null);
 
-		try {
-			((FrameLayout) view.findViewById(R.id.cardContent))
-					.addView(getCardContent(context));
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
+        mCardLayout = view;
 
-		// ((TextView) view.findViewById(R.id.title)).setText(this.title);
+        try {
+            ((FrameLayout) view.findViewById(R.id.cardContent))
+                    .addView(getCardContent(context));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
-		lp.setMargins(0, 0, 0, bottom);
+        // ((TextView) view.findViewById(R.id.title)).setText(this.title);
 
-		view.setLayoutParams(lp);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
+        lp.setMargins(0, 0, 0, bottom);
 
-		return view;
-	}
+        view.setLayoutParams(lp);
 
-	public View getViewFirst(Context context) {
+        return view;
+    }
 
-		View view = LayoutInflater.from(context).inflate(getFirstCardLayout(),
-				null);
+    public View getViewFirst(Context context) {
 
-		mCardLayout = view;
+        View view = LayoutInflater.from(context).inflate(getFirstCardLayout(),
+                null);
 
-		try {
-			((FrameLayout) view.findViewById(R.id.cardContent))
-					.addView(getCardContent(context));
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
+        mCardLayout = view;
 
-		// ((TextView) view.findViewById(R.id.title)).setText(this.title);
+        try {
+            ((FrameLayout) view.findViewById(R.id.cardContent))
+                    .addView(getCardContent(context));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT);
-		int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
-		lp.setMargins(0, 0, 0, bottom);
+        // ((TextView) view.findViewById(R.id.title)).setText(this.title);
 
-		view.setLayoutParams(lp);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        int bottom = Utils.convertDpToPixelInt(context, context.getResources().getDimension(R.dimen.card_bottom_margin));
+        lp.setMargins(0, 0, 0, bottom);
 
-		return view;
-	}
+        view.setLayoutParams(lp);
 
-	public abstract View getCardContent(Context context);
+        return view;
+    }
 
-	public OnClickListener getClickListener() {
-		return mListener;
-	}
+    public abstract View getCardContent(Context context);
 
-	public void setOnClickListener(OnClickListener listener) {
-		mListener = listener;
-	}
+    public OnClickListener getClickListener() {
+        return mListener;
+    }
 
-	public void OnSwipeCard() {
-		if (onCardSwipedListener != null)
-			onCardSwipedListener.onCardSwiped(this, mCardLayout);
-		// TODO: find better implementation to get card-object's used content
-		// layout (=> implementing getCardContent());
-	}
+    public void setOnClickListener(OnClickListener listener) {
+        mListener = listener;
+    }
 
-	public OnCardSwiped getOnCardSwipedListener() {
-		return onCardSwipedListener;
-	}
+    public void OnSwipeCard() {
+        if (onCardSwipedListener != null)
+            onCardSwipedListener.onCardSwiped(this, mCardLayout);
+        // TODO: find better implementation to get card-object's used content
+        // layout (=> implementing getCardContent());
+    }
 
-	public void setOnCardSwipedListener(OnCardSwiped onEpisodeSwipedListener) {
-		this.onCardSwipedListener = onEpisodeSwipedListener;
-	}
+    public OnCardSwiped getOnCardSwipedListener() {
+        return onCardSwipedListener;
+    }
 
-	protected int getCardLayout() {
-		return R.layout.item_card_empty;
-	}
+    public void setOnCardSwipedListener(OnCardSwiped onEpisodeSwipedListener) {
+        this.onCardSwipedListener = onEpisodeSwipedListener;
+    }
 
-	protected int getLastCardLayout() {
-		return R.layout.item_card_empty_last;
-	}
+    protected int getCardLayout() {
+        return R.layout.item_card_empty;
+    }
 
-	protected int getFirstCardLayout() {
-		return R.layout.item_card_empty_first;
-	}
+    protected int getLastCardLayout() {
+        return R.layout.item_card_empty_last;
+    }
+
+    protected int getFirstCardLayout() {
+        return R.layout.item_card_empty_first;
+    }
 
 }
