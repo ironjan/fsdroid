@@ -7,10 +7,10 @@
     <string name="die_fachschaft_de">http://die-fachschaft.de/</string>
 
     <!-- status -->
-    <string name="statusOpen">offen</string>
-    <string name="statusUnknown">unbekannt</string>
-    <string name="statusClosed">geschlossen</string>
-    <string name="statusDescription">Status der Fachschaft ist gerade:</string>
+    <string name="statusOpen">Wir haben gerade <b>geöffnet</b>!</string>
+    <string name="statusUnknown">Status konnte nicht geladen werden.</string>
+    <string name="statusClosed">Die Fachschaft ist gerade geschlossen.</string>
+
 
     <!-- meeting -->
     <string name="meetingDescription">Nächste Sitzung:</string>
