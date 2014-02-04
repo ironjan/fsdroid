@@ -1,0 +1,80 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar"></style>
+
+    <style name="DrawerCategoryHeadline">
+        <item name="android:textColor">@color/blueLight</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/elementMargin</item>
+    </style>
+
+    <style name="DrawerCategoryItem">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/touchable</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/buttonSize</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ContactCategoryHeadline">
+        <item name="android:textColor">@color/blueDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NewsDetailsHeadline">
+        <item name="android:textColor">@color/blueDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NewsCategoryHeadline">
+        <item name="android:textColor">@color/blueDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NewsDetailsDescription" parent="@style/NewsDetailsContent">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NewsDetailsDate" parent="@style/NewsDetailsContent">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="NewsDetailsContent">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/elementMargin</item>
+    </style>
+
+    <style name="ContactCategoryItem">
+        <item name="android:background">@drawable/touchable</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginBottom">@dimen/elementMargin</item>
+    </style>
+
+    <style name="BlueCardTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@color/blueLight</item>
+    </style>
+
+    <style name="BlackCardTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>

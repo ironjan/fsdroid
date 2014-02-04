@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundBehindCards"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/card_padding">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:divider="@color/transparent"
+        android:dividerHeight="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="@dimen/elementMargin"
+        tools:listitem="@layout/card_news_item" />
+
+    <include
+        android:id="@android:id/empty"
+        layout="@layout/card_news_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/elementMargin" />
+
+</LinearLayout>
