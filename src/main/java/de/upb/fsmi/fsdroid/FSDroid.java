@@ -33,6 +33,10 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     public static final String AUTHORITY = AccountCreator.getAuthority();
     Account mAccount;
 
+
+    @InstanceState
+    int mSelectedContent = 0;
+
     @Bean
     AccountCreator mAccountCreator;
 
@@ -83,11 +87,13 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
     void initStartContent() {
         if (BuildConfig.DEBUG) LOGGER.debug("initStartContent()");
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_frame, new OverviewFragment_());
+        if (mSelectedContent == 0) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, new OverviewFragment_());
         getSupportActionBar().setNavigationMode(
                 ActionBar.NAVIGATION_MODE_STANDARD);
         ft.commit();
+        }
 
         if (BuildConfig.DEBUG) LOGGER.debug("initStartContent() done");
     }
@@ -181,6 +187,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
                 ActionBar.NAVIGATION_MODE_STANDARD);
         ft.commit();
         closeDrawer();
+        mSelectedContent++;
 
         if (BuildConfig.DEBUG) LOGGER.debug("switchContentTo({})", fragment);
     }
