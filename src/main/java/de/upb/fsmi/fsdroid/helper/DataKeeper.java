@@ -23,8 +23,7 @@ import de.upb.fsmi.fsdroid.widget.StatusAppWidgetProvider.*;
 public class DataKeeper {
 
     @SuppressWarnings("nls")
-    private static final String MEETING_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ",
-            STATUS_URL = "https://fsmi.uni-paderborn.de/zeugs/buzzer/status";
+    private static final String STATUS_URL = "https://fsmi.uni-paderborn.de/zeugs/buzzer/status";
 
     private static final int _5_MINUTES = 1000 * 60 * 5;
 
@@ -37,6 +36,7 @@ public class DataKeeper {
     private static final String TAG = DataKeeper.class.getSimpleName();
     public static final Pattern DATE_PATTERN = Pattern.compile(".*?(\\d\\d\\d\\d-\\d\\d-\\d\\d).*$");
     public static final SimpleDateFormat API_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    public static final String MEETING_DATE_URL = "https://fsmi.uni-paderborn.de/?eID=fsmi_sitzung";
 
     @RootContext
     Context context;
@@ -214,7 +214,7 @@ public class DataKeeper {
         Log.d(TAG, "Downloading new date..");
         Date downloadedDate = null;
         try {
-            File file = Downloader.download(context, "https://fsmi.uni-paderborn.de/?eID=fsmi_sitzung");
+            File file = Downloader.download(context, MEETING_DATE_URL);
             downloadedDate = parseDate(file);
             if (downloadedDate != null) {
                 long currentTime = System.currentTimeMillis();

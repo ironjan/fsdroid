@@ -12,6 +12,10 @@
     <string name="statusClosed">Die Fachschaft ist gerade geschlossen.</string>
 
 
+    <!--week-->
+    <string name="oddWeek">Es ist gerade eine gerade Woche.</string>
+    <string name="evenWeek">Es ist gerade eine ungerade Woche.</string>
+
     <!-- meeting -->
     <string name="meetingDescription">Nächste Sitzung:</string>
 

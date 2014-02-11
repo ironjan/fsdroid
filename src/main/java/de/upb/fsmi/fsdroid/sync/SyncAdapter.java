@@ -25,6 +25,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public static final String SYNC_FINISHED = "SYNC_FINISHED";
     private static final String TAG = SyncAdapter.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
+    public static final String NEWS_URL = "http://fsmi.uni-paderborn.de/neuigkeiten/?type=100";
     private static SyncAdapter instance = null;
     private static Object lock = new Object();
     /**
@@ -243,7 +244,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 .replace("Jul", "07")
                 .replace("Aug", "08")
                 .replace("Sep", "09")
-                .replace("Oct", "1")
+                .replace("Oct", "10")
                 .replace("Nov", "11")
                 .replace("Dec", "12");
 
@@ -288,7 +289,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private InputStream downloadFile() throws IOException {
         LOGGER.debug("downloadFile()");
 
-        URL url = new URL("http://fsmi.uni-paderborn.de/neuigkeiten/?type=100");
+        URL url = new URL(NEWS_URL);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000 /* milliseconds */);
         conn.setConnectTimeout(15000 /* milliseconds */);

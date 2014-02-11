@@ -23,7 +23,6 @@ public class OverviewFragment extends Fragment {
     String misc;
 
     private static final String TAG = OverviewFragment.class.getSimpleName();
-    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @ViewById
     StatusCardView statusCard;
@@ -35,9 +34,6 @@ public class OverviewFragment extends Fragment {
         ((ActionBarActivity) getActivity()).getSupportActionBar()
                 .setTitle(misc);
     }
-
-//	@ViewById
-//	CardUI cardsView;
 
     @Bean
     DataKeeper dataKeeper;
@@ -78,10 +74,6 @@ public class OverviewFragment extends Fragment {
         }
     }
 
-    void logError(Exception e) {
-        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
-        Log.e(TAG, e.getMessage(), e);
-    }
 
     @OptionsItem(R.id.ab_refresh)
     void refresh() {
