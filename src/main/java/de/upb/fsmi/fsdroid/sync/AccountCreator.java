@@ -51,9 +51,10 @@ public class AccountCreator {
         return mAccount;
     }
 
-    public boolean wasAccountCreated() {
-        return mAccountCreated;
+    public static String getAccountName() {
+        return ACCOUNT;
     }
+
 
     public static String getAuthority() {
         return AUTHORITY;

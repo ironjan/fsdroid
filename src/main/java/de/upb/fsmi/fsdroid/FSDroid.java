@@ -66,6 +66,8 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
 
         supportRequestWindowFeature(Window.FEATURE_PROGRESS);
         supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setProgressBarIndeterminate(true);
+
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

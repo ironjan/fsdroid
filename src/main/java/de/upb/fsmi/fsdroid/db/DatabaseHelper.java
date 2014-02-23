@@ -15,11 +15,11 @@ import de.upb.fsmi.fsdroid.sync.*;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something
     // appropriate for your app
-    private static final String DATABASE_NAME = "WishListDB.sqlite";
+    private static final String DATABASE_NAME = "fsdroid.sqlite";
 
     // any time you make changes to your database objects, you may have to
     // increase the database version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // the DAO object we use to access the SimpleData table
     private Dao<NewsItem, Integer> wishListDao = null;
@@ -48,6 +48,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 case 1:
                 case 2:
                     TableUtils.dropTable(pArg1, OldNewsItem.class, true);
+                case 3:
+                    TableUtils.createTable(pArg1, SyncInfo.class);
             }
             onCreate(pArg0);
         } catch (SQLException e) {

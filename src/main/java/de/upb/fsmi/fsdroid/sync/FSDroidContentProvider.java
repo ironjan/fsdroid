@@ -18,8 +18,18 @@ import de.upb.fsmi.fsdroid.db.*;
 public class FSDroidContentProvider extends ContentProvider {
 
     private DatabaseHelper mDatabaseHelper;
-    private static final UriMatcher sUriMatcher = NewsItemContract.sUriMatcher;
+    private static final UriMatcher sUriMatcher = new UriMatcher(0);
 
+
+    public static final int ALL_NEWS = 1;
+    public static final int SINGLE_NEWS = 2;
+    public static final String AUTHORITY = AccountCreator.AUTHORITY;
+
+
+    static {
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH, ALL_NEWS);
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.SINGLE_NEWS_PATH, SINGLE_NEWS);
+    }
 
     @Override
     public boolean onCreate() {
@@ -29,6 +39,16 @@ public class FSDroidContentProvider extends ContentProvider {
 
     @Override
     public synchronized Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) throws NullPointerException, IllegalArgumentException {
+        switch (sUriMatcher.match(uri)) {
+            case ALL_NEWS:
+            case SINGLE_NEWS:
+                return queryNews(uri, projection, selection, selectionArgs, sortOrder);
+        }
+
+        return null;
+    }
+
+    private Cursor queryNews(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
         NewsItemContract.checkNewsItemColumnsProjection(projection);
@@ -38,11 +58,11 @@ public class FSDroidContentProvider extends ContentProvider {
         SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
 
         switch (sUriMatcher.match(uri)) {
-            case NewsItemContract.ALL_NEWS:
+            case ALL_NEWS:
                 if (TextUtils.isEmpty(sortOrder))
                     sortOrder = NewsItemContract.NewsItemColumns.COLUMN_DATE + " DESC";
                 break;
-            case NewsItemContract.SINGLE_NEWS:
+            case SINGLE_NEWS:
                 queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
                         + uri.getLastPathSegment());
                 break;
@@ -64,7 +84,7 @@ public class FSDroidContentProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
         switch (sUriMatcher.match(uri)) {
-            case NewsItemContract.ALL_NEWS:
+            case ALL_NEWS:
                 return insertNewsItem(contentValues);
         }
         return null;
