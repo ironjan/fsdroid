@@ -24,6 +24,7 @@
         android:label="@string/appName"
         android:theme="@style/AppTheme">
         <activity
+            android:screenOrientation="portrait"
             android:name="FSDroid_"
             android:icon="@drawable/ic_launcher"
             android:label="@string/appName">
@@ -34,6 +35,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name="SingleNews_"
             android:icon="@drawable/ic_launcher"
             android:parentActivityName=".FSDroid_">
