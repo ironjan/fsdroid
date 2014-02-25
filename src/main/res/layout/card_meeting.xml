@@ -12,17 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Termin der nächste Sitzung:" />
+        android:text="@string/meetingDescription" />
 
     <TextView
         android:id="@id/txtMeetingDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtDescriptionMeeting"
         android:layout_alignLeft="@id/txtDescriptionMeeting"
+        android:layout_below="@id/txtDescriptionMeeting"
         android:text="Datum der Sitzung konnte nicht geladen werden."
         android:textStyle="bold"
-        tools:text="10.07.2013" />
+        tools:text="10.07.2013 18:00 in E1.312" />
 
     <TextView android:layout_below="@+id/txtMeetingDate"
         android:layout_width="match_parent"

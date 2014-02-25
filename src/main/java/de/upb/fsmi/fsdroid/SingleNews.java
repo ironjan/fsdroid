@@ -11,6 +11,7 @@ import org.androidannotations.annotations.*;
 
 import de.upb.fsmi.fsdroid.fragments.*;
 
+@SuppressLint("Registered")
 @EActivity(R.layout.activity_news_details)
 public class SingleNews extends ActionBarActivity {
     @Extra
