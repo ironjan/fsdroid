@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_background"
+    android:padding="@dimen/elementMargin">
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imgStatus"
+        android:text="Status wird gerade geladen." />
+
+
+    <ImageView
+        android:id="@id/imgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:maxHeight="@dimen/buttonSize"
+        android:maxWidth="@dimen/buttonSize"
+        android:src="@drawable/status" />
+
+    <TextView
+        android:id="@id/txtDescriptionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/imgStatus"
+        android:layout_alignLeft="@+id/layoutingId1"
+        android:text=""
+        tools:text="Design: Komm doch einfach mal vorbei." />
+
+</RelativeLayout>
