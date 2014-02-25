@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:paddingTop="@dimen/elementMargin"
         android:layout_height="wrap_content"
-        android:text="Werden gerade geladen - sofern eine Internetverbindung verfügbar ist ;)"
+        android:text="@string/loadingNews"
         android:layout_below="@+id/newsDivider"/>
 
 </RelativeLayout>

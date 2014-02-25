@@ -1,5 +1,6 @@
 package de.upb.fsmi.fsdroid.sync;
 
+import android.annotation.SuppressLint;
 import android.content.*;
 import android.database.*;
 import android.database.sqlite.*;
@@ -14,6 +15,7 @@ import de.upb.fsmi.fsdroid.db.*;
 /**
  * A stub content provider needed by the sync framework. No logging.
  */
+@SuppressLint("Registered")
 @EProvider
 public class FSDroidContentProvider extends ContentProvider {
 
