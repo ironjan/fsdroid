@@ -36,3 +36,4 @@ local.properties
 abrt_*
 fsdroid.iml
 gradle/wrapper/gradle-wrapper.properties
+gradle.properties
