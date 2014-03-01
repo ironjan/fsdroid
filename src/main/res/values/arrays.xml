@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="stati">
+    <string-array translatable="false" name="stati">
         <item>@string/statusUnknown</item>
         <item>@string/statusClosed</item>
         <item>@string/statusOpen</item>
     </string-array>
 
     <string-array name="statiDescriptions">
-        <item></item>
+        <item/>
         <item>Wir sind haben Mo-Fr von 13 bis 14 Uhr geöffnet.</item>
         <item>Komm doch einfach mal vorbei.</item>
     </string-array>
 
     <!-- libraries -->
-    <string-array name="libraryNames">
+    <string-array translatable="false" name="libraryNames">
         <item>Fachschaftsdroide</item>
         <!-- fsdroid -->
         <item>AndroidAnnotations</item>
@@ -28,7 +28,7 @@
         <item>spring-android</item>
         <!-- spring -->
     </string-array>
-    <string-array name="libraryLinks">
+    <string-array translatable="false" name="libraryLinks">
         <item>https://fsmi.uni-paderborn.de/</item>
         <!-- fsdroid -->
         <item>http://androidannotations.org/</item>
@@ -42,7 +42,7 @@
         <item>http://www.springsource.org/spring-android</item>
         <!-- spring -->
     </string-array>
-    <string-array name="libraryLicenses">
+    <string-array translatable="false" name="libraryLicenses">
         <item>@string/apacheLicense</item>
         <!-- fsdroid -->
         <item>@string/apacheLicense</item>
@@ -56,7 +56,7 @@
         <item>@string/apacheLicense</item>
         <!-- spring -->
     </string-array>
-    <string-array name="libraryDescriptions">
+    <string-array translatable="false"  name="libraryDescriptions">
         <item>Irgendwas tolles über fsdroid&#8230;</item>
         <!-- fsdroid -->
         <item>AndroidAnnotations is an Open Source framework that speeds up Android development. It
@@ -83,103 +83,5 @@
         <!-- spring -->
     </string-array>
 
-    <!-- ophase -->
-    <!-- montag -->
-    <string-array name="ophaseMoStarts">
-        <item>08:30</item>
-        <item>10:00</item>
-        <item>14:00</item>
-        <item>18:00</item>
-    </string-array>
-    <string-array name="ophaseMoEnds">
-        <item>10:00</item>
-        <item>14:00</item>
-        <item>15:00</item>
-        <item>open End</item>
-    </string-array>
-    <string-array name="ophaseMoAppointment">
-        <item>Begrüßung durch Rektor, AStA, Bürgermeister</item>
-        <item>Uniführung mit Zwischenstopp in der Mensa</item>
-        <item>Treffen mit euren Mentoren</item>
-        <item>Tagesausklang</item>
-    </string-array>
-    <string-array name="ophaseMoLocations">
-        <item>AudiMax</item>
-        <item>Campus</item>
-        <item>Campus</item>
-        <item>Pub</item>
-    </string-array>
-
-    <!-- dienstag -->
-    <string-array name="ophaseDiStarts">
-        <item>09:00</item>
-        <item>10:00</item>
-        <item>11:00</item>
-        <item>12:00</item>
-        <item>13:00</item>
-        <item>14:00</item>
-    </string-array>
-    <string-array name="ophaseDiEnds">
-        <item>10:00</item>
-        <item>11:00</item>
-        <item>12:00</item>
-        <item>13:00</item>
-        <item>14:00</item>
-        <item>17:30</item>
-    </string-array>
-    <string-array name="ophaseDiAppointments">
-        <item>Frühstück</item>
-        <item>Die Fachschaft stellt sich vor</item>
-        <item>Facheinführung in deinen Studiengang</item>
-        <item>Studenplanerstellung &amp; Einführung in PAUL</item>
-        <item>Mittagspause</item>
-        <item>Uni-Sims - Geländespiel durch das Grundstudium</item>
-    </string-array>
-    <string-array name="ophaseDiLocations">
-        <item>Cafete</item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-    </string-array>
-
-    <!-- mittwoch -->
-    <string-array name="ophaseMiStarts">
-        <item>09:30</item>
-        <item>11:00</item>
-        <item>11:00</item>
-        <item>11:00</item>
-        <item>14:00</item>
-        <item>18:00</item>
-        <item>20:00</item>
-    </string-array>
-    <string-array name="ophaseMiEnds">
-        <item>11:00</item>
-        <item>13:00</item>
-        <item>13:00</item>
-        <item>13:00</item>
-        <item>18:00</item>
-        <item>19:00</item>
-        <item>Open End</item>
-    </string-array>
-    <string-array name="ophaseMiAppointmens">
-        <item>Frühstück</item>
-        <item>Unix-Installationsparty</item>
-        <item>LaTex-Einführung</item>
-        <item>Kennenlerntreffen</item>
-        <item>Spiele-Cafe</item>
-        <item>Fachschaftssitzung</item>
-        <item>die legendäre Kneipentour</item>
-    </string-array>
-    <string-array name="ophaseMiLocations">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item>Rathausplatz</item>
-    </string-array>
 
 </resources>

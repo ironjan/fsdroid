@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/elementMargin" >
 
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/imgLibraryLink"
-        android:text="Large Text" />
+        tools:text="Name" />
 
     <ImageView
         android:id="@+id/imgLibraryLink"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/libraryDivider"
         android:layout_marginTop="@dimen/elementMargin"
-        android:text="TextView" />
+        tools:text="Beschreibung...." />
 
 
     <TextView
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtLibraryDescription"
         android:layout_marginTop="@dimen/elementMargin"
-        android:text="TextView" />
+        tools:text="Lizenz" />
 
     <include
         android:id="@+id/libraryDivider"

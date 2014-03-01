@@ -19,6 +19,7 @@ import org.slf4j.*;
 import de.upb.fsmi.fsdroid.fragments.*;
 import de.upb.fsmi.fsdroid.sync.*;
 
+@SuppressLint("Registered")
 @EActivity(R.layout.activity_with_drawer)
 public class FSDroid extends ActionBarActivity implements DrawerActivity {
     static final String TAG = FSDroid.class.getSimpleName();
@@ -109,8 +110,7 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
                 GravityCompat.START);
 
         mDrawerToggle = new DrawerOpenCloseListener(this, mDrawerLayout,
-                R.drawable.ic_drawer, R.string.drawer_open,
-                R.string.drawer_close);
+                R.drawable.ic_drawer, R.string.drawerOpen, R.string.drawerClose);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (BuildConfig.DEBUG) LOGGER.debug("initDrawer() done");
