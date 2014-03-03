@@ -11,6 +11,7 @@ public class MeetingDate {
 
     public static final String COLUMN_VALUE = "value";
     public static final String COLUMN_ID = BaseColumns._ID;
+    public static final String COLUMN_LAST_UPDATE = "lastUpdate";
 
     @DatabaseField(columnName = COLUMN_ID, generatedId = true)
     private long _id;
@@ -18,6 +19,17 @@ public class MeetingDate {
     private String value;
 
     public MeetingDate() {
+    }
+
+    @DatabaseField(columnName = COLUMN_LAST_UPDATE)
+    long lastUpdate;
+
+    public long getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(long lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     public long get_id() {

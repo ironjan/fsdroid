@@ -14,7 +14,14 @@ import de.upb.fsmi.fsdroid.sync.entities.*;
 
 
 /**
- * A stub content provider needed by the sync framework. No logging.
+ * ContentProvider for fsmi data. Following uris are supported:
+ *
+ * content://de.fsmi.fsdroid.provider/news
+ * content://de.fsmi.fsdroid.provider/news/{newsId}
+ * content://de.fsmi.fsdroid.provider/status
+ * content://de.fsmi.fsdroid.provider/status/{statusId} (probably always 1)
+ * content://de.fsmi.fsdroid.provider/meeting
+ * content://de.fsmi.fsdroid.provider/meeting/{meetingId} (probably always 1)
  */
 @SuppressLint("Registered")
 @EProvider
@@ -46,7 +53,7 @@ public class FSDroidContentProvider extends ContentProvider {
 
     static {
         sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH, ALL_NEWS);
-        sUriMatcher.addURI(AUTHORITY, NewsItemContract.SINGLE_NEWS_PATH, SINGLE_NEWS);
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH + "/#", SINGLE_NEWS);
         sUriMatcher.addURI(AUTHORITY, STATUS_PATH, STATUS);
         sUriMatcher.addURI(AUTHORITY, MEETING_DATE_PATH, MEETING_DATE);
     }
@@ -157,17 +164,17 @@ public class FSDroidContentProvider extends ContentProvider {
     private Uri insertStatus(ContentValues contentValues) {
         final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
         database.delete(Status.TABLE, null, null);
-        database.insert(Status.TABLE, null, contentValues);
+        long _id = database.insert(Status.TABLE, null, contentValues);
 
-        return STATUS_URI;
+        return Uri.withAppendedPath(STATUS_URI, "" + _id);
     }
 
     private Uri insertMeetingDate(ContentValues contentValues) {
         final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
         database.delete(MeetingDate.TABLE, null, null);
-        database.insert(MeetingDate.TABLE, null, contentValues);
+        long _id = database.insert(MeetingDate.TABLE, null, contentValues);
 
-        return MEETING_DATE_URI;
+        return Uri.withAppendedPath(MEETING_DATE_URI, "" + _id);
     }
 
     private Uri insertNewsItem(ContentValues contentValues) {

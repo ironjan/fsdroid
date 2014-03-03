@@ -17,6 +17,11 @@ public class Status {
     private long _id;
     @DatabaseField(columnName = COLUMN_VALUE)
     private int value;
+    @DatabaseField(columnName = COLUMN_LAST_UPDATE)
+    long lastUpdate;
+
+    public Status() {
+    }
 
     public long getLastUpdate() {
         return lastUpdate;
@@ -26,11 +31,6 @@ public class Status {
         this.lastUpdate = lastUpdate;
     }
 
-    @DatabaseField(columnName = COLUMN_LAST_UPDATE)
-    long lastUpdate;
-
-    public Status() {
-    }
 
     public long get_id() {
         return _id;
