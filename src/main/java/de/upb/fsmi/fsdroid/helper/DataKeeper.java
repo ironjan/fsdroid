@@ -140,9 +140,10 @@ public class DataKeeper {
 
     @SuppressWarnings("nls")
     private void refreshStatus() {
+        File file = null;
         try {
             final String statusURL = STATUS_URL;
-            File file = Downloader.download(context, statusURL);
+            file = Downloader.download(context, statusURL);
             this.status = parseStatus(file) + 1;
 
             final long currentTime = System.currentTimeMillis();
@@ -150,11 +151,14 @@ public class DataKeeper {
                     .lastStatusUpdateInMillis().put(currentTime).apply();
 
             Log.d(TAG, "Status refreshed, new status: " + status);
-            file.deleteOnExit();
         } catch (MalformedURLException e) {
             logError(e);
         } catch (IOException e) {
             logError(e);
+        } finally {
+            if (file != null) {
+                file.delete();
+            }
         }
 
     }
