@@ -125,11 +125,11 @@ public class FSDroidContentProvider extends ContentProvider {
         SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
 
         switch (sUriMatcher.match(uri)) {
-            case ALL_NEWS:
+            case NewsItemContract.ALL_NEWS:
                 if (TextUtils.isEmpty(sortOrder))
                     sortOrder = NewsItemContract.NewsItemColumns.COLUMN_DATE + " DESC";
                 break;
-            case SINGLE_NEWS:
+            case NewsItemContract.SINGLE_NEWS:
                 queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
                         + uri.getLastPathSegment());
                 break;
@@ -151,7 +151,7 @@ public class FSDroidContentProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
         switch (sUriMatcher.match(uri)) {
-            case ALL_NEWS:
+            case NewsItemContract.ALL_NEWS:
                 return insertNewsItem(contentValues);
             case STATUS:
                 return insertStatus(contentValues);

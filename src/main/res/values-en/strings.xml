@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="appName">Fachschaftsdroid</string>
+
+    <!-- misc -->
+    <string name="refresh">Refresh</string>
+
+    <!-- status -->
+    <string name="statusOpen">We\'re <b>open</b> right now!</string>
+    <string name="statusUnknown">Status could not be refreshed.</string>
+    <string name="statusClosed">The Fachschaft closed right now.</string>
+
+
+    <!-- meeting -->
+    <string name="meetingDescription">Next meeting in E0.143 at 18 c.t. - at 16 c.t. in semester breaks:</string>
+
+    <!-- drawer items -->
+    <string name="fs">The Fachschaft</string>
+    <string name="news">News</string>
+    <string name="drawerCategoryNews">News</string>
+    <string name="meetings">Meetings</string>
+    <string name="contact">Conteact</string>
+    <string name="drawerCategoryAboutApp">Fachschaftsdroide</string>
+    <string name="about">About the App</string>
+    <string name="map">Map</string>
+
+    <!-- contact -->
+    <string name="telefon">Telephone</string>
+    <string name="email">Email</string>
+    <string name="adresse">Address</string>
+    <string name="add_contact">Add to contacts</string>
+
+
+    <!-- news -->
+    <string name="newsHeadline">News</string>
+    <string name="newsLoadingTitle">News</string>
+    <string name="newsLoadingDescription">News are being refreshed.</string>
+    <string name="misc">Misc</string>
+    <string name="statusLoadingMessage">Status is refreshing.</string>
+    <string name="loadingNews">News are refreshing - if there\'s an internet connection ;)</string>
+
+</resources>
