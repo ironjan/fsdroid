@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/card_background"
-    android:padding="@dimen/elementMargin">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
+                android:padding="@dimen/elementMargin">
 
     <TextView
         android:id="@id/txtDescriptionMeeting"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="@string/meetingDescription" />
+        android:text="@string/meetingDescription"/>
 
     <TextView
         android:id="@id/txtMeetingDate"
@@ -22,10 +22,12 @@
         android:layout_below="@id/txtDescriptionMeeting"
         android:text="Datum der Sitzung konnte nicht geladen werden."
         android:textStyle="bold"
-        tools:text="10.07.2013" />
+        tools:text="10.07.2013 18:00 in E1.312"/>
 
-    <TextView android:layout_below="@+id/txtMeetingDate"
+    <TextView
+        android:layout_below="@+id/txtMeetingDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Diese findet in um 18 Uhr im Semester und um 16:00 in der vorlesungsfreien Zeit in E0.143 statt."
+        android:layout_height="wrap_content"
+        android:text="Diese findet in um 18 Uhr im Semester und um 16:00 in der vorlesungsfreien Zeit in E0.143 statt."
         />
 </RelativeLayout>

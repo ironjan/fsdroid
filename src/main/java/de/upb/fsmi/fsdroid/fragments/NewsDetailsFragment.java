@@ -3,15 +3,17 @@ package de.upb.fsmi.fsdroid.fragments;
 import android.content.*;
 import android.database.*;
 import android.net.*;
-import android.os.*;
 import android.support.v4.app.*;
 import android.support.v7.app.*;
 import android.text.*;
+import android.text.method.*;
+import android.text.util.*;
 import android.util.*;
 import android.widget.*;
 
 import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.*;
+import org.slf4j.*;
 
 import java.text.*;
 import java.text.ParseException;
@@ -38,6 +40,8 @@ public class NewsDetailsFragment extends Fragment {
     private Date mDate;
     private String mContent;
 
+    Logger LOGGER = LoggerFactory.getLogger(NewsDetailsFragment.class.getSimpleName());
+
     @Override
     public void onResume() {
         super.onResume();
@@ -57,11 +61,11 @@ public class NewsDetailsFragment extends Fragment {
         newsTitle.setText(mTitle);
         newsDate.setText(SDF.format(mDate));
         newsContent.setText(Html.fromHtml(mContent));
+        newsContent.setMovementMethod(LinkMovementMethod.getInstance());
+        Linkify.addLinks(newsContent, Linkify.WEB_URLS);
     }
 
     private void fetchNewsItem(long pNews_id) {
-        Bundle arguments = getArguments();
-
         String[] projection = new String[]{NewsItemContract.NewsItemColumns.COLUMN_TITLE,
                 NewsItemContract.NewsItemColumns.COLUMN_DATE,
                 NewsItemContract.NewsItemColumns.COLUMN_CONTENT,

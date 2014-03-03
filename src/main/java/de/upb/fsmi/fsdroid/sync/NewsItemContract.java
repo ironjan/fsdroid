@@ -1,6 +1,5 @@
 package de.upb.fsmi.fsdroid.sync;
 
-import android.content.*;
 import android.net.*;
 import android.provider.*;
 
@@ -11,26 +10,20 @@ import java.util.*;
  * Created by ljan on 18.01.14.
  */
 public class NewsItemContract {
-    public static final String AUTHORITY = AccountCreator.AUTHORITY;
     public static final String NEWS_ITEMS_TABLE = "news";
     private static final String PATH_DIVIDER = "/";
 
-    protected static final UriMatcher sUriMatcher = new UriMatcher(0);
-
-    public static final int ALL_NEWS = 1;
-
-    public static final int SINGLE_NEWS = 2;
+    public static final String AUTHORITY = AccountCreator.AUTHORITY;
 
     public static final String NEWS_PATH = "news";
+    public static final String SINGLE_NEWS_PATH = "news" + PATH_DIVIDER + "#";
+
     public static final String NEWS_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + NEWS_PATH;
 
     public static final Uri NEWS_URI = Uri.parse(NEWS_ABSOLUTE_URI_PATH);
+
     public static final Uri SINGLE_NEWS_URI = Uri.withAppendedPath(NEWS_URI, "#");
 
-    static {
-        sUriMatcher.addURI(AUTHORITY, "news", ALL_NEWS);
-        sUriMatcher.addURI(AUTHORITY, "news/#", SINGLE_NEWS);
-    }
 
     public static class NewsItemColumns {
         public static final String COLUMN_LINK = "link";

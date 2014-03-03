@@ -9,7 +9,7 @@
 
     <string-array name="statiDescriptions">
         <item/>
-        <item>Wir sind haben Mo-Fr von 13 bis 14 Uhr geöffnet.</item>
+        <item>Wir haben Mo-Fr von 13 bis 14 Uhr geöffnet.</item>
         <item>Komm doch einfach mal vorbei.</item>
     </string-array>
 
@@ -56,7 +56,7 @@
         <item>@string/apacheLicense</item>
         <!-- spring -->
     </string-array>
-    <string-array translatable="false"  name="libraryDescriptions">
+    <string-array translatable="false" name="libraryDescriptions">
         <item>Irgendwas tolles über fsdroid&#8230;</item>
         <!-- fsdroid -->
         <item>AndroidAnnotations is an Open Source framework that speeds up Android development. It
