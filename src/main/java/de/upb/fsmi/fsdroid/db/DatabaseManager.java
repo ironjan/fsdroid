@@ -11,6 +11,7 @@ import java.util.*;
 
 import de.upb.fsmi.fsdroid.*;
 import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 public class DatabaseManager {
 

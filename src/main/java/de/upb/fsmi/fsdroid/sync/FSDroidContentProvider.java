@@ -1,5 +1,6 @@
 package de.upb.fsmi.fsdroid.sync;
 
+import android.annotation.*;
 import android.content.*;
 import android.database.*;
 import android.database.sqlite.*;
@@ -9,17 +10,46 @@ import android.text.*;
 import org.androidannotations.annotations.*;
 
 import de.upb.fsmi.fsdroid.db.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 
 /**
  * A stub content provider needed by the sync framework. No logging.
  */
+@SuppressLint("Registered")
 @EProvider
 public class FSDroidContentProvider extends ContentProvider {
 
     private DatabaseHelper mDatabaseHelper;
-    private static final UriMatcher sUriMatcher = NewsItemContract.sUriMatcher;
+    private static final UriMatcher sUriMatcher = new UriMatcher(0);
 
+
+    public static final int ALL_NEWS = 1;
+    public static final int SINGLE_NEWS = 2;
+    public static final int STATUS = 3;
+    public static final int MEETING_DATE = 4;
+
+    public static final String AUTHORITY = AccountCreator.AUTHORITY;
+
+
+    public static final String MEETING_DATE_PATH = "meeting_date";
+
+    public static final String STATUS_PATH = "status";
+
+    private static final String PATH_DIVIDER = "/";
+
+    public static final String STATUS_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + STATUS_PATH;
+    public static final String MEETING_DATE_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + MEETING_DATE_PATH;
+
+    public static final Uri STATUS_URI = Uri.parse(STATUS_ABSOLUTE_URI_PATH);
+    public static final Uri MEETING_DATE_URI = Uri.parse(MEETING_DATE_ABSOLUTE_URI_PATH);
+
+    static {
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH, ALL_NEWS);
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.SINGLE_NEWS_PATH, SINGLE_NEWS);
+        sUriMatcher.addURI(AUTHORITY, STATUS_PATH, STATUS);
+        sUriMatcher.addURI(AUTHORITY, MEETING_DATE_PATH, MEETING_DATE);
+    }
 
     @Override
     public boolean onCreate() {
@@ -29,6 +59,56 @@ public class FSDroidContentProvider extends ContentProvider {
 
     @Override
     public synchronized Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) throws NullPointerException, IllegalArgumentException {
+        switch (sUriMatcher.match(uri)) {
+            case ALL_NEWS:
+            case SINGLE_NEWS:
+                return queryNews(uri, projection, selection, selectionArgs, sortOrder);
+            case STATUS:
+                return queryStatus(uri, projection, selection, selectionArgs, sortOrder);
+            case MEETING_DATE:
+                return queryMeetingDate(uri, projection, selection, selectionArgs, sortOrder);
+        }
+
+        return null;
+    }
+
+    private Cursor queryStatus(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        NewsItemContract.checkNewsItemColumnsProjection(projection);
+
+        queryBuilder.setTables(Status.TABLE);
+
+        SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
+
+        queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
+                + uri.getLastPathSegment());
+
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
+    }
+
+    private Cursor queryMeetingDate(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        NewsItemContract.checkNewsItemColumnsProjection(projection);
+
+        queryBuilder.setTables(MeetingDate.TABLE);
+
+        SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
+
+        queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
+                + uri.getLastPathSegment());
+
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
+    }
+
+    private Cursor queryNews(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
         NewsItemContract.checkNewsItemColumnsProjection(projection);
@@ -38,11 +118,11 @@ public class FSDroidContentProvider extends ContentProvider {
         SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
 
         switch (sUriMatcher.match(uri)) {
-            case NewsItemContract.ALL_NEWS:
+            case ALL_NEWS:
                 if (TextUtils.isEmpty(sortOrder))
                     sortOrder = NewsItemContract.NewsItemColumns.COLUMN_DATE + " DESC";
                 break;
-            case NewsItemContract.SINGLE_NEWS:
+            case SINGLE_NEWS:
                 queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
                         + uri.getLastPathSegment());
                 break;
@@ -64,10 +144,30 @@ public class FSDroidContentProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
         switch (sUriMatcher.match(uri)) {
-            case NewsItemContract.ALL_NEWS:
+            case ALL_NEWS:
                 return insertNewsItem(contentValues);
+            case STATUS:
+                return insertStatus(contentValues);
+            case MEETING_DATE:
+                return insertMeetingDate(contentValues);
         }
         return null;
+    }
+
+    private Uri insertStatus(ContentValues contentValues) {
+        final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
+        database.delete(Status.TABLE, null, null);
+        database.insert(Status.TABLE, null, contentValues);
+
+        return STATUS_URI;
+    }
+
+    private Uri insertMeetingDate(ContentValues contentValues) {
+        final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
+        database.delete(MeetingDate.TABLE, null, null);
+        database.insert(MeetingDate.TABLE, null, contentValues);
+
+        return MEETING_DATE_URI;
     }
 
     private Uri insertNewsItem(ContentValues contentValues) {
