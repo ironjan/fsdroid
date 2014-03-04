@@ -21,7 +21,7 @@ import de.upb.fsmi.fsdroid.sync.*;
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
 public class NewsFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, SyncStatusObserver {
-    private static final int TUTORIAL_LIST_LOADER = 0x01;
+    private static final int NEWS_LOADER = 0x01;
     private SimpleCursorAdapter adapter;
 
     private final Logger LOGGER = LoggerFactory.getLogger(NewsFragment.TAG);
@@ -49,6 +49,7 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
 
     @Bean
     AccountCreator mAccountCreator;
+
     @StringRes
     String news;
 
@@ -65,7 +66,7 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
 
         String[] uiBindFrom = NewsItemContract.NEWS_LIST_PROJECTION;
         int[] uiBindTo = {R.id.newsHeadline, R.id.newsText};
-        getLoaderManager().initLoader(TUTORIAL_LIST_LOADER, null, this);
+        getLoaderManager().initLoader(NEWS_LOADER, null, this);
         adapter = new SimpleCursorAdapter(
                 getActivity().getApplicationContext(), R.layout.card_news_item,
                 null, uiBindFrom, uiBindTo, 0);

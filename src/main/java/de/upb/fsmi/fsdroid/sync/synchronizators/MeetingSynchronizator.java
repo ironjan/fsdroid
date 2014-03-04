@@ -17,6 +17,8 @@ import javax.xml.parsers.*;
 import javax.xml.xpath.*;
 
 import de.upb.fsmi.fsdroid.helper.*;
+import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 /**
  * Created by ljan on 03.03.14.
@@ -31,6 +33,7 @@ public class MeetingSynchronizator implements Synchronizator {
     public static final SimpleDateFormat API_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     public static final String MEETING_DATE_URL = "https://fsmi.uni-paderborn.de/?eID=fsmi_sitzung";
 
+    private final SimpleDateFormat germanFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     MeetingPrefs_ meetingPrefs;
 
@@ -52,9 +55,13 @@ public class MeetingSynchronizator implements Synchronizator {
             downloadedDate = parseDate(file);
             if (downloadedDate != null) {
                 long currentTime = System.currentTimeMillis();
-                meetingPrefs.edit().lastMeetingUpdateInMillis()
-                        .put(currentTime).nextMeetingInMillis()
-                        .put(downloadedDate.getTime()).apply();
+
+                ContentValues cvs = new ContentValues();
+                cvs.put(MeetingDate.COLUMN_LAST_UPDATE, currentTime);
+                cvs.put(MeetingDate.COLUMN_VALUE, germanFormat.format(downloadedDate));
+
+                context.getContentResolver().insert(FSDroidContentProvider.MEETING_DATE_URI, cvs);
+                context.getContentResolver().notifyChange(FSDroidContentProvider.MEETING_DATE_URI, null);
             }
             file.deleteOnExit();
         } catch (MalformedURLException e) {
@@ -73,7 +80,7 @@ public class MeetingSynchronizator implements Synchronizator {
     @SuppressWarnings("nls")
     @SuppressLint("SimpleDateFormat")
     private static Date parseDate(File file) throws SAXException, IOException,
-            ParserConfigurationException, FileNotFoundException,
+            ParserConfigurationException,
             XPathExpressionException {
         Date parsedDate = null;
 

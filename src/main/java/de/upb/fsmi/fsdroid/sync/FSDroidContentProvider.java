@@ -15,7 +15,7 @@ import de.upb.fsmi.fsdroid.sync.entities.*;
 
 /**
  * ContentProvider for fsmi data. Following uris are supported:
- *
+ * <p/>
  * content://de.fsmi.fsdroid.provider/news
  * content://de.fsmi.fsdroid.provider/news/{newsId}
  * content://de.fsmi.fsdroid.provider/status
@@ -82,14 +82,9 @@ public class FSDroidContentProvider extends ContentProvider {
     private Cursor queryStatus(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        NewsItemContract.checkNewsItemColumnsProjection(projection);
-
         queryBuilder.setTables(Status.TABLE);
 
         SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
-
-        queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
-                + uri.getLastPathSegment());
 
         Cursor cursor = queryBuilder.query(db, projection, selection,
                 selectionArgs, null, null, sortOrder);
@@ -100,14 +95,9 @@ public class FSDroidContentProvider extends ContentProvider {
     private Cursor queryMeetingDate(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
 
-        NewsItemContract.checkNewsItemColumnsProjection(projection);
-
         queryBuilder.setTables(MeetingDate.TABLE);
 
         SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
-
-        queryBuilder.appendWhere(NewsItemContract.NewsItemColumns.COLUMN_ID + "="
-                + uri.getLastPathSegment());
 
         Cursor cursor = queryBuilder.query(db, projection, selection,
                 selectionArgs, null, null, sortOrder);

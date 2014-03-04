@@ -4,20 +4,14 @@ import android.accounts.*;
 import android.annotation.*;
 import android.content.*;
 import android.os.*;
-import android.util.*;
 
 import org.slf4j.*;
 import org.xmlpull.v1.*;
 
 import java.io.*;
-import java.net.*;
-import java.text.*;
-import java.util.*;
 
 import de.upb.fsmi.fsdroid.*;
 import de.upb.fsmi.fsdroid.sync.synchronizators.*;
-import de.upb.fsmi.fsdroid.db.*;
-import de.upb.fsmi.fsdroid.sync.entities.*;
 
 
 /**
@@ -86,10 +80,10 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         final int syncMask = bundle.getInt(SyncTypes.KEY);
         try {
-            if ((syncMask & SyncTypes.STATUS) == SyncTypes.NEWS) {
+            if ((syncMask & SyncTypes.STATUS) == SyncTypes.STATUS) {
                 StatusSynchronizator.getInstance(mContext).executeSync();
             }
-            if ((syncMask & SyncTypes.MEETING) == SyncTypes.NEWS) {
+            if ((syncMask & SyncTypes.MEETING) == SyncTypes.MEETING) {
                 MeetingSynchronizator.getInstance(mContext).executeSync();
             }
             if ((syncMask & SyncTypes.NEWS) == SyncTypes.NEWS) {

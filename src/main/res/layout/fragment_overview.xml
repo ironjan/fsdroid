@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/backgroundBehindCards"
@@ -7,18 +8,23 @@
               android:padding="@dimen/elementMargin"
               android:paddingBottom="@dimen/card_padding">
 
-    <de.upb.fsmi.fsdroid.cards.views.StatusCardView_
+    <fragment
+        android:name="de.upb.fsmi.fsdroid.cards.views.StatusCardFragment_"
         android:id="@+id/statusCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:layout="@layout/card_status"/>
 
-    <de.upb.fsmi.fsdroid.cards.views.MeetingCardView_
+    <fragment
+        android:name="de.upb.fsmi.fsdroid.cards.views.MeetingCardFragment_"
         android:id="@+id/meetingCard"
         android:layout_marginTop="@dimen/elementMargin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:layout="@layout/card_meeting"/>
 
     <de.upb.fsmi.fsdroid.cards.views.WeekCardView_
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_marginTop="8dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
