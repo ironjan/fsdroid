@@ -24,10 +24,4 @@
         android:textStyle="bold"
         tools:text="10.07.2013 18:00 in E1.312"/>
 
-    <TextView
-        android:layout_below="@+id/txtMeetingDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Diese findet in um 18 Uhr im Semester und um 16:00 in der vorlesungsfreien Zeit in E0.143 statt."
-        />
 </RelativeLayout>
