@@ -1,6 +1,6 @@
 package de.upb.fsmi.fsdroid.sync;
 
-import android.annotation.SuppressLint;
+import android.annotation.*;
 import android.content.*;
 import android.database.*;
 import android.database.sqlite.*;
@@ -10,10 +10,18 @@ import android.text.*;
 import org.androidannotations.annotations.*;
 
 import de.upb.fsmi.fsdroid.db.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 
 /**
- * A stub content provider needed by the sync framework. No logging.
+ * ContentProvider for fsmi data. Following uris are supported:
+ * <p/>
+ * content://de.fsmi.fsdroid.provider/news
+ * content://de.fsmi.fsdroid.provider/news/{newsId}
+ * content://de.fsmi.fsdroid.provider/status
+ * content://de.fsmi.fsdroid.provider/status/{statusId} (probably always 1)
+ * content://de.fsmi.fsdroid.provider/meeting
+ * content://de.fsmi.fsdroid.provider/meeting/{meetingId} (probably always 1)
  */
 @SuppressLint("Registered")
 @EProvider
@@ -25,12 +33,29 @@ public class FSDroidContentProvider extends ContentProvider {
 
     public static final int ALL_NEWS = 1;
     public static final int SINGLE_NEWS = 2;
+    public static final int STATUS = 3;
+    public static final int MEETING_DATE = 4;
+
     public static final String AUTHORITY = AccountCreator.AUTHORITY;
 
 
+    public static final String MEETING_DATE_PATH = "meeting_date";
+
+    public static final String STATUS_PATH = "status";
+
+    private static final String PATH_DIVIDER = "/";
+
+    public static final String STATUS_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + STATUS_PATH;
+    public static final String MEETING_DATE_ABSOLUTE_URI_PATH = "content://" + AUTHORITY + PATH_DIVIDER + MEETING_DATE_PATH;
+
+    public static final Uri STATUS_URI = Uri.parse(STATUS_ABSOLUTE_URI_PATH);
+    public static final Uri MEETING_DATE_URI = Uri.parse(MEETING_DATE_ABSOLUTE_URI_PATH);
+
     static {
         sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH, ALL_NEWS);
-        sUriMatcher.addURI(AUTHORITY, NewsItemContract.SINGLE_NEWS_PATH, SINGLE_NEWS);
+        sUriMatcher.addURI(AUTHORITY, NewsItemContract.NEWS_PATH + "/#", SINGLE_NEWS);
+        sUriMatcher.addURI(AUTHORITY, STATUS_PATH, STATUS);
+        sUriMatcher.addURI(AUTHORITY, MEETING_DATE_PATH, MEETING_DATE);
     }
 
     @Override
@@ -45,9 +70,39 @@ public class FSDroidContentProvider extends ContentProvider {
             case ALL_NEWS:
             case SINGLE_NEWS:
                 return queryNews(uri, projection, selection, selectionArgs, sortOrder);
+            case STATUS:
+                return queryStatus(uri, projection, selection, selectionArgs, sortOrder);
+            case MEETING_DATE:
+                return queryMeetingDate(uri, projection, selection, selectionArgs, sortOrder);
         }
 
         return null;
+    }
+
+    private Cursor queryStatus(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        queryBuilder.setTables(Status.TABLE);
+
+        SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
+
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
+    }
+
+    private Cursor queryMeetingDate(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        queryBuilder.setTables(MeetingDate.TABLE);
+
+        SQLiteDatabase db = mDatabaseHelper.getReadableDatabase();
+
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
     }
 
     private Cursor queryNews(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
@@ -88,8 +143,28 @@ public class FSDroidContentProvider extends ContentProvider {
         switch (sUriMatcher.match(uri)) {
             case ALL_NEWS:
                 return insertNewsItem(contentValues);
+            case STATUS:
+                return insertStatus(contentValues);
+            case MEETING_DATE:
+                return insertMeetingDate(contentValues);
         }
         return null;
+    }
+
+    private Uri insertStatus(ContentValues contentValues) {
+        final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
+        database.delete(Status.TABLE, null, null);
+        long _id = database.insert(Status.TABLE, null, contentValues);
+
+        return Uri.withAppendedPath(STATUS_URI, "" + _id);
+    }
+
+    private Uri insertMeetingDate(ContentValues contentValues) {
+        final SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
+        database.delete(MeetingDate.TABLE, null, null);
+        long _id = database.insert(MeetingDate.TABLE, null, contentValues);
+
+        return Uri.withAppendedPath(MEETING_DATE_URI, "" + _id);
     }
 
     private Uri insertNewsItem(ContentValues contentValues) {

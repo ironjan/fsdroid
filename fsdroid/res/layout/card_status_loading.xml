@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/cardInnerPadding" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/cardInnerPadding">
 
     <TextView
         android:id="@+id/layoutingId1"
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Status wird gerade geladen..." />
+        android:text="Status wird gerade geladen..."/>
 
     <ImageView
         android:id="@id/imgStatus"
@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:maxHeight="@dimen/buttonSize"
         android:maxWidth="@dimen/buttonSize"
-        android:src="@drawable/status" />
+        android:src="@drawable/status"/>
 
     <TextView
         android:id="@id/txtDescriptionStatus"
@@ -28,6 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/imgStatus"
         android:layout_alignLeft="@+id/layoutingId1"
-        android:text="Einen kurzen Moment Geduld bitte." />
+        android:text="Einen kurzen Moment Geduld bitte."/>
 
 </RelativeLayout>

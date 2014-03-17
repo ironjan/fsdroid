@@ -8,7 +8,7 @@ import org.androidannotations.annotations.*;
 import org.androidannotations.annotations.res.*;
 
 import de.upb.fsmi.fsdroid.*;
-import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 @EViewGroup(R.layout.card_news_item)
 public class NewsCardView extends RelativeLayout {

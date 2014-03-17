@@ -1,7 +1,9 @@
 package de.upb.fsmi.fsdroid.helper;
 
+import android.accounts.*;
 import android.annotation.*;
 import android.content.*;
+import android.os.*;
 import android.util.*;
 
 import org.androidannotations.annotations.*;
@@ -17,6 +19,7 @@ import java.util.regex.*;
 import javax.xml.parsers.*;
 import javax.xml.xpath.*;
 
+import de.upb.fsmi.fsdroid.sync.*;
 import de.upb.fsmi.fsdroid.widget.StatusAppWidgetProvider.*;
 
 @EBean(scope = EBean.Scope.Singleton)
@@ -129,13 +132,17 @@ public class DataKeeper {
     }
 
     private void executeRefresh(boolean byUser) {
-        sendBroadcast(ACTION_DATA_REFRESH_STARTED);
+        AccountCreator accountCreator = AccountCreator_.getInstance_(context);
+        Account account = accountCreator.getAccountRegisterAccount();
 
-        refreshStatus();
-        refreshDate(byUser);
-        sendBroadcast(ACTION_DATA_REFRESH_COMPLETED);
-        isRefreshing = false;
-
+        Bundle settingsBundle = new Bundle();
+        if (byUser) {
+            settingsBundle.putBoolean(
+                    ContentResolver.SYNC_EXTRAS_MANUAL, true);
+            settingsBundle.putBoolean(
+                    ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+        }
+        ContentResolver.requestSync(account, AccountCreator.getAuthority(), settingsBundle);
     }
 
     @SuppressWarnings("nls")

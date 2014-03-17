@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/elementMargin" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/elementMargin">
 
     <TextView
         android:id="@id/newsTitle"
         style="@style/NewsDetailsHeadline"
-        android:text="Title" />
+        android:text="Title"/>
 
-    <include layout="@layout/contact_category_uderline" />
+    <include layout="@layout/contact_category_uderline"/>
 
     <TextView
         android:id="@id/newsDate"
         style="@style/NewsDetailsDate"
-        android:text="date" />
+        android:text="date"/>
 
     <ScrollView
         android:id="@android:id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical|none" >
+        android:scrollbars="vertical|none">
 
         <TextView
             android:id="@id/newsContent"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autoLink="web"
-            android:text="content..." />
+            android:text="content..."/>
     </ScrollView>
 
 </LinearLayout>

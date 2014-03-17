@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.upb.fsmi"
-    android:versionCode="2"
-    android:versionName="0.0.2" >
+          package="de.upb.fsmi"
+          android:versionCode="2"
+          android:versionName="0.0.2">
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="18"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".FSApplication_"
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/appName"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="FSDroid_"
             android:icon="@drawable/ic_launcher"
-            android:label="@string/appName" >
+            android:label="@string/appName">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -34,28 +34,28 @@
             android:hardwareAccelerated="false"
             android:icon="@drawable/ic_launcher"
             android:label="Karte"
-            android:parentActivityName=".FSDroid_" >
+            android:parentActivityName=".FSDroid_">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FSDroid_" />
+                android:value=".FSDroid_"/>
         </activity>
         <activity
             android:name="SingleNews_"
             android:icon="@drawable/ic_launcher"
-            android:parentActivityName=".FSDroid_" >
+            android:parentActivityName=".FSDroid_">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FSDroid_" />
+                android:value=".FSDroid_"/>
         </activity>
 
-        <receiver android:name=".widget.StatusAppWidgetProvider" >
+        <receiver android:name=".widget.StatusAppWidgetProvider">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/status_appwidget_info" />
+                android:resource="@xml/status_appwidget_info"/>
         </receiver>
     </application>
 

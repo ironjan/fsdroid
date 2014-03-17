@@ -12,7 +12,7 @@ import de.upb.fsmi.fsdroid.*;
 /**
  * Created by ljan on 10.01.14.
  */
-@EBean
+@EBean(scope = EBean.Scope.Singleton)
 public class AccountCreator {
     private static final String TAG = AccountCreator.class.getSimpleName();
     Logger LOGGER = LoggerFactory.getLogger(TAG);
@@ -21,6 +21,9 @@ public class AccountCreator {
     Context mContext;
     @SystemService
     AccountManager mAccountManager;
+
+    public AccountCreator() {
+    }
 
     /**
      * Neded for synchroniztation initialization

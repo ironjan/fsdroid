@@ -93,9 +93,9 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         if (mSelectedContent == 0) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, new OverviewFragment_());
-        getSupportActionBar().setNavigationMode(
-                ActionBar.NAVIGATION_MODE_STANDARD);
-        ft.commit();
+            getSupportActionBar().setNavigationMode(
+                    ActionBar.NAVIGATION_MODE_STANDARD);
+            ft.commit();
         }
 
         if (BuildConfig.DEBUG) LOGGER.debug("initStartContent() done");

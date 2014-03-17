@@ -5,6 +5,7 @@ import android.content.*;
 import java.text.*;
 
 import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 public class NewsItemContentValuesConverter implements ContentValuesConverter<NewsItem> {
     private static final SimpleDateFormat DATE_FORMAT = NewsItemContract.NewsItemColumns.DATE_FORMAT;

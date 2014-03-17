@@ -1,9 +1,11 @@
-package de.upb.fsmi.fsdroid.sync;
+package de.upb.fsmi.fsdroid.sync.entities;
 
 import com.j256.ormlite.field.*;
 import com.j256.ormlite.table.*;
 
 import java.util.*;
+
+import de.upb.fsmi.fsdroid.sync.*;
 
 @DatabaseTable(tableName = NewsItemContract.NEWS_ITEMS_TABLE)
 public class NewsItem implements Comparable<NewsItem> {

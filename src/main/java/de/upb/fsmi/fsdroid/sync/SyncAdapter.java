@@ -18,6 +18,7 @@ import de.upb.fsmi.fsdroid.sync.synchronizators.*;
  * SyncAdapter to implement the synchronization.
  */
 public class SyncAdapter extends AbstractThreadedSyncAdapter {
+    public static final String SYNC_FINISHED = "SYNC_FINISHED";
     private static final String TAG = SyncAdapter.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
 
@@ -79,10 +80,10 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         final int syncMask = bundle.getInt(SyncTypes.KEY);
         try {
-            if ((syncMask & SyncTypes.STATUS) == SyncTypes.NEWS) {
+            if ((syncMask & SyncTypes.STATUS) == SyncTypes.STATUS) {
                 StatusSynchronizator.getInstance(mContext).executeSync();
             }
-            if ((syncMask & SyncTypes.MEETING) == SyncTypes.NEWS) {
+            if ((syncMask & SyncTypes.MEETING) == SyncTypes.MEETING) {
                 MeetingSynchronizator.getInstance(mContext).executeSync();
             }
             if ((syncMask & SyncTypes.NEWS) == SyncTypes.NEWS) {

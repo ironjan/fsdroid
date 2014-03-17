@@ -10,7 +10,7 @@ import com.j256.ormlite.dao.*;
 import com.j256.ormlite.support.*;
 import com.j256.ormlite.table.*;
 
-import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.sync.entities.*;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something
@@ -19,7 +19,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     // any time you make changes to your database objects, you may have to
     // increase the database version
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     // the DAO object we use to access the SimpleData table
     private Dao<NewsItem, Integer> wishListDao = null;
@@ -32,6 +32,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase pArg0, ConnectionSource pArg1) {
         try {
             TableUtils.createTable(connectionSource, NewsItem.class);
+            TableUtils.createTable(connectionSource, Status.class);
+            TableUtils.createTable(connectionSource, MeetingDate.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -49,6 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 case 2:
                     TableUtils.dropTable(pArg1, OldNewsItem.class, true);
                 case 3:
+                case 4:
                     TableUtils.createTable(pArg1, SyncInfo.class);
             }
             onCreate(pArg0);
