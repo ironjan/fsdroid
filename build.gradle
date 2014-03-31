@@ -89,8 +89,7 @@ android {
         }
     }
 
-    if (project.hasProperty("fsdroid.signing")
-            && new File(project.property("fsdroid.signing") + ".gradle").exists()) {
+    if (project.hasProperty("fsdroid.signing") && new File(project.property("fsdroid.signing") + ".gradle").exists()) {
         apply from: project.property("fsdroid.signing") + ".gradle";
     }
 }
