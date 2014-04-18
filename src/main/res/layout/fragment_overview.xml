@@ -8,15 +8,13 @@
               android:padding="@dimen/elementMargin"
               android:paddingBottom="@dimen/card_padding">
 
-    <fragment
-        android:name="de.upb.fsmi.fsdroid.cards.views.StatusCardFragment_"
+    <de.upb.fsmi.fsdroid.cards.views.StatusCardViewGroup_
         android:id="@+id/statusCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout="@layout/card_status"/>
 
-    <fragment
-        android:name="de.upb.fsmi.fsdroid.cards.views.MeetingCardFragment_"
+    <de.upb.fsmi.fsdroid.cards.views.MeetingCardViewGroup_
         android:id="@+id/meetingCard"
         android:layout_marginTop="@dimen/elementMargin"
         android:layout_width="match_parent"

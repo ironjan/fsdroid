@@ -19,10 +19,10 @@ public class OverviewFragment extends Fragment {
     @StringRes
     String misc;
 
-    @FragmentById
-    StatusCardFragment statusCard;
-    @FragmentById
-    MeetingCardFragment meetingCard;
+    @ViewById
+    StatusCardViewGroup statusCard;
+    @ViewById
+    MeetingCardViewGroup meetingCard;
 
     @AfterViews
     void updateTitle() {
