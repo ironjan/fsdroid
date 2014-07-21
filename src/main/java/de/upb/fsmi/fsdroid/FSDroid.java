@@ -1,23 +1,35 @@
 package de.upb.fsmi.fsdroid;
 
-import android.accounts.*;
-import android.annotation.*;
-import android.content.*;
-import android.content.res.*;
-import android.os.*;
-import android.support.v4.app.*;
-import android.support.v4.view.*;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
-import android.util.*;
-import android.view.*;
+import android.accounts.Account;
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
 
-import org.androidannotations.annotations.*;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.InstanceState;
+import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.Trace;
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import de.upb.fsmi.fsdroid.fragments.*;
-import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.fragments.OverviewFragment_;
+import de.upb.fsmi.fsdroid.sync.AccountCreator;
 
 @SuppressLint("Registered")
 @EActivity(R.layout.activity_with_drawer)
@@ -183,7 +195,6 @@ public class FSDroid extends ActionBarActivity implements DrawerActivity {
         }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.addToBackStack(null);
         ft.replace(R.id.content_frame, fragment);
         getSupportActionBar().setNavigationMode(
                 ActionBar.NAVIGATION_MODE_STANDARD);
