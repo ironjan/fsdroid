@@ -46,7 +46,6 @@
 
     <!-- news -->
     <string name="newsHeadline">Neuigkeiten</string>
-    <string name="newsExplanation">In der ersten Beta wurde aus Zeitgründen darauf verzichtet, die Neuigkeitenfunktion zu implementieren. Diese wird baldmöglichst nachgereicht ;)\nIn der Zwischenzeit kannst du die Neuigkeiten auf unserer Seite lesen.</string>
     <string name="newsLoadingTitle">Neuigkeiten</string>
     <string name="newsLoadingDescription">Die Neuigkeiten werden geladen.</string>
     <string name="misc">Allgemein</string>
