@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array translatable="false" name="stati">
-        <item>@string/statusUnknown</item>
+    <string-array name="stati" translatable="false">
+    <item>@string/statusUnknown</item>
         <item>@string/statusClosed</item>
         <item>@string/statusOpen</item>
     </string-array>
 
     <string-array name="statiDescriptions">
-        <item/>
+        <item />
         <item>Wir haben Mo-Fr von 13 bis 14 Uhr geöffnet.</item>
         <item>Komm doch einfach mal vorbei.</item>
     </string-array>
 
     <!-- libraries -->
-    <string-array translatable="false" name="libraryNames">
-        <item>Fachschaftsdroide</item>
+    <string-array name="libraryNames" translatable="false">
+    <item>Fachschaftsdroide</item>
         <!-- fsdroid -->
         <item>AndroidAnnotations</item>
         <!-- aa -->
@@ -28,8 +28,8 @@
         <item>spring-android</item>
         <!-- spring -->
     </string-array>
-    <string-array translatable="false" name="libraryLinks">
-        <item>https://fsmi.uni-paderborn.de/</item>
+    <string-array name="libraryLinks" translatable="false">
+    <item>https://fsmi.uni-paderborn.de/</item>
         <!-- fsdroid -->
         <item>http://androidannotations.org/</item>
         <!-- aa -->
@@ -42,8 +42,8 @@
         <item>http://www.springsource.org/spring-android</item>
         <!-- spring -->
     </string-array>
-    <string-array translatable="false" name="libraryLicenses">
-        <item>@string/apacheLicense</item>
+    <string-array name="libraryLicenses" translatable="false">
+    <item>@string/apacheLicense</item>
         <!-- fsdroid -->
         <item>@string/apacheLicense</item>
         <!-- aa -->
@@ -56,31 +56,13 @@
         <item>@string/apacheLicense</item>
         <!-- spring -->
     </string-array>
-    <string-array translatable="false" name="libraryDescriptions">
-        <item>Irgendwas tolles über fsdroid&#8230;</item>
-        <!-- fsdroid -->
-        <item>AndroidAnnotations is an Open Source framework that speeds up Android development. It
-            takes care of the plumbing, and lets you concentrate on what\'s really important. By
-            simplifying your code, it facilitates its maintenance.
-        </item>
-        <!-- aa -->
-        <item>A library to simply implement card layouts.</item>
-        <!-- cards -->
-        <item>Inspired by the quality and variety of XML tooling available for the Java platform
-            (StAX, JAXB, etc.), the Jackson is a multi-purpose Java library for processing JSON data
-            format. Jackson aims to be the best possible combination of fast, correct, lightweight,
-            and ergonomic for developers.\nIt was decided to use Jackson under the terms of the
-            Apache License.
-        </item>
-        <!-- jackson -->
-        <item>Android library for using the Honeycomb animation API on all versions of the platform
-            back to 1.0!
-        </item>
-        <!-- 9 old -->
-        <item>Spring for Android is an extension of the Spring Framework that aims to simplify the
-            development of native Android applications.
-        </item>
-        <!-- spring -->
+    <string-array name="libraryDescriptions" translatable="false">
+        <item>@string/libraryDescriptionFsdroid</item>
+        <item>@string/libraryDescriptionAndroidAnnotations</item>
+        <item>@string/libraryDescriptionCards</item>
+        <item>@string/libraryDescriptionJackson</item>
+        <item>@string/libraryDescription9old</item>
+        <item>@string/libraryDescriptionSpring</item>
     </string-array>
 
 

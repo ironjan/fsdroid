@@ -55,4 +55,20 @@
     <!--navigation-->
     <string name="drawerOpen">Navigation öffnen</string>
     <string name="drawerClose">Navigation schließen</string>
+
+    <!--about-->
+    <string name="libraryDescriptionFsdroid">Der Fachschaftsdroide ist die offizielle App der Fachschaft Mathematik/Informatik.</string>
+    <string name="libraryDescriptionAndroidAnnotations" translatable="false">AndroidAnnotations ist eine Bibilothek  an Open Source framework that speeds up Android development. It
+            takes care of the plumbing, and lets you concentrate on what\'s really important. By
+            simplifying your code, it facilitates its maintenance.</string>
+    <string name="libraryDescriptionCards" translatable="false">A library to simply implement card layouts.</string>
+    <string name="libraryDescriptionJackson" translatable="false">Inspired by the quality and variety of XML tooling available for the Java platform
+            (StAX, JAXB, etc.), the Jackson is a multi-purpose Java library for processing JSON data
+            format. Jackson aims to be the best possible combination of fast, correct, lightweight,
+            and ergonomic for developers.\nIt was decided to use Jackson under the terms of the
+            Apache License.</string>
+    <string name="libraryDescription9old" translatable="false">Android library for using the Honeycomb animation API on all versions of the platform
+            back to 1.0!</string>
+    <string name="libraryDescriptionSpring" translatable="false">Spring for Android is an extension of the Spring Framework that aims to simplify the
+            development of native Android applications.</string>
 </resources>

@@ -8,7 +8,7 @@
     <!-- status -->
     <string name="statusOpen">We\'re <b>open</b> right now!</string>
     <string name="statusUnknown">Status could not be refreshed.</string>
-    <string name="statusClosed">The Fachschaft closed right now.</string>
+    <string name="statusClosed">The Fachschaft is closed right now.</string>
 
     <!--week-->
     <string name="oddWeek">It\'s an uneven week.</string>
@@ -34,17 +34,20 @@
     <string name="adresse">Address</string>
     <string name="add_contact">Add to contacts</string>
 
+    <string name="statusLoadingMessage">Status is refreshing.</string>
 
     <!-- news -->
     <string name="newsHeadline">News</string>
     <string name="newsLoadingTitle">News</string>
     <string name="newsLoadingDescription">News are being refreshed.</string>
     <string name="misc">Misc</string>
-    <string name="statusLoadingMessage">Status is refreshing.</string>
     <string name="loadingNews">News are refreshing - if there\'s an internet connection ;)</string>
 
     <!--navigation-->
     <string name="drawerOpen">Open navigation</string>
     <string name="drawerClose">Close navigation</string>
+
+    <!--about-->
+    <string name="libraryDescriptionFsdroid">This is the official app of the students\' council mathematics and computer science.</string>
 
 </resources>

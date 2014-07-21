@@ -2,10 +2,9 @@
 <resources>
 
     <string-array name="statiDescriptions">
-        <item/>
+        <item />
         <item>We\'re open Mo-Fr, 13-14.</item>
-        <item>Just come by</item>
+        <item>You can visit us</item>
     </string-array>
-
 
 </resources>
