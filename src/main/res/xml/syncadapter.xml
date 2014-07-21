@@ -5,7 +5,7 @@
     android:accountType="fsdroid.ironjan.de"
     android:userVisible="true"
     android:supportsUploading="false"
-    android:allowParallelSyncs="false"
+    android:allowParallelSyncs="true"
     android:isAlwaysSyncable="true"
 
     />

@@ -1,17 +1,24 @@
 package de.upb.fsmi.fsdroid.sync;
 
-import android.accounts.*;
-import android.annotation.*;
-import android.content.*;
-import android.os.*;
+import android.accounts.Account;
+import android.annotation.TargetApi;
+import android.content.AbstractThreadedSyncAdapter;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.content.SyncResult;
+import android.os.Build;
+import android.os.Bundle;
 
-import org.slf4j.*;
-import org.xmlpull.v1.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.*;
+import java.io.IOException;
 
-import de.upb.fsmi.fsdroid.*;
-import de.upb.fsmi.fsdroid.sync.synchronizators.*;
+import de.upb.fsmi.fsdroid.BuildConfig;
+import de.upb.fsmi.fsdroid.sync.synchronizators.MeetingSynchronizator;
+import de.upb.fsmi.fsdroid.sync.synchronizators.NewsSynchronizator;
+import de.upb.fsmi.fsdroid.sync.synchronizators.StatusSynchronizator;
 
 
 /**
@@ -22,13 +29,13 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     private static final String TAG = SyncAdapter.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
 
-    private static final class SyncTypes {
-        static final String KEY = "SYNC_TYPES";
+    public static final class SyncTypes {
+        public static final String KEY = "SYNC_TYPES";
 
-        static final int NEWS = 0x1;
-        static final int STATUS = 0x2;
-        static final int MEETING = 0x4;
-        static final int ALL = NEWS | STATUS | MEETING;
+        public static final int NEWS = 0x1;
+        public static final int STATUS = 0x2;
+        public static final int MEETING = 0x4;
+        public static final int ALL = NEWS | STATUS | MEETING;
     }
 
     private static SyncAdapter instance = null;
