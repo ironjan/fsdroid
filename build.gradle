@@ -105,15 +105,50 @@ android {
 dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.android.support:appcompat-v7:20.0.0'
-    compile 'org.slf4j:slf4j-android:1.6.1-RC1'
-    compile 'com.j256.ormlite:ormlite-android:4.47'
+    compile 'org.slf4j:slf4j-android:1.7.7'
+    compile 'com.j256.ormlite:ormlite-android:4.9'
 
-    apt "org.androidannotations:androidannotations:3.0"
-    compile "org.androidannotations:androidannotations-api:3.0"
+    apt "org.androidannotations:androidannotations:3.0.1"
+    compile "org.androidannotations:androidannotations-api:3.0.1"
 
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.9'
+}
+
+// Find any 3rd party libraries which have released new versions
+// to the central Maven repo since we last upgraded.
+task checkLibVersions << {
+    def checked = [:]
+    allprojects {
+        configurations.each { configuration ->
+            configuration.allDependencies.each { dependency ->
+                def version = dependency.version
+                if (!version.contains('SNAPSHOT') && !checked[dependency]) {
+                    def group = dependency.group
+                    def path = group.replace('.', '/')
+                    def name = dependency.name
+                    def url = "http://repo1.maven.org/maven2/$path/$name/maven-metadata.xml"
+                    try {
+                        def metadata = new XmlSlurper().parseText(url.toURL().text)
+                        def versions = metadata.versioning.versions.version.collect { it.text() }
+                        versions.removeAll { it.toLowerCase().contains('alpha') }
+                        versions.removeAll { it.toLowerCase().contains('beta') }
+                        versions.removeAll { it.toLowerCase().contains('rc') }
+                        def newest = versions.max()
+                        if (version != newest) {
+                            println "$group:$name $version -> $newest"
+                        }
+                    } catch (FileNotFoundException e) {
+                        logger.debug "Unable to download $url: $e.message"
+                    } catch (org.xml.sax.SAXParseException e) {
+                        logger.debug "Unable to parse $url: $e.message"
+                    }
+                    checked[dependency] = true
+                }
+            }
+        }
+    }
 }
