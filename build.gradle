@@ -53,7 +53,15 @@ android {
 
     // This is important, it will run lint checks but won't abort build
     lintOptions {
+        quiet true
         abortOnError false
+        ignoreWarnings false
+        checkAllWarnings true
+        warningsAsErrors true
+        noLines true
+        showAll true
+        htmlReport true
+        checkReleaseBuilds true
     }
 
 
