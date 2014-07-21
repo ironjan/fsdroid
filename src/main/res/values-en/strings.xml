@@ -10,6 +10,10 @@
     <string name="statusUnknown">Status could not be refreshed.</string>
     <string name="statusClosed">The Fachschaft closed right now.</string>
 
+    <!--week-->
+    <string name="oddWeek">It\'s an uneven week.</string>
+    <string name="evenWeek">It\'s an even week..</string>
+
 
     <!-- meeting -->
     <string name="meetingDescription">Next meeting in E0.143 at 18 c.t. - at 16 c.t. in semester breaks:</string>
@@ -19,7 +23,7 @@
     <string name="news">News</string>
     <string name="drawerCategoryNews">News</string>
     <string name="meetings">Meetings</string>
-    <string name="contact">Conteact</string>
+    <string name="contact">Contact</string>
     <string name="drawerCategoryAboutApp">Fachschaftsdroide</string>
     <string name="about">About the App</string>
     <string name="map">Map</string>
@@ -38,5 +42,9 @@
     <string name="misc">Misc</string>
     <string name="statusLoadingMessage">Status is refreshing.</string>
     <string name="loadingNews">News are refreshing - if there\'s an internet connection ;)</string>
+
+    <!--navigation-->
+    <string name="drawerOpen">Open navigation</string>
+    <string name="drawerClose">Close navigation</string>
 
 </resources>
