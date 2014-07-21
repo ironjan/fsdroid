@@ -1,22 +1,37 @@
 package de.upb.fsmi.fsdroid.fragments;
 
-import android.annotation.*;
-import android.content.*;
-import android.database.*;
-import android.os.*;
-import android.support.v4.app.*;
+import android.annotation.TargetApi;
+import android.content.ContentResolver;
+import android.content.SyncInfo;
+import android.content.SyncStatusObserver;
+import android.database.Cursor;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
-import android.view.*;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import org.androidannotations.annotations.*;
-import org.androidannotations.annotations.res.*;
-import org.slf4j.*;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.res.StringRes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import de.upb.fsmi.fsdroid.*;
-import de.upb.fsmi.fsdroid.sync.*;
+import de.upb.fsmi.fsdroid.BuildConfig;
+import de.upb.fsmi.fsdroid.R;
+import de.upb.fsmi.fsdroid.SingleNews_;
+import de.upb.fsmi.fsdroid.sync.AccountCreator;
+import de.upb.fsmi.fsdroid.sync.NewsItemContract;
 
 @EFragment(R.layout.fragment_news)
 @OptionsMenu(R.menu.menu_main)
@@ -153,8 +168,11 @@ public class NewsFragment extends ListFragment implements LoaderManager.LoaderCa
     @UiThread
     void updateSyncStatus(boolean myAccountSyncing) {
         if (BuildConfig.DEBUG) LOGGER.debug("updateSyncStatus({})", myAccountSyncing);
-        ((ActionBarActivity) getActivity()).setProgressBarVisibility(myAccountSyncing);
-        ((ActionBarActivity) getActivity()).setProgressBarIndeterminateVisibility(myAccountSyncing);
+        ActionBarActivity activity = (ActionBarActivity) getActivity();
+        if (activity == null)
+            return;
+        activity.setProgressBarVisibility(myAccountSyncing);
+        activity.setProgressBarIndeterminateVisibility(myAccountSyncing);
         if (BuildConfig.DEBUG) LOGGER.debug("updateSyncStatus({}) done", myAccountSyncing);
     }
 }
