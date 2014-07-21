@@ -1,17 +1,27 @@
 package de.upb.fsmi.fsdroid.cards.views;
 
-import android.content.*;
-import android.database.*;
-import android.util.*;
-import android.widget.*;
+import android.content.Context;
+import android.database.Cursor;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import org.androidannotations.annotations.*;
-import org.androidannotations.annotations.res.*;
-import org.slf4j.*;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EViewGroup;
+import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringArrayRes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import de.upb.fsmi.fsdroid.*;
-import de.upb.fsmi.fsdroid.sync.*;
-import de.upb.fsmi.fsdroid.sync.entities.*;
+import de.upb.fsmi.fsdroid.BuildConfig;
+import de.upb.fsmi.fsdroid.R;
+import de.upb.fsmi.fsdroid.sync.AccountCreator;
+import de.upb.fsmi.fsdroid.sync.FSDroidContentProvider;
+import de.upb.fsmi.fsdroid.sync.entities.Status;
 
 @EViewGroup(R.layout.card_status)
 public class StatusCardViewGroup extends RelativeLayout {
@@ -28,8 +38,10 @@ public class StatusCardViewGroup extends RelativeLayout {
     @ViewById(R.id.imgStatus)
     ImageView imgStatus;
 
-    @StringArrayRes
-    String[] stati, statiDescriptions;
+    @StringArrayRes(R.array.stati)
+    String[] stati;
+    @StringArrayRes(R.array.statiDescriptions)
+    String[] statiDescriptions;
 
     @Bean
     AccountCreator mAccountCreator;
