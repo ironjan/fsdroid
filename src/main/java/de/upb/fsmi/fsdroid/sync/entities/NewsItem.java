@@ -3,6 +3,7 @@ package de.upb.fsmi.fsdroid.sync.entities;
 import com.j256.ormlite.field.*;
 import com.j256.ormlite.table.*;
 
+import java.text.*;
 import java.util.*;
 
 import de.upb.fsmi.fsdroid.sync.*;
@@ -37,7 +38,7 @@ public class NewsItem implements Comparable<NewsItem> {
     @DatabaseField(columnName = NewsItemContract.NewsItemColumns.COLUMN_TITLE)
     private String title;
 
-    @DatabaseField(columnName = NewsItemContract.NewsItemColumns.COLUMN_DATE)
+    @DatabaseField(columnName = NewsItemContract.NewsItemColumns.COLUMN_DATE, dataType = DataType.DATE_STRING, format = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private Date date;
 
     public NewsItem() {

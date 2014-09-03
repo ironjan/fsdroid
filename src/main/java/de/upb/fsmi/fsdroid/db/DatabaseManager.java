@@ -99,7 +99,8 @@ public class DatabaseManager {
 
     public void clearNews() {
         try {
-            final int delete = getHelper().getNewsItemDao().deleteBuilder().delete();
+            Dao<NewsItem, Integer> newsItemDao = getHelper().getNewsItemDao();
+            final int delete = newsItemDao.delete(newsItemDao.queryForAll());
             Log.i(TAG, "Deleted " + delete + " news.");
         } catch (SQLException e) {
             Log.e(TAG, e.getMessage(), e);
