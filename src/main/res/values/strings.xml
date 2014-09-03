@@ -17,7 +17,7 @@
     <string name="evenWeek">Es ist gerade eine ungerade Woche.</string>
 
     <!-- meeting -->
-    <string name="meetingDescription">Nächste Sitzung in E0.143 - um 18ct während der Vorlesungszeit, 16ct in der vorlesungsfreien Zeit:</string>
+    <string name="meetingDescription">Termin der nächsten Sitzung:</string>
 
     <!-- drawer items -->
     <string name="fs">Die Fachschaft</string>

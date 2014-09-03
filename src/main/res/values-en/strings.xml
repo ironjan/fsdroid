@@ -16,7 +16,7 @@
 
 
     <!-- meeting -->
-    <string name="meetingDescription">Next meeting in E0.143 at 18 c.t. - at 16 c.t. in semester breaks:</string>
+    <string name="meetingDescription">Date and time of our next meeting (note that these meetings are hold in German):</string>
 
     <!-- drawer items -->
     <string name="fs">The Fachschaft</string>

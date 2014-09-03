@@ -39,7 +39,7 @@ public class MeetingSynchronizator implements Synchronizator {
     public static final SimpleDateFormat API_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     public static final String MEETING_DATE_URL = "https://fsmi.uni-paderborn.de/?eID=fsmi_sitzung";
 
-    private final SimpleDateFormat germanFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private final SimpleDateFormat germanFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
     MeetingPrefs_ meetingPrefs;
 
@@ -134,9 +134,11 @@ public class MeetingSynchronizator implements Synchronizator {
 
         long currentTime = System.currentTimeMillis();
 
+        String formattedString = germanFormat.format(downloadedDate);
+
         ContentValues cvs = new ContentValues();
         cvs.put(MeetingDate.COLUMN_LAST_UPDATE, currentTime);
-        cvs.put(MeetingDate.COLUMN_VALUE, germanFormat.format(downloadedDate));
+        cvs.put(MeetingDate.COLUMN_VALUE, formattedString);
 
         context.getContentResolver().insert(FSDroidContentProvider.MEETING_DATE_URI, cvs);
         context.getContentResolver().notifyChange(FSDroidContentProvider.MEETING_DATE_URI, null);

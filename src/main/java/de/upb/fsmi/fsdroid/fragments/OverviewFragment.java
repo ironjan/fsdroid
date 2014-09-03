@@ -14,7 +14,7 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
 
 import de.upb.fsmi.fsdroid.R;
-import de.upb.fsmi.fsdroid.cards.views.StatusCardViewGroup;
+import de.upb.fsmi.fsdroid.cards.views.*;
 import de.upb.fsmi.fsdroid.sync.AccountCreator;
 import de.upb.fsmi.fsdroid.sync.SyncAdapter;
 
@@ -27,8 +27,8 @@ public class OverviewFragment extends Fragment {
 
     @ViewById
     StatusCardViewGroup statusCard;
-//    @ViewById
-//    MeetingCardViewGroup meetingCard;
+    @ViewById
+    MeetingCardViewGroup meetingCard;
 
     @AfterViews
     void updateTitle() {
