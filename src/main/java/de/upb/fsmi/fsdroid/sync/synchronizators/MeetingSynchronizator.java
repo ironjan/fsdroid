@@ -26,6 +26,11 @@ import de.upb.fsmi.fsdroid.sync.entities.*;
  */
 public class MeetingSynchronizator implements Synchronizator {
 
+    /** Matches date as given in homepage */
+    private static final String DATE_EXPRESSION = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2}";
+    /** date is between two quotes, therefore quote as delimiter */
+    private static final String DATE_DELIMITER = "\"";
+    public static final String DATE_LINE_IDENTIFIER = "N&auml;chste <b>FSR-Sitzung</b> in<br />";
     private final Context context;
     private static final String TAG = MeetingSynchronizator.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
@@ -50,35 +55,10 @@ public class MeetingSynchronizator implements Synchronizator {
     @Override
     public void executeSync() throws IOException, XmlPullParserException {
         LOGGER.debug("Downloading new date..");
-        Date downloadedDate = null;
         try {
-            // sync date via landing page and XPATH
             File lp = Downloader.download(context, "https://fsmi.uni-paderborn.de/");
-            Scanner sc = new Scanner(lp);
-
-
-            String dateString = null;
-            boolean notFinished = true;
-            while (sc.hasNextLine() && notFinished) {
-                String s = sc.nextLine();
-                if (s.contains("chste <b>FSR-Sitzung</b> in<br />")) {
-                    // date is in this line
-                    Scanner scanner = new Scanner(s);
-                    scanner.useDelimiter("\"");
-                    while (scanner.hasNext() && notFinished) {
-                        String potMatch = scanner.next();
-                        if (potMatch.matches("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2}")) {
-                            dateString = potMatch;
-                            notFinished = false;
-                        }
-                    }
-                }
-            }
-            if (dateString != null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                Date date = simpleDateFormat.parse(dateString);
-                persistNewDate(date);
-            }
+            Date date = extractDateFromFile(lp);
+            persistNewDate(date);
             lp.deleteOnExit();
         } catch (MalformedURLException e) {
             LOGGER.error(e.getMessage(), e);
@@ -87,6 +67,63 @@ public class MeetingSynchronizator implements Synchronizator {
         } catch (ParseException e) {
             LOGGER.error(e.getMessage(), e);
         }
+    }
+
+    /**
+     * Extracts the date from the given file
+     * @param lp the landing page file
+     * @return either a date or null if something went wrong
+     * @throws ParseException
+     * @throws FileNotFoundException
+     */
+    private Date extractDateFromFile(File lp) throws ParseException, FileNotFoundException {
+        String dateLine = findLineContainingDate(lp);
+        String dateString = extractDateStringFromLine(dateLine);
+        Date date = convertStringToDate(dateString);
+        return date;
+    }
+
+    private Date convertStringToDate(String dateString) throws ParseException {
+        Date date = null;
+        if (dateString != null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            date = simpleDateFormat.parse(dateString);
+        }
+        return date;
+    }
+
+    private String extractDateStringFromLine(String dateLine) {
+        if (dateLine == null) {
+            return null;
+        }
+
+        String dateString = null;
+        Scanner scanner = new Scanner(dateLine);
+
+        scanner.useDelimiter(DATE_DELIMITER);
+        while (scanner.hasNext()) {
+            String potMatch = scanner.next();
+            if (potMatch.matches(DATE_EXPRESSION)) {
+                dateString = potMatch;
+                break;
+            }
+        }
+        scanner.close();
+        return dateString;
+    }
+
+    private String findLineContainingDate(File lp) throws FileNotFoundException {
+        Scanner sc = new Scanner(lp);
+        String dateLine = null;
+        while (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (s.contains(DATE_LINE_IDENTIFIER)) {
+                dateLine = s;
+                break;
+            }
+        }
+        sc.close();
+        return dateLine;
     }
 
     private void persistNewDate(Date downloadedDate) {
