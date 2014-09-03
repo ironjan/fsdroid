@@ -4,6 +4,7 @@ import android.annotation.*;
 import android.content.*;
 
 import org.slf4j.*;
+import org.w3c.dom.*;
 import org.xml.sax.*;
 import org.xmlpull.v1.*;
 
@@ -51,30 +52,57 @@ public class MeetingSynchronizator implements Synchronizator {
         LOGGER.debug("Downloading new date..");
         Date downloadedDate = null;
         try {
-            File file = Downloader.download(context, MEETING_DATE_URL);
-            downloadedDate = parseDate(file);
-            if (downloadedDate != null) {
-                long currentTime = System.currentTimeMillis();
+            // sync date via landing page and XPATH
+            File lp = Downloader.download(context, "https://fsmi.uni-paderborn.de/");
+            Scanner sc = new Scanner(lp);
 
-                ContentValues cvs = new ContentValues();
-                cvs.put(MeetingDate.COLUMN_LAST_UPDATE, currentTime);
-                cvs.put(MeetingDate.COLUMN_VALUE, germanFormat.format(downloadedDate));
 
-                context.getContentResolver().insert(FSDroidContentProvider.MEETING_DATE_URI, cvs);
-                context.getContentResolver().notifyChange(FSDroidContentProvider.MEETING_DATE_URI, null);
+            String dateString = null;
+            boolean notFinished = true;
+            while (sc.hasNextLine() && notFinished) {
+                String s = sc.nextLine();
+                if (s.contains("chste <b>FSR-Sitzung</b> in<br />")) {
+                    // date is in this line
+                    Scanner scanner = new Scanner(s);
+                    scanner.useDelimiter("\"");
+                    while (scanner.hasNext() && notFinished) {
+                        String potMatch = scanner.next();
+                        if (potMatch.matches("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2}")) {
+                            dateString = potMatch;
+                            notFinished = false;
+                        }
+                    }
+                }
             }
-            file.deleteOnExit();
+            if (dateString != null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                Date date = simpleDateFormat.parse(dateString);
+                persistNewDate(date);
+            }
+            lp.deleteOnExit();
         } catch (MalformedURLException e) {
             LOGGER.error(e.getMessage(), e);
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
-        } catch (SAXException e) {
-            LOGGER.error(e.getMessage(), e);
-        } catch (ParserConfigurationException e) {
-            LOGGER.error(e.getMessage(), e);
-        } catch (XPathExpressionException e) {
+        } catch (ParseException e) {
             LOGGER.error(e.getMessage(), e);
         }
+    }
+
+    private void persistNewDate(Date downloadedDate) {
+        if (downloadedDate == null) {
+            LOGGER.warn("downloadedDate was null. Nothing to persist.");
+            return;
+        }
+
+        long currentTime = System.currentTimeMillis();
+
+        ContentValues cvs = new ContentValues();
+        cvs.put(MeetingDate.COLUMN_LAST_UPDATE, currentTime);
+        cvs.put(MeetingDate.COLUMN_VALUE, germanFormat.format(downloadedDate));
+
+        context.getContentResolver().insert(FSDroidContentProvider.MEETING_DATE_URI, cvs);
+        context.getContentResolver().notifyChange(FSDroidContentProvider.MEETING_DATE_URI, null);
     }
 
     @SuppressWarnings("nls")

@@ -52,7 +52,7 @@ public class OverviewFragment extends Fragment {
                 ContentResolver.SYNC_EXTRAS_MANUAL, true);
         settingsBundle.putBoolean(
                 ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
-        settingsBundle.putInt(SyncAdapter.SyncTypes.KEY, SyncAdapter.SyncTypes.STATUS);
+        settingsBundle.putInt(SyncAdapter.SyncTypes.KEY, SyncAdapter.SyncTypes.ALL);
         ContentResolver.requestSync(mAccountCreator.getAccountRegisterAccount(), AccountCreator.getAuthority(), settingsBundle);
 
     }
