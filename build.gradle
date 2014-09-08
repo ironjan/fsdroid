@@ -1,6 +1,6 @@
 def versionMajor = 0 // incompatible API changes
 def versionMinor = 0 // added functionality in a backwards-compatible manner
-def versionPatch = 9 // backwards-compatible bug fixes
+def versionPatch = 10 // backwards-compatible bug fixes
 def versionBuild = 0 // bump for dogfood builds, public betas, etc.
 
 buildscript {
@@ -108,8 +108,8 @@ dependencies {
     compile 'org.slf4j:slf4j-android:1.7.7'
     compile 'com.j256.ormlite:ormlite-android:4.48'
 
-    apt "org.androidannotations:androidannotations:3.0.1"
-    compile "org.androidannotations:androidannotations-api:3.0.1"
+    apt "org.androidannotations:androidannotations:3.1"
+    compile "org.androidannotations:androidannotations-api:3.1"
 
     compile 'com.nineoldandroids:library:2.4.0'
 }
