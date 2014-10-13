@@ -1,25 +1,32 @@
 package de.upb.fsmi.fsdroid.sync.synchronizators;
 
-import android.annotation.*;
-import android.content.*;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Context;
 
-import org.slf4j.*;
-import org.w3c.dom.*;
-import org.xml.sax.*;
-import org.xmlpull.v1.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
+import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.*;
-import java.net.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import javax.xml.parsers.*;
-import javax.xml.xpath.*;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
 
-import de.upb.fsmi.fsdroid.helper.*;
-import de.upb.fsmi.fsdroid.sync.*;
-import de.upb.fsmi.fsdroid.sync.entities.*;
+import de.upb.fsmi.fsdroid.helper.Downloader;
+import de.upb.fsmi.fsdroid.helper.MeetingPrefs_;
+import de.upb.fsmi.fsdroid.sync.FSDroidContentProvider;
+import de.upb.fsmi.fsdroid.sync.entities.MeetingDate;
 
 /**
  * Created by ljan on 03.03.14.
@@ -30,7 +37,7 @@ public class MeetingSynchronizator implements Synchronizator {
     private static final String DATE_EXPRESSION = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2}";
     /** date is between two quotes, therefore quote as delimiter */
     private static final String DATE_DELIMITER = "\"";
-    public static final String DATE_LINE_IDENTIFIER = "N&auml;chste <b>FSR-Sitzung</b> in<br />";
+    public static final String DATE_LINE_IDENTIFIER = "N&auml;chste <b>FSR-Sitzung</b> in";
     private final Context context;
     private static final String TAG = MeetingSynchronizator.class.getSimpleName();
     private static final Logger LOGGER = LoggerFactory.getLogger(TAG);
